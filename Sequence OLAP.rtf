@@ -34,25 +34,25 @@ Step 1 - Materialize\
  materialize table for X (user_id | name => 'product', date > 20091019)\
 \
  W (home)\
- [u1], [2, 4, 6], [W-home, W-home, W-home]\
- [u2], [7, 10, 12], [W-home, W-home, W-home]\
+ [u1], [2, 4, 6], [w1, w1, w1], [home, home, home]\
+ [u2], [7, 10, 12], [w1, w1, w1], [home, home, home]\
 \
  X (product)\
- [u1, red balloon], [1], [X-product]\
- [u1, green balloon], [3], [X-product]\
- [u2, blue balloon], [8], [X-product]\
+ [u1, red balloon], [1], [x1], [product]\
+ [u1, green balloon], [3], [x1], [product]\
+ [u2, blue balloon], [8], [x1], [product]\
 \
 Step 2 - Sequence and Cluster\
  Inner join W and X by the cluster and sequence group by dimensions by\
   merging the lists of records and patterns simultaneously\
 \
  W-X (home-product)\
- [u1, red balloon], [1, 2, 4, 6], [X-product, W-home, W-home, W-home]\
- [u1, green balloon], [2, 3, 4, 6], [W-home, X-product, W-home, W-home]\
- [u2, blue balloon], [7, 8, 10, 12], [W-home, X-product, W-home, W-home]\
+ [u1, red balloon], [1, 2, 4, 6], [x1, w1, w1, w1], [product, home, home, home]\
+ [u1, green balloon], [2, 3, 4, 6], [w1, x1, w1, w1], [home, product, home, home]\
+ [u2, blue balloon], [7, 8, 10, 12], [w1, x1, w1, w1], [home, product, home, home]\
 \
 Step 3 - Match and Group\
- Scan the sequences in the list for the pattern (W, X)\
+ Scan the sequences in the list for the pattern (w1, x1)\
    for each successful match (using some matching rule) we add\
    that sequence of records to a new list recording the instantiated\
    values of the sequence template, (left-maximality-matched-go shown)\
