@@ -51,6 +51,8 @@
 		036AED9D10D1C38C002304AE /* Dimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AED9B10D1C38C002304AE /* Dimensions.h */; };
 		036AED9E10D1C38C002304AE /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AED9C10D1C38C002304AE /* Dimensions.cpp */; };
 		036AEDA310D1C5AC002304AE /* DimensionsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */; };
+		036AEE2010D1D332002304AE /* Sequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AEE1E10D1D332002304AE /* Sequence.h */; };
+		036AEE2110D1D332002304AE /* Sequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEE1F10D1D332002304AE /* Sequence.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* Sum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* Sum.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -250,6 +252,8 @@
 		036AED9B10D1C38C002304AE /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
 		036AED9C10D1C38C002304AE /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimensions.cpp; sourceTree = "<group>"; };
 		036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionsTest.cpp; sourceTree = "<group>"; };
+		036AEE1E10D1D332002304AE /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
+		036AEE1F10D1D332002304AE /* Sequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequence.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* Sum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sum.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sum.cpp; sourceTree = "<group>"; };
@@ -781,6 +785,7 @@
 				03ABC71910C793D7006288C0 /* Aggregation.cpp */,
 				03E4E88610C5C80D00D5068E /* Conditions.cpp */,
 				03E4D5A610BE56E300D5068E /* Query.cpp */,
+				036AEE1F10D1D332002304AE /* Sequence.cpp */,
 			);
 			name = Query;
 			sourceTree = "<group>";
@@ -804,6 +809,7 @@
 				03E4E88910C5CAAF00D5068E /* Condition.h */,
 				03E4E88510C5C80D00D5068E /* Conditions.h */,
 				03E4D5A710BE56E300D5068E /* Query.h */,
+				036AEE1E10D1D332002304AE /* Sequence.h */,
 			);
 			name = Query;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 			isa = PBXGroup;
 			children = (
 				08FB7795FE84155DC02AAC07 /* Source */,
+				03AF8D9710BE4ECC00AF17CB /* Test */,
 				03AF8D9010BE4D6400AF17CB /* Headers */,
 				03AF8D7A10BE4C6000AF17CB /* Tools */,
 				03AF8D7410BE4B8500AF17CB /* Libraries */,
@@ -834,7 +841,6 @@
 				03E4EB3610C655DE00D5068E /* Measures.cpp */,
 				03AF8D5310BE4A5B00AF17CB /* ShellDimensions.cpp */,
 				03AF8D5510BE4A5B00AF17CB /* ShellFragments.cpp */,
-				03AF8D9710BE4ECC00AF17CB /* Test */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -891,6 +897,7 @@
 				036AEC9810D11267002304AE /* Dimension.h in Headers */,
 				036AED7E10D1BD01002304AE /* Fragment.h in Headers */,
 				036AED9D10D1C38C002304AE /* Dimensions.h in Headers */,
+				036AEE2010D1D332002304AE /* Sequence.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1124,6 +1131,7 @@
 				036AEC9910D11267002304AE /* Dimension.cpp in Sources */,
 				036AED7F10D1BD01002304AE /* Fragment.cpp in Sources */,
 				036AED9E10D1C38C002304AE /* Dimensions.cpp in Sources */,
+				036AEE2110D1D332002304AE /* Sequence.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
