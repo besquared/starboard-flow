@@ -85,15 +85,17 @@ LEFT-MAXIMILITY (x1, y1, y2, x2) WITH\
 \
 sequence->clusters->push_back("individual")\
 sequence->clusters->push_back("day")\
+\
 sequence->groupings->push_back("fare-group")\
 sequence->groupings->push_back("day")\
-sequence->conditions->push_back("day", Condition::GT, "20091019")\
-sequence->aggregations->push_back("*", Aggregate::COUNT)\
 \
-sequence->push_back("X", "x1", "station", \{'action' => 'in'\})\
-sequence->push_back("Y", "y1", "station", \{'action' => 'out'\})\
-sequence->push_back("Y", "y2", "station", \{'action' => 'in'\})\
-sequence->push_back("X", "x2", "station", \{'action' => 'out'\})\
+sequence->aggregations->COUNT("*")\
+sequence->conditions->GT("day", "20091019")\
+\
+sequence->template->push_back("X", "x1", "station", \{'action' => 'in'\})\
+sequence->template->push_back("Y", "y1", "station", \{'action' => 'out'\})\
+sequence->template->push_back("Y", "y2", "station", \{'action' => 'in'\})\
+sequence->template->push_back("X", "x2", "station", \{'action' => 'out'\})\
 \
 How we process this query\
 \

@@ -21,6 +21,7 @@
 #include "Table.h"
 #include "Conditions.h"
 #include "Aggregation.h"
+#include "SequenceTemplate.h"
 
 namespace Flow {
 	class Conditions;
@@ -30,16 +31,17 @@ namespace Flow {
 		shared_ptr<Measures> measures;
 		shared_ptr<Dimensions> dimensions;
 		shared_ptr<ShellFragments> fragments;
+		
+		vector<string> clusters;
+		vector<string> groupings;		
 		shared_ptr<Conditions> conditions;
 		vector< shared_ptr<Aggregation> > aggregations;
-
-		vector<string> clusters;
-		vector<string> groupings;
+		shared_ptr<SequenceTemplate> pattern;
 		
     SequenceQuery(const string& path);
 		
 		/*
-		 * SequenceQuerying
+		 * Querying
 		 */
     tuple< bool, string, shared_ptr<Table> > Execute();
 		Response Materialize(shared_ptr<Table> results);
