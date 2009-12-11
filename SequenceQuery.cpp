@@ -41,10 +41,10 @@ Response SequenceQuery::Materialize(vector< shared_ptr<Table> >& results) {
 				
 				size_t size = sequences->size();
 				for(size_t i = 0; i < size; i++ ) {
-					
 					size_t csize = sequences->at(i).size();
 					for(size_t j = 0; j < csize; j++) {
-						sequences->at(i).at(j).insert(0, this->pattern->at(i)->alias + "-");
+						// create a new column with the alias name in each spot
+						this->pattern->at(i)->alias;
 					}
 				}
 				

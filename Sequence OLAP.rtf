@@ -106,31 +106,31 @@ Step 1 - Materialize\
  materialize table for X (individual, fare-group, day | action => 'out', date > 20091019)\
 \
  X (in)\
- [1, N, 20091020], [1], [x1-wheaton]\
- [2, N, 20091020], [2], [x1-pentagon]\
- [3, N, 20091020], [3], [x1-wheaton]\
+ [1, N, 20091020], [1], [x1], [wheaton]\
+ [2, N, 20091020], [2], [x1], [pentagon]\
+ [3, N, 20091020], [3], [x1], [wheaton]\
 \
  Y (out)\
- [1, N, 20091020], [4], [y1-pentagon]\
- [2, N, 20091020], [5], [y1-wheaton]\
- [3, N, 20091020], [6], [y1-pentagon]\
+ [1, N, 20091020], [4], [y1], [pentagon]\
+ [2, N, 20091020], [5], [y1], [wheaton]\
+ [3, N, 20091020], [6], [y1], [pentagon]\
 \
  Y (in)\
- [1, N, 20091020], [7], [y2-pentagon]\
- [2, N, 20091020], [8], [y2-wheaton]\
+ [1, N, 20091020], [7], [y2], [pentagon]\
+ [2, N, 20091020], [8], [y2], [wheaton]\
 \
  X (out)\
- [1, N, 20091020], [9], [x2-wheaton]\
- [2, N, 20091020], [10], [x2-pentagon]\
+ [1, N, 20091020], [9], [x2], [wheaton]\
+ [2, N, 20091020], [10], [x2], [pentagon]\
 \
 Step 2 - Cluster Sequences\
  Inner join W and X by the cluster and sequence group by dimensions by\
   merging the lists of records and patterns simultaneously\
 \
  XYYX (in-out-in-out)\
- [1, N, 20091020], [1, 4, 7, 9],  [x1-wheaton, y1-pentagon, y2-pentagon, x2-wheaton]\
- [2, N, 20091020], [2, 5, 8, 10], [x1-pentagon, y1-wheaton, y2-wheaton, x2-pentagon]\
- [3, N, 20091020], [3, 6],        [x1-wheaton, y1-pentagon]\
+ [1, N, 20091020], [1, 4, 7, 9],  [x1, y1, y2, x2], [wheaton, pentagon, pentagon, wheaton]\
+ [2, N, 20091020], [2, 5, 8, 10], [x1, y1, y2, x2], [pentagon, wheaton, wheaton, pentagon]\
+ [3, N, 20091020], [3, 6],        [x1, y1],         [wheaton, pentagon]\
 \
 Step 3 - Match and Group\
  Scan the sequences in the list for the pattern (x1, y1, y2, x2)\
