@@ -51,8 +51,10 @@
 		036AED9D10D1C38C002304AE /* Dimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AED9B10D1C38C002304AE /* Dimensions.h */; };
 		036AED9E10D1C38C002304AE /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AED9C10D1C38C002304AE /* Dimensions.cpp */; };
 		036AEDA310D1C5AC002304AE /* DimensionsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */; };
-		036AEE2010D1D332002304AE /* Sequence.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AEE1E10D1D332002304AE /* Sequence.h */; };
-		036AEE2110D1D332002304AE /* Sequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEE1F10D1D332002304AE /* Sequence.cpp */; };
+		036AEE2010D1D332002304AE /* SequenceQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AEE1E10D1D332002304AE /* SequenceQuery.h */; };
+		036AEE2110D1D332002304AE /* SequenceQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEE1F10D1D332002304AE /* SequenceQuery.cpp */; };
+		036AEE3D10D22BCC002304AE /* SequenceTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AEE3B10D22BCC002304AE /* SequenceTemplate.h */; };
+		036AEE3E10D22BCC002304AE /* SequenceTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEE3C10D22BCC002304AE /* SequenceTemplate.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* Sum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* Sum.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -252,9 +254,11 @@
 		036AED9B10D1C38C002304AE /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
 		036AED9C10D1C38C002304AE /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimensions.cpp; sourceTree = "<group>"; };
 		036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionsTest.cpp; sourceTree = "<group>"; };
-		036AEE1E10D1D332002304AE /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
-		036AEE1F10D1D332002304AE /* Sequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequence.cpp; sourceTree = "<group>"; };
+		036AEE1E10D1D332002304AE /* SequenceQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceQuery.h; sourceTree = "<group>"; };
+		036AEE1F10D1D332002304AE /* SequenceQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceQuery.cpp; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
+		036AEE3B10D22BCC002304AE /* SequenceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceTemplate.h; sourceTree = "<group>"; };
+		036AEE3C10D22BCC002304AE /* SequenceTemplate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceTemplate.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* Sum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sum.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sum.cpp; sourceTree = "<group>"; };
@@ -786,7 +790,8 @@
 				03ABC71910C793D7006288C0 /* Aggregation.cpp */,
 				03E4E88610C5C80D00D5068E /* Conditions.cpp */,
 				03E4D5A610BE56E300D5068E /* Query.cpp */,
-				036AEE1F10D1D332002304AE /* Sequence.cpp */,
+				036AEE1F10D1D332002304AE /* SequenceQuery.cpp */,
+				036AEE3C10D22BCC002304AE /* SequenceTemplate.cpp */,
 			);
 			name = Query;
 			sourceTree = "<group>";
@@ -810,7 +815,8 @@
 				03E4E88910C5CAAF00D5068E /* Condition.h */,
 				03E4E88510C5C80D00D5068E /* Conditions.h */,
 				03E4D5A710BE56E300D5068E /* Query.h */,
-				036AEE1E10D1D332002304AE /* Sequence.h */,
+				036AEE1E10D1D332002304AE /* SequenceQuery.h */,
+				036AEE3B10D22BCC002304AE /* SequenceTemplate.h */,
 			);
 			name = Query;
 			sourceTree = "<group>";
@@ -899,7 +905,8 @@
 				036AEC9810D11267002304AE /* Dimension.h in Headers */,
 				036AED7E10D1BD01002304AE /* Fragment.h in Headers */,
 				036AED9D10D1C38C002304AE /* Dimensions.h in Headers */,
-				036AEE2010D1D332002304AE /* Sequence.h in Headers */,
+				036AEE2010D1D332002304AE /* SequenceQuery.h in Headers */,
+				036AEE3D10D22BCC002304AE /* SequenceTemplate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1133,7 +1140,8 @@
 				036AEC9910D11267002304AE /* Dimension.cpp in Sources */,
 				036AED7F10D1BD01002304AE /* Fragment.cpp in Sources */,
 				036AED9E10D1C38C002304AE /* Dimensions.cpp in Sources */,
-				036AEE2110D1D332002304AE /* Sequence.cpp in Sources */,
+				036AEE2110D1D332002304AE /* SequenceQuery.cpp in Sources */,
+				036AEE3E10D22BCC002304AE /* SequenceTemplate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,14 @@
-#ifndef _query_included_
-#define _query_included_
+/*
+ *  SequenceSequenceQuery.h
+ *  Flow
+ *
+ *  Created by Josh Ferguson on 12/10/09.
+ *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *
+ */
+
+#ifndef _sequence_query_included_
+#define _sequence_query_included_
 
 #include "Common.h"
 #include "Measure.h"
@@ -16,18 +25,21 @@
 namespace Flow {
 	class Conditions;
 	
-  class Query {
+  class SequenceQuery {
   public:
-		Measures* measures;
-		ShellFragments* fragments;
+		shared_ptr<Measures> measures;
+		shared_ptr<Dimensions> dimensions;
+		shared_ptr<ShellFragments> fragments;
+		shared_ptr<Conditions> conditions;
+		vector< shared_ptr<Aggregation> > aggregations;
 
-		Conditions* conditions;
-		vector< shared_ptr<Aggregation> >* aggregations;
+		vector<string> clusters;
+		vector<string> groupings;
 		
-    Query(ShellFragments* fragments, Measures* measures);
+    SequenceQuery(const string& path);
 		
 		/*
-		 * Querying
+		 * SequenceQuerying
 		 */
     tuple< bool, string, shared_ptr<Table> > Execute();
 		Response Materialize(shared_ptr<Table> results);
@@ -41,7 +53,7 @@ namespace Flow {
 		 */
 		void Construct(Inquired & inquired, vector<string> & dimensions, shared_ptr<Table> results);
     void Construct(Inquired & inquired, vector<string> & dimensions, 
-			int offset, vector<string> & values, vector<RecordID> & records, shared_ptr<Table> results);
+									 int offset, vector<string> & values, vector<RecordID> & records, shared_ptr<Table> results);
 	};
 }
 

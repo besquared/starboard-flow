@@ -55,7 +55,7 @@ Step 3 - Match and Group\
  Scan the sequences in the list for the pattern (W, X)\
    for each successful match (using some matching rule) we add\
    that sequence of records to a new list recording the instantiated\
-   values of the sequence template, (left-maximality shown)\
+   values of the sequence template, (left-maximality-matched-go shown)\
 \
 [home, product], [green balloon], [[2, 3], ...]\
 [home, product], [blue balloon], [[7, 8], ...]\
@@ -97,39 +97,41 @@ sequence->push_back("X", "x2", "station", \{'action' => 'out'\})\
 \
 How we process this query\
 \
-Step 1 - Materialize and Cluster\
- materialize table for X (individual, day | action => 'in', date > 20091019)\
- materialize table for Y (individual, day | action => 'out', date > 20091019)\
+Step 1 - Materialize\
+ materialize table for X (individual, fare-group, day | action => 'in', date > 20091019)\
+ materialize table for Y (individual, fare-group, day | action => 'out', date > 20091019)\
+ materialize table for Y (individual, fare-group, day | action => 'in', date > 20091019)\
+ materialize table for X (individual, fare-group, day | action => 'out', date > 20091019)\
 \
  X (in)\
- [1, N, 20091020], [1], [X-wheaton-in]\
- [2, N, 20091020], [2], [X-pentagon-in]\
- [3, N, 20091020], [3], [x-wheaton-in]\
+ [1, N, 20091020], [1], [x1-wheaton]\
+ [2, N, 20091020], [2], [x1-pentagon]\
+ [3, N, 20091020], [3], [x1-wheaton]\
 \
  Y (out)\
- [1, N, 20091020], [4], [Y-pentagon-out]\
- [2, N, 20091020], [5], [Y-wheaton-out]\
- [3, N, 20091020], [6], [Y-pentagon-out]\
+ [1, N, 20091020], [4], [y1-pentagon]\
+ [2, N, 20091020], [5], [y1-wheaton]\
+ [3, N, 20091020], [6], [y1-pentagon]\
 \
  Y (in)\
- [1, N, 20091020], [7], [Y-pentagon-in]\
- [2, N, 20091020], [8], [Y-wheaton-in]\
+ [1, N, 20091020], [7], [y2-pentagon]\
+ [2, N, 20091020], [8], [y2-wheaton]\
 \
  X (out)\
- [1, N, 20091020], [9], [X-wheaton-out]\
- [2, N, 20091020], [10], [X-pengaton-out]\
+ [1, N, 20091020], [9], [x2-wheaton]\
+ [2, N, 20091020], [10], [x2-pentagon]\
 \
-Step 2 - Sequence\
+Step 2 - Cluster Sequences\
  Inner join W and X by the cluster and sequence group by dimensions by\
   merging the lists of records and patterns simultaneously\
 \
  XYYX (in-out-in-out)\
- [1, N, 20091020], [1, 4, 7, 9],  [X-wheaton-in, Y-pentagon-out, Y-pengaton-in, X-wheaton-out]\
- [2, N, 20091020], [2, 5, 8, 10], [X-pentagon-in, Y-wheaton-out, Y-wheaton-in, X-pentagon-out]\
- [3, N, 20091020], [3, 6],        [X-wheaton-in, Y-pentagon-out]\
+ [1, N, 20091020], [1, 4, 7, 9],  [x1-wheaton, y1-pentagon, y2-pentagon, x2-wheaton]\
+ [2, N, 20091020], [2, 5, 8, 10], [x1-pentagon, y1-wheaton, y2-wheaton, x2-pentagon]\
+ [3, N, 20091020], [3, 6],        [x1-wheaton, y1-pentagon]\
 \
 Step 3 - Match and Group\
- Scan the sequences in the list for the pattern (W, X)\
+ Scan the sequences in the list for the pattern (x1, y1, y2, x2)\
    for each successful match (using some matching rule) we add\
    that sequence of records to a new list recording the instantiated\
    values of the sequence template, (left-maximality shown)\
