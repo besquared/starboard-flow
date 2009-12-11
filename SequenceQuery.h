@@ -20,7 +20,7 @@
 
 #include "Table.h"
 #include "Conditions.h"
-#include "Aggregation.h"
+#include "Aggregations.h"
 #include "SequenceTemplate.h"
 
 namespace Flow {
@@ -35,7 +35,7 @@ namespace Flow {
 		vector<string> clusters;
 		vector<string> groupings;		
 		shared_ptr<Conditions> conditions;
-		vector< shared_ptr<Aggregation> > aggregations;
+		shared_ptr<Aggregations> aggregations;
 		shared_ptr<SequenceTemplate> pattern;
 		
     SequenceQuery(const string& path);
@@ -44,9 +44,12 @@ namespace Flow {
 		 * Querying
 		 */
     tuple< bool, string, shared_ptr<Table> > Execute();
+		Response Materialize(vector< shared_ptr<Table> >& results);
 		Response Materialize(shared_ptr<Table> results);
-		Response Aggregate(shared_ptr<Table> results);
+		Response Merge(vector< shared_ptr<Table> >& tables, shared_ptr<Table> results);
+		Response Match(shared_ptr<Table> results);
 		Response Gather(const set<string>& measures, shared_ptr<Table> base);
+		Response Aggregate(shared_ptr<Table> results);
 		Response Sweep(shared_ptr<Table> base);
 		
 	protected:
