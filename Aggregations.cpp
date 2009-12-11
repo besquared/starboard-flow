@@ -9,3 +9,10 @@
 
 #include "Aggregations.h"
 
+void Aggregations::count(const string& name) {
+	vector< shared_ptr<Aggregation> >::push_back(shared_ptr<Aggregation>(new COUNT(name)));
+}
+
+void Aggregations::sum(const string& name) {
+	vector< shared_ptr<Aggregation> >::push_back(shared_ptr<Aggregation>(new SUM(name)));
+}

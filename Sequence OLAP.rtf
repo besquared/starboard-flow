@@ -89,8 +89,8 @@ sequence->clusters->push_back("day")\
 sequence->groupings->push_back("fare-group")\
 sequence->groupings->push_back("day")\
 \
-sequence->aggregations->COUNT("*")\
-sequence->conditions->GT("day", "20091019")\
+sequence->aggregations->count("*")\
+sequence->conditions->gt("day", "20091019")\
 \
 sequence->template->push_back("X", "x1", "station", \{'action' => 'in'\})\
 sequence->template->push_back("Y", "y1", "station", \{'action' => 'out'\})\

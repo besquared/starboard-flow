@@ -1,5 +1,5 @@
 /*
- *  Count.cpp
+ *  COUNT.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/3/09.
@@ -7,12 +7,12 @@
  *
  */
 
-#include "Count.h"
+#include "COUNT.h"
 
-Count::Count(const string& measure) : 
+COUNT::COUNT(const string& measure) : 
 	Aggregation::Aggregation(measure) {}
 
-void Count::Apply(shared_ptr<Table> base) {
+void COUNT::Apply(shared_ptr<Table> base) {
 	string measure = this->measures.at(0);
 	
 	// This only works on 'records' column if RecordID is a double

@@ -1,5 +1,5 @@
 /*
- *  Sum.cpp
+ *  SUM.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/2/09.
@@ -7,11 +7,11 @@
  *
  */
 
-#include "Sum.h"
+#include "SUM.h"
 
-Sum::Sum(const string& measure) : Aggregation::Aggregation(measure) {}
+SUM::SUM(const string& measure) : Aggregation::Aggregation(measure) {}
 
-void Sum::Apply(shared_ptr<Table> base) {
+void SUM::Apply(shared_ptr<Table> base) {
 	string measure = this->measures.at(0);
 	
 	shared_ptr< TListColumn<double> > column = 

@@ -1,5 +1,5 @@
 /*
- *  Count.h
+ *  COUNT.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/3/09.
@@ -16,9 +16,9 @@
 #include "Aggregation.h"
 
 namespace Flow {
-  class Count : public Aggregation {		
+  class COUNT : public Aggregation {		
 	public:
-		Count(const string& measure);
+		COUNT(const string& measure);
 		void Apply(shared_ptr<Table> base);		
 	};
 }
