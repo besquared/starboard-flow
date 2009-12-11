@@ -1,0 +1,146 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf540
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red65\green204\blue69;}
+\deftab432
+\pard\tx432\pardeftab432\ql\qnatural\pardirnatural
+
+\f0\fs36 \cf2 \CocoaLigature0 ------------------------ Example 1 --------------------------\
+\
+SELECT COUNT(*)\
+WHERE date > 20091019\
+CLUSTER BY user_id\
+SEQUENCE BY time ASCENDING\
+SEQUENCE GROUP BY x1.product (?)\
+CUBOID BY SUBSTRING(W, X) WITH\
+ W at name\
+ X at name\
+ Y at name\
+ Z at name\
+LEFT-MAXIMILITY (w1, x1) WITH\
+ w1.name = 'home' AND\
+ x1.name = 'product' AND\
+\
+sequence->clusters->push_back("user_id")\
+sequence->conditions->push_back("date", Condition::GT, "20091019")\
+sequence->aggregations->push_back("*", Aggregate::COUNT)\
+\
+sequence->push_back("W", "w1", "name", \{'name' => 'home'\})\
+sequence->push_back("X", "x1", "name", \{'name' => 'product'\})\
+\
+How we process this query\
+\
+Step 1 - Materialize\
+ materialize table for W (user_id | name => 'home', date > 20091019)\
+ materialize table for X (user_id | name => 'product', date > 20091019)\
+\
+ W (home)\
+ [u1], [2, 4, 6], [W-home, W-home, W-home]\
+ [u2], [7, 10, 12], [W-home, W-home, W-home]\
+\
+ X (product)\
+ [u1, red balloon], [1], [X-product]\
+ [u1, green balloon], [3], [X-product]\
+ [u2, blue balloon], [8], [X-product]\
+\
+Step 2 - Sequence and Cluster\
+ Inner join W and X by the cluster and sequence group by dimensions by\
+  merging the lists of records and patterns simultaneously\
+\
+ W-X (home-product)\
+ [u1, red balloon], [1, 2, 4, 6], [X-product, W-home, W-home, W-home]\
+ [u1, green balloon], [2, 3, 4, 6], [W-home, X-product, W-home, W-home]\
+ [u2, blue balloon], [7, 8, 10, 12], [W-home, X-product, W-home, W-home]\
+\
+Step 3 - Match and Group\
+ Scan the sequences in the list for the pattern (W, X)\
+   for each successful match (using some matching rule) we add\
+   that sequence of records to a new list recording the instantiated\
+   values of the sequence template, (left-maximality shown)\
+\
+[home, product], [green balloon], [[2, 3], ...]\
+[home, product], [blue balloon], [[7, 8], ...]\
+\
+Step 4 - Gather and Aggregate\
+ Go through each record sequence and perform gathering\
+   of any dimension or measure values and aggregations\
+\
+[home, product], [green balloon], [1]\
+[home, product], [blue balloon], [1]\
+\
+------------------------ Example 2 --------------------------\
+\
+SELECT COUNT(*)\
+WHERE day > 20091019\
+CLUSTER BY individual, day\
+SEQUENCE BY time ASCENDING\
+SEQUENCE GROUP BY fare-group, day\
+CUBOID BY SUBSTRING(X, Y, Y, X) WITH\
+ X at station\
+ Y at station\
+LEFT-MAXIMILITY (x1, y1, y2, x2) WITH\
+ x1.action = 'in' AND\
+ y1.action = 'out' AND\
+ y2.action = 'in' AND\
+ x2.action = 'out'\
+\
+sequence->clusters->push_back("individual")\
+sequence->clusters->push_back("day")\
+sequence->groupings->push_back("fare-group")\
+sequence->groupings->push_back("day")\
+sequence->conditions->push_back("day", Condition::GT, "20091019")\
+sequence->aggregations->push_back("*", Aggregate::COUNT)\
+\
+sequence->push_back("X", "x1", "station", \{'action' => 'in'\})\
+sequence->push_back("Y", "y1", "station", \{'action' => 'out'\})\
+sequence->push_back("Y", "y2", "station", \{'action' => 'in'\})\
+sequence->push_back("X", "x2", "station", \{'action' => 'out'\})\
+\
+How we process this query\
+\
+Step 1 - Materialize and Cluster\
+ materialize table for X (individual, day | action => 'in', date > 20091019)\
+ materialize table for Y (individual, day | action => 'out', date > 20091019)\
+\
+ X (in)\
+ [1, N, 20091020], [1], [X-wheaton-in]\
+ [2, N, 20091020], [2], [X-pentagon-in]\
+ [3, N, 20091020], [3], [x-wheaton-in]\
+\
+ Y (out)\
+ [1, N, 20091020], [4], [Y-pentagon-out]\
+ [2, N, 20091020], [5], [Y-wheaton-out]\
+ [3, N, 20091020], [6], [Y-pentagon-out]\
+\
+ Y (in)\
+ [1, N, 20091020], [7], [Y-pentagon-in]\
+ [2, N, 20091020], [8], [Y-wheaton-in]\
+\
+ X (out)\
+ [1, N, 20091020], [9], [X-wheaton-out]\
+ [2, N, 20091020], [10], [X-pengaton-out]\
+\
+Step 2 - Sequence\
+ Inner join W and X by the cluster and sequence group by dimensions by\
+  merging the lists of records and patterns simultaneously\
+\
+ XYYX (in-out-in-out)\
+ [1, N, 20091020], [1, 4, 7, 9],  [X-wheaton-in, Y-pentagon-out, Y-pengaton-in, X-wheaton-out]\
+ [2, N, 20091020], [2, 5, 8, 10], [X-pentagon-in, Y-wheaton-out, Y-wheaton-in, X-pentagon-out]\
+ [3, N, 20091020], [3, 6],        [X-wheaton-in, Y-pentagon-out]\
+\
+Step 3 - Match and Group\
+ Scan the sequences in the list for the pattern (W, X)\
+   for each successful match (using some matching rule) we add\
+   that sequence of records to a new list recording the instantiated\
+   values of the sequence template, (left-maximality shown)\
+\
+[wheaton, pentagon, pentagon, wheaton], [N, 20091020], [[2, 3], ...]\
+[pentagon, wheaton, wheaton, pentagon], [N, 20091020], [[7, 8], ...]\
+\
+Step 4 - Gather and Aggregate\
+ Go through each record sequence and perform gathering\
+   of any dimension or measure values and aggregations\
+\
+[wheaton, pentagon, pentagon, wheaton], [N, 20091020], [1]\
+[pentagon, wheaton, wheaton, pentagon], [N, 20091020], [1]\
+}

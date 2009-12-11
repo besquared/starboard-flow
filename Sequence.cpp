@@ -33,7 +33,7 @@
  *
  * How we process this query
  *
- * Step 1
+ * Step 1 - Materialize
  *  materialize table for W (user_id | name => 'home', date > 20091019)
  *  materialize table for X (user_id | name => 'product', date > 20091019)
  *
@@ -46,7 +46,7 @@
  *  [u1, green balloon], [3], [X-product]
  *  [u2, blue balloon], [8], [X-product]
  *
- * Step 2
+ * Step 2 - Sequence and Cluster
  *  Inner join W and X by the cluster and sequence group by dimensions by
  *   merging the lists of records and patterns simultaneously
  *
@@ -55,11 +55,20 @@
  *  [u1, green balloon], [2, 3, 4, 6], [W-home, X-product, W-home, W-home]
  *  [u2, blue balloon], [7, 8, 10, 12], [W-home, X-product, W-home, W-home]
  *
- * Step 3
+ * Step 3 - Match and Group
  *  Scan the sequences in the list for the pattern (W, X)
  *    for each successful match (using some matching rule) we add
- *    that sequence of records to a new list, (left-maximality shown)
+ *    that sequence of records to a new list recording the instantiated
+ *    values of the sequence template, (left-maximality shown)
  *
- * [green balloon], [[2, 3], ...]
- * [blue balloon], [[7, 8], ...]
+ * [home, product], [green balloon], [[2, 3], ...]
+ * [home, product], [blue balloon], [[7, 8], ...]
+ *
+ * Step 4 - Gather and Aggregate
+ *  Go through each record sequence and perform gathering
+ *    of any dimension or measure values and aggregations
+ *
+ * [home, product], [green balloon], [1]
+ * [home, product], [blue balloon], [1]
+ *
  */
