@@ -48,10 +48,17 @@ namespace Flow {
 		Response Materialize(shared_ptr<Table> results);
 		Response Merge(vector< shared_ptr<Table> >& tables, shared_ptr<Table> results);
 		Response Match(shared_ptr<Table> results);
-		Response Gather(const set<string>& measures, shared_ptr<Table> base);
 		Response Aggregate(shared_ptr<Table> results);
 		Response Sweep(shared_ptr<Table> base);
+
+		Response GatherMeasure(const string& measure, shared_ptr<Table> base);
+		Response GatherMeasure(const string& measure, const string& alias, shared_ptr<Table> base);
+		Response GatherMeasures(const set<string>& measures, shared_ptr<Table> base);
 		
+		Response GatherDimension(const string& dimension, shared_ptr<Table> base);
+		Response GatherDimension(const string& dimension, const string& alias, shared_ptr<Table> base);
+		Response GatherDimensions(const set<string>& dimensions, shared_ptr<Table> base);
+
 	protected:
 		/*
 		 * Constructing Results
