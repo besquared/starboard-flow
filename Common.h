@@ -24,6 +24,7 @@
 #include <boost/tuple/tuple_comparison.hpp>
 #include <boost/uuid/uuid.hpp>
 #include <boost/shared_ptr.hpp>
+#include <boost/functional/hash.hpp>
 
 #define ok true
 #define error false

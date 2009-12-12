@@ -22,6 +22,8 @@
 #include "Conditions.h"
 #include "Aggregations.h"
 #include "SequenceTemplate.h"
+#include "SequenceKey.h"
+#include "SequenceEvent.h"
 
 namespace Flow {
 	class Conditions;

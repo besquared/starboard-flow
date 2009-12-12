@@ -26,30 +26,30 @@ tuple< bool, string, shared_ptr<Table> > SequenceQuery::Execute() {
 Response SequenceQuery::Materialize(vector< shared_ptr<Table> >& results) {
 	for(size_t i = 0; i < this->pattern->size(); i++) {
 		shared_ptr<Table> table;
-		table->columns->push_back("values", shared_ptr<Column>(new TListColumn<string>));		
-		table->columns->push_back("records", shared_ptr<Column>(new TListColumn<RecordID>));
+		table->columns->push_back("key", shared_ptr<Column>(new TColumn<SequenceKey>));		
+		table->columns->push_back("events", shared_ptr<Column>(new TListColumn<SequenceEvent>));
 		
 		Response materialized = this->Materialize(table);
 		
 		if(materialized.get<0>()) {
-			Response gathered = this->GatherDimension(this->pattern->at(i)->name, "sequences", table);
-			
-			if(gathered.get<0>()) {
-				// prepend all the strings in the sequences column with this alias
-				shared_ptr< TListColumn<string> > sequences = 
-				static_pointer_cast< TListColumn<string> >(table->columns->at("sequences"));
-				
-				size_t size = sequences->size();
-				for(size_t i = 0; i < size; i++ ) {
-					size_t csize = sequences->at(i).size();
-					for(size_t j = 0; j < csize; j++) {
-						// create a new column with the alias name in each spot
-						this->pattern->at(i)->alias;
-					}
-				}
-				
-				results.push_back(table);
-			}
+//			Response gathered = this->GatherDimension(this->pattern->at(i)->name, "sequences", table);
+//			
+//			if(gathered.get<0>()) {
+//				// prepend all the strings in the sequences column with this alias
+//				shared_ptr< TListColumn<string> > sequences = 
+//				static_pointer_cast< TListColumn<string> >(table->columns->at("sequences"));
+//				
+//				size_t size = sequences->size();
+//				for(size_t i = 0; i < size; i++ ) {
+//					size_t csize = sequences->at(i).size();
+//					for(size_t j = 0; j < csize; j++) {
+//						// create a new column with the alias name in each spot
+//						this->pattern->at(i)->alias;
+//					}
+//				}
+//				
+//				results.push_back(table);
+//			}
 		} else {
 			return materialized;
 		}
@@ -152,13 +152,19 @@ void SequenceQuery::Construct(Inquired& inquired, vector<string>& dimensions,
 											int offset, vector<string>& values, vector<RecordID>& records, shared_ptr<Table> results) {
 	
 	if(dimensions.size() == offset) {
-		shared_ptr< TListColumn<string> > values_column = 
-		static_pointer_cast< TListColumn<string> >(results->columns->at("values"));
-		shared_ptr< TListColumn<RecordID> > records_column = 
-		static_pointer_cast< TListColumn<RecordID> >(results->columns->at("records"));
+		shared_ptr< TColumn<SequenceKey> > values_column = 
+		static_pointer_cast< TColumn<SequenceKey> >(results->columns->at("key"));
+		shared_ptr< TListColumn<SequenceEvent> > events_column = 
+		static_pointer_cast< TListColumn<SequenceEvent> >(results->columns->at("events"));
 
-		values_column->push_back(values);
-		records_column->push_back(records);
+		values_column->push_back(SequenceKey(values));
+		
+		vector<SequenceEvent> events;
+		for(int i = 0; i < records.size(); i++) {
+			events.push_back(SequenceEvent(records[i]));
+		}
+		
+		events_column->push_back(events);
 		
 		return;
 	}
