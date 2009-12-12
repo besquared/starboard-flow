@@ -29,8 +29,8 @@ namespace {
 	TEST_F(SequenceDimensionTest, Instantiates) {
 		SequenceDimension dimension("station", "X", "x1");
 		
-		ASSERT_EQ(dimension.name, "station");
-		ASSERT_EQ(dimension.symbol, "X");
-		ASSERT_EQ(dimension.alias, "x1");
+		EXPECT_EQ("station", dimension.name);
+		EXPECT_EQ("X", dimension.symbol);
+		EXPECT_EQ("x1", dimension.alias);
 	}	
 }  // namespace

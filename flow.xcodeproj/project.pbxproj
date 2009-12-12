@@ -66,6 +66,7 @@
 		036AF18110D34027002304AE /* SequenceEventTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF18010D34027002304AE /* SequenceEventTest.cpp */; };
 		036AF1A510D342B5002304AE /* SequenceKeyTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1A410D342B5002304AE /* SequenceKeyTest.cpp */; };
 		036AF1C910D34612002304AE /* SequenceDimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1C810D34612002304AE /* SequenceDimensionTest.cpp */; };
+		036AF1E410D359B0002304AE /* SequenceTemplateTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1E310D359B0002304AE /* SequenceTemplateTest.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -281,6 +282,7 @@
 		036AF18010D34027002304AE /* SequenceEventTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceEventTest.cpp; sourceTree = "<group>"; };
 		036AF1A410D342B5002304AE /* SequenceKeyTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceKeyTest.cpp; sourceTree = "<group>"; };
 		036AF1C810D34612002304AE /* SequenceDimensionTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceDimensionTest.cpp; sourceTree = "<group>"; };
+		036AF1E310D359B0002304AE /* SequenceTemplateTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceTemplateTest.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -828,6 +830,7 @@
 				036AE90F10CFAA27002304AE /* Aggregate */,
 				036AE90E10CFAA20002304AE /* Condition */,
 				03E4E31C10C3A98A00D5068E /* QueryTest.cpp */,
+				036AF1E310D359B0002304AE /* SequenceTemplateTest.cpp */,
 				036AF1C810D34612002304AE /* SequenceDimensionTest.cpp */,
 				036AF1A410D342B5002304AE /* SequenceKeyTest.cpp */,
 				036AF18010D34027002304AE /* SequenceEventTest.cpp */,
@@ -1150,6 +1153,7 @@
 				036AF18110D34027002304AE /* SequenceEventTest.cpp in Sources */,
 				036AF1A510D342B5002304AE /* SequenceKeyTest.cpp in Sources */,
 				036AF1C910D34612002304AE /* SequenceDimensionTest.cpp in Sources */,
+				036AF1E410D359B0002304AE /* SequenceTemplateTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
