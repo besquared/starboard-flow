@@ -38,7 +38,8 @@ namespace Flow {
 		 */
 		string Get(RecordID key);
 		void Get(const vector<RecordID>& keys, vector<string>& results);
-		
+		void Get(const vector<RecordID>& keys, map<RecordID, string>& results);
+
 		/*
 		 * Writing
 		 */

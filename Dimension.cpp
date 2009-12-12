@@ -104,12 +104,31 @@ void Dimension::Get(const vector<RecordID>& keys, vector<string>& results) {
 	size_t size_k = keys.size();
 	for(size_t i = 0; i < size_k; i++) {
 		written = tchdbget3(this->database, &keys[i], sizeof(RecordID), buffer, bsize);
-		if(written != -1) {
+		if(written == -1) {
+			results.push_back(NULL);
+		} else {
 			results.push_back(string((char*)buffer, (size_t)written));
 		}
 	}
 	
 	free(buffer);
+}
+
+void Dimension::Get(const vector<RecordID>& keys, map<RecordID, string>& results) {
+	int written = 0;
+	int bsize = 256;
+	void* buffer = malloc(bsize * sizeof(char));
+	size_t size_k = keys.size();
+	for(size_t i = 0; i < size_k; i++) {
+		written = tchdbget3(this->database, &keys[i], sizeof(RecordID), buffer, bsize);
+		if(written == -1) {
+			results[keys[i]] = string(NULL);
+		} else {
+			results[keys[i]] = string((char*)buffer, (size_t)written);
+		}
+	}
+	
+	free(buffer);	
 }
 
 /*
