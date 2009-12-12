@@ -124,7 +124,7 @@ namespace {
 		this->LoadProductData();
 		
 		shared_ptr<Query> query(new Query(this->fragments, this->measures));
-		query->conditions->push_back("store", "S1");
+		query->conditions->eq("store", "S1");
 		
 		shared_ptr<Aggregation> record_count(new COUNT("records"));
 		shared_ptr<Aggregation> sales_sum(new SUM("sales"));
@@ -168,7 +168,7 @@ namespace {
 		this->LoadProductData();
 		
 		shared_ptr<Query> query(new Query(this->fragments, this->measures));
-		query->conditions->push_back("store", "?");
+		query->conditions->eq("store", "?");
 		
 		shared_ptr<Aggregation> record_count(new COUNT("records"));
 		shared_ptr<Aggregation> sales_sum(new SUM("sales"));
@@ -218,9 +218,9 @@ namespace {
 		this->LoadProductData();
 		
 		shared_ptr<Query> query(new Query(this->fragments, this->measures));
-		query->conditions->push_back("store", "S1");
-		query->conditions->push_back("product", "?");
-		query->conditions->push_back("season", "?");
+		query->conditions->eq("store", "S1");
+		query->conditions->eq("product", "?");
+		query->conditions->eq("season", "?");
 		
 		shared_ptr<Aggregation> record_count(new COUNT("records"));
 		shared_ptr<Aggregation> sales_sum(new SUM("sales"));
@@ -274,9 +274,9 @@ namespace {
 		this->LoadProductData();
 		
 		shared_ptr<Query> query(new Query(this->fragments, this->measures));
-		query->conditions->push_back("store", "S3");
-		query->conditions->push_back("product", "?");
-		query->conditions->push_back("season", "?");
+		query->conditions->eq("store", "S3");
+		query->conditions->eq("product", "?");
+		query->conditions->eq("season", "?");
 		
 		shared_ptr<Aggregation> record_count(new COUNT("records"));
 		shared_ptr<Aggregation> sales_sum(new SUM("sales"));

@@ -93,7 +93,7 @@ Response SequenceQuery::Materialize(shared_ptr<Table> results) {
 			}
 				
 			default : {
-				inquiry_conditions.push_back(condition->column, condition);
+				inquiry_conditions.push_back(condition);
 				break;
 			}
 		}

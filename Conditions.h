@@ -23,41 +23,20 @@
 namespace Flow {
   class Conditions : public vector< shared_ptr<Condition> > {
   public:
-		map<string, int>* conditions;
-		
-    Conditions();
-		~Conditions();
+		/*
+		 * Shortcuts
+		 */
+		void eq(const string& name, const string& value);
+		void gt(const string& name, const string& value);
+		void gte(const string& name, const string& value);
+		void lt(const string& name, const string& value);
+		void lte(const string& name, const string& value);
+		void in(const string& name, const vector<string>& value);
 
-		/*
-		 * Modifying
-		 */
-		void push_back(const string& column, const string& value);
-		void push_back(const string& name, shared_ptr<Condition> column);
-		
-		void erase(const string& name);
-		
-		/*
-		 * Accessing
-		 */
-		shared_ptr<Condition> at(int position);
-		shared_ptr<Condition> at(const string& name);
-		shared_ptr<Condition> operator[](int position);
-		shared_ptr<Condition> operator[](const string& name);
-		shared_ptr<Condition> operator[](const char* name);
-		
-		/*
-		 * Indexing
-		 */
-		bool exist(const string& name);
-		int position(const string& name);
-		
 		/*
 		 * Application
 		 */
 		void Apply(const string& column, vector<string>& values);
-		
-	protected:
-		void push_back(shared_ptr<Condition> column); 
   };
 }
 

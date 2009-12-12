@@ -512,8 +512,7 @@ namespace {
 		inquire.push_back("year");
 
 		Conditions conditions;
-		shared_ptr<GT> gtyear(new GT("year", "2008"));
-		conditions.push_back("year", gtyear);
+		conditions.gt("year", "2008");
 
 		Inquired results;
 		this->fragments->Lookup(instantiate, inquire, conditions, results);

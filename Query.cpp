@@ -72,7 +72,7 @@ Response Query::Materialize(shared_ptr<Table> table) {
 			}
 			
 			default : {
-				inquiry_conditions.push_back(condition->column, condition);
+				inquiry_conditions.push_back(condition);
 				break;
 			}
 		}

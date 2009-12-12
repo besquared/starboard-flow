@@ -9,94 +9,28 @@
 
 #include "Conditions.h"
 
-Conditions::Conditions() {
-	this->conditions = new map<string, int>;
+void Conditions::eq(const string& name, const string& value) {
+	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new EQ(name, value)));
 }
 
-Conditions::~Conditions() {
-	delete(this->conditions);
+void Conditions::gt(const string& name, const string& value) {
+	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new GT(name, value)));
 }
 
-/*
- * Modifying
- */
-
-void Conditions::push_back(shared_ptr<Condition> column) {
-	vector< shared_ptr<Condition> >::push_back(column);
+void Conditions::gte(const string& name, const string& value) {
+	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new GTE(name, value)));
 }
 
-void Conditions::push_back(const string& column, const string& value) {
-	shared_ptr<Condition> condition(new EQ(column, value));
-	this->push_back(condition);
+void Conditions::lt(const string& name, const string& value) {
+	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new LT(name, value)));
 }
 
-void Conditions::push_back(const string& name, shared_ptr<Condition> column) {
-	if(!this->exist(name)) {
-		this->push_back(column);
-		this->conditions->insert(pair<string, int>(name, this->size() - 1));
-	}
+void Conditions::lte(const string& name, const string& value) {
+	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new LTE(name, value)));
 }
 
-void Conditions::erase(const string& name) {
-	int position = this->position(name);
-	
-	if(position >= 0) {
-		this->conditions->erase(name);
-		vector< shared_ptr<Condition> >::erase(this->begin() + position);
-	}
-}
-
-/*
- * Accessing
- */
-
-shared_ptr<Condition> Conditions::at(int position) {
-	return vector< shared_ptr<Condition> >::at(position);
-}
-
-shared_ptr<Condition> Conditions::at(const string& name) {
-	int position = this->position(name);
-	
-	if(position >= 0) {
-		return this->at(position);
-	} else {
-		return shared_ptr<Condition>();
-	}	
-}
-
-shared_ptr<Condition> Conditions::operator[](int position) {
-	return this->at(position);
-}
-
-shared_ptr<Condition> Conditions::operator[](const string& name) {
-	return this->at(name);
-}
-
-shared_ptr<Condition> Conditions::operator[](const char* name) {
-	return this->at(string(name));
-}
-
-/*
- * Additional Indexing
- */
-bool Conditions::exist(const string& name) {
-	int position = this->position(name);
-	
-	if(position >= 0) {
-		return true;
-	} else {
-		return false;	
-	}
-}
-
-int Conditions::position(const string& name) {
-	map<string, int>::iterator found = this->conditions->find(name);
-	
-	if(found != this->conditions->end()) {
-		return found->second;
-	} else {
-		return -1;
-	}	
+void Conditions::in(const string& name, const vector<string>& values) {
+	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new IN(name, values)));
 }
 
 /*
