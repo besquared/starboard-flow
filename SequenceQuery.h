@@ -34,8 +34,8 @@ namespace Flow {
 		shared_ptr<Dimensions> dimensions;
 		shared_ptr<ShellFragments> fragments;
 		
-		vector<string> clusters;
-		vector<string> groupings;		
+		shared_ptr< vector<string> > clusters;
+		shared_ptr< vector<string> > groupings;		
 		shared_ptr<Conditions> conditions;
 		shared_ptr<Aggregations> aggregations;
 		shared_ptr<SequenceTemplate> pattern;

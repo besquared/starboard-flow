@@ -20,7 +20,7 @@ void SequenceTemplate::push_back(const string& name, const string& symbol, const
 	);
 }
 
-void SequenceTemplate::push_back(const string& name, const string& symbol, const string& alias, const shared_ptr<Conditions>& conditions) {
+void SequenceTemplate::push_back(const string& name, const string& symbol, const string& alias, const shared_ptr<Conditions> conditions) {
 	vector< shared_ptr<SequenceDimension> >::push_back(
 		shared_ptr<SequenceDimension>(new SequenceDimension(name, symbol, alias, conditions))
 	);

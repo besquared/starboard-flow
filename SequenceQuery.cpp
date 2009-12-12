@@ -14,13 +14,15 @@ SequenceQuery::SequenceQuery(const string& path) {
 	this->dimensions = shared_ptr<Dimensions>(new Dimensions(path));
 	this->fragments = shared_ptr<ShellFragments>(new ShellFragments(path));
 	
+	this->clusters = shared_ptr< vector<string> >(new vector<string>);
+	this->groupings = shared_ptr< vector<string> >(new vector<string>);
 	this->conditions = shared_ptr<Conditions>(new Conditions());
 	this->aggregations = shared_ptr<Aggregations>(new Aggregations());
 	this->pattern = shared_ptr<SequenceTemplate>(new SequenceTemplate());
 }
 
 tuple< bool, string, shared_ptr<Table> > SequenceQuery::Execute() {
-	shared_ptr<Table> table;
+	shared_ptr<Table> table(new Table());
 	vector< shared_ptr<Table> > tables;
 	
 	Response materialized = this->Materialize(tables);

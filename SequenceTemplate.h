@@ -22,6 +22,6 @@ namespace Flow {
 		SequenceTemplate();
 		
 		void push_back(const string& name, const string& symbol, const string& alias);
-		void push_back(const string& name, const string& symbol, const string& alias, const shared_ptr<Conditions>& conditions);
+		void push_back(const string& name, const string& symbol, const string& alias, const shared_ptr<Conditions> conditions);
 	};
 }
