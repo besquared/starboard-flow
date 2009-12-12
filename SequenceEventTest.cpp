@@ -7,7 +7,6 @@
  *
  */
 
-
 #include "TestHelper.cpp"
 
 namespace {
