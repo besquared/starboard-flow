@@ -7,7 +7,7 @@
  *
  */
 
-#include "TestHelper.cpp"
+#include "TestHelper.h"
 
 namespace {
 	class GTETest : public ::testing::Test {

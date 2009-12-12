@@ -7,12 +7,21 @@
  *
  */
 
+#ifndef _fixture_included_
+#define _fixture_included_
+
+#include "TestHelper.h"
+
+using namespace std;
+using namespace boost;
+
 class Fixture {
 public:
 	string path;
 	
-	Fixture(const string& path);
-	
-	virtual void Load() = 0;
-	virtual void Clean() = 0;
-}
+	Fixture(const string& path) {
+		this->path = path;
+	}
+};
+
+#endif

@@ -7,25 +7,29 @@
  *
  */
 
-#include "TestHelper.cpp"
+#include "TestHelper.h"
+#include "SubwayFixture.h"
 
 namespace {
 	class SequenceQueryTest : public ::testing::Test {
 	protected:
 		TestHelper *helper;
 		SequenceQuery *query;
+		SubwayFixture *subway;
 		
 		SequenceQueryTest() {}
 		virtual ~SequenceQueryTest() {}
 		
 		virtual void SetUp() {
 			this->helper = new TestHelper();
+			this->subway = new SubwayFixture("/tmp/flow");			
 			this->query = new SequenceQuery(".");
 		}
 		
 		virtual void TearDown() {
 			delete(this->helper);
 			delete(this->query);
+			delete(this->subway);
 		}
 	};
 	

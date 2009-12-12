@@ -7,7 +7,7 @@
  *
  */
 
-#include "TestHelper.cpp"
+#include "TestHelper.h"
 
 namespace {
 	class ShellFragmentsTest : public ::testing::Test {

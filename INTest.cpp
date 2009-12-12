@@ -7,7 +7,7 @@
  *
  */
 
-#include "TestHelper.cpp"
+#include "TestHelper.h"
 
 namespace {
 	class INTest : public ::testing::Test {

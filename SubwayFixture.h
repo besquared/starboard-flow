@@ -7,40 +7,37 @@
  *
  */
 
+#ifndef _subway_fixture_included_
+#define _subway_fixture_included_
+
 #include "Fixture.h"
+#include "TestHelper.h"
 
 /*
- * +--------+------------+----------+----------+-------------+-----------+--------+
- * | record | fare-group | card-id  | day      | station     | district  | action |
- * +--------|------------|----------|----------|-------------|-----------|--------+
- * | 1      | regular    | 00000001 | 20091210 | montgomery  | financial | in     |
- * | 2      | regular    | 00000001 | 20091210 | 16th street | mission   | out    |
- * | 3      | regular    | 00000001 | 20091210 | 16th street | mission   | in     |
- * | 4      | regular    | 00000001 | 20091210 | montgomery  | financial | out    |
- * | 5      | regular    | 00000002 | 20091210 | montgomery  | financial | in     |
- * | 6      | regular    | 00000002 | 20091210 | 16th street | mission   | out    |
- * +--------+------------+----------+----------+-------------+-----------+--------+
+ * +--------+-------+------------+----------+----------+-------------+-----------+--------+
+ * | record | name  | fare-group | card-id  | day      | station     | district  | action |
+ * +--------|-------|------------|----------|----------|-------------|-----------|--------+
+ * | 1      | swipe | regular    | 00000001 | 20091210 | montgomery  | financial | in     |
+ * | 2      | swipe | regular    | 00000001 | 20091210 | 16th street | mission   | out    |
+ * | 3      | swipe | regular    | 00000001 | 20091210 | 16th street | mission   | in     |
+ * | 4      | swipe | regular    | 00000001 | 20091210 | montgomery  | financial | out    |
+ * | 5      | swipe | senior     | 00000002 | 20091210 | montgomery  | financial | in     |
+ * | 6      | swipe | senior     | 00000002 | 20091210 | 16th street | mission   | out    |
+ * +--------+-------+------------+----------+----------+-------------+-----------+--------+
  */
 
-class Subway : public Fixture {
+class SubwayFixture : public Fixture {
 public:
 	
-	Subway(const string& path);
+	SubwayFixture(const string& path);
+	~SubwayFixture();
 	
-	void Load();
-	void Clean();
+	vector<string> GetDimensions();
+	vector< vector<string> > GetData();
 	
 	void LoadDimensions();
 	void LoadMeasures();
 	void LoadFragments();
-}
+};
 
-Subway::Subway(const string& path) : Fixture::Fixture(path) {}
-
-void Subway::Load() {
-	
-}
-
-void Subway::Clean() {
-
-}
+#endif

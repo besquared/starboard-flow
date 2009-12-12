@@ -68,8 +68,15 @@
 		036AF1C910D34612002304AE /* SequenceDimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1C810D34612002304AE /* SequenceDimensionTest.cpp */; };
 		036AF1E410D359B0002304AE /* SequenceTemplateTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1E310D359B0002304AE /* SequenceTemplateTest.cpp */; };
 		036AF1E910D35B0B002304AE /* SequenceQueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1E810D35B0B002304AE /* SequenceQueryTest.cpp */; };
-		036AF1EE10D35CD1002304AE /* SubwayFixture.h in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1ED10D35CD1002304AE /* SubwayFixture.h */; };
-		036AF1F010D35CFD002304AE /* Fixture.h in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1EF10D35CFD002304AE /* Fixture.h */; };
+		036AF1EE10D35CD1002304AE /* SubwayFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF1ED10D35CD1002304AE /* SubwayFixture.h */; };
+		036AF1F010D35CFD002304AE /* Fixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF1EF10D35CFD002304AE /* Fixture.h */; };
+		036AF2BF10D36F46002304AE /* SubwayFixture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF2BE10D36F46002304AE /* SubwayFixture.cpp */; };
+		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
+		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
+		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
+		036AF38710D379E1002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
+		036AF38A10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
+		036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -79,7 +86,7 @@
 		03E4D7F710BF87A700D5068E /* ShellFragmentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */; };
 		03E4D7F810BF87A700D5068E /* ShellFragmentsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */; };
 		03E4D7F910BF87A700D5068E /* TestMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D4EA10BE507600D5068E /* TestMain.cpp */; };
-		03E4D84710BF8F6100D5068E /* TestHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D84610BF8F6100D5068E /* TestHelper.cpp */; };
+		03E4D84710BF8F6100D5068E /* TestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D84610BF8F6100D5068E /* TestHelper.h */; };
 		03E4DB1E10C0DCF100D5068E /* plan9.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4DAE910C0DA4500D5068E /* plan9.h */; };
 		03E4DB1F10C0DCF100D5068E /* utf.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4DAF810C0DA4500D5068E /* utf.h */; };
 		03E4DB2010C0DCF100D5068E /* utfdef.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4DAF910C0DA4500D5068E /* utfdef.h */; };
@@ -289,6 +296,10 @@
 		036AF1E810D35B0B002304AE /* SequenceQueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceQueryTest.cpp; sourceTree = "<group>"; };
 		036AF1ED10D35CD1002304AE /* SubwayFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubwayFixture.h; sourceTree = "<group>"; };
 		036AF1EF10D35CFD002304AE /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fixture.h; sourceTree = "<group>"; };
+		036AF2BE10D36F46002304AE /* SubwayFixture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubwayFixture.cpp; sourceTree = "<group>"; };
+		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
+		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
+		036AF38910D37A13002304AE /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/lib/libtokyocabinet.dylib; sourceTree = DEVELOPER_DIR; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -319,7 +330,7 @@
 		03E4D6E510BE77DF00D5068E /* Measure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Measure.cpp; sourceTree = "<group>"; };
 		03E4D73B10BE899300D5068E /* TListColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TListColumn.h; sourceTree = "<group>"; };
 		03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShellFragmentsTest.cpp; sourceTree = "<group>"; };
-		03E4D84610BF8F6100D5068E /* TestHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestHelper.cpp; sourceTree = "<group>"; };
+		03E4D84610BF8F6100D5068E /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		03E4DAE910C0DA4500D5068E /* plan9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = plan9.h; path = Plan9/libutf/plan9.h; sourceTree = "<group>"; };
 		03E4DAEA10C0DA4500D5068E /* rune.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rune.c; path = Plan9/libutf/rune.c; sourceTree = "<group>"; };
 		03E4DAEB10C0DA4500D5068E /* runestrcat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = runestrcat.c; path = Plan9/libutf/runestrcat.c; sourceTree = "<group>"; };
@@ -431,6 +442,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */,
+				036AF38A10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */,
+				036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */,
+				036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +455,9 @@
 				03E4DB3610C0DD1C00D5068E /* libutf.a in Frameworks */,
 				03E4DBD010C0E52F00D5068E /* libfmt.a in Frameworks */,
 				03E4DC2710C0EC0C00D5068E /* libregex.a in Frameworks */,
+				036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */,
+				036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */,
+				036AF38710D379E1002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +537,7 @@
 			children = (
 				036AF1EF10D35CFD002304AE /* Fixture.h */,
 				036AF1ED10D35CD1002304AE /* SubwayFixture.h */,
+				036AF2BE10D36F46002304AE /* SubwayFixture.cpp */,
 			);
 			name = Fixture;
 			sourceTree = "<group>";
@@ -625,7 +643,7 @@
 				03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */,
 				03E4E13510C3435000D5068E /* UtilityTest.cpp */,
 				03E4D4EA10BE507600D5068E /* TestMain.cpp */,
-				03E4D84610BF8F6100D5068E /* TestHelper.cpp */,
+				03E4D84610BF8F6100D5068E /* TestHelper.h */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -877,6 +895,9 @@
 		08FB7794FE84155DC02AAC07 /* flow */ = {
 			isa = PBXGroup;
 			children = (
+				036AF38910D37A13002304AE /* libtokyocabinet.dylib */,
+				036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */,
+				036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				03AF8D9710BE4ECC00AF17CB /* Test */,
 				03AF8D9010BE4D6400AF17CB /* Headers */,
@@ -982,6 +1003,9 @@
 				03E4E89810C5CB3D00D5068E /* ShellFragments.h in Headers */,
 				03E4E89910C5CB3D00D5068E /* Table.h in Headers */,
 				03E4E89A10C5CB3D00D5068E /* TListColumn.h in Headers */,
+				03E4D84710BF8F6100D5068E /* TestHelper.h in Headers */,
+				036AF1F010D35CFD002304AE /* Fixture.h in Headers */,
+				036AF1EE10D35CD1002304AE /* SubwayFixture.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,7 +1174,6 @@
 				03E4D7F810BF87A700D5068E /* ShellFragmentsTest.cpp in Sources */,
 				03E4E13610C3435000D5068E /* UtilityTest.cpp in Sources */,
 				03E4D7F910BF87A700D5068E /* TestMain.cpp in Sources */,
-				03E4D84710BF8F6100D5068E /* TestHelper.cpp in Sources */,
 				03E4E31E10C3A98A00D5068E /* QueryTest.cpp in Sources */,
 				03E4E3E410C3C08E00D5068E /* TableTest.cpp in Sources */,
 				03E4E9F510C601D100D5068E /* MeasureTest.cpp in Sources */,
@@ -1172,8 +1195,7 @@
 				036AF1C910D34612002304AE /* SequenceDimensionTest.cpp in Sources */,
 				036AF1E410D359B0002304AE /* SequenceTemplateTest.cpp in Sources */,
 				036AF1E910D35B0B002304AE /* SequenceQueryTest.cpp in Sources */,
-				036AF1EE10D35CD1002304AE /* SubwayFixture.h in Sources */,
-				036AF1F010D35CFD002304AE /* Fixture.h in Sources */,
+				036AF2BF10D36F46002304AE /* SubwayFixture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1406,8 +1428,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
 				);
-				OTHER_LDFLAGS = "-ltokyocabinet";
+				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = flow;
 			};
@@ -1426,10 +1449,12 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
+				);
 				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = (
-					"-ltokyocabinet",
 					"-lgtest",
 					"-lgcov",
 				);
@@ -1449,7 +1474,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INSTALL_PATH = /usr/local/bin;
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ltokyocabinet",
 					"-lgtest",
@@ -1468,6 +1496,10 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Test;
 				ZERO_LINK = NO;
@@ -1492,6 +1524,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
 				);
 				OTHER_LDFLAGS = "-ltokyocabinet";
 				PREBINDING = NO;
@@ -1512,6 +1545,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/build/Debug\"",
+					"\"$(DEVELOPER_DIR)/usr/lib\"",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = flow;

@@ -7,9 +7,10 @@
  *
  */
 
-#include "Flow.h"
+#ifndef _test_helper_included_
+#define _test_helper_included_
 
-#include <dirent.h>
+#include "Flow.h"
 #include <gtest/gtest.h>
 
 using namespace Flow;
@@ -54,26 +55,6 @@ public:
 		
 		return out;
 	}	
-	
-	vector<string> ListFiles(string path) {
-		DIR *dp;
-		struct dirent *ep;     
-		dp = opendir(path.c_str());
-		
-		vector<string> files;
-		
-		if(dp != NULL) {
-			while(ep = readdir(dp)) {
-				files.push_back(string(ep->d_name));
-			}
-			
-			closedir(dp);
-		} else {
-			perror("Couldn't open the directory");
-		}
-		
-		return files;
-	}
 		
 	string Inspect(Inquired m) {
 		string out = "{";
@@ -97,3 +78,5 @@ public:
 		return out;
 	}	
 };
+
+#endif

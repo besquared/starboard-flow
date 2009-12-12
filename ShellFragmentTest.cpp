@@ -1,4 +1,4 @@
-#include "TestHelper.cpp"
+#include "TestHelper.h"
 
 namespace {
 	class ShellFragmentTest : public ::testing::Test {

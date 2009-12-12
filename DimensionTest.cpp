@@ -8,7 +8,7 @@
  */
 
 
-#include "TestHelper.cpp"
+#include "TestHelper.h"
 
 namespace {
 	class DimensionTest : public ::testing::Test {
