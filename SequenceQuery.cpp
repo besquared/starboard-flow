@@ -20,23 +20,47 @@ SequenceQuery::SequenceQuery(const string& path) {
 }
 
 tuple< bool, string, shared_ptr<Table> > SequenceQuery::Execute() {
+	shared_ptr<Table> table;
 	vector< shared_ptr<Table> > tables;
+	
+	Response materialized = this->Materialize(tables);
+	
+	if(!materialized.get<0>()) {
+		return make_tuple(error, materialized.get<1>(), table);
+	}
+	
+	Response merged = this->Merge(tables, table);
+	
+	if(!merged.get<0>()) {
+		return make_tuple(error, materialized.get<1>(), table);
+	}
+	
+	return make_tuple(ok, success, table);
 }
 
 Response SequenceQuery::Materialize(vector< shared_ptr<Table> >& results) {
+	Response materialized;
+	
 	for(size_t i = 0; i < this->pattern->size(); i++) {
-		shared_ptr<Table> table;
-		table->columns->push_back("key", shared_ptr<Column>(new TColumn<SequenceKey>));		
-		table->columns->push_back("events", shared_ptr<Column>(new TListColumn<SequenceEvent>));
+		shared_ptr<SequenceDimension> pattern = this->pattern->at(i);
 		
-		Response materialized = this->Materialize(table);
+		shared_ptr<Table> table;
+		shared_ptr<Column> key(new TColumn<SequenceKey>);
+		shared_ptr<Column> events(new TListColumn<SequenceEvent>);
+		
+		table->columns->push_back("key", key);		
+		table->columns->push_back("events", events);
+		
+		materialized = this->Materialize(table);
 		
 		if(materialized.get<0>()) {
-			Response gathered = this->GatherEventDimension(this->pattern->at(i)->name, table);
+			materialized = this->Materialize(events, pattern->name, pattern->alias);
 			
-//			if(gathered.get<0>()) {				
-//				results.push_back(table);
-//			}
+			if(materialized.get<0>()) {
+				return make_tuple(ok,success);
+			} else {
+				return materialized;
+			}
 		} else {
 			return materialized;
 		}
@@ -85,6 +109,48 @@ Response SequenceQuery::Materialize(shared_ptr<Table> results) {
 	return make_tuple(ok, success);	
 }
 
+Response SequenceQuery::Materialize(shared_ptr< Column > column, const string& dimension, const string& alias) {
+	shared_ptr< TListColumn<SequenceEvent> > base = 
+		static_pointer_cast< TListColumn<SequenceEvent> >(column);
+	
+	tuple< bool, string, shared_ptr<Dimension> > opened = this->dimensions->OpenReader(dimension);
+	
+	if(opened.get<0>()) {
+		shared_ptr<Dimension> database = opened.get<2>();
+		
+		size_t i, j, evsize;
+		vector<RecordID> keys;
+		map<RecordID, string> values;
+		vector<SequenceEvent> events;
+		
+		// Scan the column to collect all records
+		for(i = 0; i < base->size(); i++) {
+			events = base->at(i);
+			evsize = events.size();
+			for(j = 0; j < evsize; j++) {
+				keys.push_back(events[j].record);
+			}
+		}
+		
+		// Fetch all the dimension values at once
+		database->Get(keys, values);
+		
+		// Assign each sequence event the proper value
+		for(i = 0; i < base->size(); i++) {
+			events = base->at(i);
+			evsize = events.size();
+			for(j = 0; j < evsize; j++) {
+				events[j].alias = alias;
+				events[j].value = values[events[j].record];
+			}
+		}
+		
+		return make_tuple(ok, success);
+	} else {
+		return make_tuple(error, opened.get<1>());
+	}	
+}
+
 Response SequenceQuery::Merge(vector< shared_ptr<Table> >& tables, shared_ptr<Table> results) {
 	return make_tuple(ok, success);
 }
@@ -104,85 +170,6 @@ Response SequenceQuery::Sweep(shared_ptr<Table> base) {
 /*
  * All sorts of gathering
  */ 
-
-Response SequenceQuery::GatherMeasures(const set<string>& measures, shared_ptr<Table> base) {
-	set<string>::iterator measure;
-	for(measure = measures.begin(); measure != measures.end(); measure++) {
-		shared_ptr< TListColumn<double> > values(new TListColumn<double>);
-		
-		tuple< bool, string, shared_ptr<Measure> > opened = this->measures->OpenReader(*measure);
-		
-		if(opened.get<0>()) {
-//			shared_ptr<Measure> database = opened.get<2>();
-//			
-//			shared_ptr< TListColumn<SequenceEvent> > records = 
-//			static_pointer_cast< TListColumn<SequenceEvent> >(base->columns->at("records"));
-//			
-//			vector<double> mvalues;
-//			for(size_t i = 0; i < records->size(); i++) {
-//				mvalues.clear();
-//				database->Get(records->at(i), mvalues);
-//				values->push_back(mvalues);
-//			}
-//			
-//			shared_ptr<Column> avalues = static_pointer_cast<Column>(values);
-//			base->columns->push_back(measure, avalues);
-		} else {
-			return make_tuple(error, opened.get<1>());
-		}
-	}
-	
-	return make_tuple(ok, success);
-}
-
-Response SequenceQuery::GatherDimensions(const set<string>& dimensions, shared_ptr<Table> base) {
-	return make_tuple(ok, success);
-}
-
-Response SequenceQuery::GatherEventDimension(const string& dimension, shared_ptr<Table> base) {
-	tuple< bool, string, shared_ptr<Dimension> > opened = this->dimensions->OpenReader(dimension);
-	
-	if(opened.get<0>()) {
-		shared_ptr<Dimension> database = opened.get<2>();
-		
-		shared_ptr< TListColumn<SequenceEvent> > event_column = 
-			static_pointer_cast< TListColumn<SequenceEvent> >(base->columns->at("events"));
-				
-		size_t i, j, evsize;
-		vector<RecordID> keys;
-		map<RecordID, string> values;
-		vector<SequenceEvent> events;
-		
-		// Scan the column to collect all rececords
-		for(i = 0; i < event_column->size(); i++) {
-			events = event_column->at(i);
-			evsize = events.size();
-			for(j = 0; j < evsize; j++) {
-				keys.push_back(events[j].record);
-			}
-		}
-		
-		// Fetch all the dimension values at once
-		database->Get(keys, values);
-		
-		// Assign each sequence event the proper value
-		for(i = 0; i < event_column->size(); i++) {
-			events = event_column->at(i);
-			evsize = events.size();
-			for(j = 0; j < evsize; j++) {
-				events[j].value = values[events[j].record];
-			}
-		}
-//	
-//	shared_ptr<Column> avalues = static_pointer_cast<Column>(values);
-//	base->columns->push_back(measure, avalues);
-//
-	} else {
-		return make_tuple(error, opened.get<1>());
-	}
-	
-	return make_tuple(ok, success);
-}
 
 /*
  * Construction

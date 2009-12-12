@@ -23,7 +23,6 @@
 
 #include "Table.h"
 #include "Query.h"
-#include "COUNT.h"
-#include "SUM.h"
+#include "SequenceQuery.h"
 
 #endif

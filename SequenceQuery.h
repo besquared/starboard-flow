@@ -46,8 +46,16 @@ namespace Flow {
 		 * Querying
 		 */
     tuple< bool, string, shared_ptr<Table> > Execute();
+		
+		// Materializes all tables
 		Response Materialize(vector< shared_ptr<Table> >& results);
+		
+		// Materializes a single table
 		Response Materialize(shared_ptr<Table> results);
+		
+		// Materializes clustered events column
+		Response Materialize(shared_ptr<Column> column, const string& dimension, const string& alias);
+
 		Response Merge(vector< shared_ptr<Table> >& tables, shared_ptr<Table> results);
 		Response Match(shared_ptr<Table> results);
 		Response Aggregate(shared_ptr<Table> results);
