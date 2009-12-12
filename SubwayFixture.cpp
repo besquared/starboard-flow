@@ -22,6 +22,9 @@ SubwayFixture::~SubwayFixture() {
 		Dimension database(this->path, dimensions[i]);
 		filesystem::remove(filesystem::path(database.Path()));
 	}
+	
+	ShellFragment fragment(this->path);
+	filesystem::remove(filesystem::path(fragment.Path()));
 }
 
 vector<string> SubwayFixture::GetDimensions() {
@@ -129,5 +132,16 @@ void SubwayFixture::LoadMeasures() {
 }
 
 void SubwayFixture::LoadFragments() {
+	ShellFragments database(this->path);
 	
+	vector<string> dimensions = this->GetDimensions();
+	vector< vector<string> > data = this->GetData();
+	
+	for(size_t row = 0; row < data.size(); row++) {
+		map<string, string> datum;
+		for(size_t column = 0; column < data[row].size(); column++) {
+			datum[dimensions[column]] = data[row][column];
+		}
+		database.Insert(row + 1, datum);
+	}	
 }
