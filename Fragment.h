@@ -34,70 +34,13 @@ namespace Flow {
 		tuple<bool, string> Truncate();
 		string Path();
 		
-		/*
-		 * Reading
-		 */
+		vector<RecordID> Lookup(const map<string, string>& values);
+		map< string, vector<string> > Lookup(const set<string>& dimensions);
+		map<string, RecordID> Lookup(const string& dimension, const vector<string>& values);
 		
-		string Get(const string& key);
-		int GetInt(const string& key);
-		double GetDouble(const string& key);
-		char * GetRaw(const string& key);
-		vector<string> GetList(const string& key);
-		TCLIST * GetListRaw(const string& key);
-		
-		vector<RecordID> GetRecords(const string& key);
-		vector<RecordID> GetRecords(const vector<string>& keys);
-		
-		/*
-		 * Writing
-		 */
-		
-		tuple<bool, string> Put(const string& key, const string& value);
-		tuple<bool, string> PutDup(const string& key, const string& value);
-		tuple<bool, string> PutList(const string& key, const vector<string>& values);
-		tuple<bool, string> PutRecord(const string& key, const RecordID value);
-		
-		tuple<bool, string, int> AddInt(const string& key, const int value);
-		tuple<bool, string, double> AddDouble(const string& key, const double value);
-		
-		/*
-		 * ShellDimensions
-		 */
-				
-		/*
-		 * Transactions
-		 */
-		tuple<bool, string> TransactionBegin();
-		tuple<bool, string> TransactionAbort();
-		tuple<bool, string> TransactionCommit();
-		
-		/*
-		 * Keys
-		 */
-		vector<string> Keys();
-		vector<string> Keys(const string& prefix);
-		vector<string> Keys(const string& prefix, int max);
-		
-		/*
-		 * Errors
-		 */
+		tuple<bool, string> Insert(RecordID record, const map<string, string>& dimensions);
+
 		string Error();
-		
-		/*
-		 * Data Conversion
-		 */
-		
-		string Intern(char* element);
-		int Fragment::InternInt(char *element);
-		double Fragment::InternDouble(char *element);
-		vector<string> InternList(TCLIST *list);
-		vector<RecordID> InternRecords(TCLIST *list);
-		
-		/*
-		 * Intersection
-		 */
-		
-		TCLIST* IntersectRecords(TCLIST* a, TCLIST* b);
 	};
 }
 
