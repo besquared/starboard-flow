@@ -72,12 +72,13 @@ Response SequenceQuery::Materialize(vector< shared_ptr<Table> >& results) {
 }
 
 Response SequenceQuery::Materialize(shared_ptr<Table> results) {
+	Inquired inquired;
 	vector<string> inquire;
 	vector<string> dimensions;
 	map<string, string> instantiate;
 	Conditions inquiry_conditions;
 	
-	// Go through and find all the dimensions we need to inquire
+	// need to combine eq conditions with clusters and groupings
 	
 	for(size_t i = 0; i < this->conditions->size(); i++) {
 		shared_ptr<Condition> condition = this->conditions->at(i);
@@ -102,12 +103,13 @@ Response SequenceQuery::Materialize(shared_ptr<Table> results) {
 		
 		dimensions.push_back(condition->column);
 	}
+
+	cout << inquire << endl;
+	cout << dimensions << endl;
+	cout << this->fragments->database->Keys();
 	
-	Inquired inquired;
 	this->fragments->Lookup(instantiate, inquire, inquiry_conditions, inquired);
-	
 	this->Construct(inquired, dimensions, results);
-	
 	return make_tuple(ok, success);	
 }
 

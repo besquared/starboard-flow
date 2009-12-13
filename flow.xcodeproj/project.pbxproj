@@ -77,6 +77,8 @@
 		036AF38710D379E1002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38A10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
 		036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
+		036AF47610D5078E002304AE /* Master.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF47410D5078E002304AE /* Master.h */; };
+		036AF47710D5078E002304AE /* Master.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF47510D5078E002304AE /* Master.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -300,6 +302,8 @@
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF38910D37A13002304AE /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/lib/libtokyocabinet.dylib; sourceTree = DEVELOPER_DIR; };
+		036AF47410D5078E002304AE /* Master.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Master.h; sourceTree = "<group>"; };
+		036AF47510D5078E002304AE /* Master.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Master.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -585,6 +589,9 @@
 		03AF8D7410BE4B8500AF17CB /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				036AF38910D37A13002304AE /* libtokyocabinet.dylib */,
+				036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */,
+				036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */,
 				03E4DAE810C0DA1000D5068E /* utf */,
 				03E4DBFA10C0EA0200D5068E /* regexp */,
 				03E4DB4110C0E46900D5068E /* fmt */,
@@ -799,6 +806,7 @@
 				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
 				03AF8D5110BE4A5B00AF17CB /* ShellFragment.cpp */,
 				036AED7D10D1BD01002304AE /* Fragment.cpp */,
+				036AF47510D5078E002304AE /* Master.cpp */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -810,6 +818,7 @@
 				036AED7C10D1BD01002304AE /* Fragment.h */,
 				03E4D6E410BE77DF00D5068E /* Measure.h */,
 				03AF8D5210BE4A5B00AF17CB /* ShellFragment.h */,
+				036AF47410D5078E002304AE /* Master.h */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -895,9 +904,6 @@
 		08FB7794FE84155DC02AAC07 /* flow */ = {
 			isa = PBXGroup;
 			children = (
-				036AF38910D37A13002304AE /* libtokyocabinet.dylib */,
-				036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */,
-				036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				03AF8D9710BE4ECC00AF17CB /* Test */,
 				03AF8D9010BE4D6400AF17CB /* Headers */,
@@ -985,6 +991,7 @@
 				036AEE8A10D2356E002304AE /* SequenceDimension.h in Headers */,
 				036AEFAC10D30323002304AE /* SequenceEvent.h in Headers */,
 				036AEFE410D307D2002304AE /* SequenceKey.h in Headers */,
+				036AF47610D5078E002304AE /* Master.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1232,6 +1239,7 @@
 				036AEE8B10D2356E002304AE /* SequenceDimension.cpp in Sources */,
 				036AEFAD10D30323002304AE /* SequenceEvent.cpp in Sources */,
 				036AEFE510D307D2002304AE /* SequenceKey.cpp in Sources */,
+				036AF47710D5078E002304AE /* Master.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

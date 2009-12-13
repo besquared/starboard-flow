@@ -17,6 +17,8 @@
 
 #include "Flow.h"
 
+#define DEBUG
+
 using namespace std;
 using namespace Flow;
 

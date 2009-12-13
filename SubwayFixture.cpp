@@ -133,6 +133,7 @@ void SubwayFixture::LoadMeasures() {
 
 void SubwayFixture::LoadFragments() {
 	ShellFragments database(this->path);
+	database.OpenWriter();
 	
 	vector<string> dimensions = this->GetDimensions();
 	vector< vector<string> > data = this->GetData();
@@ -143,5 +144,7 @@ void SubwayFixture::LoadFragments() {
 			datum[dimensions[column]] = data[row][column];
 		}
 		database.Insert(row + 1, datum);
-	}	
+	}
+	
+	database.Close();
 }

@@ -30,6 +30,8 @@
 #define error false
 #define success "Success"
 
+#define DEBUG
+
 using namespace std;
 using namespace boost;
 

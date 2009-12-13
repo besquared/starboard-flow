@@ -66,6 +66,6 @@ namespace {
 			FAIL() << "Could not materialize single table";
 		}
 		
-		
+		cout << table->Inspect() << endl;
 	}
 }  // namespace

@@ -14,7 +14,7 @@ namespace Flow {
 	class SequenceTemplate : public vector< shared_ptr<SequenceDimension> > {
 	public:
 		enum Matching { SUBSTRING, FUNNEL };
-		enum Restriction { LEFT_MATCHED_GO, LEFT_DATA_GO, ALL_MATCHED_GO };
+		enum Restriction { LEFT_MATCH, LEFT_DATA, ALL_MATCH };
 		
 		Matching matching;
 		Restriction restriction;

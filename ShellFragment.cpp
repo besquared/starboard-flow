@@ -165,6 +165,9 @@ tuple<bool, string, double> ShellFragment::AddDouble(const string& key, double v
 }
 
 tuple<bool, string> ShellFragment::Put(const string& key, const string& value) {
+#ifdef DEBUG
+	cout << "ShellFragment::Put(" << key << ", " << value << ")" << endl;
+#endif
 	if(tcbdbput2(this->database, key.c_str(), value.c_str())) {
 		return make_tuple(ok, success);
 	} else {
@@ -173,6 +176,10 @@ tuple<bool, string> ShellFragment::Put(const string& key, const string& value) {
 }
 
 tuple<bool, string> ShellFragment::PutDup(const string& key, const string& value) {
+#ifdef DEBUG
+	cout << "ShellFragment::PutDup(" << key << ", " << value << ")" << endl;
+#endif
+	
 	if(tcbdbputdup2(this->database, key.c_str(), value.c_str())) {
 		return make_tuple(ok, success);
 	} else {
@@ -181,6 +188,10 @@ tuple<bool, string> ShellFragment::PutDup(const string& key, const string& value
 }
 
 tuple<bool, string> ShellFragment::PutRecordID(const string& key, RecordID value) {
+#ifdef DEBUG
+	cout << "ShellFragment::PutRecordID(" << key << ", " << value << ")" << endl;
+#endif
+	
 	if(tcbdbputdup(this->database, key.c_str(), key.size(), &value, sizeof(RecordID))) {
 		return make_tuple(ok, success);
 	} else {

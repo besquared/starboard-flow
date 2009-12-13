@@ -11,7 +11,7 @@
 
 SequenceTemplate::SequenceTemplate() {
 	this->matching = SUBSTRING;
-	this->restriction = LEFT_MATCHED_GO;
+	this->restriction = LEFT_MATCH;
 }
 
 void SequenceTemplate::push_back(const string& name, const string& symbol, const string& alias) {
