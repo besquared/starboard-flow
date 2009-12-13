@@ -13,9 +13,6 @@ Measure::Measure(string path, string name) {
   this->path = path;
   this->name = name;
   this->database = tcfdbnew();
-	
-	int64_t size_limit = (1LL << 30);
-	tcfdbtune(this->database, sizeof(double), size_limit);
 }
 
 Measure::~Measure() {
@@ -27,7 +24,9 @@ Measure::~Measure() {
  * I/O Management
  */
 
-tuple<bool, string> Measure::Create() {
+tuple<bool, string> Measure::Create() {	
+	tcfdbtune(this->database, sizeof(double), INT_MAX);
+	
 	if(tcfdbopen(this->database, this->Path().c_str(), FDBOWRITER | FDBOCREAT)) {
 		tcfdbclose(this->database);
 		return make_tuple(ok, success);

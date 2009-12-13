@@ -44,8 +44,6 @@ tuple<bool, string> Fragment::Open(bool writer) {
 	int mode = (writer ? (BDBOWRITER | BDBOCREAT) : BDBOREADER);
 	
 	if(tcbdbopen(this->database, this->Path().c_str(), mode)) {
-		this->opened = true;
-		this->writer = (writer ? true : false);
 		return make_tuple(ok, success);
 	} else {
 		return make_tuple(error, this->Error());
