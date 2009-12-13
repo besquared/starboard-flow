@@ -17,8 +17,6 @@ namespace Flow {
 	public:
 		string path;
 		TCBDB *database;
-		bool opened;
-		bool writer;
 		
 		Fragment(const string& path);		
 		~Fragment();

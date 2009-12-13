@@ -9,9 +9,6 @@
 
 #include "Master.h"
 
-string path;
-TCBDB *database;
-
 Master::Master(const string& path) {
 	this->path = path;
 	this->database = tcbdbnew();
