@@ -8,8 +8,6 @@
 
 #include "Conditions.h"
 
-#define FRAGMENT_SIZE 4
-
 namespace Flow {
   class ShellFragments {
   public:

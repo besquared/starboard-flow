@@ -30,6 +30,8 @@
 #define error false
 #define success "Success"
 
+#define FRAGMENT_SIZE 4
+
 #define DEBUG
 
 using namespace std;

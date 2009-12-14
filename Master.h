@@ -16,24 +16,22 @@
 namespace Flow {
 	class Master : public BDB {
 	public:
-		string path;
-		TCBDB *database;
 		
 		Master(const string& path);
 		~Master();
 
 		string Path();
 		
-		vector<string> Fragments();		
-		vector<string> Fragment(const string& dimension);
+		bool Fragments(vector<string>& results);		
+		bool Fragment(const string& dimension, string& result);
 
-		vector<string> Dimensions();
-		vector<string> Dimensions(const string& fragment);
-		vector<string> Dimensions(const set<string>& fragment);
+		bool Dimensions(set<string>& results);
+		bool Dimensions(const string& fragment, set<string>& results);
+		bool Dimensions(const set<string>& fragment, set<string>& results);
 		
-		tuple<bool, string> Allocate(const set<string>& dimensions);
+		bool Allocate(const set<string>& dimensions);
 		
-		tuple<bool, string, RecordID> GenerateRecordID();
+		bool GenerateRecordID(RecordID& result);
 	};
 }
 

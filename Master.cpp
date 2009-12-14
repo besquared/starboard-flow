@@ -18,65 +18,84 @@ string Master::Path() {
 /*
  * Returns a list of all fragments
  */
-vector<string> Master::Fragments() {
-	vector<string> results;
-	return results;
+bool Master::Fragments(vector<string>& results) {
+	return BDB::Get("fragments", results);
 }
 
 /*
  * Returns the fragment which contains the given dimension
  */
-vector<string> Master::Fragment(const string& dimension) {
-	vector<string> results;
-	return results;
+bool Master::Fragment(const string& dimension, string& result) {
+	return BDB::Get(dimension, result);
 }
 
 /*
  * Returns a list of all dimensions in the database
  */
-vector<string> Master::Dimensions() {
-	vector<string> results;
-	return results;
+bool Master::Dimensions(set<string>& results) {
+	return BDB::Get("dimensions", results);
 }
 
 /*
  * Returns a list of all dimensions in the given fragment
  */
-vector<string> Master::Dimensions(const string& fragment) {
-	vector<string> results;
-	return results;
+bool Master::Dimensions(const string& fragment, set<string>& results) {
+	return BDB::Get(fragment, results);
 }
 
 /*
  * Returns a list of all dimensions *not* in the database
  */
-vector<string> Master::Dimensions(const set<string>& dimensions) {
-	vector<string> results;
-	return results;
+bool Master::Dimensions(const set<string>& dimensions, set<string>& results) {
+	set<string> existing;
+	
+	if(this->Dimensions(existing)) {
+		set_difference(dimensions.begin(), dimensions.end(), 
+									 existing.begin(), existing.end(),
+									 insert_iterator< set<string> >(results, results.end()));
+		
+		return true;
+	} else {
+		return false;
+	}
 }
 
 /*
  * Generates all the necessary fragments to hold dimensions
  */
-tuple<bool, string> Master::Allocate(const set<string>& dimensions) {
-	set<string>::iterator dimension;
-	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		
-	}
+bool Master::Allocate(const set<string>& dimensions) {
+	set<string> alldims;
+	this->Dimensions(alldims);
 	
-	return make_tuple(ok, success);
+	set<string> newdims;
+	this->Dimensions(dimensions, newdims);
+	
+	set<string>::iterator dimension;
+	int current_fragment = alldims.size() / FRAGMENT_SIZE;
+	for(dimension = newdims.begin(); dimension != newdims.end(); dimension++) {
+		string fragment; 
+		if(alldims.size() % FRAGMENT_SIZE == 0) {
+			current_fragment++;
+			fragment = lexical_cast<string>(current_fragment);
+			
+			BDB::PutDup("fragments", fragment);
+		} else {
+			fragment = lexical_cast<string>(current_fragment);
+		}
+		
+		BDB::Put(*dimension, fragment);
+		BDB::PutDup(fragment, *dimension);
+		BDB::PutDup("dimensions", *dimension);
+
+		alldims.insert(*dimension);
+	}
+		
+	return true;
 }
 
 /*
  * Generates a new global record id
  */
-tuple<bool, string, RecordID> Master::GenerateRecordID() {
-	string key = "records";
-	RecordID newvalue = tcbdbadddouble(this->database, key.c_str(), key.length(), 1);
-	
-	if(isnan(newvalue)) {
-		return make_tuple(error, this->Error(), -1);
-	} else {
-		return make_tuple(ok, success, newvalue);
-	}
+bool Master::GenerateRecordID(RecordID& result) {
+	return BDB::Add("records", 1, result);
 }

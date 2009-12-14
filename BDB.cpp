@@ -19,56 +19,28 @@ BDB::~BDB() {
   tcbdbdel(this->database);
 }
 
-tuple<bool, string> BDB::Create() {
-	tcbdbtune(this->database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
-	if(tcbdbopen(this->database, this->Path().c_str(), BDBOWRITER | BDBOCREAT)) {
-		tcbdbclose(this->database);
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
+bool BDB::OpenReader() {
+  return this->Open(BDBOREADER);
 }
 
-tuple<bool, string> BDB::OpenReader() {
-  return this->Open(false);
+bool BDB::OpenWriter() {
+  return this->Open(BDBOWRITER | BDBOCREAT);
 }
 
-tuple<bool, string> BDB::OpenWriter() {
-  return this->Open(true);
+bool BDB::Truncate() {
+	return this->Open(BDBOWRITER | BDBOTRUNC);
 }
 
-tuple<bool, string> BDB::Open(bool writer) {
-	int mode = (writer ? (BDBOWRITER | BDBOCREAT) : BDBOREADER);
-	
-	if(tcbdbopen(this->database, this->Path().c_str(), mode)) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
+bool BDB::Open(int mode) {
+	return tcbdbopen(this->database, this->Path().c_str(), mode);
 }
 
-tuple<bool, string> BDB::Close() {
+bool BDB::Close() {
 	if(tcbdbrnum(this->database) % (1<<16) == 0) {
 		tcbdboptimize(database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
 	}
 	
-  if(tcbdbclose(this->database)){
-		return make_tuple(ok, success);
-  } else {
-    return make_tuple(error, this->Error());
-  }
-}
-
-/*
- * Clear this database of all key/value pairs
- */
-tuple<bool, string> BDB::Truncate() {
-	if(tcbdbopen(this->database, this->Path().c_str(), BDBOWRITER | BDBOTRUNC)) {
-		tcbdbclose(this->database);
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}	
+	return tcbdbclose(this->database);
 }
 
 bool BDB::Get(const string& key, string& result) {
@@ -82,6 +54,24 @@ bool BDB::Get(const string& key, string& result) {
 		result.assign((char*)buffer, *b_size);
 		free(buffer);
 		return true;
+	}
+}
+
+bool BDB::Get(const string& key, set<string>& results) {
+	TCLIST* values = tcbdbget4(this->database, key.c_str(), key.size());
+	
+	if(values != NULL) {
+		const char* value;
+		size_t list_size = tclistnum(values);
+    for(size_t i = 0; i < list_size; i++) {
+			value = tclistval2(values, i);
+			if(value != NULL) { results.insert(value); }
+    }
+    tclistdel(values);
+		return true;
+  } else {
+		tclistdel(values);
+		return false;
 	}
 }
 
@@ -124,34 +114,41 @@ bool BDB::Get(const string& key, vector<RecordID>& results) {
 	}	
 }
 
-/*
- * Transactions
- */
+bool BDB::Put(const string& key, const string& value) {
+	return tcbdbput(this->database, key.c_str(), key.size(), value.c_str(), value.size());
+}
 
-tuple<bool, string> BDB::TransactionBegin() {
-	if(tcbdbtranbegin(this->database)) {
-		return make_tuple(ok, success);
+bool BDB::Put(const string& key, const RecordID& value) {
+	return tcbdbput(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
+}
+
+bool BDB::PutDup(const string& key, const string& value) {
+	return tcbdbputdup(this->database, key.c_str(), key.size(), value.c_str(), value.size());
+}
+
+bool BDB::PutDup(const string& key, const RecordID& value) {
+	return tcbdbputdup(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
+}
+
+bool BDB::Add(const string& key, const int value, int& result) {
+	result = tcbdbaddint(this->database, key.c_str(), key.length(), value);
+	
+	if(isnan(result)) {
+		return false;
 	} else {
-		return make_tuple(error, this->Error());
+		return true;
 	}
 }
 
-tuple<bool, string> BDB::TransactionAbort() {
-	if(tcbdbtranabort(this->database)) {
-		return make_tuple(ok, success);
+bool BDB::Add(const string& key, const double value, double& result) {
+	result = tcbdbadddouble(this->database, key.c_str(), key.length(), value);
+	
+	if(isnan(result)) {
+		return false;
 	} else {
-		return make_tuple(error, this->Error());
+		return true;
 	}
 }
-
-tuple<bool, string> BDB::TransactionCommit() {
-	if(tcbdbtrancommit(this->database)) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
 
 /*
  * Returns the last error to occur on the database
