@@ -9,11 +9,7 @@
 
 #include "Master.h"
 
-Master::Master(const string& path) : BDB::BDB(path) {}
-
-string Master::Path() {
-  return this->path + "/" + "master.tcb";
-}
+Master::Master(const string& path) : BDB::BDB(path, "master") {}
 
 /*
  * Returns a list of all fragments
@@ -65,9 +61,8 @@ bool Master::Dimensions(const set<string>& dimensions, set<string>& results) {
  */
 bool Master::Allocate(const set<string>& dimensions) {
 	set<string> alldims;
-	this->Dimensions(alldims);
-	
 	set<string> newdims;
+	this->Dimensions(alldims);
 	this->Dimensions(dimensions, newdims);
 	
 	set<string>::iterator dimension;
@@ -79,6 +74,7 @@ bool Master::Allocate(const set<string>& dimensions) {
 			fragment = lexical_cast<string>(current_fragment);
 			
 			BDB::PutDup("fragments", fragment);
+			BDB::Create(this->path, "fragment" + fragment);
 		} else {
 			fragment = lexical_cast<string>(current_fragment);
 		}

@@ -16,11 +16,11 @@ namespace Flow {
 	class BDB {
 	protected:
 		string path;
+		string name;
 		TCBDB *database;
-		virtual string Path() = 0;
-
+		
 	public:		
-		BDB(const string& path);
+		BDB(const string& path, const string& name);
 		~BDB();
 		
 		bool OpenReader();
@@ -43,6 +43,9 @@ namespace Flow {
 		bool BDB::Add(const string& key, const double value, double& result);
 		
 		string Error();
+		
+		static bool Create(const string& path, const string& name);
+		static string Path(const string& path, const string& name);
 	};
 }
 

@@ -81,6 +81,7 @@
 		036AF47710D5078E002304AE /* Master.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF47510D5078E002304AE /* Master.cpp */; };
 		036AF55010D62C41002304AE /* BDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF54E10D62C41002304AE /* BDB.h */; };
 		036AF55110D62C41002304AE /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF54F10D62C41002304AE /* BDB.cpp */; };
+		036AF72A10D6560C002304AE /* BDBTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF72910D6560C002304AE /* BDBTest.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -308,6 +309,7 @@
 		036AF47510D5078E002304AE /* Master.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Master.cpp; sourceTree = "<group>"; };
 		036AF54E10D62C41002304AE /* BDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDB.h; sourceTree = "<group>"; };
 		036AF54F10D62C41002304AE /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDB.cpp; sourceTree = "<group>"; };
+		036AF72910D6560C002304AE /* BDBTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDBTest.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -807,11 +809,11 @@
 			isa = PBXGroup;
 			children = (
 				036AF54F10D62C41002304AE /* BDB.cpp */,
-				036AEC9710D11267002304AE /* Dimension.cpp */,
-				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
-				03AF8D5110BE4A5B00AF17CB /* ShellFragment.cpp */,
-				036AED7D10D1BD01002304AE /* Fragment.cpp */,
 				036AF47510D5078E002304AE /* Master.cpp */,
+				036AED7D10D1BD01002304AE /* Fragment.cpp */,
+				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
+				036AEC9710D11267002304AE /* Dimension.cpp */,
+				03AF8D5110BE4A5B00AF17CB /* ShellFragment.cpp */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -832,6 +834,7 @@
 		03E4DFB910C2723600D5068E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				036AF72910D6560C002304AE /* BDBTest.cpp */,
 				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
 				03E4E9F410C601D100D5068E /* MeasureTest.cpp */,
 				03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */,
@@ -1210,6 +1213,7 @@
 				036AF1E410D359B0002304AE /* SequenceTemplateTest.cpp in Sources */,
 				036AF1E910D35B0B002304AE /* SequenceQueryTest.cpp in Sources */,
 				036AF2BF10D36F46002304AE /* SubwayFixture.cpp in Sources */,
+				036AF72A10D6560C002304AE /* BDBTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

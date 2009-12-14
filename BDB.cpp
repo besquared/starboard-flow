@@ -9,14 +9,33 @@
 
 #include "BDB.h"
 
-BDB::BDB(const string& path) {
+BDB::BDB(const string& path, const string& name) {
 	this->path = path;
+	this->name = name;
 	this->database = tcbdbnew();
 }
 
 BDB::~BDB() {
 	this->Close();
   tcbdbdel(this->database);
+}
+
+bool BDB::Create(const string& path, const string& name) {
+	TCBDB* database = tcbdbnew();
+	
+	tcbdbtune(database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
+	if(tcbdbopen(database, BDB::Path(path, name).c_str(), BDBOWRITER | BDBOCREAT)) {
+		tcbdbclose(database);
+		tcbdbdel(database);
+		return true;
+	} else {
+		tcbdbdel(database);
+		return false;
+	}
+}
+
+string BDB::Path(const string& path, const string& name) {
+  return path + "/" + name + ".tcb";
 }
 
 bool BDB::OpenReader() {
@@ -28,11 +47,16 @@ bool BDB::OpenWriter() {
 }
 
 bool BDB::Truncate() {
-	return this->Open(BDBOWRITER | BDBOTRUNC);
+	if(this->Open(BDBOWRITER | BDBOTRUNC)) {
+		this->Close();
+		return true;
+	} else {
+		return false;
+	}
 }
 
 bool BDB::Open(int mode) {
-	return tcbdbopen(this->database, this->Path().c_str(), mode);
+	return tcbdbopen(this->database, BDB::Path(this->path, this->name).c_str(), mode);
 }
 
 bool BDB::Close() {

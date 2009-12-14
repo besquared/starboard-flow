@@ -21,6 +21,10 @@
 #include "ShellFragments.h"
 #include "ShellDimensions.h"
 
+#include "BDB.h"
+#include "Master.h"
+#include "Fragment.h"
+
 #include "Table.h"
 #include "Query.h"
 #include "SequenceQuery.h"

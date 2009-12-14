@@ -11,34 +11,18 @@
 #define _fragment_included_
 
 #include "Common.h"
+#include "BDB.h"
 
 namespace Flow {
-	class Fragment {
-	public:
-		string path;
-		TCBDB *database;
-		
-		Fragment(const string& path);		
-		~Fragment();
-		
-		/*
-		 * File Management
-		 */
-		tuple<bool, string> Create();
-		tuple<bool, string> OpenReader();
-		tuple<bool, string> OpenWriter();
-		tuple<bool, string> Open(bool writer);
-		tuple<bool, string> Close();
-		tuple<bool, string> Truncate();
-		string Path();
-		
+	class Fragment : public BDB {
+	public:		
+		Fragment(const string& path, const string& path);		
+				
 		vector<RecordID> Lookup(const map<string, string>& values);
 		map< string, vector<string> > Lookup(const set<string>& dimensions);
 		map<string, RecordID> Lookup(const string& dimension, const vector<string>& values);
 		
-		tuple<bool, string> Insert(RecordID record, const map<string, string>& dimensions);
-
-		string Error();
+		bool Insert(RecordID record, const map<string, string>& dimensions);
 	};
 }
 

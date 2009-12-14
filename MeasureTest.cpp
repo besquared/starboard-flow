@@ -64,16 +64,5 @@ namespace {
 	}
 	
 	TEST_F(MeasureTest, PerformsTransactions) {
-//		ASSERT_EQ(true, this->database->TransactionBegin());
-//		ASSERT_EQ(true, this->database->Put("mykey", "myvalue"));
-//		ASSERT_EQ(true, this->database->Put("mykey2", "myvalue"));
-//		ASSERT_EQ(true, this->database->TransactionAbort());
-//		ASSERT_EQ("", this->database->Get("mykey"));
-//		ASSERT_EQ("", this->database->Get("mykey2"));
-//		
-//		ASSERT_EQ(true, this->database->TransactionBegin());
-//		ASSERT_EQ(true, this->database->Put("mykey", "myvalue"));
-//		ASSERT_EQ(true, this->database->TransactionCommit());
-//		ASSERT_EQ("myvalue", this->database->Get("mykey"));		
 	}
 }
