@@ -9,99 +9,74 @@
 
 #include "Master.h"
 
-Master::Master(const string& path) {
-	this->path = path;
-	this->database = tcbdbnew();
-}
-
-Master::~Master() {
-	this->Close();
-  tcbdbdel(this->database);
-}
-
-tuple<bool, string> Master::Create() {
-	tcbdbtune(this->database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
-	if(tcbdbopen(this->database, this->Path().c_str(), BDBOWRITER | BDBOCREAT)) {
-		tcbdbclose(this->database);
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
-tuple<bool, string> Master::OpenReader() {
-  return this->Open(false);
-}
-
-tuple<bool, string> Master::OpenWriter() {
-  return this->Open(true);
-}
-
-tuple<bool, string> Master::Open(bool writer) {
-	int mode = (writer ? (BDBOWRITER | BDBOCREAT) : BDBOREADER);
-	
-	if(tcbdbopen(this->database, this->Path().c_str(), mode)) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
-tuple<bool, string> Master::Close() {
-	if(tcbdbrnum(this->database) % (1<<16) == 0) {
-		tcbdboptimize(database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
-	}
-	
-  if(tcbdbclose(this->database)){
-		return make_tuple(ok, success);
-  } else {
-    return make_tuple(error, this->Error());
-  }
-}
-
-tuple<bool, string> Master::Truncate() {
-	if(tcbdbopen(this->database, this->Path().c_str(), BDBOWRITER | BDBOTRUNC)) {
-		tcbdbclose(this->database);
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}	
-}
+Master::Master(const string& path) : BDB::BDB(path) {}
 
 string Master::Path() {
   return this->path + "/" + "master.tcb";
 }
 
-double Master::EventCount() {
-	return 0.0;
-}
-
+/*
+ * Returns a list of all fragments
+ */
 vector<string> Master::Fragments() {
 	vector<string> results;
 	return results;
 }
 
-vector<string> Master::Dimensions(const string& fragment) {
-	vector<string> results;
-	return results;
-}
-
+/*
+ * Returns the fragment which contains the given dimension
+ */
 vector<string> Master::Fragment(const string& dimension) {
 	vector<string> results;
 	return results;
 }
 
-tuple<bool, string> Master::Allocate(const set<string>& dimensions) {
-	return make_tuple(ok, success);
-}
-
-tuple<bool, string, RecordID> Master::GenerateRecordID() {
-	return make_tuple(ok, success, 0);
+/*
+ * Returns a list of all dimensions in the database
+ */
+vector<string> Master::Dimensions() {
+	vector<string> results;
+	return results;
 }
 
 /*
- * Errors
+ * Returns a list of all dimensions in the given fragment
  */
-string Master::Error() {
-	return string(tcbdberrmsg(tcbdbecode(this->database)));
+vector<string> Master::Dimensions(const string& fragment) {
+	vector<string> results;
+	return results;
+}
+
+/*
+ * Returns a list of all dimensions *not* in the database
+ */
+vector<string> Master::Dimensions(const set<string>& dimensions) {
+	vector<string> results;
+	return results;
+}
+
+/*
+ * Generates all the necessary fragments to hold dimensions
+ */
+tuple<bool, string> Master::Allocate(const set<string>& dimensions) {
+	set<string>::iterator dimension;
+	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
+		
+	}
+	
+	return make_tuple(ok, success);
+}
+
+/*
+ * Generates a new global record id
+ */
+tuple<bool, string, RecordID> Master::GenerateRecordID() {
+	string key = "records";
+	RecordID newvalue = tcbdbadddouble(this->database, key.c_str(), key.length(), 1);
+	
+	if(isnan(newvalue)) {
+		return make_tuple(error, this->Error(), -1);
+	} else {
+		return make_tuple(ok, success, newvalue);
+	}
 }

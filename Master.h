@@ -11,9 +11,10 @@
 #define _master_included_
 
 #include "Common.h"
+#include "BDB.h"
 
 namespace Flow {
-	class Master {
+	class Master : public BDB {
 	public:
 		string path;
 		TCBDB *database;
@@ -21,27 +22,18 @@ namespace Flow {
 		Master(const string& path);
 		~Master();
 
-		tuple<bool, string> Create();
-		tuple<bool, string> OpenReader();
-		tuple<bool, string> OpenWriter();
-		tuple<bool, string> Open(bool writer);
-		tuple<bool, string> Close();
-		tuple<bool, string> Truncate();
 		string Path();
 		
-		double EventCount();
-		vector<string> Fragments();
-		vector<string> Dimensions(const string& fragment);
+		vector<string> Fragments();		
 		vector<string> Fragment(const string& dimension);
+
+		vector<string> Dimensions();
+		vector<string> Dimensions(const string& fragment);
+		vector<string> Dimensions(const set<string>& fragment);
 		
 		tuple<bool, string> Allocate(const set<string>& dimensions);
 		
 		tuple<bool, string, RecordID> GenerateRecordID();
-
-		/*
-		 * Errors
-		 */
-		string Error();
 	};
 }
 

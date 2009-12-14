@@ -95,8 +95,8 @@ void Measure::Get(const vector<RecordID>& keys, vector<double>& results) {
 	results.reserve(keys.size());
 	
 	double buffer;
-	size_t size_k = keys.size();
-	for(size_t i = 0; i < size_k; i++) {
+	size_t keys_size = keys.size();
+	for(size_t i = 0; i < keys_size; i++) {
 		if(tcfdbget4(this->database, keys[i], &buffer, sizeof(double)) != -1) {
 			results.push_back(buffer);
 		}

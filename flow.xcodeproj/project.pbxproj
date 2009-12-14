@@ -79,6 +79,8 @@
 		036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
 		036AF47610D5078E002304AE /* Master.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF47410D5078E002304AE /* Master.h */; };
 		036AF47710D5078E002304AE /* Master.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF47510D5078E002304AE /* Master.cpp */; };
+		036AF55010D62C41002304AE /* BDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF54E10D62C41002304AE /* BDB.h */; };
+		036AF55110D62C41002304AE /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF54F10D62C41002304AE /* BDB.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -304,6 +306,8 @@
 		036AF38910D37A13002304AE /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/lib/libtokyocabinet.dylib; sourceTree = DEVELOPER_DIR; };
 		036AF47410D5078E002304AE /* Master.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Master.h; sourceTree = "<group>"; };
 		036AF47510D5078E002304AE /* Master.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Master.cpp; sourceTree = "<group>"; };
+		036AF54E10D62C41002304AE /* BDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDB.h; sourceTree = "<group>"; };
+		036AF54F10D62C41002304AE /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDB.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -802,6 +806,7 @@
 		03E4DDD710C23EEF00D5068E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				036AF54F10D62C41002304AE /* BDB.cpp */,
 				036AEC9710D11267002304AE /* Dimension.cpp */,
 				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
 				03AF8D5110BE4A5B00AF17CB /* ShellFragment.cpp */,
@@ -814,6 +819,7 @@
 		03E4DDD810C23F0A00D5068E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				036AF54E10D62C41002304AE /* BDB.h */,
 				036AEC9610D11267002304AE /* Dimension.h */,
 				036AED7C10D1BD01002304AE /* Fragment.h */,
 				03E4D6E410BE77DF00D5068E /* Measure.h */,
@@ -992,6 +998,7 @@
 				036AEFAC10D30323002304AE /* SequenceEvent.h in Headers */,
 				036AEFE410D307D2002304AE /* SequenceKey.h in Headers */,
 				036AF47610D5078E002304AE /* Master.h in Headers */,
+				036AF55010D62C41002304AE /* BDB.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1240,6 +1247,7 @@
 				036AEFAD10D30323002304AE /* SequenceEvent.cpp in Sources */,
 				036AEFE510D307D2002304AE /* SequenceKey.cpp in Sources */,
 				036AF47710D5078E002304AE /* Master.cpp in Sources */,
+				036AF55110D62C41002304AE /* BDB.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
