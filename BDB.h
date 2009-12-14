@@ -14,10 +14,13 @@
 
 namespace Flow {
 	class BDB {
-	public:
 		string path;
 		TCBDB *database;
-		
+
+	protected:
+		virtual string Path() = 0;
+
+	public:		
 		BDB(const string& path);
 		~BDB();
 		
@@ -28,14 +31,26 @@ namespace Flow {
 		tuple<bool, string> Close();
 		tuple<bool, string> Truncate();
 		
-		void BDB::Get(const string& key, string& result);
-		void BDB::Get(const string& key, int& result);
-		void BDB::Get(const string& key, double& result);
-		void BDB::Get(const string& key, char* result);
+		bool BDB::Get(const string& key, string& result);
+		bool BDB::Get(const string& key, vector<string>& results);
+		bool BDB::Get(const string& key, vector<RecordID>& results);
+		
+		bool BDB::Put(const string& key, const string& value);
+		bool BDB::Put(const string& key, const RecordID& value);
+		bool BDB::Put(const string& key, const vector<string>& values);
+		bool BDB::Put(const string& key, const vector<RecordID>& records);
+
+		bool BDB::PutDup(const string& key, const string& value);
+		bool BDB::PutDup(const string& key, const RecordID& record);
+		
+		/*
+		 * Transactions
+		 */
+		tuple<bool, string> TransactionBegin();
+		tuple<bool, string> TransactionAbort();
+		tuple<bool, string> TransactionCommit();
 		
 		string Error();
-		
-		virtual string Path() = 0;
 	};
 }
 
