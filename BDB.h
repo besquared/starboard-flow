@@ -35,7 +35,6 @@ namespace Flow {
 		bool BDB::Get(const string& key, vector<RecordID>& results);
 		
 		bool BDB::Put(const string& key, const string& value);
-		bool BDB::Put(const string& key, const RecordID& value);
 		bool BDB::PutDup(const string& key, const string& value);
 		bool BDB::PutDup(const string& key, const RecordID& record);
 		

@@ -36,12 +36,57 @@ namespace {
 		}
 	};
 	
-	TEST_F(BDBTest, PutsAndGetsValues) {
+	TEST_F(BDBTest, PutsAndGetsStrings) {
 		string key = "key";
 		string value = "value";
-		RecordID record = 1;
 		
+		string retrieved;
 		ASSERT_EQ(true, this->database->Put(key, value));
-		ASSERT_EQ(true, this->database->Put(key, record));
+		ASSERT_EQ(true, this->database->Get(key, retrieved));
+		ASSERT_EQ(value, retrieved);
+	}
+	
+	TEST_F(BDBTest, PutsAndGetsDuplicateStrings) {
+		string key = "key";
+		vector<string> retrieved;
+
+		ASSERT_EQ(true, this->database->PutDup(key, "value1"));
+		ASSERT_EQ(true, this->database->PutDup(key, "value2"));
+		ASSERT_EQ(true, this->database->Get(key, retrieved));
+		
+		ASSERT_EQ(2, retrieved.size());
+		ASSERT_EQ("value1", retrieved[0]);
+		ASSERT_EQ("value2", retrieved[1]);
+	}
+	
+	TEST_F(BDBTest, PutsAndGetsDuplicateSetStrings) {
+		string key = "key";
+		set<string> retrieved;
+
+		ASSERT_EQ(true, this->database->PutDup(key, "value1"));
+		ASSERT_EQ(true, this->database->PutDup(key, "value2"));
+		ASSERT_EQ(true, this->database->PutDup(key, "value2"));
+		ASSERT_EQ(true, this->database->Get(key, retrieved));
+		
+		ASSERT_EQ(2, retrieved.size());
+		ASSERT_EQ(1, retrieved.count("value1"));
+		ASSERT_EQ(1, retrieved.count("value2"));
+	}
+	
+	
+	TEST_F(BDBTest, PutsAndGetsDuplicateRecords) {
+		string key = "key";
+		vector<RecordID> values;
+		values.push_back(1.0);
+		values.push_back(2.0);
+		
+		vector<RecordID> retrieved;
+		ASSERT_EQ(true, this->database->PutDup(key, values[0]));
+		ASSERT_EQ(true, this->database->PutDup(key, values[1]));
+		ASSERT_EQ(true, this->database->Get(key, retrieved));
+		
+		ASSERT_EQ(2, retrieved.size());
+		ASSERT_EQ(1.0, retrieved[0]);
+		ASSERT_EQ(2.0, retrieved[1]);		
 	}
 }
