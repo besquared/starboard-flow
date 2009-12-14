@@ -70,9 +70,16 @@ bool Master::Allocate(const set<string>& dimensions) {
 	this->Dimensions(dimensions, newdims);
 	
 	set<string>::iterator dimension;
-	int current_fragment = alldims.size() / FRAGMENT_SIZE;
-	for(dimension = newdims.begin(); dimension != newdims.end(); dimension++) {
-		string fragment; 
+	
+	int current_fragment;
+	if(alldims.size() == 0) {
+		current_fragment = 0;
+	} else {
+		current_fragment = (alldims.size() / FRAGMENT_SIZE) + 1;
+	}
+	
+	for(dimension = newdims.begin(); dimension != newdims.end(); dimension++) {		
+		string fragment;
 		if(alldims.size() % FRAGMENT_SIZE == 0) {
 			current_fragment++;
 			fragment = lexical_cast<string>(current_fragment);
@@ -87,7 +94,7 @@ bool Master::Allocate(const set<string>& dimensions) {
 		} else {
 			fragment = lexical_cast<string>(current_fragment);
 		}
-		
+
 		if(!BDB::Put(*dimension, fragment)) {
 			return false;
 		}
