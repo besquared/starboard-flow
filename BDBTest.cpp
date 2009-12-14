@@ -89,4 +89,8 @@ namespace {
 		ASSERT_EQ(1.0, retrieved[0]);
 		ASSERT_EQ(2.0, retrieved[1]);		
 	}
+	
+	TEST_F(BDBTest, AddsIntsAndDoubles) {
+		
+	}
 }

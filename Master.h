@@ -18,9 +18,6 @@ namespace Flow {
 	public:
 		
 		Master(const string& path);
-		~Master();
-
-		string Path();
 		
 		bool Fragments(vector<string>& results);		
 		bool Fragment(const string& dimension, string& result);
@@ -32,6 +29,8 @@ namespace Flow {
 		bool Allocate(const set<string>& dimensions);
 		
 		bool GenerateRecordID(RecordID& result);
+		
+		static bool Create(const string& path);
 	};
 }
 

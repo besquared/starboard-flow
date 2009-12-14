@@ -174,3 +174,7 @@ bool BDB::Add(const string& key, const double value, double& result) {
 string BDB::Error() {
 	return string(tcbdberrmsg(tcbdbecode(this->database)));
 }
+
+int BDB::ErrorCode() {
+	return tcbdbecode(this->database);
+}

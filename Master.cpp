@@ -11,6 +11,10 @@
 
 Master::Master(const string& path) : BDB::BDB(path, "master") {}
 
+bool Master::Create(const string& path) {
+	return BDB::Create(path, "master");
+}
+
 /*
  * Returns a list of all fragments
  */
@@ -45,7 +49,7 @@ bool Master::Dimensions(const string& fragment, set<string>& results) {
 bool Master::Dimensions(const set<string>& dimensions, set<string>& results) {
 	set<string> existing;
 	
-	if(this->Dimensions(existing)) {
+	if(this->Dimensions(existing) || this->ErrorCode() == TCENOREC) {
 		set_difference(dimensions.begin(), dimensions.end(), 
 									 existing.begin(), existing.end(),
 									 insert_iterator< set<string> >(results, results.end()));
@@ -73,15 +77,28 @@ bool Master::Allocate(const set<string>& dimensions) {
 			current_fragment++;
 			fragment = lexical_cast<string>(current_fragment);
 			
-			BDB::PutDup("fragments", fragment);
-			BDB::Create(this->path, "fragment" + fragment);
+			if(!BDB::PutDup("fragments", fragment)) {
+				return false;
+			}
+			
+			if(!BDB::Create(this->path, "fragment" + fragment)) {
+				return false;
+			}
 		} else {
 			fragment = lexical_cast<string>(current_fragment);
 		}
 		
-		BDB::Put(*dimension, fragment);
-		BDB::PutDup(fragment, *dimension);
-		BDB::PutDup("dimensions", *dimension);
+		if(!BDB::Put(*dimension, fragment)) {
+			return false;
+		}
+		
+		if(!BDB::PutDup(fragment, *dimension)) {
+			return false;
+		}
+		
+		if(!BDB::PutDup("dimensions", *dimension)) {
+			return false;
+		}
 
 		alldims.insert(*dimension);
 	}
