@@ -48,7 +48,7 @@ bool Fragment::Insert(const map<string, string>& dimensions) {
 	int count;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		if(BDB::Add(this->DimensionKey(dimension->first), 1, count)) {
+		if(BDB::Add(this->ValueKey(dimension->first, dimension->second), 1, count)) {
 			if(count == 1) {
 				BDB::PutDup(this->ValuesKey(dimension->first), dimension->second);
 			}
@@ -87,6 +87,6 @@ string Fragment::ValuesKey(const string& dimension) {
 	return "[" + dimension + "]:values";
 }
 
-string Fragment::DimensionKey(const string& dimension) {
-	return "[" + dimension + "]";
+string Fragment::ValueKey(const string& dimension, const string& value) {
+	return "[" + dimension + "]:[" + value + "]";
 }

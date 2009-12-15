@@ -27,7 +27,7 @@ namespace Flow {
 
 		string Key(const vector<string>& components);
 		string ValuesKey(const string& dimension);
-		string DimensionKey(const string& dimension);
+		string ValueKey(const string& dimension, const string& value);
 	};
 }
 
