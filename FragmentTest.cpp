@@ -52,6 +52,10 @@ namespace {
 		ASSERT_EQ("[dimension]", this->database->DimensionKey("dimension"));
 	}
 	
+	TEST_F(FragmentTest, InsertsValues) {
+		// PENDING
+	}
+	
 	TEST_F(FragmentTest, InsertsRecords) {
 		RecordID record = 1;
 		map<string, string> dimensions;
@@ -130,5 +134,39 @@ namespace {
 		ASSERT_EQ(2, records.size());
 		EXPECT_EQ(1, records[0]);
 		EXPECT_EQ(2, records[1]);
+	}
+	
+	TEST_F(FragmentTest, InquiresDimensionValues) {
+		RecordID record;
+		
+		map<string, string> dimensions;
+		dimensions["day"] = "20091020";
+		dimensions["fare-group"] = "Regular";
+		dimensions["station"] = "16th";
+		
+		record = 1;
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		record = 2;
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		set<string> lookup;
+		lookup.insert("day");
+		lookup.insert("fare-group");
+		map< string, vector<string> > values;
+		ASSERT_EQ(true, this->database->Lookup(lookup, values));
+		
+		map< string, vector<string> >::iterator dimension;
+		for(dimension = values.begin(); dimension != values.end(); dimension++) {
+			if(dimension->first == "day") {
+				ASSERT_EQ(1, dimension->second.size());
+				EXPECT_EQ("20091020", dimension->second[0]);
+			} else if(dimension->first == "fare-group") {
+				ASSERT_EQ(1, dimension->second.size());
+				EXPECT_EQ("Regular", dimension->second[0]);
+			} else {
+				FAIL() << "Unexpected dimension in lookup data";
+			}
+		}
 	}
 }
