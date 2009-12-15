@@ -116,7 +116,7 @@ void Dimension::Get(const vector<RecordID>& keys, vector<string>& results) {
 
 void Dimension::Get(const vector<RecordID>& keys, map<RecordID, string>& results) {
 	int written = 0;
-	int bsize = 256;
+	int bsize = 4096;
 	void* buffer = malloc(bsize * sizeof(char));
 	size_t size_k = keys.size();
 	for(size_t i = 0; i < size_k; i++) {

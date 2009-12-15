@@ -29,17 +29,17 @@ namespace Flow {
 		bool Close();
 		bool Truncate();
 		
-		bool BDB::Get(const string& key, string& result);
-		bool BDB::Get(const string& key, set<string>& results);
-		bool BDB::Get(const string& key, vector<string>& results);
-		bool BDB::Get(const string& key, vector<RecordID>& results);
+		bool Get(const string& key, string& result);
+		bool Get(const string& key, set<string>& results);
+		bool Get(const string& key, vector<string>& results);
+		bool Get(const string& key, vector<RecordID>& results);
 		
-		bool BDB::Put(const string& key, const string& value);
-		bool BDB::PutDup(const string& key, const string& value);
-		bool BDB::PutDup(const string& key, const RecordID& record);
+		bool Put(const string& key, const string& value);
+		bool PutDup(const string& key, const string& value);
+		bool PutDup(const string& key, const RecordID& record);
 		
-		bool BDB::Add(const string& key, const int value, int& result);
-		bool BDB::Add(const string& key, const double value, double& result);
+		bool Add(const string& key, const int value, int& result);
+		bool Add(const string& key, const double value, double& result);
 		
 		string Error();
 		int ErrorCode();

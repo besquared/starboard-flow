@@ -91,6 +91,16 @@ namespace {
 	}
 	
 	TEST_F(BDBTest, AddsIntsAndDoubles) {
+		string key;
 		
+		int eger;
+		key = "intkey";
+		ASSERT_EQ(true, this->database->Add(key, 5, eger));
+		EXPECT_EQ(5, eger);
+		
+		double dees;
+		key = "doublekey";
+		ASSERT_EQ(true, this->database->Add(key, 3.55, dees));
+		EXPECT_EQ(3.55, dees);
 	}
 }
