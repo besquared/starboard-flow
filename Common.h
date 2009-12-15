@@ -47,12 +47,12 @@ namespace Flow {
 	typedef tuple<bool, string> Response;
 	
 	namespace Common {
-		vector<RecordID> Intersect(vector<RecordID> & a, vector<RecordID> & b);
-		vector<string> Intersect(vector<string> & a, vector<string> & b);
-		vector<string> Difference(vector<string> & a, vector<string> & b);
+		vector<RecordID> Intersect(vector<RecordID>& a, vector<RecordID> & b);
+		vector<string> Intersect(vector<string>& a, vector<string>& b);
+		vector<string> Difference(vector<string>& a, vector<string>& b);
 		
 		bool IsSet(const unsigned int* set, int i);
-		vector< vector<string> > PowerSet(vector<string> & values);
+		vector< vector<string> > PowerSet(vector<string>& values);
 		
 		/*
 		 * Inspection

@@ -88,6 +88,7 @@
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
 		03ABC7E810C8D9DA006288C0 /* COUNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC7E610C8D9DA006288C0 /* COUNT.h */; };
 		03ABC86410C8F66D006288C0 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC86310C8F66D006288C0 /* Base.h */; };
+		03DCC58510D7395700A35F8F /* FragmentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC58410D7395700A35F8F /* FragmentTest.cpp */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E4D7F710BF87A700D5068E /* ShellFragmentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */; };
 		03E4D7F810BF87A700D5068E /* ShellFragmentsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */; };
@@ -332,6 +333,7 @@
 		03AF8D5E10BE4AB600AF17CB /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		03AF8D5F10BE4AB600AF17CB /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		03DCC58410D7395700A35F8F /* FragmentTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FragmentTest.cpp; sourceTree = "<group>"; };
 		03E4D4EA10BE507600D5068E /* TestMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestMain.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E4D5A610BE56E300D5068E /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 			children = (
 				036AF72910D6560C002304AE /* BDBTest.cpp */,
 				036AF7A510D65E91002304AE /* MasterTest.cpp */,
+				03DCC58410D7395700A35F8F /* FragmentTest.cpp */,
 				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
 				03E4E9F410C601D100D5068E /* MeasureTest.cpp */,
 				03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */,
@@ -1218,6 +1221,7 @@
 				036AF2BF10D36F46002304AE /* SubwayFixture.cpp in Sources */,
 				036AF72A10D6560C002304AE /* BDBTest.cpp in Sources */,
 				036AF7A610D65E91002304AE /* MasterTest.cpp in Sources */,
+				03DCC58510D7395700A35F8F /* FragmentTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

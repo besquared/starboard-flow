@@ -11,20 +11,31 @@
 
 Fragment::Fragment(const string& path, const string& name) : BDB::BDB(path, name) {}
 
-bool Lookup(const map<string, string>& values, vector<RecordID>& results) {
+bool Fragment::Lookup(const map<string, string>& values, vector<RecordID>& results) {
 	return true;
 }
 
-bool Lookup(const set<string>& dimensions, map< string, vector<string> >& results) {
+bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string> >& results) {
 	return true;
 }
 
-bool Lookup(const string& dimension, const vector<string>& values, map<string, RecordID>& results) {
+bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordID>& results) {
 	return true;
 }
 
-bool Insert(RecordID record, const map<string, string>& dimensions) {
-	// How do we do this, do we trust that the dimensions work, 
-	//  or do we know our own dimensions and only pull out the right ones?
+bool Fragment::Insert(const RecordID record, const map<string, string>& dimensions) {
+	vector<string> elements;
+	map<string, string>::const_iterator dimension;
+	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
+		elements.push_back("[" + dimension->first + ":" + dimension->second + "]");
+	}
+	
+	vector< vector<string> > sets = Common::PowerSet(elements);
+	
+	for(size_t i = 0; i < sets.size(); i++) {
+		BDB::PutDup("<" + boost::join(sets[i], ":") + ">", record);
+	}
+	
 	return true;
 }
+
