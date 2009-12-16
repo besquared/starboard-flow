@@ -18,7 +18,7 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	
 	string name;
 	map< string, vector<string> > fragments;
-	map<string, string>::const_iterator cell;
+	map<string, string>::const_iterator cell; // gets reused below
 	for(cell = row.begin(); cell != row.end(); cell++) {
 		if(master->Fragment(cell->first, name)) {
 			fragments[name].push_back(cell->first);
@@ -34,7 +34,10 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	map< string, vector<string> >::iterator fragment;
 	for(fragment = fragments.begin(); fragment != fragments.end(); fragment++) {
 		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
-			partition[*dimension] = row[*dimension];
+			cell = row.find(*dimension);
+			if(cell != row.end()) {
+				partition[*dimension].assign(cell->second);
+			}
 		}
 
 		Fragment fragment = this->master->fragments->Get(cell->first);
