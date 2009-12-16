@@ -40,12 +40,12 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 			}
 		}
 
-		Fragment fragment = this->master->fragments->Get(cell->first);
-		if(fragment.OpenWriter()) {
-			if(fragment.Insert(record, partition)) {
-				fragment.Close();
+		Fragment index = this->master->fragments->Get(fragment->first);
+		if(index.OpenWriter()) {
+			if(index.Insert(record, partition)) {
+				index.Close();
 			} else {
-				fragment.Close();
+				index.Close();
 				return false;
 			}
 		} else {
