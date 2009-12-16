@@ -13,6 +13,10 @@ Master::Master(const string& path) : BDB::BDB(path, "master") {
 	this->fragments = new Fragments::Fragments(this);
 }
 
+Master::~Master() {
+	delete(this->fragments);
+}
+
 bool Master::Create(const string& path) {
 	return BDB::Create(path, "master");
 }

@@ -24,6 +24,7 @@ namespace Flow {
 		Fragments* fragments;		
 
 		Master(const string& path);
+		~Master();
 		
 		bool Fragments(vector<string>& results);		
 		bool Fragment(const string& dimension, string& result);
