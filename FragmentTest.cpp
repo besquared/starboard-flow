@@ -199,4 +199,29 @@ namespace {
 			}
 		}
 	}
+	
+	TEST_F(FragmentTest, InquiresDimensionValueRecords) {
+		RecordID record;
+		map<string, string> dimensions;
+		
+		record = 1;
+		dimensions["day"] = "20091020";
+		dimensions["fare-group"] = "Regular";
+		dimensions["station"] = "16th";		
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		record = 2;
+		dimensions["fare-group"] = "Senior";
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		vector<string> values;
+		values.push_back("Regular");
+		values.push_back("Senior");
+		map< string, vector<RecordID> > records;
+		ASSERT_EQ(true, this->database->Lookup("fare-group", values, records));
+		ASSERT_EQ(1, records["Regular"].size());
+		EXPECT_EQ(1, records["Regular"][0]);
+		ASSERT_EQ(1, records["Senior"].size());
+		EXPECT_EQ(2, records["Senior"][0]);
+	}
 }

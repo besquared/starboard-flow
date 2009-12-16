@@ -18,7 +18,7 @@ bool Fragment::Lookup(const map<string, string>& dimensions, vector<RecordID>& r
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		elements.push_back("[" + dimension->first + ":" + dimension->second + "]");
+		elements.push_back(this->Component(dimension->first, dimension->second));
 	}
 	
 	return BDB::Get(this->Key(elements), results);
@@ -28,6 +28,7 @@ bool Fragment::Lookup(const map<string, string>& dimensions, vector<RecordID>& r
  * Looks up unique values for a given set of dimensions
  */
 bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string> >& results) {
+	vector<string> component;
 	set<string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
 		BDB::Get(this->ValuesKey(*dimension), results[*dimension]);
@@ -36,7 +37,14 @@ bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string>
 	return true;
 }
 
-bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordID>& results) {
+/*
+ * Looks up the records for a list of dimension values
+ */
+bool Fragment::Lookup(const string& dimension, const vector<string>& values, map< string, vector<RecordID> >& results) {
+	for(size_t i = 0; i < values.size(); i++) {
+		BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
+	}
+	
 	return true;
 }
 
@@ -44,7 +52,6 @@ bool Fragment::Lookup(const string& dimension, const vector<string>& values, map
  * Insert dimension values
  */
 bool Fragment::Insert(const map<string, string>& dimensions) {
-	// insert unique values for each dimension
 	int count;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -65,7 +72,7 @@ bool Fragment::Insert(const RecordID record, const map<string, string>& dimensio
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		elements.push_back("[" + dimension->first + ":" + dimension->second + "]");
+		elements.push_back(this->Component(dimension->first, dimension->second));
 	}
 	
 	vector< vector<string> > sets = Common::PowerSet(elements);
@@ -79,8 +86,12 @@ bool Fragment::Insert(const RecordID record, const map<string, string>& dimensio
 	return true;
 }
 
+string Fragment::Key(const string& component) {
+	return "<" + component + ">";
+}
+
 string Fragment::Key(const vector<string>& components) {
-	return "<" + boost::join(components, ":") + ">";
+	return this->Key(boost::join(components, ":"));
 }
 
 string Fragment::ValuesKey(const string& dimension) {
@@ -89,4 +100,8 @@ string Fragment::ValuesKey(const string& dimension) {
 
 string Fragment::ValueKey(const string& dimension, const string& value) {
 	return "[" + dimension + "]:[" + value + "]";
+}
+
+string Fragment::Component(const string& dimension, const string& value) {
+	return "[" + dimension + ":" + value + "]";
 }
