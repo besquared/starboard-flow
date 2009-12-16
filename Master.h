@@ -17,6 +17,7 @@
 
 namespace Flow {
 	class Master : public BDB {
+	private:
 		class Fragments;
 		
 	public:		
@@ -36,14 +37,15 @@ namespace Flow {
 		bool GenerateRecordID(RecordID& result);
 		
 		static bool Create(const string& path);
+		
+	private:
+		class Fragments {
+			Master* master;
+		public:
+			Fragments(Master* master);
+			Flow::Fragment Get(const string& name);
+		};		
 	};
-	
-	class Master::Fragments {
-		Master* master;
-	public:
-		Fragments(Master* master);
-		Flow::Fragment Get(const string& name);
-	};	
 }
 
 #endif
