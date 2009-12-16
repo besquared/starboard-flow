@@ -11,6 +11,7 @@
 #define _fragment_included_
 
 #include "Common.h"
+
 #include "BDB.h"
 
 namespace Flow {

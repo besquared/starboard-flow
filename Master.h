@@ -11,12 +11,17 @@
 #define _master_included_
 
 #include "Common.h"
+
 #include "BDB.h"
+#include "Fragment.h"
 
 namespace Flow {
 	class Master : public BDB {
-	public:
+		class Fragments;
 		
+	public:		
+		Fragments* fragments;		
+
 		Master(const string& path);
 		
 		bool Fragments(vector<string>& results);		
@@ -32,6 +37,13 @@ namespace Flow {
 		
 		static bool Create(const string& path);
 	};
+	
+	class Master::Fragments {
+		Master* master;
+	public:
+		Fragments(Master* master);
+		Flow::Fragment Get(const string& name);
+	};	
 }
 
 #endif

@@ -9,7 +9,9 @@
 
 #include "Master.h"
 
-Master::Master(const string& path) : BDB::BDB(path, "master") {}
+Master::Master(const string& path) : BDB::BDB(path, "master") {
+	this->fragments = new Flow::Master::Fragments(this);
+}
 
 bool Master::Create(const string& path) {
 	return BDB::Create(path, "master");
@@ -118,4 +120,14 @@ bool Master::Allocate(const set<string>& dimensions) {
  */
 bool Master::GenerateRecordID(RecordID& result) {
 	return BDB::Add("records", 1, result);
+}
+
+/*
+ * Fragments Proxy
+ */
+
+Master::Fragments::Fragments(Master* master) : master(master) {}
+
+Flow::Fragment Master::Fragments::Get(const string& name) {
+	return Flow::Fragment(this->master->path, name);
 }
