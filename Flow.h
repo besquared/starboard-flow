@@ -24,6 +24,7 @@
 #include "BDB.h"
 #include "Master.h"
 #include "Fragment.h"
+#include "Fragments.h"
 
 #include "Table.h"
 #include "Query.h"

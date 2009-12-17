@@ -17,8 +17,16 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	master->OpenReader();
 	
 	string name;
+	set<string> dimensions;
 	map< string, vector<string> > fragments;
 	map<string, string>::const_iterator cell; // gets reused below
+	
+	for(cell = row.begin(); cell != row.end(); cell++) {
+		dimensions.insert(cell->first);
+	}
+	
+	master->Allocate(dimensions);
+
 	for(cell = row.begin(); cell != row.end(); cell++) {
 		if(master->Fragment(cell->first, name)) {
 			fragments[name].push_back(cell->first);
@@ -54,8 +62,10 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 		
 		partition.clear();
 	}
+	
+	return true;
 }
 
 bool Fragments::Lookup(const vector<string>& dimensions, const vector<Condition>& conditions) {
-	
+	return true;
 }
