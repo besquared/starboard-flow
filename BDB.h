@@ -24,26 +24,26 @@ namespace Flow {
 		BDB(const string& path, const string& name);
 		virtual ~BDB();
 		
-		virtual bool OpenReader();
-		virtual bool OpenWriter();
-		virtual bool Open(int mode);
-		virtual bool Close();
-		virtual bool Truncate();
+		bool OpenReader();
+		bool OpenWriter();
+		bool Open(int mode);
+		bool Close();
+		bool Truncate();
 		
-		virtual bool Get(const string& key, string& result);
-		virtual bool Get(const string& key, set<string>& results);
-		virtual bool Get(const string& key, vector<string>& results);
-		virtual bool Get(const string& key, RecordList& results);
+		bool Get(const string& key, string& result);
+		bool Get(const string& key, set<string>& results);
+		bool Get(const string& key, vector<string>& results);
+		bool Get(const string& key, RecordList& results);
 		
-		virtual bool Put(const string& key, const string& value);
-		virtual bool PutDup(const string& key, const string& value);
-		virtual bool PutCat(const string& key, const RecordID& record);
+		bool Put(const string& key, const string& value);
+		bool PutDup(const string& key, const string& value);
+		bool PutCat(const string& key, const RecordID& record);
 		
-		virtual bool Add(const string& key, const int value, int& result);
-		virtual bool Add(const string& key, const double value, double& result);
+		bool Add(const string& key, const int value, int& result);
+		bool Add(const string& key, const double value, double& result);
 		
-		virtual string Error();
-		virtual int ErrorCode();
+		string Error();
+		int ErrorCode();
 		
 		static bool Create(const string& path, const string& name);
 		static string Path(const string& path, const string& name);

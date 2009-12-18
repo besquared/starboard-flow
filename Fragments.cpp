@@ -23,8 +23,8 @@ bool Fragments::Allocate(const map<string, string>& row) {
 		dimensions.insert(cell->first);
 	}
 	
-	master->OpenWriter();
-	master->Allocate(dimensions);
+	this->master->OpenWriter();
+	this->master->Allocate(dimensions);
 
 	for(cell = row.begin(); cell != row.end(); cell++) {
 		if(master->Fragment(cell->first, name)) {
@@ -34,7 +34,7 @@ bool Fragments::Allocate(const map<string, string>& row) {
 		}
 	}
 	
-	master->Close();
+	this->master->Close();
 	
 	return true;
 }

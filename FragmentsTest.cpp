@@ -22,7 +22,7 @@ namespace {
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
-			Mocks::MockMaster master(path);
+			Master master(path);
 			this->fragments = new Fragments(&master);
 		}
 		

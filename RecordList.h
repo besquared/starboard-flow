@@ -12,36 +12,14 @@
 
 #include "Common.h"
 
-class RecordList {
+class RecordList : public vector<RecordID> {
 public:
-  size_t _size;
-  size_t _capacity;
-  RecordID* buffer;
-  
-  RecordList();
-	RecordList(const RecordList& copy);	
+	RecordList();
   RecordList(void* buffer, int bsize);
   RecordList(RecordID* buffer, size_t count);
-	~RecordList();
-  
-	size_t size() const;  
-  size_t capacity() const;
-  void reserve(size_t size);
-	
-  void push_back(RecordID value);
-	void assign(const RecordList& copy);
-  void assign(void* buffer, int bsize);
-	void assign(RecordID* buffer, size_t count);
-	void clear();
-	
-  RecordID at(size_t offset);
-  RecordID operator[](size_t offset);
   
 	RecordList operator&(RecordList& other);
 	RecordList operator|(RecordList& other);
-	
-protected:
-  void allocate(int size);
 };
 
 #endif

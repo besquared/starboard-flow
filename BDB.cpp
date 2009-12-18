@@ -10,6 +10,7 @@
 #include "BDB.h"
 
 BDB::BDB(const string& path, const string& name) {
+	cout << "Constructing BDB with " << path << ", " << name << endl;
 	this->path = path;
 	this->name = name;
 	this->database = tcbdbnew();
@@ -43,6 +44,7 @@ bool BDB::OpenReader() {
 }
 
 bool BDB::OpenWriter() {
+	cout << "WE GOT HERE" << endl;
   return this->Open(BDBOWRITER | BDBOCREAT);
 }
 
@@ -56,7 +58,6 @@ bool BDB::Truncate() {
 }
 
 bool BDB::Open(int mode) {
-	cout << "Path is " << this->path << endl;
 	cout << "Opening path " << BDB::Path(this->path, this->name) << endl;
 	return tcbdbopen(this->database, BDB::Path(this->path, this->name).c_str(), mode);
 }
@@ -123,7 +124,8 @@ bool BDB::Get(const string& key, RecordList& results) {
 	void* records = tcbdbget(this->database, key.c_str(), key.size(), &size);
 	
 	if(records != NULL) {
-		results.assign(records, size);
+		size_t count = size / sizeof(RecordID);
+		results.insert(results.end(), (RecordID*)records, (RecordID*)records + count);
 		free(records);
 		return true;
 	} else {

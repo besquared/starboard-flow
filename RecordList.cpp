@@ -10,98 +10,14 @@
 #include "RecordList.h"
 
 RecordList::RecordList() {
-	this->buffer = NULL;
-	this->clear();
-}
-
-RecordList::RecordList(const RecordList& copy) {
-	cout << "COPY!!!" << endl;
-	this->assign(copy);
 }
 
 RecordList::RecordList(void* buffer, int bsize) {
-	this->assign(buffer, bsize);
+//	this->assign(buffer, bsize);
 }
 
 RecordList::RecordList(RecordID* buffer, size_t count) {
-	this->assign(buffer, count);
-}
-
-RecordList::~RecordList() {
-	free(this->buffer);
-}
-
-size_t RecordList::size() const {
-	return this->_size;	
-}
-
-size_t RecordList::capacity() const {
-	return this->_capacity;
-}
-
-void RecordList::reserve(size_t size) {
-	if(size > this->_capacity) {
-		size_t nsize = size * sizeof(RecordID);
-		
-		this->_capacity = size;
-		this->buffer = (RecordID*)realloc(this->buffer, nsize);
-	}
-}
-
-void RecordList::push_back(RecordID value) {
-	if(this->_size == this->_capacity) {
-		this->reserve(this->_capacity * 2);
-	}
-	
-	*(buffer + this->_size) = value;
-	this->_size++;
-}
-
-void RecordList::assign(const RecordList& copy) {
-	this->clear();
-	
-	size_t bsize = copy.size() * sizeof(RecordID);
-	this->buffer = (RecordID*)realloc(copy.buffer, bsize);
-	memcpy(this->buffer, copy.buffer, bsize);
-	this->_size = copy.size();
-	this->_capacity = this->_size;
-}
-
-void RecordList::assign(void* buffer, int bsize) {
-	this->clear();
-	
-	this->buffer = (RecordID*)realloc(this->buffer, bsize);
-	memcpy(this->buffer, buffer, bsize);
-	
-	this->_size = bsize / sizeof(RecordID);
-	this->_capacity = this->_size;	
-}
-
-void RecordList::assign(RecordID* buffer, size_t count) {
-	this->clear();
-	
-	size_t bsize = count * sizeof(RecordID);
-	this->buffer = (RecordID*)realloc(this->buffer, bsize);
-	memcpy(this->buffer, buffer, bsize);
-	
-	this->_size = count;
-	this->_capacity = this->_size;
-}
-
-void RecordList::clear() {
-	if(this->buffer != NULL) { free(this->buffer); }
-	
-	this->_size = 0;
-	this->_capacity = 4;
-	this->allocate(this->_capacity);	
-}
-
-RecordID RecordList::at(size_t offset) {
-	return *(buffer + offset);
-}
-
-RecordID RecordList::operator[](size_t offset) {
-	return *(buffer + offset);
+//	this->assign(buffer, count);
 }
 
 // Performs an AND operation on two sorted RecordLists
@@ -172,13 +88,4 @@ RecordList RecordList::operator|(RecordList& other) {
 	}
 	
 	return results;
-}
-
-/*
- * Protected
- */
-
-void RecordList::allocate(int size) {
-	size_t nsize = 4 * sizeof(RecordID);
-	this->buffer = (RecordID*)malloc(nsize);
 }
