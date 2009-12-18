@@ -56,6 +56,8 @@ bool BDB::Truncate() {
 }
 
 bool BDB::Open(int mode) {
+	cout << "Path is " << this->path << endl;
+	cout << "Opening path " << BDB::Path(this->path, this->name) << endl;
 	return tcbdbopen(this->database, BDB::Path(this->path, this->name).c_str(), mode);
 }
 

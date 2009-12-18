@@ -44,10 +44,10 @@ bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string>
 /*
  * Looks up the records for a list of dimension values
  */
-bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results) {
+bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList*>& results) {
 	for(size_t i = 0; i < values.size(); i++) {
-		RecordList rlist;
-		BDB::Get(this->Key(this->Component(dimension, values[i])), rlist);
+		RecordList* rlist = new RecordList();
+		BDB::Get(this->Key(this->Component(dimension, values[i])), *rlist);
 		results[values[i]] = rlist;
 	}
 	

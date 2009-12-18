@@ -521,7 +521,6 @@
 				036AE89410CF4CA5002304AE /* ColumnsTest.cpp */,
 				036AE6D910CE0FF9002304AE /* TColumnTest.cpp */,
 				036AE6DF10CE1B93002304AE /* TListColumnTest.cpp */,
-				03DCC84910DB472100A35F8F /* RecordListTest.cpp */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -875,6 +874,7 @@
 				03DCC58410D7395700A35F8F /* FragmentTest.cpp */,
 				03E4E9F410C601D100D5068E /* MeasureTest.cpp */,
 				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
+				03DCC84910DB472100A35F8F /* RecordListTest.cpp */,
 				03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */,
 			);
 			name = Database;

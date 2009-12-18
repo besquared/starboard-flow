@@ -23,7 +23,7 @@ namespace Flow {
 
 		bool Lookup(const map<string, string>& dimensions, RecordList& results);
 		bool Lookup(const set<string>& dimensions, map< string, vector<string> >& results);
-		bool Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results);
+		bool Lookup(const string& dimension, const vector<string>& values, map<string, RecordList*>& results);
 		
 		bool Insert(const map<string, string>& dimensions);
 		bool Insert(const RecordID record, const map<string, string>& dimensions);

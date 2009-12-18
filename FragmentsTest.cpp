@@ -22,10 +22,8 @@ namespace {
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
-			Mocks::MockMaster master;
+			Mocks::MockMaster master(path);
 			this->fragments = new Fragments(&master);
-			
-			EXPECT_CALL(master, OpenWriter());
 		}
 		
 		virtual void TearDown() {

@@ -15,6 +15,7 @@ RecordList::RecordList() {
 }
 
 RecordList::RecordList(const RecordList& copy) {
+	cout << "COPY!!!" << endl;
 	this->assign(copy);
 }
 

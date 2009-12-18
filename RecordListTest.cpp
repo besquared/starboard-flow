@@ -63,4 +63,8 @@ namespace {
 		
 		free(records);		
 	}
+	
+	TEST_F(RecordListTest, Copies) {
+		
+	}
 }

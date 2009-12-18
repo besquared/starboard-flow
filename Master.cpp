@@ -10,6 +10,7 @@
 #include "Master.h"
 
 Master::Master(const string& path) : BDB::BDB(path, "master") {
+	cout << "Constructing with path " << path << endl;
 	this->fragments = new Fragments::Fragments(this);
 }
 
