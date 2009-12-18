@@ -19,6 +19,13 @@ namespace Flow {
 			class MockMaster : public Master {
 			public:
 				MockMaster(const string& path) : Master::Master(path) {}
+				
+				MOCK_METHOD0(OpenWriter, bool());
+				MOCK_METHOD0(OpenReader, bool());
+				MOCK_METHOD0(Close, bool());
+				
+				MOCK_METHOD1(Allocate, bool(const set<string>& dimensions));
+				MOCK_METHOD2(Fragment, bool(const string& dimension, string& result));
 			};
 		}
 	}
