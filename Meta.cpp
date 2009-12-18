@@ -1,5 +1,5 @@
 /*
- *  Master.cpp
+ *  Meta.cpp
  *  flow
  *
  *  Created by Josh Ferguson on 12/13/09.
@@ -7,12 +7,12 @@
  *
  */
 
-#include "Master.h"
+#include "Meta.h"
 
-Master::Master(const string& path) : BDB::BDB(path, "master") {}
+Meta::Meta(const string& path) : BDB::BDB(path, "meta") {}
 
-bool Master::Create(const string& path) {
-	if(BDB::Create(path, "master")) {
+bool Meta::Create(const string& path) {
+	if(BDB::Create(path, "meta")) {
 		return Fragment::Create(path);
 	} else {
 		return false;
@@ -22,35 +22,35 @@ bool Master::Create(const string& path) {
 /*
  * Returns a list of all fragments
  */
-bool Master::Fragments(vector<string>& results) {
+bool Meta::Fragments(vector<string>& results) {
 	return BDB::Get("fragments", results);
 }
 
 /*
  * Returns the fragment which contains the given dimension
  */
-bool Master::Fragment(const string& dimension, string& result) {
+bool Meta::Fragment(const string& dimension, string& result) {
 	return BDB::Get(dimension, result);
 }
 
 /*
  * Returns a list of all dimensions in the database
  */
-bool Master::Dimensions(set<string>& results) {
+bool Meta::Dimensions(set<string>& results) {
 	return BDB::Get("dimensions", results);
 }
 
 /*
  * Returns a list of all dimensions in the given fragment
  */
-bool Master::Dimensions(const string& fragment, set<string>& results) {
+bool Meta::Dimensions(const string& fragment, set<string>& results) {
 	return BDB::Get(fragment, results);
 }
 
 /*
  * Returns a list of all dimensions *not* in the database
  */
-bool Master::Dimensions(const set<string>& dimensions, set<string>& results) {
+bool Meta::Dimensions(const set<string>& dimensions, set<string>& results) {
 	set<string> existing;
 	
 	if(this->Dimensions(existing) || this->ErrorCode() == TCENOREC) {
@@ -67,7 +67,7 @@ bool Master::Dimensions(const set<string>& dimensions, set<string>& results) {
 /*
  * Generates all the necessary fragments to hold dimensions
  */
-bool Master::Allocate(const set<string>& dimensions) {
+bool Meta::Allocate(const set<string>& dimensions) {
 	set<string> alldims;
 	set<string> newdims;
 	this->Dimensions(alldims);
@@ -116,10 +116,10 @@ bool Master::Allocate(const set<string>& dimensions) {
 /*
  * Generates a new global record id
  */
-bool Master::GenerateRecordID(RecordID& result) {
+bool Meta::GenerateRecordID(RecordID& result) {
 	return BDB::Add("records", 1, result);
 }
 
-Flow::Fragment Master::GetIndex() {
+Flow::Fragment Meta::GetIndex() {
 	return Flow::Fragment(this->path);
 }

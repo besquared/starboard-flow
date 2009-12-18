@@ -1,6 +1,6 @@
 /*
  *  MasterTest.cpp
- *  flow
+ *  Flow
  *
  *  Created by Josh Ferguson on 12/14/09.
  *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
@@ -10,23 +10,23 @@
 #include "TestHelper.h"
 
 namespace {
-	class MasterTest : public ::testing::Test {
+	class MetaTest : public ::testing::Test {
 	protected:
-		Master* database;
+		Meta* database;
 		
-		MasterTest() {}
-		virtual ~MasterTest() {}
+		MetaTest() {}
+		virtual ~MetaTest() {}
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
 			
-			Master::Create(path);
-			database = new Master(path);
+			Meta::Create(path);
+			database = new Meta(path);
 			
 			this->database->Truncate();
 			
 			if(!this->database->OpenWriter()) {
-				FAIL() << "Could not open database for MasterTest => " << this->database->Error() << endl;
+				FAIL() << "Could not open database for MetaTest => " << this->database->Error() << endl;
 			}
 		}
 		
@@ -35,7 +35,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(MasterTest, AllocatesFragmentsAndDimensions) {
+	TEST_F(MetaTest, AllocatesFragmentsAndDimensions) {
 		set<string> dimensions;
 		dimensions.insert("name");
 		dimensions.insert("fare-group");

@@ -11,16 +11,16 @@
 #define _included_fragments_
 
 #include "Common.h"
-#include "Master.h"
+#include "Meta.h"
 #include "Fragment.h"
 #include "Condition.h"
 
 namespace Flow {
 	class Fragments {
-		Master* master;
+		Meta* meta;
 		
 	public:
-		Fragments(Master* master);
+		Fragments(Meta* meta);
 		
 		bool Allocate(const map<string, string>& row);
 		bool Insert(const RecordID& record, const map<string, string>& row);

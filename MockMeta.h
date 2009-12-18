@@ -7,20 +7,18 @@
  *
  */
 
-#ifndef _included_mock_master_
-#define _included_mock_master_
+#ifndef _included_mock_meta_
+#define _included_mock_meta_
 
 #include "Common.h"
-#include "Master.h"
+#include "Meta.h"
 
 namespace Flow {
 	namespace Testing {
 		namespace Database {
-			class MockMaster : public Master {
+			class MockMeta : public Meta {
 			public:
-				MockMaster(const string& path) : Master::Master(path) {
-					
-				}
+				MockMeta(const string& path) : Meta::Meta(path) {}
 				
 				MOCK_METHOD0(OpenWriter, bool());
 				MOCK_METHOD0(OpenReader, bool());

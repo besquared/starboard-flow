@@ -9,8 +9,8 @@
 
 #include "Fragments.h"
 
-Fragments::Fragments(Master *master) {
-	this->master = master;
+Fragments::Fragments(Meta *meta) {
+	this->meta = meta;
 }
 
 bool Fragments::Allocate(const map<string, string>& row) {
@@ -21,7 +21,7 @@ bool Fragments::Allocate(const map<string, string>& row) {
 		dimensions.insert(cell->first);
 	}
 
-	if(!this->master->Allocate(dimensions)) {
+	if(!this->meta->Allocate(dimensions)) {
 		return false;
 	} else {
 		return true;
@@ -29,7 +29,7 @@ bool Fragments::Allocate(const map<string, string>& row) {
 }
 
 bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
-	if(!this->master->OpenWriter()) {
+	if(!this->meta->OpenWriter()) {
 		return false;
 	}	
 		
@@ -38,25 +38,21 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	}
 
 	string name;
-	map<string, string> partition;
-	vector<string>::iterator dimension;
 	map< string, vector<string> > fragments;
 	map<string, string>::const_iterator cell;
-	map< string, vector<string> >::iterator fragment;
-	
 	for(cell = row.begin(); cell != row.end(); cell++) {
-		cout << "WTF MANG" << endl;
-		cout << "Calling this->master->Fragment(" << cell->first << ", " << name << ")" << endl;
-		if(this->master->Fragment(cell->first, name)) {
+		if(this->meta->Fragment(cell->first, name)) {
 			fragments[name].push_back(cell->first);
 		} else {
-			cout << "WE DIDN'T MAKE IT!!" << endl;
 			return false;
 		}
 	}
 	
-	this->master->Close();
+	this->meta->Close();
 	
+	map<string, string> partition;
+	vector<string>::iterator dimension;
+	map< string, vector<string> >::iterator fragment;
 	for(fragment = fragments.begin(); fragment != fragments.end(); fragment++) {
 		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
 			cell = row.find(*dimension);
@@ -65,7 +61,7 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 			}
 		}
 
-		Fragment index = this->master->GetIndex();
+		Fragment index = this->meta->GetIndex();
 		
 		if(index.OpenWriter()) {
 			if(index.Insert(record, partition)) {

@@ -8,7 +8,7 @@
  */
 
 #include "TestHelper.h"
-#include "MockMaster.h"
+#include "MockMeta.h"
 
 namespace Mocks = Testing::Database;
 
@@ -20,19 +20,19 @@ namespace {
 	class FragmentsTest : public ::testing::Test {
 	protected:
 		Fragments* fragments;
-		Mocks::MockMaster* master;
+		Mocks::MockMeta* meta;
 
 		FragmentsTest() {}
 		virtual ~FragmentsTest() {}
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
-			this->master = new Mocks::MockMaster(path);
-			this->fragments = new Fragments(this->master);
+			this->meta = new Mocks::MockMeta(path);
+			this->fragments = new Fragments(this->meta);
 		}
 		
 		virtual void TearDown() {
-			delete(this->master);
+			delete(this->meta);
 			delete(this->fragments);
 		}
 	};
@@ -49,14 +49,14 @@ namespace {
 		allocated.insert("fare-group");
 		allocated.insert("station");
 		
-		EXPECT_CALL(*this->master, OpenWriter()).WillOnce(Return(true));
-		EXPECT_CALL(*this->master, Allocate(allocated)).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, OpenWriter()).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, Allocate(allocated)).WillOnce(Return(true));
 		
-		EXPECT_CALL(*this->master, Fragment("day", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
-		EXPECT_CALL(*this->master, Fragment("fare-group", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
-		EXPECT_CALL(*this->master, Fragment("station", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Fragment("day", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Fragment("fare-group", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Fragment("station", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
 		
-		EXPECT_CALL(*this->master, Close()).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, Close()).WillOnce(Return(true));
 
 		ASSERT_EQ(true, this->fragments->Insert(record, dimensions));
 		// check this stuff

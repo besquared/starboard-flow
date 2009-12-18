@@ -1,5 +1,5 @@
 /*
- *  Master.h
+ *  Meta.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/13/09.
@@ -16,9 +16,9 @@
 #include "Fragment.h"
 
 namespace Flow {
-	class Master : public BDB {
+	class Meta : public BDB {
 	public:		
-		Master(const string& path);
+		Meta(const string& path);
 		
 		virtual bool Fragments(vector<string>& results);		
 		virtual bool Fragment(const string& dimension, string& result);
