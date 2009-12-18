@@ -19,15 +19,17 @@ public:
   RecordID* buffer;
   
   RecordList();
+	RecordList(const RecordList& copy);	
   RecordList(void* buffer, int bsize);
   RecordList(RecordID* buffer, size_t count);
 	~RecordList();
   
-	size_t size();  
-  size_t capacity();
+	size_t size() const;  
+  size_t capacity() const;
   void reserve(size_t size);
 	
   void push_back(RecordID value);
+	void assign(const RecordList& copy);
   void assign(void* buffer, int bsize);
 	void assign(RecordID* buffer, size_t count);
 	void clear();

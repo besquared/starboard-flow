@@ -13,18 +13,17 @@ Fragments::Fragments(Master *master) {
 	this->master = master;
 }
 
-bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
-	master->OpenReader();
-	
+bool Fragments::Allocate(const map<string, string>& row) {
 	string name;
 	set<string> dimensions;
 	map< string, vector<string> > fragments;
-	map<string, string>::const_iterator cell; // gets reused below
+	map<string, string>::const_iterator cell;
 	
 	for(cell = row.begin(); cell != row.end(); cell++) {
 		dimensions.insert(cell->first);
 	}
 	
+	master->OpenWriter();
 	master->Allocate(dimensions);
 
 	for(cell = row.begin(); cell != row.end(); cell++) {
@@ -37,8 +36,18 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	
 	master->Close();
 	
+	return true;
+}
+
+bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
+	if(!this->Allocate(row)) {
+		return false;
+	}
+
 	map<string, string> partition;
 	vector<string>::iterator dimension;
+	map< string, vector<string> > fragments;
+	map<string, string>::const_iterator cell;
 	map< string, vector<string> >::iterator fragment;
 	for(fragment = fragments.begin(); fragment != fragments.end(); fragment++) {
 		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
@@ -48,7 +57,8 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 			}
 		}
 
-		Fragment index = this->master->fragments->Get(fragment->first);
+		Fragment index = this->master->fragments->Get();
+		
 		if(index.OpenWriter()) {
 			if(index.Insert(record, partition)) {
 				index.Close();

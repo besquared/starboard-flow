@@ -11,6 +11,7 @@
 #define _test_helper_included_
 
 #include "Flow.h"
+#include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
 using namespace Flow;

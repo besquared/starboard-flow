@@ -18,7 +18,11 @@ Master::~Master() {
 }
 
 bool Master::Create(const string& path) {
-	return BDB::Create(path, "master");
+	if(BDB::Create(path, "master")) {
+		return Fragment::Create(path);
+	} else {
+		return false;
+	}
 }
 
 /*
@@ -93,10 +97,6 @@ bool Master::Allocate(const set<string>& dimensions) {
 			if(!BDB::PutDup("fragments", fragment)) {
 				return false;
 			}
-			
-			if(!BDB::Create(this->path, "fragment" + fragment)) {
-				return false;
-			}
 		} else {
 			fragment = lexical_cast<string>(current_fragment);
 		}
@@ -134,6 +134,6 @@ Master::Fragments::Fragments(Master* master) {
 	this->master = master;
 }
 
-Flow::Fragment Master::Fragments::Get(const string& name) {
-	return Flow::Fragment(this->master->path, name);
+Flow::Fragment Master::Fragments::Get() {
+	return Flow::Fragment(this->master->path);
 }

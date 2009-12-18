@@ -8,11 +8,13 @@
  */
 
 #include "TestHelper.h"
+#include "MockMaster.h"
+
+namespace Mocks = Testing::Database;
 
 namespace {
 	class FragmentsTest : public ::testing::Test {
 	protected:
-		Master* master;
 		Fragments* fragments;
 		
 		FragmentsTest() {}
@@ -20,20 +22,14 @@ namespace {
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
+			Mocks::MockMaster master;
+			this->fragments = new Fragments(&master);
 			
-			Master::Create(path);
-			this->master = new Master(path);
-			this->fragments = new Fragments(this->master);
-			
-			this->master->Truncate();
-			
-			if(!this->master->OpenWriter()) {
-				FAIL() << "Could not open master database for FragmentsTest => " << this->master->Error() << endl;
-			}
+			EXPECT_CALL(master, OpenWriter());
 		}
 		
 		virtual void TearDown() {
-			delete(this->master);
+			delete(this->fragments);
 		}
 	};
 	
@@ -45,5 +41,10 @@ namespace {
 		dimensions["station"] = "16th";
 		
 		ASSERT_EQ(true, this->fragments->Insert(record, dimensions));
-	}	
+		// check this stuff
+	}
+	
+//	TEST_F(FragmentsTest, LooksUpRecords) {
+//		
+//	}
 }

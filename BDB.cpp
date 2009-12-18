@@ -137,10 +137,6 @@ bool BDB::PutDup(const string& key, const string& value) {
 	return tcbdbputdup(this->database, key.c_str(), key.size(), value.c_str(), value.size());
 }
 
-bool BDB::PutDup(const string& key, const RecordID& value) {
-	return tcbdbputdup(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
-}
-
 bool BDB::PutCat(const string& key, const RecordID& value) {
 	return tcbdbputcat(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
 }

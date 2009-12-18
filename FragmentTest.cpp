@@ -18,11 +18,9 @@ namespace {
 		virtual ~FragmentTest() {}
 		
 		virtual void SetUp() {
-			string path = "/tmp/flow";
-			string fragment = "fragment1";
-			
-			Fragment::Create(path, fragment);
-			database = new Fragment(path, fragment);
+			string path = "/tmp/flow";			
+			Fragment::Create(path);
+			database = new Fragment(path);
 			
 			this->database->Truncate();
 			
@@ -164,63 +162,63 @@ namespace {
 		EXPECT_EQ(2, records[1]);
 	}
 
-//	TEST_F(FragmentTest, InquiresDimensionValues) {
-//		RecordID record;
-//		map<string, string> dimensions;
-//		
-//		record = 1;
-//		dimensions["day"] = "20091020";
-//		dimensions["fare-group"] = "Regular";
-//		dimensions["station"] = "16th";		
-//		ASSERT_EQ(true, this->database->Insert(record, dimensions));
-//		
-//		record = 2;
-//		dimensions["fare-group"] = "Senior";
-//		ASSERT_EQ(true, this->database->Insert(record, dimensions));
-//		
-//		set<string> lookup;
-//		lookup.insert("day");
-//		lookup.insert("fare-group");
-//		map< string, vector<string> > values;
-//		ASSERT_EQ(true, this->database->Lookup(lookup, values));
-//		
-//		map< string, vector<string> >::iterator dimension;
-//		for(dimension = values.begin(); dimension != values.end(); dimension++) {
-//			if(dimension->first == "day") {
-//				ASSERT_EQ(1, dimension->second.size());
-//				EXPECT_EQ("20091020", dimension->second[0]);
-//			} else if(dimension->first == "fare-group") {
-//				ASSERT_EQ(2, dimension->second.size());
-//				EXPECT_EQ("Regular", dimension->second[0]);
-//				EXPECT_EQ("Senior", dimension->second[1]);
-//			} else {
-//				FAIL() << "Unexpected dimension in lookup data";
-//			}
-//		}
-//	}
-//	
-//	TEST_F(FragmentTest, InquiresDimensionValueRecords) {
-//		RecordID record;
-//		map<string, string> dimensions;
-//		
-//		record = 1;
-//		dimensions["day"] = "20091020";
-//		dimensions["fare-group"] = "Regular";
-//		dimensions["station"] = "16th";		
-//		ASSERT_EQ(true, this->database->Insert(record, dimensions));
-//		
-//		record = 2;
-//		dimensions["fare-group"] = "Senior";
-//		ASSERT_EQ(true, this->database->Insert(record, dimensions));
-//		
-//		vector<string> values;
-//		values.push_back("Regular");
-//		values.push_back("Senior");
-//		map<string, RecordList> records;
-//		ASSERT_EQ(true, this->database->Lookup("fare-group", values, records));
-//		ASSERT_EQ(1, records["Regular"].size());
-//		EXPECT_EQ(1, records["Regular"][0]);
-//		ASSERT_EQ(1, records["Senior"].size());
-//		EXPECT_EQ(2, records["Senior"][0]);
-//	}
+	TEST_F(FragmentTest, InquiresDimensionValues) {
+		RecordID record;
+		map<string, string> dimensions;
+		
+		record = 1;
+		dimensions["day"] = "20091020";
+		dimensions["fare-group"] = "Regular";
+		dimensions["station"] = "16th";		
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		record = 2;
+		dimensions["fare-group"] = "Senior";
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		set<string> lookup;
+		lookup.insert("day");
+		lookup.insert("fare-group");
+		map< string, vector<string> > values;
+		ASSERT_EQ(true, this->database->Lookup(lookup, values));
+		
+		map< string, vector<string> >::iterator dimension;
+		for(dimension = values.begin(); dimension != values.end(); dimension++) {
+			if(dimension->first == "day") {
+				ASSERT_EQ(1, dimension->second.size());
+				EXPECT_EQ("20091020", dimension->second[0]);
+			} else if(dimension->first == "fare-group") {
+				ASSERT_EQ(2, dimension->second.size());
+				EXPECT_EQ("Regular", dimension->second[0]);
+				EXPECT_EQ("Senior", dimension->second[1]);
+			} else {
+				FAIL() << "Unexpected dimension in lookup data";
+			}
+		}
+	}
+	
+	TEST_F(FragmentTest, InquiresDimensionValueRecords) {
+		RecordID record;
+		map<string, string> dimensions;
+		
+		record = 1;
+		dimensions["day"] = "20091020";
+		dimensions["fare-group"] = "Regular";
+		dimensions["station"] = "16th";		
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		record = 2;
+		dimensions["fare-group"] = "Senior";
+		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		
+		vector<string> values;
+		values.push_back("Regular");
+		values.push_back("Senior");
+		map<string, RecordList> records;
+		ASSERT_EQ(true, this->database->Lookup("fare-group", values, records));
+		ASSERT_EQ(1, records["Regular"].size());
+		EXPECT_EQ(1, records["Regular"][0]);
+		ASSERT_EQ(1, records["Senior"].size());
+		EXPECT_EQ(2, records["Senior"][0]);
+	}
 }

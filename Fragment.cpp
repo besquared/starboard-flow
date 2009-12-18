@@ -9,7 +9,11 @@
 
 #include "Fragment.h"
 
-Fragment::Fragment(const string& path, const string& name) : BDB::BDB(path, name) {}
+Fragment::Fragment(const string& path) : BDB::BDB(path, "fragments") {}
+
+bool Fragment::Create(const string& path) {
+	return BDB::Create(path, "fragments");
+}
 
 /*
  * Looks up a list of record ids from a single index key
@@ -42,7 +46,9 @@ bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string>
  */
 bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results) {
 	for(size_t i = 0; i < values.size(); i++) {
-		BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
+		RecordList rlist;
+		BDB::Get(this->Key(this->Component(dimension, values[i])), rlist);
+		results[values[i]] = rlist;
 	}
 	
 	return true;

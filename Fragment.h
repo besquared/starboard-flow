@@ -17,8 +17,10 @@
 namespace Flow {
 	class Fragment : public BDB {
 	public:		
-		Fragment(const string& path, const string& path);		
+		Fragment(const string& path);		
 		
+		static bool Create(const string& path);
+
 		bool Lookup(const map<string, string>& dimensions, RecordList& results);
 		bool Lookup(const set<string>& dimensions, map< string, vector<string> >& results);
 		bool Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results);

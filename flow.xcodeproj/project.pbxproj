@@ -68,8 +68,6 @@
 		036AF1C910D34612002304AE /* SequenceDimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1C810D34612002304AE /* SequenceDimensionTest.cpp */; };
 		036AF1E410D359B0002304AE /* SequenceTemplateTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1E310D359B0002304AE /* SequenceTemplateTest.cpp */; };
 		036AF1E910D35B0B002304AE /* SequenceQueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF1E810D35B0B002304AE /* SequenceQueryTest.cpp */; };
-		036AF1EE10D35CD1002304AE /* SubwayFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF1ED10D35CD1002304AE /* SubwayFixture.h */; };
-		036AF1F010D35CFD002304AE /* Fixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF1EF10D35CFD002304AE /* Fixture.h */; };
 		036AF2BF10D36F46002304AE /* SubwayFixture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF2BE10D36F46002304AE /* SubwayFixture.cpp */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
@@ -95,11 +93,25 @@
 		03DCC7BF10DB27EC00A35F8F /* RecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC7BD10DB27EC00A35F8F /* RecordList.h */; };
 		03DCC7C010DB27EC00A35F8F /* RecordList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */; };
 		03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC84910DB472100A35F8F /* RecordListTest.cpp */; };
+		03DCC99F10DB886600A35F8F /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5B10BE4AB600AF17CB /* Column.h */; };
+		03DCC9A010DB886600A35F8F /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5010BE4A5B00AF17CB /* Common.h */; };
+		03DCC9A110DB886600A35F8F /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88910C5CAAF00D5068E /* Condition.h */; };
+		03DCC9A210DB886600A35F8F /* Conditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88510C5C80D00D5068E /* Conditions.h */; };
+		03DCC9A310DB886600A35F8F /* Fixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF1EF10D35CFD002304AE /* Fixture.h */; };
+		03DCC9A410DB886600A35F8F /* Flow.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D60710BE5C3F00D5068E /* Flow.h */; };
+		03DCC9A510DB886600A35F8F /* MockMaster.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC98510DB853A00A35F8F /* MockMaster.h */; };
+		03DCC9A610DB886600A35F8F /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D5A710BE56E300D5068E /* Query.h */; };
+		03DCC9A710DB886600A35F8F /* ShellDimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5410BE4A5B00AF17CB /* ShellDimensions.h */; };
+		03DCC9A810DB886600A35F8F /* ShellFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5210BE4A5B00AF17CB /* ShellFragment.h */; };
+		03DCC9A910DB886600A35F8F /* ShellFragments.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5610BE4A5B00AF17CB /* ShellFragments.h */; };
+		03DCC9AA10DB886600A35F8F /* SubwayFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AF1ED10D35CD1002304AE /* SubwayFixture.h */; };
+		03DCC9AB10DB886600A35F8F /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5F10BE4AB600AF17CB /* Table.h */; };
+		03DCC9AC10DB886600A35F8F /* TestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D84610BF8F6100D5068E /* TestHelper.h */; };
+		03DCC9AD10DB886600A35F8F /* TListColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D73B10BE899300D5068E /* TListColumn.h */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E4D7F710BF87A700D5068E /* ShellFragmentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */; };
 		03E4D7F810BF87A700D5068E /* ShellFragmentsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */; };
 		03E4D7F910BF87A700D5068E /* TestMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4D4EA10BE507600D5068E /* TestMain.cpp */; };
-		03E4D84710BF8F6100D5068E /* TestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D84610BF8F6100D5068E /* TestHelper.h */; };
 		03E4DB1E10C0DCF100D5068E /* plan9.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4DAE910C0DA4500D5068E /* plan9.h */; };
 		03E4DB1F10C0DCF100D5068E /* utf.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4DAF810C0DA4500D5068E /* utf.h */; };
 		03E4DB2010C0DCF100D5068E /* utfdef.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4DAF910C0DA4500D5068E /* utfdef.h */; };
@@ -205,17 +217,6 @@
 		03E4E52910C490F300D5068E /* TColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E52810C490F300D5068E /* TColumn.h */; };
 		03E4E88710C5C80D00D5068E /* Conditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88510C5C80D00D5068E /* Conditions.h */; };
 		03E4E88A10C5CAAF00D5068E /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88910C5CAAF00D5068E /* Condition.h */; };
-		03E4E88F10C5CB3D00D5068E /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5B10BE4AB600AF17CB /* Column.h */; };
-		03E4E89010C5CB3D00D5068E /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5010BE4A5B00AF17CB /* Common.h */; };
-		03E4E89110C5CB3D00D5068E /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88910C5CAAF00D5068E /* Condition.h */; };
-		03E4E89210C5CB3D00D5068E /* Conditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88510C5C80D00D5068E /* Conditions.h */; };
-		03E4E89310C5CB3D00D5068E /* ShellDimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5410BE4A5B00AF17CB /* ShellDimensions.h */; };
-		03E4E89410C5CB3D00D5068E /* Flow.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D60710BE5C3F00D5068E /* Flow.h */; };
-		03E4E89610C5CB3D00D5068E /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D5A710BE56E300D5068E /* Query.h */; };
-		03E4E89710C5CB3D00D5068E /* ShellFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5210BE4A5B00AF17CB /* ShellFragment.h */; };
-		03E4E89810C5CB3D00D5068E /* ShellFragments.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5610BE4A5B00AF17CB /* ShellFragments.h */; };
-		03E4E89910C5CB3D00D5068E /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5F10BE4AB600AF17CB /* Table.h */; };
-		03E4E89A10C5CB3D00D5068E /* TListColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4D73B10BE899300D5068E /* TListColumn.h */; };
 		03E4E9F510C601D100D5068E /* MeasureTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4E9F410C601D100D5068E /* MeasureTest.cpp */; };
 		03E4EB3710C655DE00D5068E /* Measures.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4EB3510C655DE00D5068E /* Measures.h */; };
 /* End PBXBuildFile section */
@@ -346,6 +347,7 @@
 		03DCC7BD10DB27EC00A35F8F /* RecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordList.h; sourceTree = "<group>"; };
 		03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordList.cpp; sourceTree = "<group>"; };
 		03DCC84910DB472100A35F8F /* RecordListTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordListTest.cpp; sourceTree = "<group>"; };
+		03DCC98510DB853A00A35F8F /* MockMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMaster.h; sourceTree = "<group>"; };
 		03E4D4EA10BE507600D5068E /* TestMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestMain.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E4D5A610BE56E300D5068E /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
@@ -445,8 +447,6 @@
 		03E4DC1F10C0EB6400D5068E /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = test.c; path = Plan9/libregexp/test.c; sourceTree = "<group>"; };
 		03E4DC2010C0EB6400D5068E /* test2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = test2.c; path = Plan9/libregexp/test2.c; sourceTree = "<group>"; };
 		03E4DC2B10C0EE3500D5068E /* ShellDimensionsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShellDimensionsTest.cpp; sourceTree = "<group>"; };
-		03E4DFD010C3326900D5068E /* flow_driver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = flow_driver.h; sourceTree = "<group>"; };
-		03E4DFD110C3326900D5068E /* flow_driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = flow_driver.cpp; sourceTree = "<group>"; };
 		03E4E0B210C33E6000D5068E /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
 		03E4E13510C3435000D5068E /* UtilityTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UtilityTest.cpp; sourceTree = "<group>"; };
 		03E4E31C10C3A98A00D5068E /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryTest.cpp; sourceTree = "<group>"; };
@@ -605,7 +605,6 @@
 			children = (
 				03AF8D5E10BE4AB600AF17CB /* Table.cpp */,
 				03E4E3FD10C46BFF00D5068E /* Columns.cpp */,
-				03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -633,7 +632,6 @@
 		03AF8D9010BE4D6400AF17CB /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				03E4DFD410C3326D00D5068E /* Erlang */,
 				03AF8D9210BE4E7E00AF17CB /* Table */,
 				03E4DDD810C23F0A00D5068E /* Database */,
 				03E4E88010C5C6FD00D5068E /* Query */,
@@ -670,8 +668,8 @@
 				03E4DFB910C2723600D5068E /* Database */,
 				03E4E87F10C5C6E900D5068E /* Query */,
 				03650D2910CA650D00775B5A /* BaseTest.cpp */,
-				036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */,
 				03650D2B10CA652E00775B5A /* MeasuresTest.cpp */,
+				036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */,
 				03DCC79610DA2FA700A35F8F /* FragmentsTest.cpp */,
 				03E4DC2B10C0EE3500D5068E /* ShellDimensionsTest.cpp */,
 				03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */,
@@ -680,6 +678,22 @@
 				03E4D84610BF8F6100D5068E /* TestHelper.h */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		03DCC98310DB84F300A35F8F /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				03DCC98710DB857D00A35F8F /* Database */,
+			);
+			name = Testing;
+			sourceTree = "<group>";
+		};
+		03DCC98710DB857D00A35F8F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				03DCC98510DB853A00A35F8F /* MockMaster.h */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		03E4DAE810C0DA1000D5068E /* utf */ = {
@@ -834,6 +848,7 @@
 				036AED7D10D1BD01002304AE /* Fragment.cpp */,
 				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
 				036AEC9710D11267002304AE /* Dimension.cpp */,
+				03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */,
 				03AF8D5110BE4A5B00AF17CB /* ShellFragment.cpp */,
 			);
 			name = Database;
@@ -858,27 +873,11 @@
 				036AF72910D6560C002304AE /* BDBTest.cpp */,
 				036AF7A510D65E91002304AE /* MasterTest.cpp */,
 				03DCC58410D7395700A35F8F /* FragmentTest.cpp */,
-				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
 				03E4E9F410C601D100D5068E /* MeasureTest.cpp */,
+				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
 				03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */,
 			);
 			name = Database;
-			sourceTree = "<group>";
-		};
-		03E4DFCE10C3321600D5068E /* Erlang */ = {
-			isa = PBXGroup;
-			children = (
-				03E4DFD110C3326900D5068E /* flow_driver.cpp */,
-			);
-			name = Erlang;
-			sourceTree = "<group>";
-		};
-		03E4DFD410C3326D00D5068E /* Erlang */ = {
-			isa = PBXGroup;
-			children = (
-				03E4DFD010C3326900D5068E /* flow_driver.h */,
-			);
-			name = Erlang;
 			sourceTree = "<group>";
 		};
 		03E4E87E10C5C6D400D5068E /* Query */ = {
@@ -938,6 +937,7 @@
 			children = (
 				08FB7795FE84155DC02AAC07 /* Source */,
 				03AF8D9710BE4ECC00AF17CB /* Test */,
+				03DCC98310DB84F300A35F8F /* Testing */,
 				03AF8D9010BE4D6400AF17CB /* Headers */,
 				03AF8D7A10BE4C6000AF17CB /* Tools */,
 				03AF8D7410BE4B8500AF17CB /* Libraries */,
@@ -950,14 +950,13 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				03E4DFCE10C3321600D5068E /* Erlang */,
 				03AF8D5910BE4A8300AF17CB /* Table */,
 				03E4DDD710C23EEF00D5068E /* Database */,
 				03E4E87E10C5C6D400D5068E /* Query */,
 				03ABC86110C8F61A006288C0 /* Base.cpp */,
 				03E4E0B210C33E6000D5068E /* Common.cpp */,
-				036AED9C10D1C38C002304AE /* Dimensions.cpp */,
 				03E4EB3610C655DE00D5068E /* Measures.cpp */,
+				036AED9C10D1C38C002304AE /* Dimensions.cpp */,
 				03DCC64410D8FEDB00A35F8F /* Fragments.cpp */,
 				03AF8D5310BE4A5B00AF17CB /* ShellDimensions.cpp */,
 				03AF8D5510BE4A5B00AF17CB /* ShellFragments.cpp */,
@@ -1035,20 +1034,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03E4E88F10C5CB3D00D5068E /* Column.h in Headers */,
-				03E4E89010C5CB3D00D5068E /* Common.h in Headers */,
-				03E4E89110C5CB3D00D5068E /* Condition.h in Headers */,
-				03E4E89210C5CB3D00D5068E /* Conditions.h in Headers */,
-				03E4E89310C5CB3D00D5068E /* ShellDimensions.h in Headers */,
-				03E4E89410C5CB3D00D5068E /* Flow.h in Headers */,
-				03E4E89610C5CB3D00D5068E /* Query.h in Headers */,
-				03E4E89710C5CB3D00D5068E /* ShellFragment.h in Headers */,
-				03E4E89810C5CB3D00D5068E /* ShellFragments.h in Headers */,
-				03E4E89910C5CB3D00D5068E /* Table.h in Headers */,
-				03E4E89A10C5CB3D00D5068E /* TListColumn.h in Headers */,
-				03E4D84710BF8F6100D5068E /* TestHelper.h in Headers */,
-				036AF1F010D35CFD002304AE /* Fixture.h in Headers */,
-				036AF1EE10D35CD1002304AE /* SubwayFixture.h in Headers */,
+				03DCC99F10DB886600A35F8F /* Column.h in Headers */,
+				03DCC9A010DB886600A35F8F /* Common.h in Headers */,
+				03DCC9A110DB886600A35F8F /* Condition.h in Headers */,
+				03DCC9A210DB886600A35F8F /* Conditions.h in Headers */,
+				03DCC9A310DB886600A35F8F /* Fixture.h in Headers */,
+				03DCC9A410DB886600A35F8F /* Flow.h in Headers */,
+				03DCC9A610DB886600A35F8F /* Query.h in Headers */,
+				03DCC9A710DB886600A35F8F /* ShellDimensions.h in Headers */,
+				03DCC9A810DB886600A35F8F /* ShellFragment.h in Headers */,
+				03DCC9A910DB886600A35F8F /* ShellFragments.h in Headers */,
+				03DCC9AA10DB886600A35F8F /* SubwayFixture.h in Headers */,
+				03DCC9AB10DB886600A35F8F /* Table.h in Headers */,
+				03DCC9AC10DB886600A35F8F /* TestHelper.h in Headers */,
+				03DCC9AD10DB886600A35F8F /* TListColumn.h in Headers */,
+				03DCC9A510DB886600A35F8F /* MockMaster.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1533,6 +1533,7 @@
 				OTHER_LDFLAGS = (
 					"-ltokyocabinet",
 					"-lgtest",
+					"-lgmock",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Test;

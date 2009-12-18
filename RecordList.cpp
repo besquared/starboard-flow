@@ -14,6 +14,10 @@ RecordList::RecordList() {
 	this->clear();
 }
 
+RecordList::RecordList(const RecordList& copy) {
+	this->assign(copy);
+}
+
 RecordList::RecordList(void* buffer, int bsize) {
 	this->assign(buffer, bsize);
 }
@@ -26,11 +30,11 @@ RecordList::~RecordList() {
 	free(this->buffer);
 }
 
-size_t RecordList::size() {
+size_t RecordList::size() const {
 	return this->_size;	
 }
 
-size_t RecordList::capacity() {
+size_t RecordList::capacity() const {
 	return this->_capacity;
 }
 
@@ -50,6 +54,16 @@ void RecordList::push_back(RecordID value) {
 	
 	*(buffer + this->_size) = value;
 	this->_size++;
+}
+
+void RecordList::assign(const RecordList& copy) {
+	this->clear();
+	
+	size_t bsize = copy.size() * sizeof(RecordID);
+	this->buffer = (RecordID*)realloc(copy.buffer, bsize);
+	memcpy(this->buffer, copy.buffer, bsize);
+	this->_size = copy.size();
+	this->_capacity = this->_size;
 }
 
 void RecordList::assign(void* buffer, int bsize) {

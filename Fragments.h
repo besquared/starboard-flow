@@ -22,7 +22,8 @@ namespace Flow {
 	public:
 		Fragments(Master* master);
 		
-		bool Insert(const RecordID& record, const map<string, string>& dimensions);
+		bool Allocate(const map<string, string>& row);
+		bool Insert(const RecordID& record, const map<string, string>& row);
 		bool Lookup(const vector<string>& dimensions, const vector<Condition>& conditions);
 	};
 }
