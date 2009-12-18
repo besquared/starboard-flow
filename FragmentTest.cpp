@@ -163,7 +163,7 @@ namespace {
 		EXPECT_EQ(1, records[0]);
 		EXPECT_EQ(2, records[1]);
 	}
-//	
+
 //	TEST_F(FragmentTest, InquiresDimensionValues) {
 //		RecordID record;
 //		map<string, string> dimensions;

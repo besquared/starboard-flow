@@ -78,7 +78,7 @@ bool Fragment::Insert(const RecordID record, const map<string, string>& dimensio
 	vector< vector<string> > sets = Common::PowerSet(elements);
 	
 	for(size_t i = 0; i < sets.size(); i++) {
-		BDB::PutDup(this->Key(sets[i]), record);
+		BDB::PutCat(this->Key(sets[i]), record);
 	}
 						 
 	this->Insert(dimensions);
