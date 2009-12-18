@@ -116,24 +116,17 @@ bool BDB::Get(const string& key, vector<string>& results) {
 	}
 }
 
-bool BDB::Get(const string& key, vector<RecordID>& results) {
+bool BDB::Get(const string& key, RecordList& results) {
 	int size = (int)sizeof(RecordID);
-	TCLIST* values = tcbdbget4(this->database, key.c_str(), key.size());
+	void* records = tcbdbget(this->database, key.c_str(), key.size(), &size);
 	
-	if(values != NULL) {
-		const void* value;
-		size_t list_size = tclistnum(values);
-    for(size_t i = 0; i < list_size; i++) {
-			value = tclistval(values, i, &size);
-			if(value != NULL) {
-				results.push_back(*((RecordID*)value));
-			}
-    }
-    tclistdel(values);
+	if(records != NULL) {
+		results.assign(records, size);
+		free(records);
 		return true;
-  } else {
+	} else {
 		return false;
-	}	
+	}
 }
 
 bool BDB::Put(const string& key, const string& value) {
@@ -146,6 +139,10 @@ bool BDB::PutDup(const string& key, const string& value) {
 
 bool BDB::PutDup(const string& key, const RecordID& value) {
 	return tcbdbputdup(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
+}
+
+bool BDB::PutCat(const string& key, const RecordID& value) {
+	return tcbdbputcat(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
 }
 
 bool BDB::Add(const string& key, const int value, int& result) {

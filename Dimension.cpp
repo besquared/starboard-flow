@@ -137,7 +137,7 @@ void Dimension::Get(const vector<RecordID>& keys, map<RecordID, string>& results
 
 tuple<bool, string> Dimension::Put(RecordID key, string value) {
 #ifdef DEBUG
-	cout << "Dimension::Put(" << key << ", " << value << ")" << endl;
+//	cout << "Dimension::Put(" << key << ", " << value << ")" << endl;
 #endif
 	if(tchdbput(this->database, &key, sizeof(RecordID), value.c_str(), value.size())) {
 		return make_tuple(ok, success);

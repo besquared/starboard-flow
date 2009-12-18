@@ -76,13 +76,14 @@ namespace {
 	
 	TEST_F(BDBTest, PutsAndGetsDuplicateRecords) {
 		string key = "key";
-		vector<RecordID> values;
+		RecordList values;
 		values.push_back(1.0);
 		values.push_back(2.0);
 		
-		vector<RecordID> retrieved;
-		ASSERT_EQ(true, this->database->PutDup(key, values[0]));
-		ASSERT_EQ(true, this->database->PutDup(key, values[1]));
+		RecordList retrieved;
+		ASSERT_EQ(true, this->database->PutCat(key, values[0]));
+		ASSERT_EQ(true, this->database->PutCat(key, values[1]));
+		
 		ASSERT_EQ(true, this->database->Get(key, retrieved));
 		
 		ASSERT_EQ(2, retrieved.size());

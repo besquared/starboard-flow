@@ -16,21 +16,24 @@ class RecordList {
 public:
   size_t _size;
   size_t _capacity;
-  unsigned int* buffer;
+  RecordID* buffer;
   
   RecordList();
   RecordList(void* buffer, int bsize);
-  RecordList(unsigned int* buffer, size_t count);
+  RecordList(RecordID* buffer, size_t count);
 	~RecordList();
   
 	size_t size();  
   size_t capacity();
   void reserve(size_t size);
 	
-  void push_back(unsigned int value);
-  
-  unsigned int at(size_t offset);
-  unsigned int operator[](size_t offset);
+  void push_back(RecordID value);
+  void assign(void* buffer, int bsize);
+	void assign(RecordID* buffer, size_t count);
+	void clear();
+	
+  RecordID at(size_t offset);
+  RecordID operator[](size_t offset);
   
 	RecordList operator&(RecordList& other);
 	RecordList operator|(RecordList& other);

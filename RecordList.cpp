@@ -10,24 +10,16 @@
 #include "RecordList.h"
 
 RecordList::RecordList() {
-	this->_size = 0;
-	this->_capacity = 4;
-	this->allocate(this->_capacity);	
+	this->buffer = NULL;
+	this->clear();
 }
 
 RecordList::RecordList(void* buffer, int bsize) {
-	this->buffer = (unsigned int*)malloc(bsize - 1);
-	memcpy(this->buffer, buffer, bsize - 1);
-	this->_size = (bsize - 1) / sizeof(unsigned int);
-	this->_capacity = this->_size;
+	this->assign(buffer, bsize);
 }
 
-RecordList::RecordList(unsigned int* buffer, size_t count) {
-	size_t bsize = count * sizeof(unsigned int);
-	this->buffer = (unsigned int*)malloc(bsize);
-	memcpy(this->buffer, buffer, bsize);
-	this->_size = count;
-	this->_capacity = this->_size;
+RecordList::RecordList(RecordID* buffer, size_t count) {
+	this->assign(buffer, count);
 }
 
 RecordList::~RecordList() {
@@ -44,14 +36,14 @@ size_t RecordList::capacity() {
 
 void RecordList::reserve(size_t size) {
 	if(size > this->_capacity) {
-		size_t nsize = size * sizeof(unsigned int);
+		size_t nsize = size * sizeof(RecordID);
 		
 		this->_capacity = size;
-		this->buffer = (unsigned int*)realloc(this->buffer, nsize);
+		this->buffer = (RecordID*)realloc(this->buffer, nsize);
 	}
 }
 
-void RecordList::push_back(unsigned int value) {
+void RecordList::push_back(RecordID value) {
 	if(this->_size == this->_capacity) {
 		this->reserve(this->_capacity * 2);
 	}
@@ -60,11 +52,40 @@ void RecordList::push_back(unsigned int value) {
 	this->_size++;
 }
 
-unsigned int RecordList::at(size_t offset) {
+void RecordList::assign(void* buffer, int bsize) {
+	this->clear();
+	
+	this->buffer = (RecordID*)realloc(this->buffer, bsize);
+	memcpy(this->buffer, buffer, bsize);
+	
+	this->_size = bsize / sizeof(RecordID);
+	this->_capacity = this->_size;	
+}
+
+void RecordList::assign(RecordID* buffer, size_t count) {
+	this->clear();
+	
+	size_t bsize = count * sizeof(RecordID);
+	this->buffer = (RecordID*)realloc(this->buffer, bsize);
+	memcpy(this->buffer, buffer, bsize);
+	
+	this->_size = count;
+	this->_capacity = this->_size;
+}
+
+void RecordList::clear() {
+	if(this->buffer != NULL) { free(this->buffer); }
+	
+	this->_size = 0;
+	this->_capacity = 4;
+	this->allocate(this->_capacity);	
+}
+
+RecordID RecordList::at(size_t offset) {
 	return *(buffer + offset);
 }
 
-unsigned int RecordList::operator[](size_t offset) {
+RecordID RecordList::operator[](size_t offset) {
 	return *(buffer + offset);
 }
 
@@ -81,8 +102,8 @@ RecordList RecordList::operator&(RecordList& other) {
 	int aindex = 0; int bindex = 0;
 	int alength = this->size(); int blength = other.size();
 	
-	unsigned int avalue;
-	unsigned int bvalue;
+	RecordID avalue;
+	RecordID bvalue;
 	while(aindex < alength && bindex < blength) {
 		avalue = (*this)[aindex];
 		bvalue = other[bindex];
@@ -109,8 +130,8 @@ RecordList RecordList::operator|(RecordList& other) {
 	size_t aindex = 0; size_t bindex = 0;
 	size_t alength = this->size(); size_t blength = other.size();
 	
-	unsigned int avalue;
-	unsigned int bvalue;
+	RecordID avalue;
+	RecordID bvalue;
 	while(aindex < alength || bindex < blength) {
 		avalue = (*this)[aindex];
 		bvalue = other[bindex];
@@ -143,6 +164,6 @@ RecordList RecordList::operator|(RecordList& other) {
  */
 
 void RecordList::allocate(int size) {
-	size_t nsize = 4 * sizeof(unsigned int);
-	this->buffer = (unsigned int*)malloc(nsize);
+	size_t nsize = 4 * sizeof(RecordID);
+	this->buffer = (RecordID*)malloc(nsize);
 }

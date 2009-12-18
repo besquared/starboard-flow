@@ -14,7 +14,7 @@ Fragment::Fragment(const string& path, const string& name) : BDB::BDB(path, name
 /*
  * Looks up a list of record ids from a single index key
  */
-bool Fragment::Lookup(const map<string, string>& dimensions, vector<RecordID>& results) {
+bool Fragment::Lookup(const map<string, string>& dimensions, RecordList& results) {
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -40,7 +40,7 @@ bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string>
 /*
  * Looks up the records for a list of dimension values
  */
-bool Fragment::Lookup(const string& dimension, const vector<string>& values, map< string, vector<RecordID> >& results) {
+bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results) {
 	for(size_t i = 0; i < values.size(); i++) {
 		BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
 	}

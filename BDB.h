@@ -11,6 +11,7 @@
 #define _bdb_included_
 
 #include "Common.h"
+#include "RecordList.h"
 
 namespace Flow {
 	class BDB {
@@ -32,11 +33,12 @@ namespace Flow {
 		bool Get(const string& key, string& result);
 		bool Get(const string& key, set<string>& results);
 		bool Get(const string& key, vector<string>& results);
-		bool Get(const string& key, vector<RecordID>& results);
+		bool Get(const string& key, RecordList& results);
 		
 		bool Put(const string& key, const string& value);
 		bool PutDup(const string& key, const string& value);
 		bool PutDup(const string& key, const RecordID& record);
+		bool PutCat(const string& key, const RecordID& record);
 		
 		bool Add(const string& key, const int value, int& result);
 		bool Add(const string& key, const double value, double& result);
