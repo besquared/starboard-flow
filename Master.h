@@ -26,16 +26,16 @@ namespace Flow {
 		Master(const string& path);
 		virtual ~Master();
 		
-		bool Fragments(vector<string>& results);		
-		bool Fragment(const string& dimension, string& result);
+		virtual bool Fragments(vector<string>& results);		
+		virtual bool Fragment(const string& dimension, string& result);
 
-		bool Dimensions(set<string>& results);
-		bool Dimensions(const string& fragment, set<string>& results);
-		bool Dimensions(const set<string>& fragment, set<string>& results);
+		virtual bool Dimensions(set<string>& results);
+		virtual bool Dimensions(const string& fragment, set<string>& results);
+		virtual bool Dimensions(const set<string>& fragment, set<string>& results);
 		
-		bool Allocate(const set<string>& dimensions);
+		virtual bool Allocate(const set<string>& dimensions);
 		
-		bool GenerateRecordID(RecordID& result);
+		virtual bool GenerateRecordID(RecordID& result);
 		
 		static bool Create(const string& path);
 		

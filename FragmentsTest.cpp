@@ -47,14 +47,14 @@ namespace {
 		set<string> allocated;
 		allocated.insert("day");
 		allocated.insert("fare-group");
-		allocated.insert("section");
+		allocated.insert("station");
 		
 		EXPECT_CALL(*this->master, OpenWriter()).WillOnce(Return(true));
 		EXPECT_CALL(*this->master, Allocate(allocated)).WillOnce(Return(true));
 		
 		EXPECT_CALL(*this->master, Fragment("day", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
 		EXPECT_CALL(*this->master, Fragment("fare-group", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
-		EXPECT_CALL(*this->master, Fragment("section", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->master, Fragment("station", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
 		
 		EXPECT_CALL(*this->master, Close()).WillOnce(Return(true));
 

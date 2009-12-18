@@ -50,6 +50,7 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 		if(this->master->Fragment(cell->first, name)) {
 			fragments[name].push_back(cell->first);
 		} else {
+			cout << "WE DIDN'T MAKE IT!!" << endl;
 			return false;
 		}
 	}
