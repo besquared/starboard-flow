@@ -26,16 +26,16 @@ namespace Flow {
 		Master(const string& path);
 		virtual ~Master();
 		
-		virtual bool Fragments(vector<string>& results);		
-		virtual bool Fragment(const string& dimension, string& result);
+		bool Fragments(vector<string>& results);		
+		bool Fragment(const string& dimension, string& result);
 
-		virtual bool Dimensions(set<string>& results);
-		virtual bool Dimensions(const string& fragment, set<string>& results);
-		virtual bool Dimensions(const set<string>& fragment, set<string>& results);
+		bool Dimensions(set<string>& results);
+		bool Dimensions(const string& fragment, set<string>& results);
+		bool Dimensions(const set<string>& fragment, set<string>& results);
 		
-		virtual bool Allocate(const set<string>& dimensions);
+		bool Allocate(const set<string>& dimensions);
 		
-		virtual bool GenerateRecordID(RecordID& result);
+		bool GenerateRecordID(RecordID& result);
 		
 		static bool Create(const string& path);
 		
@@ -44,7 +44,7 @@ namespace Flow {
 			Master* master;
 		public:
 			Fragments(Master* master);
-			virtual Flow::Fragment Get();
+			Flow::Fragment Get();
 		};		
 	};
 }

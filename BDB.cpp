@@ -10,7 +10,6 @@
 #include "BDB.h"
 
 BDB::BDB(const string& path, const string& name) {
-	cout << "Constructing BDB with " << path << ", " << name << endl;
 	this->path = path;
 	this->name = name;
 	this->database = tcbdbnew();
@@ -44,7 +43,6 @@ bool BDB::OpenReader() {
 }
 
 bool BDB::OpenWriter() {
-	cout << "WE GOT HERE" << endl;
   return this->Open(BDBOWRITER | BDBOCREAT);
 }
 
@@ -58,7 +56,6 @@ bool BDB::Truncate() {
 }
 
 bool BDB::Open(int mode) {
-	cout << "Opening path " << BDB::Path(this->path, this->name) << endl;
 	return tcbdbopen(this->database, BDB::Path(this->path, this->name).c_str(), mode);
 }
 

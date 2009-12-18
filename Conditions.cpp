@@ -42,7 +42,6 @@ void Conditions::Apply(const string& column, vector<string>& values) {
 	for(size_t i = 0; i < this->size(); i++) {
 		condition = this->at(i);
 		if(condition != NULL && condition->column == column) {
-			cout << "Applying condition to " << condition->column << endl;
 			condition->Apply(values);
 		}
 	}

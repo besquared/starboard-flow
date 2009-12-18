@@ -517,8 +517,6 @@ namespace {
 		Inquired results;
 		this->fragments->Lookup(instantiate, inquire, conditions, results);
 		
-		cout << this->helper->Inspect(results) << endl;
-		
 		Inquired::iterator outter;
 		for(outter = results.begin(); outter != results.end(); outter++) {
 			InquiredDimension::iterator inner;

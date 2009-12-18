@@ -15,6 +15,7 @@ namespace Mocks = Testing::Database;
 namespace {
 	class FragmentsTest : public ::testing::Test {
 	protected:
+		Master* master;
 		Fragments* fragments;
 		
 		FragmentsTest() {}
@@ -22,11 +23,12 @@ namespace {
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
-			Master master(path);
-			this->fragments = new Fragments(&master);
+			this->master = new Master(path);
+			this->fragments = new Fragments(this->master);
 		}
 		
 		virtual void TearDown() {
+			delete(this->master);
 			delete(this->fragments);
 		}
 	};

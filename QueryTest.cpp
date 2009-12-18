@@ -138,9 +138,7 @@ namespace {
 		}
 		
 		shared_ptr<Table> table = executed.get<2>();
-		
-		cout << table->Inspect() << endl;
-		
+				
 		shared_ptr< TListColumn<string> > values_column = 
 		static_pointer_cast< TListColumn<string> >(table->columns->at("values"));
 		
@@ -182,8 +180,6 @@ namespace {
 		}
 		
 		shared_ptr<Table> table = executed.get<2>();
-		
-		cout << table->Inspect() << endl;
 		
 		shared_ptr< TListColumn<string> > values_column = 
 		static_pointer_cast< TListColumn<string> >(table->columns->at("values"));
@@ -234,9 +230,7 @@ namespace {
 		}
 		
 		shared_ptr<Table> table = executed.get<2>();
-		
-		cout << table->Inspect() << endl;
-		
+				
 		shared_ptr< TListColumn<string> > values_column = 
 		static_pointer_cast< TListColumn<string> >(table->columns->at("values"));
 		
@@ -290,9 +284,7 @@ namespace {
 		}
 		
 		shared_ptr<Table> table = executed.get<2>();
-		
-		cout << table->Inspect() << endl;
-		
+				
 		shared_ptr< TListColumn<string> > values_column = 
 		static_pointer_cast< TListColumn<string> >(table->columns->at("values"));
 		

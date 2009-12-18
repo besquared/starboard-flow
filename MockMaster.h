@@ -18,10 +18,7 @@ namespace Flow {
 		namespace Database {
 			class MockMaster : public Master {
 			public:
-				MockMaster(const string& path) : Master::Master(path) {
-					cout << "Constructing MockMaster with path " << path << endl;
-					cout << "MockMaster->path is now " << this->path << endl;
-				}
+				MockMaster(const string& path) : Master::Master(path) {}
 			};
 		}
 	}
