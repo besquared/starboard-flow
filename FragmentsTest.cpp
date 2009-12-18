@@ -36,7 +36,7 @@ namespace {
 			delete(this->master);
 		}
 	};
-		
+	
 	TEST_F(FragmentsTest, InsertsRecords) {
 		RecordID record = 1;
 		map<string, string> dimensions;
