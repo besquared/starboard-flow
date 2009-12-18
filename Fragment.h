@@ -11,7 +11,6 @@
 #define _fragment_included_
 
 #include "Common.h"
-
 #include "BDB.h"
 
 namespace Flow {
@@ -21,12 +20,12 @@ namespace Flow {
 		
 		static bool Create(const string& path);
 
-		bool Lookup(const map<string, string>& dimensions, RecordList& results);
-		bool Lookup(const set<string>& dimensions, map< string, vector<string> >& results);
-		bool Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results);
+		virtual bool Lookup(const map<string, string>& dimensions, RecordList& results);
+		virtual bool Lookup(const set<string>& dimensions, map< string, vector<string> >& results);
+		virtual bool Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results);
 		
-		bool Insert(const map<string, string>& dimensions);
-		bool Insert(const RecordID record, const map<string, string>& dimensions);
+		virtual bool Insert(const map<string, string>& dimensions);
+		virtual bool Insert(const RecordID record, const map<string, string>& dimensions);
 
 		string Key(const string& component);
 		string Key(const vector<string>& components);

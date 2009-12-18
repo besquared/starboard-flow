@@ -65,7 +65,7 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 			}
 		}
 
-		Fragment index = this->master->fragments->Get();
+		Fragment index = this->master->GetIndex();
 		
 		if(index.OpenWriter()) {
 			if(index.Insert(record, partition)) {

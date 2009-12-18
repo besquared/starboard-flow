@@ -18,7 +18,9 @@ namespace Flow {
 		namespace Database {
 			class MockMaster : public Master {
 			public:
-				MockMaster(const string& path) : Master::Master(path) {}
+				MockMaster(const string& path) : Master::Master(path) {
+					
+				}
 				
 				MOCK_METHOD0(OpenWriter, bool());
 				MOCK_METHOD0(OpenReader, bool());

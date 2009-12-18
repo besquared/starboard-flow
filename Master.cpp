@@ -9,13 +9,7 @@
 
 #include "Master.h"
 
-Master::Master(const string& path) : BDB::BDB(path, "master") {
-	this->fragments = new Fragments::Fragments(this);
-}
-
-Master::~Master() {
-	delete(this->fragments);
-}
+Master::Master(const string& path) : BDB::BDB(path, "master") {}
 
 bool Master::Create(const string& path) {
 	if(BDB::Create(path, "master")) {
@@ -126,14 +120,6 @@ bool Master::GenerateRecordID(RecordID& result) {
 	return BDB::Add("records", 1, result);
 }
 
-/*
- * Fragments Proxy
- */
-
-Master::Fragments::Fragments(Master* master) {
-	this->master = master;
-}
-
-Flow::Fragment Master::Fragments::Get() {
-	return Flow::Fragment(this->master->path);
+Flow::Fragment Master::GetIndex() {
+	return Flow::Fragment(this->path);
 }

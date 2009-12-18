@@ -17,14 +17,8 @@
 
 namespace Flow {
 	class Master : public BDB {
-	private:
-		class Fragments;
-		
 	public:		
-		Fragments* fragments;		
-		
 		Master(const string& path);
-		virtual ~Master();
 		
 		virtual bool Fragments(vector<string>& results);		
 		virtual bool Fragment(const string& dimension, string& result);
@@ -37,15 +31,9 @@ namespace Flow {
 		
 		virtual bool GenerateRecordID(RecordID& result);
 		
+		virtual Flow::Fragment GetIndex();
+
 		static bool Create(const string& path);
-		
-	private:
-		class Fragments {
-			Master* master;
-		public:
-			Fragments(Master* master);
-			Flow::Fragment Get();
-		};		
 	};
 }
 
