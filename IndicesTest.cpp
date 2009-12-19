@@ -40,15 +40,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(IndicesTest, InsertsRecords) {
-		RecordID record = 1;
-		map<string, string> dimensions;
-		dimensions["card-id"] = "00000001";
-		dimensions["day"] = "20091020";
-		dimensions["district"] = "financial";
-		dimensions["fare-group"] = "Regular";
-		dimensions["station"] = "16th";
-		
+	TEST_F(IndicesTest, InsertsRecords) {		
 		set<string> allocated;
 		allocated.insert("card-id");
 		allocated.insert("day");
@@ -79,7 +71,15 @@ namespace {
 		EXPECT_CALL(*this->index, Insert(fragment2)).WillOnce(Return(true));
 		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
 
-		ASSERT_EQ(true, this->indices->Insert(record, dimensions));
+		RecordID record = 1;
+		map<string, string> row;
+		row["card-id"] = "00000001";
+		row["day"] = "20091020";
+		row["district"] = "financial";
+		row["fare-group"] = "Regular";
+		row["station"] = "16th";
+		
+		ASSERT_EQ(true, this->indices->Insert(record, row));
 	}
 	
 	TEST_F(IndicesTest, LooksUpRecords) {

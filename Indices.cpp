@@ -33,7 +33,6 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 	if(!this->Allocate(row)) { return false; }
 	
 	if(!this->meta->OpenReader()) { return false; }
-	
 	string name;
 	map< string, vector<string> > indices;
 	map<string, string>::const_iterator cell;
@@ -41,12 +40,10 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 		if(this->meta->Index(cell->first, name)) {
 			indices[name].push_back(cell->first);
 		} else {
-			return false;
+			this->meta->Close(); return false;
 		}
 	}
-	
 	this->meta->Close();
-	
 	
 	if(!this->meta->index->OpenWriter()) { return false; }
 
@@ -55,18 +52,15 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 	map< string, vector<string> >::iterator fragment;
 	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
 		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
-			cell = row.find(*dimension);
-			if(cell != row.end()) {
+			partition.clear();
+			if((cell = row.find(*dimension)) != row.end()) {
 				partition[*dimension].assign(cell->second);
 			}
 		}
 		
 		if(!this->meta->index->Insert(record, partition)) { 
-			this->meta->index->Close(); 
-			return false; 
+			this->meta->index->Close(); return false; 
 		}
-		
-		partition.clear();
 	}
 	
 	this->meta->index->Close();
@@ -74,10 +68,47 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 	return true;
 }
 
-bool Indices::Lookup(const set<string>& dimensions, const vector<Condition>& conditions) {
+// ValueMap map<string, string>
+bool Indices::Lookup(const ValueMap& specified) {
+	if(!this->meta->OpenReader()) { return false; }
+	this->meta->Close();
+}
+
+// RecordMap map<string, RecordList>
+// RecordTree map<string, ValueMap>
+bool Indices::Lookup(const set<string>& dimensions,
+										 const vector<Condition>& conditions, RecordTree& tree) {
+	
 	if(!this->meta->OpenReader()) { return false; }
 	
-	this->meta->Close();
+	set<string>::iterator dimension;
+	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
+		RecordMap records;
+		
+		
+		
+		tree[dimension] = records;
+	}
+	
+//	for(size_t i = 0; i < dimensions.size(); i++) {
+//    InquiredDimension dimension;
+//    
+//    string fragment = this->dimensions->Fragment(dimensions[i]);
+//    vector<string> values = this->dimensions->Values(dimensions[i]);
+//		
+//		sort(values.begin(), values.end());
+//		
+//		conditions.Apply(dimensions[i], values);
+//		// Run values through a set of conditional filters here
+//		
+//    for(int j = 0; j < values.size(); j++) {
+//      dimension[values[j]] = this->database->GetRecordIdList(
+//																														 this->IndexKey(fragment, this->Component(dimensions[i], values[j]))
+//																														 );
+//    }
+//    
+//    results[dimensions[i]] = dimension;
+//  }	
 	
 	return true;
 }

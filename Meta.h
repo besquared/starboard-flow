@@ -31,9 +31,7 @@ namespace Flow {
 		virtual bool Dimensions(const set<string>& fragment, set<string>& results);
 		
 		virtual bool Allocate(const set<string>& dimensions);
-		
 		virtual bool GenerateRecordID(RecordID& result);
-
 		static bool Create(const string& path);
 	};
 }
