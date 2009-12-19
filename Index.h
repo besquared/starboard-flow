@@ -1,5 +1,5 @@
 /*
- *  Fragment.h
+ *  Index.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/10/09.
@@ -14,9 +14,9 @@
 #include "BDB.h"
 
 namespace Flow {
-	class Fragment : public BDB {
+	class Index : public BDB {
 	public:		
-		Fragment(const string& path);		
+		Index(const string& path);		
 		
 		static bool Create(const string& path);
 

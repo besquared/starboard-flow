@@ -12,15 +12,15 @@
 namespace {
 	class FragmentTest : public ::testing::Test {
 	protected:
-		Fragment* database;
+		Index* database;
 		
 		FragmentTest() {}
 		virtual ~FragmentTest() {}
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";			
-			Fragment::Create(path);
-			database = new Fragment(path);
+			Index::Create(path);
+			database = new Index(path);
 			
 			this->database->Truncate();
 			

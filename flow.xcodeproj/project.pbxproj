@@ -46,8 +46,8 @@
 		036AEC9810D11267002304AE /* Dimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AEC9610D11267002304AE /* Dimension.h */; };
 		036AEC9910D11267002304AE /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEC9710D11267002304AE /* Dimension.cpp */; };
 		036AECE010D1174B002304AE /* DimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AECDF10D1174B002304AE /* DimensionTest.cpp */; };
-		036AED7E10D1BD01002304AE /* Fragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AED7C10D1BD01002304AE /* Fragment.h */; };
-		036AED7F10D1BD01002304AE /* Fragment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AED7D10D1BD01002304AE /* Fragment.cpp */; };
+		036AED7E10D1BD01002304AE /* Index.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AED7C10D1BD01002304AE /* Index.h */; };
+		036AED7F10D1BD01002304AE /* Index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AED7D10D1BD01002304AE /* Index.cpp */; };
 		036AED9D10D1C38C002304AE /* Dimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 036AED9B10D1C38C002304AE /* Dimensions.h */; };
 		036AED9E10D1C38C002304AE /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AED9C10D1C38C002304AE /* Dimensions.cpp */; };
 		036AEDA310D1C5AC002304AE /* DimensionsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */; };
@@ -83,12 +83,14 @@
 		036AF7A610D65E91002304AE /* MetaTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF7A510D65E91002304AE /* MetaTest.cpp */; };
 		039EA51710DC4E3B0026C8B2 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA51510DC4E3B0026C8B2 /* Events.h */; };
 		039EA51810DC4E3B0026C8B2 /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA51610DC4E3B0026C8B2 /* Events.cpp */; };
+		039EA5C210DCBFE20026C8B2 /* MockIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA5C110DCBFE20026C8B2 /* MockIndex.h */; };
+		039EA5DF10DCC22A0026C8B2 /* MockIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA5C110DCBFE20026C8B2 /* MockIndex.h */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
 		03ABC7E810C8D9DA006288C0 /* COUNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC7E610C8D9DA006288C0 /* COUNT.h */; };
 		03ABC86410C8F66D006288C0 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC86310C8F66D006288C0 /* Base.h */; };
-		03DCC58510D7395700A35F8F /* FragmentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC58410D7395700A35F8F /* FragmentTest.cpp */; };
+		03DCC58510D7395700A35F8F /* IndexTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC58410D7395700A35F8F /* IndexTest.cpp */; };
 		03DCC64510D8FEDB00A35F8F /* Indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC64310D8FEDB00A35F8F /* Indices.h */; };
 		03DCC64610D8FEDB00A35F8F /* Indices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC64410D8FEDB00A35F8F /* Indices.cpp */; };
 		03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */; };
@@ -287,8 +289,8 @@
 		036AEC9610D11267002304AE /* Dimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimension.h; sourceTree = "<group>"; };
 		036AEC9710D11267002304AE /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
 		036AECDF10D1174B002304AE /* DimensionTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionTest.cpp; sourceTree = "<group>"; };
-		036AED7C10D1BD01002304AE /* Fragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fragment.h; sourceTree = "<group>"; };
-		036AED7D10D1BD01002304AE /* Fragment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fragment.cpp; sourceTree = "<group>"; };
+		036AED7C10D1BD01002304AE /* Index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Index.h; sourceTree = "<group>"; };
+		036AED7D10D1BD01002304AE /* Index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Index.cpp; sourceTree = "<group>"; };
 		036AED9B10D1C38C002304AE /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
 		036AED9C10D1C38C002304AE /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimensions.cpp; sourceTree = "<group>"; };
 		036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionsTest.cpp; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		036AF7A510D65E91002304AE /* MetaTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetaTest.cpp; sourceTree = "<group>"; };
 		039EA51510DC4E3B0026C8B2 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		039EA51610DC4E3B0026C8B2 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
+		039EA5C110DCBFE20026C8B2 /* MockIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockIndex.h; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -344,7 +347,7 @@
 		03AF8D5E10BE4AB600AF17CB /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		03AF8D5F10BE4AB600AF17CB /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
-		03DCC58410D7395700A35F8F /* FragmentTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FragmentTest.cpp; sourceTree = "<group>"; };
+		03DCC58410D7395700A35F8F /* IndexTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexTest.cpp; sourceTree = "<group>"; };
 		03DCC64310D8FEDB00A35F8F /* Indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indices.h; sourceTree = "<group>"; };
 		03DCC64410D8FEDB00A35F8F /* Indices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Indices.cpp; sourceTree = "<group>"; };
 		03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndicesTest.cpp; sourceTree = "<group>"; };
@@ -654,8 +657,8 @@
 				03E4D60710BE5C3F00D5068E /* Flow.h */,
 				03AF8D5010BE4A5B00AF17CB /* Common.h */,
 				039EA51510DC4E3B0026C8B2 /* Events.h */,
-				03E4EB3510C655DE00D5068E /* Measures.h */,
 				03DCC64310D8FEDB00A35F8F /* Indices.h */,
+				03E4EB3510C655DE00D5068E /* Measures.h */,
 				036AED9B10D1C38C002304AE /* Dimensions.h */,
 				03AF8D5410BE4A5B00AF17CB /* ShellDimensions.h */,
 				03AF8D5610BE4A5B00AF17CB /* ShellFragments.h */,
@@ -708,6 +711,7 @@
 			isa = PBXGroup;
 			children = (
 				03DCC98510DB853A00A35F8F /* MockMeta.h */,
+				039EA5C110DCBFE20026C8B2 /* MockIndex.h */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -861,7 +865,7 @@
 			children = (
 				036AF54F10D62C41002304AE /* BDB.cpp */,
 				036AF47510D5078E002304AE /* Meta.cpp */,
-				036AED7D10D1BD01002304AE /* Fragment.cpp */,
+				036AED7D10D1BD01002304AE /* Index.cpp */,
 				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
 				036AEC9710D11267002304AE /* Dimension.cpp */,
 				03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */,
@@ -875,7 +879,7 @@
 			children = (
 				036AF54E10D62C41002304AE /* BDB.h */,
 				036AF47410D5078E002304AE /* Meta.h */,
-				036AED7C10D1BD01002304AE /* Fragment.h */,
+				036AED7C10D1BD01002304AE /* Index.h */,
 				036AEC9610D11267002304AE /* Dimension.h */,
 				03E4D6E410BE77DF00D5068E /* Measure.h */,
 				03AF8D5210BE4A5B00AF17CB /* ShellFragment.h */,
@@ -888,7 +892,7 @@
 			children = (
 				036AF72910D6560C002304AE /* BDBTest.cpp */,
 				036AF7A510D65E91002304AE /* MetaTest.cpp */,
-				03DCC58410D7395700A35F8F /* FragmentTest.cpp */,
+				03DCC58410D7395700A35F8F /* IndexTest.cpp */,
 				03E4E9F410C601D100D5068E /* MeasureTest.cpp */,
 				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
 				03DCC84910DB472100A35F8F /* RecordListTest.cpp */,
@@ -1029,7 +1033,7 @@
 				036AEB7A10D102E1002304AE /* GT.h in Headers */,
 				036AEB7E10D102F8002304AE /* LT.h in Headers */,
 				036AEC9810D11267002304AE /* Dimension.h in Headers */,
-				036AED7E10D1BD01002304AE /* Fragment.h in Headers */,
+				036AED7E10D1BD01002304AE /* Index.h in Headers */,
 				036AED9D10D1C38C002304AE /* Dimensions.h in Headers */,
 				036AEE2010D1D332002304AE /* SequenceQuery.h in Headers */,
 				036AEE3D10D22BCC002304AE /* SequenceTemplate.h in Headers */,
@@ -1042,6 +1046,7 @@
 				03DCC64510D8FEDB00A35F8F /* Indices.h in Headers */,
 				03DCC7BF10DB27EC00A35F8F /* RecordList.h in Headers */,
 				039EA51710DC4E3B0026C8B2 /* Events.h in Headers */,
+				039EA5C210DCBFE20026C8B2 /* MockIndex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1064,6 +1069,7 @@
 				03DCC9AC10DB886600A35F8F /* TestHelper.h in Headers */,
 				03DCC9AD10DB886600A35F8F /* TListColumn.h in Headers */,
 				03DCC9A510DB886600A35F8F /* MockMeta.h in Headers */,
+				039EA5DF10DCC22A0026C8B2 /* MockIndex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1256,7 +1262,7 @@
 				036AF2BF10D36F46002304AE /* SubwayFixture.cpp in Sources */,
 				036AF72A10D6560C002304AE /* BDBTest.cpp in Sources */,
 				036AF7A610D65E91002304AE /* MetaTest.cpp in Sources */,
-				03DCC58510D7395700A35F8F /* FragmentTest.cpp in Sources */,
+				03DCC58510D7395700A35F8F /* IndexTest.cpp in Sources */,
 				03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */,
 				03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */,
 			);
@@ -1287,7 +1293,7 @@
 				036AEB7B10D102E1002304AE /* GT.cpp in Sources */,
 				036AEB7F10D102F8002304AE /* LT.cpp in Sources */,
 				036AEC9910D11267002304AE /* Dimension.cpp in Sources */,
-				036AED7F10D1BD01002304AE /* Fragment.cpp in Sources */,
+				036AED7F10D1BD01002304AE /* Index.cpp in Sources */,
 				036AED9E10D1C38C002304AE /* Dimensions.cpp in Sources */,
 				036AEE2110D1D332002304AE /* SequenceQuery.cpp in Sources */,
 				036AEE3E10D22BCC002304AE /* SequenceTemplate.cpp in Sources */,

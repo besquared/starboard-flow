@@ -12,7 +12,7 @@
 
 #include "Common.h"
 #include "Meta.h"
-#include "Fragment.h"
+#include "Index.h"
 #include "Condition.h"
 
 namespace Flow {
@@ -24,7 +24,7 @@ namespace Flow {
 		
 		bool Allocate(const map<string, string>& row);
 		bool Insert(const RecordID& record, const map<string, string>& row);
-		bool Lookup(const vector<string>& dimensions, const vector<Condition>& conditions);
+		bool Lookup(const set<string>& dimensions, const vector<Condition>& conditions);
 	};
 }
 

@@ -1,5 +1,5 @@
 /*
- *  Fragment.cpp
+ *  Index.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/10/09.
@@ -7,18 +7,18 @@
  *
  */
 
-#include "Fragment.h"
+#include "Index.h"
 
-Fragment::Fragment(const string& path) : BDB::BDB(path, "fragments") {}
+Index::Index(const string& path) : BDB::BDB(path, "fragments") {}
 
-bool Fragment::Create(const string& path) {
+bool Index::Create(const string& path) {
 	return BDB::Create(path, "fragments");
 }
 
 /*
  * Looks up a list of record ids from a single index key
  */
-bool Fragment::Lookup(const map<string, string>& dimensions, RecordList& results) {
+bool Index::Lookup(const map<string, string>& dimensions, RecordList& results) {
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -31,7 +31,7 @@ bool Fragment::Lookup(const map<string, string>& dimensions, RecordList& results
 /*
  * Looks up unique values for a given set of dimensions
  */
-bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string> >& results) {
+bool Index::Lookup(const set<string>& dimensions, map< string, vector<string> >& results) {
 	vector<string> component;
 	set<string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -44,7 +44,7 @@ bool Fragment::Lookup(const set<string>& dimensions, map< string, vector<string>
 /*
  * Looks up the records for a list of dimension values
  */
-bool Fragment::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results) {
+bool Index::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results) {
 	for(size_t i = 0; i < values.size(); i++) {
 		BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
 	}
@@ -55,7 +55,7 @@ bool Fragment::Lookup(const string& dimension, const vector<string>& values, map
 /*
  * Insert dimension values
  */
-bool Fragment::Insert(const map<string, string>& dimensions) {
+bool Index::Insert(const map<string, string>& dimensions) {
 	int count;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -72,7 +72,7 @@ bool Fragment::Insert(const map<string, string>& dimensions) {
 /*
  * Insert a dimensional row
  */
-bool Fragment::Insert(const RecordID record, const map<string, string>& dimensions) {
+bool Index::Insert(const RecordID record, const map<string, string>& dimensions) {
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -90,22 +90,22 @@ bool Fragment::Insert(const RecordID record, const map<string, string>& dimensio
 	return true;
 }
 
-string Fragment::Key(const string& component) {
+string Index::Key(const string& component) {
 	return "<" + component + ">";
 }
 
-string Fragment::Key(const vector<string>& components) {
+string Index::Key(const vector<string>& components) {
 	return this->Key(boost::join(components, ":"));
 }
 
-string Fragment::ValuesKey(const string& dimension) {
+string Index::ValuesKey(const string& dimension) {
 	return "[" + dimension + "]:values";
 }
 
-string Fragment::ValueKey(const string& dimension, const string& value) {
+string Index::ValueKey(const string& dimension, const string& value) {
 	return "[" + dimension + "]:[" + value + "]";
 }
 
-string Fragment::Component(const string& dimension, const string& value) {
+string Index::Component(const string& dimension, const string& value) {
 	return "[" + dimension + ":" + value + "]";
 }

@@ -9,11 +9,17 @@
 
 #include "Meta.h"
 
-Meta::Meta(const string& path) : BDB::BDB(path, "meta") {}
+Meta::Meta(const string& path) : BDB::BDB(path, "meta") {
+	this->index = new Flow::Index(this->path);
+}
+
+Meta::~Meta() {
+	delete(this->index);
+}
 
 bool Meta::Create(const string& path) {
 	if(BDB::Create(path, "meta")) {
-		return Fragment::Create(path);
+		return Index::Create(path);
 	} else {
 		return false;
 	}
@@ -29,7 +35,7 @@ bool Meta::Indices(vector<string>& results) {
 /*
  * Returns the fragment which contains the given dimension
  */
-bool Meta::Fragment(const string& dimension, string& result) {
+bool Meta::Index(const string& dimension, string& result) {
 	return BDB::Get(dimension, result);
 }
 
@@ -118,8 +124,4 @@ bool Meta::Allocate(const set<string>& dimensions) {
  */
 bool Meta::GenerateRecordID(RecordID& result) {
 	return BDB::Add("records", 1, result);
-}
-
-Flow::Fragment Meta::GetIndex() {
-	return Flow::Fragment(this->path);
 }

@@ -9,6 +9,7 @@
 
 #include "TestHelper.h"
 #include "MockMeta.h"
+#include "MockIndex.h"
 
 namespace Mocks = Testing::Database;
 
@@ -21,6 +22,7 @@ namespace {
 	protected:
 		Indices* indices;
 		Mocks::MockMeta* meta;
+		Mocks::MockIndex* index;
 
 		IndicesTest() {}
 		virtual ~IndicesTest() {}
@@ -29,6 +31,7 @@ namespace {
 			string path = "/tmp/flow";
 			this->meta = new Mocks::MockMeta(path);
 			this->indices = new Indices(this->meta);
+			this->index = (Mocks::MockIndex*)(this->meta->index);
 		}
 		
 		virtual void TearDown() {
@@ -40,29 +43,55 @@ namespace {
 	TEST_F(IndicesTest, InsertsRecords) {
 		RecordID record = 1;
 		map<string, string> dimensions;
+		dimensions["card-id"] = "00000001";
 		dimensions["day"] = "20091020";
+		dimensions["district"] = "financial";
 		dimensions["fare-group"] = "Regular";
 		dimensions["station"] = "16th";
 		
 		set<string> allocated;
+		allocated.insert("card-id");
 		allocated.insert("day");
+		allocated.insert("district");
 		allocated.insert("fare-group");
 		allocated.insert("station");
 		
+		map<string, string> fragment1;
+		map<string, string> fragment2;
+		fragment1["card-id"] = "00000001";
+		fragment1["day"] = "20091020";
+		fragment1["district"] = "financial";
+		fragment1["fare-group"] = "Regular";
+		fragment2["station"] = "16th";
+		
 		EXPECT_CALL(*this->meta, OpenWriter()).WillOnce(Return(true));
 		EXPECT_CALL(*this->meta, Allocate(allocated)).WillOnce(Return(true));
-		
-		EXPECT_CALL(*this->meta, Fragment("day", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
-		EXPECT_CALL(*this->meta, Fragment("fare-group", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
-		EXPECT_CALL(*this->meta, Fragment("station", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
-		
-		EXPECT_CALL(*this->meta, Close()).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, Index("card-id", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Index("day", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Index("district", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Index("fare-group", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Index("station", _)).WillOnce(DoAll(SetArgReferee<1>("2"), Return(true)));
+		EXPECT_CALL(*this->meta, Close()).Times(2).WillRepeatedly(Return(true));
+
+		EXPECT_CALL(*this->index, OpenWriter()).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Insert(fragment1)).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Insert(fragment2)).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
 
 		ASSERT_EQ(true, this->indices->Insert(record, dimensions));
-		// check this stuff
 	}
 	
-//	TEST_F(IndicesTest, LooksUpRecords) {
-//		
-//	}
+	TEST_F(IndicesTest, LooksUpRecords) {
+		set<string> dimensions;
+		dimensions.insert("day");
+		dimensions.insert("fare-group");
+		
+		vector<Condition> conditions;
+		
+		EXPECT_CALL(*this->meta, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, Close()).Times(2).WillRepeatedly(Return(true));
+		
+		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions));
+	}
 }

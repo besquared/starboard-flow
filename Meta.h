@@ -13,15 +13,18 @@
 #include "Common.h"
 
 #include "BDB.h"
-#include "Fragment.h"
+#include "Index.h"
 
 namespace Flow {
 	class Meta : public BDB {
-	public:		
+	public:
+		Flow::Index *index;
+
 		Meta(const string& path);
+		~Meta();
 		
 		virtual bool Indices(vector<string>& results);		
-		virtual bool Fragment(const string& dimension, string& result);
+		virtual bool Index(const string& dimension, string& result);
 
 		virtual bool Dimensions(set<string>& results);
 		virtual bool Dimensions(const string& fragment, set<string>& results);
@@ -30,8 +33,6 @@ namespace Flow {
 		virtual bool Allocate(const set<string>& dimensions);
 		
 		virtual bool GenerateRecordID(RecordID& result);
-		
-		virtual Flow::Fragment GetIndex();
 
 		static bool Create(const string& path);
 	};

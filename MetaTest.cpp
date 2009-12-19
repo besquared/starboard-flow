@@ -88,25 +88,25 @@ namespace {
 		
 		string fragment;
 		
-		ASSERT_EQ(true, this->database->Fragment("name", fragment));
+		ASSERT_EQ(true, this->database->Index("name", fragment));
 		EXPECT_EQ("1", fragment);
 		
-		ASSERT_EQ(true, this->database->Fragment("fare-group", fragment));
+		ASSERT_EQ(true, this->database->Index("fare-group", fragment));
 		EXPECT_EQ("1", fragment);
 		
-		ASSERT_EQ(true, this->database->Fragment("card-id", fragment));
+		ASSERT_EQ(true, this->database->Index("card-id", fragment));
 		EXPECT_EQ("1", fragment);
 		
-		ASSERT_EQ(true, this->database->Fragment("action", fragment));
+		ASSERT_EQ(true, this->database->Index("action", fragment));
 		EXPECT_EQ("1", fragment);
 
-		ASSERT_EQ(true, this->database->Fragment("day", fragment));
+		ASSERT_EQ(true, this->database->Index("day", fragment));
 		EXPECT_EQ("2", fragment);
 
-		ASSERT_EQ(true, this->database->Fragment("district", fragment));
+		ASSERT_EQ(true, this->database->Index("district", fragment));
 		EXPECT_EQ("2", fragment);
 
-		ASSERT_EQ(true, this->database->Fragment("station", fragment));
+		ASSERT_EQ(true, this->database->Index("station", fragment));
 		EXPECT_EQ("2", fragment);
 	}	
 }

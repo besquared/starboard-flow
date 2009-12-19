@@ -23,7 +23,7 @@
 
 #include "BDB.h"
 #include "Meta.h"
-#include "Fragment.h"
+#include "Index.h"
 #include "Indices.h"
 
 #include "Table.h"

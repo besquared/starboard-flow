@@ -14,34 +14,31 @@ Indices::Indices(Meta *meta) {
 }
 
 bool Indices::Allocate(const map<string, string>& row) {
+	if(!this->meta->OpenWriter()) { return false; }	
+
 	set<string> dimensions;
 	map<string, string>::const_iterator cell;
-	
 	for(cell = row.begin(); cell != row.end(); cell++) {
 		dimensions.insert(cell->first);
 	}
 
-	if(!this->meta->Allocate(dimensions)) {
-		return false;
-	} else {
-		return true;
-	}
+	if(!this->meta->Allocate(dimensions)) { return false; }
+	
+	this->meta->Close();
+	
+	return true;
 }
 
 bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
-	if(!this->meta->OpenWriter()) {
-		return false;
-	}	
-		
-	if(!this->Allocate(row)) {
-		return false;
-	}
-
+	if(!this->Allocate(row)) { return false; }
+	
+	if(!this->meta->OpenReader()) { return false; }
+	
 	string name;
 	map< string, vector<string> > indices;
 	map<string, string>::const_iterator cell;
 	for(cell = row.begin(); cell != row.end(); cell++) {
-		if(this->meta->Fragment(cell->first, name)) {
+		if(this->meta->Index(cell->first, name)) {
 			indices[name].push_back(cell->first);
 		} else {
 			return false;
@@ -50,6 +47,9 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 	
 	this->meta->Close();
 	
+	
+	if(!this->meta->index->OpenWriter()) { return false; }
+
 	map<string, string> partition;
 	vector<string>::iterator dimension;
 	map< string, vector<string> >::iterator fragment;
@@ -60,26 +60,24 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 				partition[*dimension].assign(cell->second);
 			}
 		}
-
-		Fragment index = this->meta->GetIndex();
 		
-		if(index.OpenWriter()) {
-			if(index.Insert(record, partition)) {
-				index.Close();
-			} else {
-				index.Close();
-				return false;
-			}
-		} else {
-			return false;
+		if(!this->meta->index->Insert(record, partition)) { 
+			this->meta->index->Close(); 
+			return false; 
 		}
 		
 		partition.clear();
 	}
 	
+	this->meta->index->Close();
+
 	return true;
 }
 
-bool Indices::Lookup(const vector<string>& dimensions, const vector<Condition>& conditions) {
+bool Indices::Lookup(const set<string>& dimensions, const vector<Condition>& conditions) {
+	if(!this->meta->OpenReader()) { return false; }
+	
+	this->meta->Close();
+	
 	return true;
 }
