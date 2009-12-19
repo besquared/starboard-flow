@@ -62,12 +62,12 @@ namespace {
 		EXPECT_EQ(1, retrieved.count("district"));
 		EXPECT_EQ(1, retrieved.count("action"));
 		
-		vector<string> fragments;
-		ASSERT_EQ(true, this->database->Fragments(fragments));
+		vector<string> indices;
+		ASSERT_EQ(true, this->database->Indices(indices));
 		
-		ASSERT_EQ(2, fragments.size());
-		EXPECT_EQ("1", fragments[0]);
-		EXPECT_EQ("2", fragments[1]);
+		ASSERT_EQ(2, indices.size());
+		EXPECT_EQ("1", indices[0]);
+		EXPECT_EQ("2", indices[1]);
 		
 		set<string> fragment1;
 		ASSERT_EQ(true, this->database->Dimensions("1", fragment1));

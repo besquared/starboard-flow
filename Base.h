@@ -7,8 +7,12 @@
  *
  */
 
-#ifndef _base_included_
-#define _base_included_
+/*
+ * Like a database
+ */
+
+#ifndef _flow_base_h_
+#define _flow_base_h_
 
 #include "Common.h"
 

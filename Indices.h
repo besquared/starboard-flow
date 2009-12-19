@@ -1,5 +1,5 @@
 /*
- *  Fragments.h
+ *  Indices.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/16/09.
@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _included_fragments_
-#define _included_fragments_
+#ifndef _flow_indices_h_
+#define _flow_indices_h_
 
 #include "Common.h"
 #include "Meta.h"
@@ -16,11 +16,11 @@
 #include "Condition.h"
 
 namespace Flow {
-	class Fragments {
+	class Indices {
 		Meta* meta;
 		
 	public:
-		Fragments(Meta* meta);
+		Indices(Meta* meta);
 		
 		bool Allocate(const map<string, string>& row);
 		bool Insert(const RecordID& record, const map<string, string>& row);

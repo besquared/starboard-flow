@@ -1,5 +1,5 @@
 /*
- *  Fragments.cpp
+ *  Indices.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/16/09.
@@ -7,13 +7,13 @@
  *
  */
 
-#include "Fragments.h"
+#include "Indices.h"
 
-Fragments::Fragments(Meta *meta) {
+Indices::Indices(Meta *meta) {
 	this->meta = meta;
 }
 
-bool Fragments::Allocate(const map<string, string>& row) {
+bool Indices::Allocate(const map<string, string>& row) {
 	set<string> dimensions;
 	map<string, string>::const_iterator cell;
 	
@@ -28,7 +28,7 @@ bool Fragments::Allocate(const map<string, string>& row) {
 	}
 }
 
-bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
+bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 	if(!this->meta->OpenWriter()) {
 		return false;
 	}	
@@ -38,11 +38,11 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	}
 
 	string name;
-	map< string, vector<string> > fragments;
+	map< string, vector<string> > indices;
 	map<string, string>::const_iterator cell;
 	for(cell = row.begin(); cell != row.end(); cell++) {
 		if(this->meta->Fragment(cell->first, name)) {
-			fragments[name].push_back(cell->first);
+			indices[name].push_back(cell->first);
 		} else {
 			return false;
 		}
@@ -53,7 +53,7 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	map<string, string> partition;
 	vector<string>::iterator dimension;
 	map< string, vector<string> >::iterator fragment;
-	for(fragment = fragments.begin(); fragment != fragments.end(); fragment++) {
+	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
 		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
 			cell = row.find(*dimension);
 			if(cell != row.end()) {
@@ -80,6 +80,6 @@ bool Fragments::Insert(const RecordID& record, const map<string, string>& row) {
 	return true;
 }
 
-bool Fragments::Lookup(const vector<string>& dimensions, const vector<Condition>& conditions) {
+bool Indices::Lookup(const vector<string>& dimensions, const vector<Condition>& conditions) {
 	return true;
 }

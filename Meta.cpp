@@ -20,10 +20,10 @@ bool Meta::Create(const string& path) {
 }
 
 /*
- * Returns a list of all fragments
+ * Returns a list of all indices
  */
-bool Meta::Fragments(vector<string>& results) {
-	return BDB::Get("fragments", results);
+bool Meta::Indices(vector<string>& results) {
+	return BDB::Get("indices", results);
 }
 
 /*
@@ -65,7 +65,7 @@ bool Meta::Dimensions(const set<string>& dimensions, set<string>& results) {
 }
 
 /*
- * Generates all the necessary fragments to hold dimensions
+ * Generates all the necessary indices to hold dimensions
  */
 bool Meta::Allocate(const set<string>& dimensions) {
 	set<string> alldims;
@@ -88,7 +88,7 @@ bool Meta::Allocate(const set<string>& dimensions) {
 			current_fragment++;
 			fragment = lexical_cast<string>(current_fragment);
 			
-			if(!BDB::PutDup("fragments", fragment)) {
+			if(!BDB::PutDup("indices", fragment)) {
 				return false;
 			}
 		} else {

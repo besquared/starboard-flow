@@ -81,15 +81,17 @@
 		036AF55110D62C41002304AE /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF54F10D62C41002304AE /* BDB.cpp */; };
 		036AF72A10D6560C002304AE /* BDBTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF72910D6560C002304AE /* BDBTest.cpp */; };
 		036AF7A610D65E91002304AE /* MetaTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AF7A510D65E91002304AE /* MetaTest.cpp */; };
+		039EA51710DC4E3B0026C8B2 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA51510DC4E3B0026C8B2 /* Events.h */; };
+		039EA51810DC4E3B0026C8B2 /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA51610DC4E3B0026C8B2 /* Events.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
 		03ABC7E810C8D9DA006288C0 /* COUNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC7E610C8D9DA006288C0 /* COUNT.h */; };
 		03ABC86410C8F66D006288C0 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC86310C8F66D006288C0 /* Base.h */; };
 		03DCC58510D7395700A35F8F /* FragmentTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC58410D7395700A35F8F /* FragmentTest.cpp */; };
-		03DCC64510D8FEDB00A35F8F /* Fragments.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC64310D8FEDB00A35F8F /* Fragments.h */; };
-		03DCC64610D8FEDB00A35F8F /* Fragments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC64410D8FEDB00A35F8F /* Fragments.cpp */; };
-		03DCC79710DA2FA700A35F8F /* FragmentsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC79610DA2FA700A35F8F /* FragmentsTest.cpp */; };
+		03DCC64510D8FEDB00A35F8F /* Indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC64310D8FEDB00A35F8F /* Indices.h */; };
+		03DCC64610D8FEDB00A35F8F /* Indices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC64410D8FEDB00A35F8F /* Indices.cpp */; };
+		03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */; };
 		03DCC7BF10DB27EC00A35F8F /* RecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC7BD10DB27EC00A35F8F /* RecordList.h */; };
 		03DCC7C010DB27EC00A35F8F /* RecordList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */; };
 		03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC84910DB472100A35F8F /* RecordListTest.cpp */; };
@@ -320,6 +322,8 @@
 		036AF54F10D62C41002304AE /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDB.cpp; sourceTree = "<group>"; };
 		036AF72910D6560C002304AE /* BDBTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDBTest.cpp; sourceTree = "<group>"; };
 		036AF7A510D65E91002304AE /* MetaTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MetaTest.cpp; sourceTree = "<group>"; };
+		039EA51510DC4E3B0026C8B2 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		039EA51610DC4E3B0026C8B2 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -341,9 +345,9 @@
 		03AF8D5F10BE4AB600AF17CB /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DCC58410D7395700A35F8F /* FragmentTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FragmentTest.cpp; sourceTree = "<group>"; };
-		03DCC64310D8FEDB00A35F8F /* Fragments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fragments.h; sourceTree = "<group>"; };
-		03DCC64410D8FEDB00A35F8F /* Fragments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fragments.cpp; sourceTree = "<group>"; };
-		03DCC79610DA2FA700A35F8F /* FragmentsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FragmentsTest.cpp; sourceTree = "<group>"; };
+		03DCC64310D8FEDB00A35F8F /* Indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indices.h; sourceTree = "<group>"; };
+		03DCC64410D8FEDB00A35F8F /* Indices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Indices.cpp; sourceTree = "<group>"; };
+		03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndicesTest.cpp; sourceTree = "<group>"; };
 		03DCC7BD10DB27EC00A35F8F /* RecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordList.h; sourceTree = "<group>"; };
 		03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordList.cpp; sourceTree = "<group>"; };
 		03DCC84910DB472100A35F8F /* RecordListTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordListTest.cpp; sourceTree = "<group>"; };
@@ -568,6 +572,18 @@
 			name = Fixture;
 			sourceTree = "<group>";
 		};
+		039EA51410DC4B330026C8B2 /* Sequence */ = {
+			isa = PBXGroup;
+			children = (
+				036AEE1F10D1D332002304AE /* SequenceQuery.cpp */,
+				036AEE3C10D22BCC002304AE /* SequenceTemplate.cpp */,
+				036AEE8910D2356E002304AE /* SequenceDimension.cpp */,
+				036AEFE310D307D2002304AE /* SequenceKey.cpp */,
+				036AEFAB10D30323002304AE /* SequenceEvent.cpp */,
+			);
+			name = Sequence;
+			sourceTree = "<group>";
+		};
 		03ABC5E810C782AB006288C0 /* Aggregate */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,9 +653,10 @@
 				03ABC86310C8F66D006288C0 /* Base.h */,
 				03E4D60710BE5C3F00D5068E /* Flow.h */,
 				03AF8D5010BE4A5B00AF17CB /* Common.h */,
-				036AED9B10D1C38C002304AE /* Dimensions.h */,
+				039EA51510DC4E3B0026C8B2 /* Events.h */,
 				03E4EB3510C655DE00D5068E /* Measures.h */,
-				03DCC64310D8FEDB00A35F8F /* Fragments.h */,
+				03DCC64310D8FEDB00A35F8F /* Indices.h */,
+				036AED9B10D1C38C002304AE /* Dimensions.h */,
 				03AF8D5410BE4A5B00AF17CB /* ShellDimensions.h */,
 				03AF8D5610BE4A5B00AF17CB /* ShellFragments.h */,
 			);
@@ -667,9 +684,9 @@
 				03E4DFB910C2723600D5068E /* Database */,
 				03E4E87F10C5C6E900D5068E /* Query */,
 				03650D2910CA650D00775B5A /* BaseTest.cpp */,
+				03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */,
 				03650D2B10CA652E00775B5A /* MeasuresTest.cpp */,
 				036AEDA210D1C5AC002304AE /* DimensionsTest.cpp */,
-				03DCC79610DA2FA700A35F8F /* FragmentsTest.cpp */,
 				03E4DC2B10C0EE3500D5068E /* ShellDimensionsTest.cpp */,
 				03E4D7EF10BF875C00D5068E /* ShellFragmentsTest.cpp */,
 				03E4E13510C3435000D5068E /* UtilityTest.cpp */,
@@ -885,15 +902,11 @@
 			children = (
 				03ABC5E810C782AB006288C0 /* Aggregate */,
 				036AEA9710D0719E002304AE /* Condition */,
+				039EA51410DC4B330026C8B2 /* Sequence */,
 				03ABC71910C793D7006288C0 /* Aggregation.cpp */,
 				036AEE7810D22EBF002304AE /* Aggregations.cpp */,
 				03E4E88610C5C80D00D5068E /* Conditions.cpp */,
 				03E4D5A610BE56E300D5068E /* Query.cpp */,
-				036AEE1F10D1D332002304AE /* SequenceQuery.cpp */,
-				036AEE3C10D22BCC002304AE /* SequenceTemplate.cpp */,
-				036AEE8910D2356E002304AE /* SequenceDimension.cpp */,
-				036AEFE310D307D2002304AE /* SequenceKey.cpp */,
-				036AEFAB10D30323002304AE /* SequenceEvent.cpp */,
 			);
 			name = Query;
 			sourceTree = "<group>";
@@ -955,9 +968,10 @@
 				03E4E87E10C5C6D400D5068E /* Query */,
 				03ABC86110C8F61A006288C0 /* Base.cpp */,
 				03E4E0B210C33E6000D5068E /* Common.cpp */,
+				039EA51610DC4E3B0026C8B2 /* Events.cpp */,
+				03DCC64410D8FEDB00A35F8F /* Indices.cpp */,
 				03E4EB3610C655DE00D5068E /* Measures.cpp */,
 				036AED9C10D1C38C002304AE /* Dimensions.cpp */,
-				03DCC64410D8FEDB00A35F8F /* Fragments.cpp */,
 				03AF8D5310BE4A5B00AF17CB /* ShellDimensions.cpp */,
 				03AF8D5510BE4A5B00AF17CB /* ShellFragments.cpp */,
 			);
@@ -1025,8 +1039,9 @@
 				036AEFE410D307D2002304AE /* SequenceKey.h in Headers */,
 				036AF47610D5078E002304AE /* Meta.h in Headers */,
 				036AF55010D62C41002304AE /* BDB.h in Headers */,
-				03DCC64510D8FEDB00A35F8F /* Fragments.h in Headers */,
+				03DCC64510D8FEDB00A35F8F /* Indices.h in Headers */,
 				03DCC7BF10DB27EC00A35F8F /* RecordList.h in Headers */,
+				039EA51710DC4E3B0026C8B2 /* Events.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1242,7 +1257,7 @@
 				036AF72A10D6560C002304AE /* BDBTest.cpp in Sources */,
 				036AF7A610D65E91002304AE /* MetaTest.cpp in Sources */,
 				03DCC58510D7395700A35F8F /* FragmentTest.cpp in Sources */,
-				03DCC79710DA2FA700A35F8F /* FragmentsTest.cpp in Sources */,
+				03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */,
 				03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1282,8 +1297,9 @@
 				036AEFE510D307D2002304AE /* SequenceKey.cpp in Sources */,
 				036AF47710D5078E002304AE /* Meta.cpp in Sources */,
 				036AF55110D62C41002304AE /* BDB.cpp in Sources */,
-				03DCC64610D8FEDB00A35F8F /* Fragments.cpp in Sources */,
+				03DCC64610D8FEDB00A35F8F /* Indices.cpp in Sources */,
 				03DCC7C010DB27EC00A35F8F /* RecordList.cpp in Sources */,
+				039EA51810DC4E3B0026C8B2 /* Events.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

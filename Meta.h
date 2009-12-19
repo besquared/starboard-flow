@@ -20,7 +20,7 @@ namespace Flow {
 	public:		
 		Meta(const string& path);
 		
-		virtual bool Fragments(vector<string>& results);		
+		virtual bool Indices(vector<string>& results);		
 		virtual bool Fragment(const string& dimension, string& result);
 
 		virtual bool Dimensions(set<string>& results);

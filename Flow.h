@@ -24,7 +24,7 @@
 #include "BDB.h"
 #include "Meta.h"
 #include "Fragment.h"
-#include "Fragments.h"
+#include "Indices.h"
 
 #include "Table.h"
 #include "Query.h"

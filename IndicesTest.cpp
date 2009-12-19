@@ -1,5 +1,5 @@
 /*
- *  FragmentsTest.cpp
+ *  IndicesTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/17/09.
@@ -17,27 +17,27 @@ using ::testing::SetArgReferee;
 using ::testing::_;
 
 namespace {
-	class FragmentsTest : public ::testing::Test {
+	class IndicesTest : public ::testing::Test {
 	protected:
-		Fragments* fragments;
+		Indices* indices;
 		Mocks::MockMeta* meta;
 
-		FragmentsTest() {}
-		virtual ~FragmentsTest() {}
+		IndicesTest() {}
+		virtual ~IndicesTest() {}
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";
 			this->meta = new Mocks::MockMeta(path);
-			this->fragments = new Fragments(this->meta);
+			this->indices = new Indices(this->meta);
 		}
 		
 		virtual void TearDown() {
 			delete(this->meta);
-			delete(this->fragments);
+			delete(this->indices);
 		}
 	};
 	
-	TEST_F(FragmentsTest, InsertsRecords) {
+	TEST_F(IndicesTest, InsertsRecords) {
 		RecordID record = 1;
 		map<string, string> dimensions;
 		dimensions["day"] = "20091020";
@@ -58,11 +58,11 @@ namespace {
 		
 		EXPECT_CALL(*this->meta, Close()).WillOnce(Return(true));
 
-		ASSERT_EQ(true, this->fragments->Insert(record, dimensions));
+		ASSERT_EQ(true, this->indices->Insert(record, dimensions));
 		// check this stuff
 	}
 	
-//	TEST_F(FragmentsTest, LooksUpRecords) {
+//	TEST_F(IndicesTest, LooksUpRecords) {
 //		
 //	}
 }
