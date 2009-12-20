@@ -91,6 +91,8 @@
 		039EA69610DDE1EE0026C8B2 /* RIDTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA69410DDE1EE0026C8B2 /* RIDTree.cpp */; };
 		039EA73110DE14380026C8B2 /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA72F10DE14380026C8B2 /* Record.h */; };
 		039EA73210DE14380026C8B2 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA73010DE14380026C8B2 /* Record.cpp */; };
+		039EA84010DE39E60026C8B2 /* RIDMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA83F10DE39E60026C8B2 /* RIDMapTest.cpp */; };
+		039EA84410DE3A470026C8B2 /* RIDTreeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA84310DE3A470026C8B2 /* RIDTreeTest.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -339,6 +341,8 @@
 		039EA69410DDE1EE0026C8B2 /* RIDTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTree.cpp; sourceTree = "<group>"; };
 		039EA72F10DE14380026C8B2 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		039EA73010DE14380026C8B2 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
+		039EA83F10DE39E60026C8B2 /* RIDMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMapTest.cpp; sourceTree = "<group>"; };
+		039EA84310DE3A470026C8B2 /* RIDTreeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTreeTest.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -541,6 +545,8 @@
 				036AE6D910CE0FF9002304AE /* TColumnTest.cpp */,
 				036AE6DF10CE1B93002304AE /* TListColumnTest.cpp */,
 				03DCC84910DB472100A35F8F /* RIDListTest.cpp */,
+				039EA83F10DE39E60026C8B2 /* RIDMapTest.cpp */,
+				039EA84310DE3A470026C8B2 /* RIDTreeTest.cpp */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -1286,6 +1292,8 @@
 				03DCC58510D7395700A35F8F /* IndexTest.cpp in Sources */,
 				03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */,
 				03DCC84A10DB472100A35F8F /* RIDListTest.cpp in Sources */,
+				039EA84010DE39E60026C8B2 /* RIDMapTest.cpp in Sources */,
+				039EA84410DE3A470026C8B2 /* RIDTreeTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
