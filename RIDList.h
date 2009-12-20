@@ -15,12 +15,10 @@
 namespace Flow {
 	class RIDList : public vector<RecordID> {
 	public:
-		RIDList();
-		RIDList(void* buffer, int bsize);
-		RIDList(RecordID* buffer, size_t count);
-		
+		RIDList();		
 		RIDList operator&(RIDList& other);
 		RIDList operator|(RIDList& other);
+		string Inspect();
 	};
 }
 

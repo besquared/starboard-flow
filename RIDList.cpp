@@ -9,15 +9,7 @@
 
 #include "RIDList.h"
 
-RIDList::RIDList() {}
-
-RIDList::RIDList(void* buffer, int bsize) {
-//	this->assign(buffer, bsize);
-}
-
-RIDList::RIDList(RecordID* buffer, size_t count) {
-//	this->assign(buffer, count);
-}
+RIDList::RIDList() : vector<RecordID>() {}
 
 // Performs an AND operation on two sorted RecordLists
 RIDList RIDList::operator&(RIDList& other) {
@@ -32,6 +24,19 @@ RIDList RIDList::operator&(RIDList& other) {
 RIDList RIDList::operator|(RIDList& other) {
 	RIDList results;
 	results.reserve(this->size() + other.size());
-	merge(this->begin(), this->end(), other.begin(), other.end(), results.begin());
+	merge(this->begin(), this->end(), other.begin(), other.end(), back_inserter(results));
 	return results;
+}
+
+string RIDList::Inspect() {
+	string out;
+	
+	out += "[";
+	for(size_t i = 0; i < vector<RecordID>::size(); i++) {
+		out += lexical_cast<string>(vector<RecordID>::at(i));
+		if(i < vector<RecordID>::size() - 1) out += ", "; 
+	}
+	out += "]";
+	
+	return out;
 }

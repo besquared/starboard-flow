@@ -102,7 +102,7 @@
 		03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */; };
 		03DCC7BF10DB27EC00A35F8F /* RIDList.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC7BD10DB27EC00A35F8F /* RIDList.h */; };
 		03DCC7C010DB27EC00A35F8F /* RIDList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC7BE10DB27EC00A35F8F /* RIDList.cpp */; };
-		03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC84910DB472100A35F8F /* RecordListTest.cpp */; };
+		03DCC84A10DB472100A35F8F /* RIDListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC84910DB472100A35F8F /* RIDListTest.cpp */; };
 		03DCC99F10DB886600A35F8F /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5B10BE4AB600AF17CB /* Column.h */; };
 		03DCC9A010DB886600A35F8F /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5010BE4A5B00AF17CB /* Common.h */; };
 		03DCC9A110DB886600A35F8F /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E4E88910C5CAAF00D5068E /* Condition.h */; };
@@ -365,7 +365,7 @@
 		03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndicesTest.cpp; sourceTree = "<group>"; };
 		03DCC7BD10DB27EC00A35F8F /* RIDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDList.h; sourceTree = "<group>"; };
 		03DCC7BE10DB27EC00A35F8F /* RIDList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDList.cpp; sourceTree = "<group>"; };
-		03DCC84910DB472100A35F8F /* RecordListTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordListTest.cpp; sourceTree = "<group>"; };
+		03DCC84910DB472100A35F8F /* RIDListTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDListTest.cpp; sourceTree = "<group>"; };
 		03DCC98510DB853A00A35F8F /* MockMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMeta.h; sourceTree = "<group>"; };
 		03E4D4EA10BE507600D5068E /* TestMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestMain.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -540,6 +540,7 @@
 				036AE89410CF4CA5002304AE /* ColumnsTest.cpp */,
 				036AE6D910CE0FF9002304AE /* TColumnTest.cpp */,
 				036AE6DF10CE1B93002304AE /* TListColumnTest.cpp */,
+				03DCC84910DB472100A35F8F /* RIDListTest.cpp */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -913,7 +914,6 @@
 				03DCC58410D7395700A35F8F /* IndexTest.cpp */,
 				03E4E9F410C601D100D5068E /* MeasureTest.cpp */,
 				036AECDF10D1174B002304AE /* DimensionTest.cpp */,
-				03DCC84910DB472100A35F8F /* RecordListTest.cpp */,
 				03E4D5C310BE57CD00D5068E /* ShellFragmentTest.cpp */,
 			);
 			name = Database;
@@ -1285,7 +1285,7 @@
 				036AF7A610D65E91002304AE /* MetaTest.cpp in Sources */,
 				03DCC58510D7395700A35F8F /* IndexTest.cpp in Sources */,
 				03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */,
-				03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */,
+				03DCC84A10DB472100A35F8F /* RIDListTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
