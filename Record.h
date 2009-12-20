@@ -19,6 +19,10 @@ namespace Flow {
 		
 		Record();
 		Record(RecordID id);
+
+		set<string> Dimensions() const;
+		vector<string> Values() const;
+		Record Partition(const set<string>& dimensions) const;
 	};
 }
 

@@ -15,54 +15,42 @@ Indices::Indices(Meta *meta) {
 
 bool Indices::Allocate(const Record& record) {
 	if(!this->meta->OpenWriter()) { return false; }	
-
-	set<string> dimensions;
-	Record::const_iterator cell;
-	for(cell = record.begin(); cell != record.end(); cell++) {
-		dimensions.insert(cell->first);
-	}
-
-	if(!this->meta->Allocate(dimensions)) { return false; }
-	
+	if(!this->meta->Allocate(record.Dimensions())) { return false; }
 	this->meta->Close();
-	
 	return true;
 }
 
 bool Indices::Insert(const Record& record) {
 	if(!this->Allocate(record)) { return false; }
 	
+	// Collect fragment membership
+	
 	if(!this->meta->OpenReader()) { return false; }
 	string name;
-	map< string, vector<string> > indices;
 	Record::const_iterator cell;
+	map< string, set<string> > indices;
 	for(cell = record.begin(); cell != record.end(); cell++) {
 		if(this->meta->Index(cell->first, name)) {
-			indices[name].push_back(cell->first);
+			indices[name].insert(cell->first);
 		} else {
 			this->meta->Close(); return false;
 		}
 	}
 	this->meta->Close();
 	
+	// Insert each fragment partition into the index
+	
 	if(!this->meta->index->OpenWriter()) { return false; }
 
-	map<string, string> partition;
+	Record partition;
 	vector<string>::iterator dimension;
-	map< string, vector<string> >::iterator fragment;
+	map< string, set<string> >::iterator fragment;
 	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
-		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
-			partition.clear();
-			if((cell = record.find(*dimension)) != record.end()) {
-				partition[*dimension].assign(cell->second);
-			}
-		}
-		
-		if(!this->meta->index->Insert(record)) {
+		partition = record.Partition(fragment->second);
+		if(!this->meta->index->Insert(partition)) {
 			this->meta->index->Close(); return false; 
 		}
 	}
-	
 	this->meta->index->Close();
 
 	return true;
