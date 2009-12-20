@@ -93,6 +93,7 @@
 		039EA73210DE14380026C8B2 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA73010DE14380026C8B2 /* Record.cpp */; };
 		039EA84010DE39E60026C8B2 /* RIDMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA83F10DE39E60026C8B2 /* RIDMapTest.cpp */; };
 		039EA84410DE3A470026C8B2 /* RIDTreeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA84310DE3A470026C8B2 /* RIDTreeTest.cpp */; };
+		039EA84710DE3F180026C8B2 /* RecordTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA84610DE3F180026C8B2 /* RecordTest.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -343,6 +344,7 @@
 		039EA73010DE14380026C8B2 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
 		039EA83F10DE39E60026C8B2 /* RIDMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMapTest.cpp; sourceTree = "<group>"; };
 		039EA84310DE3A470026C8B2 /* RIDTreeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTreeTest.cpp; sourceTree = "<group>"; };
+		039EA84610DE3F180026C8B2 /* RecordTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordTest.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				036AE89410CF4CA5002304AE /* ColumnsTest.cpp */,
 				036AE6D910CE0FF9002304AE /* TColumnTest.cpp */,
 				036AE6DF10CE1B93002304AE /* TListColumnTest.cpp */,
+				039EA84610DE3F180026C8B2 /* RecordTest.cpp */,
 				03DCC84910DB472100A35F8F /* RIDListTest.cpp */,
 				039EA83F10DE39E60026C8B2 /* RIDMapTest.cpp */,
 				039EA84310DE3A470026C8B2 /* RIDTreeTest.cpp */,
@@ -1294,6 +1297,7 @@
 				03DCC84A10DB472100A35F8F /* RIDListTest.cpp in Sources */,
 				039EA84010DE39E60026C8B2 /* RIDMapTest.cpp in Sources */,
 				039EA84410DE3A470026C8B2 /* RIDTreeTest.cpp in Sources */,
+				039EA84710DE3F180026C8B2 /* RecordTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
