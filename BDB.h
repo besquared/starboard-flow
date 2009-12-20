@@ -11,7 +11,7 @@
 #define _bdb_included_
 
 #include "Common.h"
-#include "RecordList.h"
+#include "RIDList.h"
 
 namespace Flow {
 	class BDB {
@@ -33,7 +33,7 @@ namespace Flow {
 		virtual bool Get(const string& key, string& result);
 		virtual bool Get(const string& key, set<string>& results);
 		virtual bool Get(const string& key, vector<string>& results);
-		virtual bool Get(const string& key, RecordList& results);
+		virtual bool Get(const string& key, RIDList& results);
 		
 		virtual bool Put(const string& key, const string& value);
 		virtual bool PutDup(const string& key, const string& value);

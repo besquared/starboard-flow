@@ -85,6 +85,12 @@
 		039EA51810DC4E3B0026C8B2 /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA51610DC4E3B0026C8B2 /* Events.cpp */; };
 		039EA5C210DCBFE20026C8B2 /* MockIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA5C110DCBFE20026C8B2 /* MockIndex.h */; };
 		039EA5DF10DCC22A0026C8B2 /* MockIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA5C110DCBFE20026C8B2 /* MockIndex.h */; };
+		039EA69110DDE1BD0026C8B2 /* RIDMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA68F10DDE1BD0026C8B2 /* RIDMap.h */; };
+		039EA69210DDE1BD0026C8B2 /* RIDMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA69010DDE1BD0026C8B2 /* RIDMap.cpp */; };
+		039EA69510DDE1EE0026C8B2 /* RIDTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA69310DDE1EE0026C8B2 /* RIDTree.h */; };
+		039EA69610DDE1EE0026C8B2 /* RIDTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA69410DDE1EE0026C8B2 /* RIDTree.cpp */; };
+		039EA73110DE14380026C8B2 /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 039EA72F10DE14380026C8B2 /* Record.h */; };
+		039EA73210DE14380026C8B2 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EA73010DE14380026C8B2 /* Record.cpp */; };
 		03ABC5EC10C782C2006288C0 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC5EA10C782C2006288C0 /* Aggregation.h */; };
 		03ABC60910C7844A006288C0 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC60710C7844A006288C0 /* SUM.h */; };
 		03ABC6ED10C78E22006288C0 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC6EB10C78E22006288C0 /* EQ.h */; };
@@ -94,8 +100,8 @@
 		03DCC64510D8FEDB00A35F8F /* Indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC64310D8FEDB00A35F8F /* Indices.h */; };
 		03DCC64610D8FEDB00A35F8F /* Indices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC64410D8FEDB00A35F8F /* Indices.cpp */; };
 		03DCC79710DA2FA700A35F8F /* IndicesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */; };
-		03DCC7BF10DB27EC00A35F8F /* RecordList.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC7BD10DB27EC00A35F8F /* RecordList.h */; };
-		03DCC7C010DB27EC00A35F8F /* RecordList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */; };
+		03DCC7BF10DB27EC00A35F8F /* RIDList.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DCC7BD10DB27EC00A35F8F /* RIDList.h */; };
+		03DCC7C010DB27EC00A35F8F /* RIDList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC7BE10DB27EC00A35F8F /* RIDList.cpp */; };
 		03DCC84A10DB472100A35F8F /* RecordListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03DCC84910DB472100A35F8F /* RecordListTest.cpp */; };
 		03DCC99F10DB886600A35F8F /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5B10BE4AB600AF17CB /* Column.h */; };
 		03DCC9A010DB886600A35F8F /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03AF8D5010BE4A5B00AF17CB /* Common.h */; };
@@ -327,6 +333,12 @@
 		039EA51510DC4E3B0026C8B2 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		039EA51610DC4E3B0026C8B2 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
 		039EA5C110DCBFE20026C8B2 /* MockIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockIndex.h; sourceTree = "<group>"; };
+		039EA68F10DDE1BD0026C8B2 /* RIDMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDMap.h; sourceTree = "<group>"; };
+		039EA69010DDE1BD0026C8B2 /* RIDMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMap.cpp; sourceTree = "<group>"; };
+		039EA69310DDE1EE0026C8B2 /* RIDTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDTree.h; sourceTree = "<group>"; };
+		039EA69410DDE1EE0026C8B2 /* RIDTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTree.cpp; sourceTree = "<group>"; };
+		039EA72F10DE14380026C8B2 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		039EA73010DE14380026C8B2 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
 		03ABC5EA10C782C2006288C0 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregation.h; sourceTree = "<group>"; };
 		03ABC60710C7844A006288C0 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUM.h; sourceTree = "<group>"; };
 		03ABC60810C7844A006288C0 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SUM.cpp; sourceTree = "<group>"; };
@@ -351,8 +363,8 @@
 		03DCC64310D8FEDB00A35F8F /* Indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indices.h; sourceTree = "<group>"; };
 		03DCC64410D8FEDB00A35F8F /* Indices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Indices.cpp; sourceTree = "<group>"; };
 		03DCC79610DA2FA700A35F8F /* IndicesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndicesTest.cpp; sourceTree = "<group>"; };
-		03DCC7BD10DB27EC00A35F8F /* RecordList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordList.h; sourceTree = "<group>"; };
-		03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordList.cpp; sourceTree = "<group>"; };
+		03DCC7BD10DB27EC00A35F8F /* RIDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDList.h; sourceTree = "<group>"; };
+		03DCC7BE10DB27EC00A35F8F /* RIDList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDList.cpp; sourceTree = "<group>"; };
 		03DCC84910DB472100A35F8F /* RecordListTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecordListTest.cpp; sourceTree = "<group>"; };
 		03DCC98510DB853A00A35F8F /* MockMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMeta.h; sourceTree = "<group>"; };
 		03E4D4EA10BE507600D5068E /* TestMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestMain.cpp; sourceTree = "<group>"; };
@@ -623,6 +635,10 @@
 			children = (
 				03AF8D5E10BE4AB600AF17CB /* Table.cpp */,
 				03E4E3FD10C46BFF00D5068E /* Columns.cpp */,
+				039EA73010DE14380026C8B2 /* Record.cpp */,
+				03DCC7BE10DB27EC00A35F8F /* RIDList.cpp */,
+				039EA69010DDE1BD0026C8B2 /* RIDMap.cpp */,
+				039EA69410DDE1EE0026C8B2 /* RIDTree.cpp */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -674,7 +690,10 @@
 				03AF8D5F10BE4AB600AF17CB /* Table.h */,
 				03E4E52810C490F300D5068E /* TColumn.h */,
 				03E4D73B10BE899300D5068E /* TListColumn.h */,
-				03DCC7BD10DB27EC00A35F8F /* RecordList.h */,
+				039EA72F10DE14380026C8B2 /* Record.h */,
+				03DCC7BD10DB27EC00A35F8F /* RIDList.h */,
+				039EA68F10DDE1BD0026C8B2 /* RIDMap.h */,
+				039EA69310DDE1EE0026C8B2 /* RIDTree.h */,
 			);
 			name = Table;
 			sourceTree = "<group>";
@@ -868,7 +887,6 @@
 				036AED7D10D1BD01002304AE /* Index.cpp */,
 				03E4D6E510BE77DF00D5068E /* Measure.cpp */,
 				036AEC9710D11267002304AE /* Dimension.cpp */,
-				03DCC7BE10DB27EC00A35F8F /* RecordList.cpp */,
 				03AF8D5110BE4A5B00AF17CB /* ShellFragment.cpp */,
 			);
 			name = Database;
@@ -1044,9 +1062,12 @@
 				036AF47610D5078E002304AE /* Meta.h in Headers */,
 				036AF55010D62C41002304AE /* BDB.h in Headers */,
 				03DCC64510D8FEDB00A35F8F /* Indices.h in Headers */,
-				03DCC7BF10DB27EC00A35F8F /* RecordList.h in Headers */,
+				03DCC7BF10DB27EC00A35F8F /* RIDList.h in Headers */,
 				039EA51710DC4E3B0026C8B2 /* Events.h in Headers */,
 				039EA5C210DCBFE20026C8B2 /* MockIndex.h in Headers */,
+				039EA69110DDE1BD0026C8B2 /* RIDMap.h in Headers */,
+				039EA69510DDE1EE0026C8B2 /* RIDTree.h in Headers */,
+				039EA73110DE14380026C8B2 /* Record.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1304,8 +1325,11 @@
 				036AF47710D5078E002304AE /* Meta.cpp in Sources */,
 				036AF55110D62C41002304AE /* BDB.cpp in Sources */,
 				03DCC64610D8FEDB00A35F8F /* Indices.cpp in Sources */,
-				03DCC7C010DB27EC00A35F8F /* RecordList.cpp in Sources */,
+				03DCC7C010DB27EC00A35F8F /* RIDList.cpp in Sources */,
 				039EA51810DC4E3B0026C8B2 /* Events.cpp in Sources */,
+				039EA69210DDE1BD0026C8B2 /* RIDMap.cpp in Sources */,
+				039EA69610DDE1EE0026C8B2 /* RIDTree.cpp in Sources */,
+				039EA73210DE14380026C8B2 /* Record.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

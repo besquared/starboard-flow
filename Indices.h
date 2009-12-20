@@ -15,16 +15,23 @@
 #include "Index.h"
 #include "Condition.h"
 
+#include "Record.h"
+#include "RIDList.h"
+#include "RIDMap.h"
+#include "RIDTree.h"
+
 namespace Flow {
 	class Indices {
+	protected:
 		Meta* meta;
-		
+		bool Allocate(const Record& record);
+
 	public:
 		Indices(Meta* meta);
 		
-		bool Allocate(const map<string, string>& row);
-		bool Insert(const RecordID& record, const map<string, string>& row);
-		bool Lookup(const set<string>& dimensions, const vector<Condition>& conditions);
+		bool Insert(const Record& record);
+		bool Lookup(const ValueMap& specified);
+		bool Lookup(const set<string>& dimensions, const vector<Condition>& conditions, RIDTree& results);
 	};
 }
 

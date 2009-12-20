@@ -13,6 +13,9 @@
 #include "Common.h"
 #include "BDB.h"
 
+#include "RIDList.h"
+#include "RIDMap.h"
+
 namespace Flow {
 	class Index : public BDB {
 	public:		
@@ -23,7 +26,7 @@ namespace Flow {
 		/*
 		 * Returns a list of records corresponding to the specified dimension values
 		 */
-		virtual bool Lookup(const map<string, string>& dimensions, RecordList& results);
+		virtual bool Lookup(const map<string, string>& dimensions, RIDList& results);
 		
 		/*
 		 * Returns a set of values for each given dimension as a map
@@ -33,7 +36,7 @@ namespace Flow {
 		/*
 		 * Returns record lists for the given dimension for each given value
 		 */
-		virtual bool Lookup(const string& dimension, const vector<string>& values, RecordMap& results);
+		virtual bool Lookup(const string& dimension, const vector<string>& values, RIDMap& results);
 		
 		/*
 		 * Uniquely inserts a set of dimensions and their values

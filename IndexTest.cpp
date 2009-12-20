@@ -92,7 +92,7 @@ namespace {
 		
 		ASSERT_EQ(true, this->database->Insert(record, dimensions));
 		
-		RecordList records;
+		RIDList records;
 		
 		ASSERT_EQ(true, this->database->Get("<>", records));
 		ASSERT_EQ(1, records.size());
@@ -155,7 +155,7 @@ namespace {
 		record = 2;
 		ASSERT_EQ(true, this->database->Insert(record, dimensions));
 
-		RecordList records;
+		RIDList records;
 		ASSERT_EQ(true, this->database->Lookup(dimensions, records));
 		ASSERT_EQ(2, records.size());
 		EXPECT_EQ(1, records[0]);
@@ -214,7 +214,8 @@ namespace {
 		vector<string> values;
 		values.push_back("Regular");
 		values.push_back("Senior");
-		map<string, RecordList> records;
+		
+		RIDMap records;
 		ASSERT_EQ(true, this->database->Lookup("fare-group", values, records));
 		ASSERT_EQ(1, records["Regular"].size());
 		EXPECT_EQ(1, records["Regular"][0]);

@@ -13,12 +13,12 @@ Indices::Indices(Meta *meta) {
 	this->meta = meta;
 }
 
-bool Indices::Allocate(const map<string, string>& row) {
+bool Indices::Allocate(const Record& record) {
 	if(!this->meta->OpenWriter()) { return false; }	
 
 	set<string> dimensions;
-	map<string, string>::const_iterator cell;
-	for(cell = row.begin(); cell != row.end(); cell++) {
+	Record::const_iterator cell;
+	for(cell = record.begin(); cell != record.end(); cell++) {
 		dimensions.insert(cell->first);
 	}
 
@@ -29,14 +29,14 @@ bool Indices::Allocate(const map<string, string>& row) {
 	return true;
 }
 
-bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
-	if(!this->Allocate(row)) { return false; }
+bool Indices::Insert(const Record& record) {
+	if(!this->Allocate(record)) { return false; }
 	
 	if(!this->meta->OpenReader()) { return false; }
 	string name;
 	map< string, vector<string> > indices;
-	map<string, string>::const_iterator cell;
-	for(cell = row.begin(); cell != row.end(); cell++) {
+	Record::const_iterator cell;
+	for(cell = record.begin(); cell != record.end(); cell++) {
 		if(this->meta->Index(cell->first, name)) {
 			indices[name].push_back(cell->first);
 		} else {
@@ -53,12 +53,12 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
 		for(dimension = fragment->second.begin(); dimension != fragment->second.end(); dimension++) {
 			partition.clear();
-			if((cell = row.find(*dimension)) != row.end()) {
+			if((cell = record.find(*dimension)) != record.end()) {
 				partition[*dimension].assign(cell->second);
 			}
 		}
 		
-		if(!this->meta->index->Insert(record, partition)) { 
+		if(!this->meta->index->Insert(record)) {
 			this->meta->index->Close(); return false; 
 		}
 	}
@@ -72,22 +72,21 @@ bool Indices::Insert(const RecordID& record, const map<string, string>& row) {
 bool Indices::Lookup(const ValueMap& specified) {
 	if(!this->meta->OpenReader()) { return false; }
 	this->meta->Close();
+	return true;
 }
 
-// RecordMap map<string, RecordList>
-// RecordTree map<string, ValueMap>
+// RIDMap map<string, RIDList>
+// RIDTree map<string, ValueMap>
 bool Indices::Lookup(const set<string>& dimensions,
-										 const vector<Condition>& conditions, RecordTree& tree) {
+										 const vector<Condition>& conditions, RIDTree& results) {
 	
 	if(!this->meta->OpenReader()) { return false; }
 	
 	set<string>::iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		RecordMap records;
+		RIDMap records;
 		
-		
-		
-		tree[dimension] = records;
+		results[*dimension] = records;
 	}
 	
 //	for(size_t i = 0; i < dimensions.size(); i++) {

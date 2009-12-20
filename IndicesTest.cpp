@@ -48,8 +48,8 @@ namespace {
 		allocated.insert("fare-group");
 		allocated.insert("station");
 		
-		map<string, string> fragment1;
-		map<string, string> fragment2;
+		ValueMap fragment1;
+		ValueMap fragment2;
 		fragment1["card-id"] = "00000001";
 		fragment1["day"] = "20091020";
 		fragment1["district"] = "financial";
@@ -70,16 +70,15 @@ namespace {
 		EXPECT_CALL(*this->index, Insert(fragment1)).WillOnce(Return(true));
 		EXPECT_CALL(*this->index, Insert(fragment2)).WillOnce(Return(true));
 		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
-
-		RecordID record = 1;
-		map<string, string> row;
-		row["card-id"] = "00000001";
-		row["day"] = "20091020";
-		row["district"] = "financial";
-		row["fare-group"] = "Regular";
-		row["station"] = "16th";
 		
-		ASSERT_EQ(true, this->indices->Insert(record, row));
+		Record record(1);
+		record["card-id"] = "00000001";
+		record["day"] = "20091020";
+		record["district"] = "financial";
+		record["fare-group"] = "Regular";
+		record["station"] = "16th";
+		
+		ASSERT_EQ(true, this->indices->Insert(record));
 	}
 	
 	TEST_F(IndicesTest, LooksUpRecords) {
@@ -92,6 +91,7 @@ namespace {
 		EXPECT_CALL(*this->meta, OpenReader()).WillOnce(Return(true));
 		EXPECT_CALL(*this->meta, Close()).Times(2).WillRepeatedly(Return(true));
 		
-		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions));
+		RIDTree records;
+		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions, records));
 	}
 }

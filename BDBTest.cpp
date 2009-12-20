@@ -76,11 +76,11 @@ namespace {
 	
 	TEST_F(BDBTest, PutsAndGetsDuplicateRecords) {
 		string key = "key";
-		RecordList values;
+		RIDList values;
 		values.push_back(1.0);
 		values.push_back(2.0);
 		
-		RecordList retrieved;
+		RIDList retrieved;
 		ASSERT_EQ(true, this->database->PutCat(key, values[0]));
 		ASSERT_EQ(true, this->database->PutCat(key, values[1]));
 		

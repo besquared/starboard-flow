@@ -18,7 +18,7 @@ bool Index::Create(const string& path) {
 /*
  * Looks up a list of record ids from a single index key
  */
-bool Index::Lookup(const map<string, string>& dimensions, RecordList& results) {
+bool Index::Lookup(const map<string, string>& dimensions, RIDList& results) {
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
@@ -44,7 +44,7 @@ bool Index::Lookup(const set<string>& dimensions, map< string, vector<string> >&
 /*
  * Looks up the records for a list of dimension values
  */
-bool Index::Lookup(const string& dimension, const vector<string>& values, map<string, RecordList>& results) {
+bool Index::Lookup(const string& dimension, const vector<string>& values, RIDMap& results) {
 	for(size_t i = 0; i < values.size(); i++) {
 		BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
 	}

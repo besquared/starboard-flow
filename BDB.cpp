@@ -116,7 +116,7 @@ bool BDB::Get(const string& key, vector<string>& results) {
 	}
 }
 
-bool BDB::Get(const string& key, RecordList& results) {
+bool BDB::Get(const string& key, RIDList& results) {
 	int size = (int)sizeof(RecordID);
 	void* records = tcbdbget(this->database, key.c_str(), key.size(), &size);
 	
