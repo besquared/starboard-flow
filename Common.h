@@ -40,6 +40,7 @@ namespace Flow {
 	typedef double RecordID;
 	
 	typedef map<string, string> ValueMap;
+	typedef map< string, vector<string> > ValuesMap;
 	
   typedef map<string, vector<RecordID> > InquiredDimension;
   typedef map<string, InquiredDimension> Inquired;

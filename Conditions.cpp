@@ -37,7 +37,7 @@ void Conditions::in(const string& name, const vector<string>& values) {
  * Application
  */
 
-void Conditions::Apply(const string& column, vector<string>& values) {
+void Conditions::Apply(const string& column, vector<string>& values) const {
 	shared_ptr<Condition> condition;
 	for(size_t i = 0; i < this->size(); i++) {
 		condition = this->at(i);

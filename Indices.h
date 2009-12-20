@@ -13,7 +13,7 @@
 #include "Common.h"
 #include "Meta.h"
 #include "Index.h"
-#include "Condition.h"
+#include "Conditions.h"
 
 #include "Record.h"
 #include "RIDList.h"
@@ -31,7 +31,7 @@ namespace Flow {
 		
 		bool Insert(const Record& record);
 		bool Lookup(const ValueMap& specified);
-		bool Lookup(const set<string>& dimensions, const vector<Condition>& conditions, RIDTree& results);
+		bool Lookup(const set<string>& dimensions, const Conditions& conditions, RIDTree& results);
 	};
 }
 

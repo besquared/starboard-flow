@@ -81,17 +81,15 @@ namespace {
 		ASSERT_EQ(true, this->indices->Insert(record));
 	}
 	
-	TEST_F(IndicesTest, LooksUpRecords) {
-		set<string> dimensions;
-		dimensions.insert("day");
-		dimensions.insert("fare-group");
-		
-		vector<Condition> conditions;
-		
-		EXPECT_CALL(*this->meta, OpenReader()).WillOnce(Return(true));
-		EXPECT_CALL(*this->meta, Close()).Times(2).WillRepeatedly(Return(true));
+	TEST_F(IndicesTest, LooksUpRecords) {		
+		EXPECT_CALL(*this->index, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
 		
 		RIDTree records;
+		Conditions conditions;
+		set<string> dimensions;
+		dimensions.insert("day");
+		dimensions.insert("fare-group");		
 		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions, records));
 	}
 }

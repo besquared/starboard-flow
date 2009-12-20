@@ -66,36 +66,29 @@ bool Indices::Lookup(const ValueMap& specified) {
 // RIDMap map<string, RIDList>
 // RIDTree map<string, ValueMap>
 bool Indices::Lookup(const set<string>& dimensions,
-										 const vector<Condition>& conditions, RIDTree& results) {
+										 const Conditions& conditions, RIDTree& results) {
 	
-	if(!this->meta->OpenReader()) { return false; }
-	
-	set<string>::iterator dimension;
-	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		RIDMap records;
-		
-		results[*dimension] = records;
+	ValuesMap values;
+	if(!this->meta->index->OpenReader()) { return false; }
+	if(!this->meta->index->Lookup(dimensions, values)) { 
+		this->meta->index->Close();return false; 
 	}
 	
-//	for(size_t i = 0; i < dimensions.size(); i++) {
-//    InquiredDimension dimension;
-//    
-//    string fragment = this->dimensions->Fragment(dimensions[i]);
-//    vector<string> values = this->dimensions->Values(dimensions[i]);
-//		
-//		sort(values.begin(), values.end());
-//		
-//		conditions.Apply(dimensions[i], values);
-//		// Run values through a set of conditional filters here
-//		
-//    for(int j = 0; j < values.size(); j++) {
-//      dimension[values[j]] = this->database->GetRecordIdList(
-//																														 this->IndexKey(fragment, this->Component(dimensions[i], values[j]))
-//																														 );
-//    }
-//    
-//    results[dimensions[i]] = dimension;
-//  }	
+	RIDMap records;
+	ValuesMap::iterator vlist;
+	for(vlist = values.begin(); vlist != values.end(); vlist++) {
+		sort(vlist->second.begin(), vlist->second.end());
+		conditions.Apply(vlist->first, vlist->second);
+		
+		if(!this->meta->index->Lookup(vlist->first, vlist->second, records)) { 
+			this->meta->index->Close();
+			return false;
+		} else {
+			results[vlist->first] = records;
+		}
+	}
+	
+	this->meta->index->Close();
 	
 	return true;
 }
