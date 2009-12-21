@@ -53,12 +53,33 @@ bool Index::Lookup(const string& dimension, const vector<string>& values, RIDMap
 }
 
 /*
+ * Insert a dimensional row
+ */
+bool Index::Insert(const Record& record) {
+	vector<string> elements;
+	Record::const_iterator element;
+	for(element = record.begin(); element != record.end(); element++) {
+		elements.push_back(this->Component(element->first, element->second));
+	}
+	
+	vector< vector<string> > sets = Common::PowerSet(elements);
+	
+	for(size_t i = 0; i < sets.size(); i++) {
+		BDB::PutCat(this->Key(sets[i]), record.id);
+	}
+						 
+	this->InsertValues(record);
+	
+	return true;
+}
+
+/*
  * Insert dimension values
  */
-bool Index::Insert(const map<string, string>& dimensions) {
+bool Index::InsertValues(const Record& record) {
 	int count;
 	map<string, string>::const_iterator dimension;
-	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
+	for(dimension = record.begin(); dimension != record.end(); dimension++) {
 		if(BDB::Add(this->ValueKey(dimension->first, dimension->second), 1, count)) {
 			if(count == 1) {
 				BDB::PutDup(this->ValuesKey(dimension->first), dimension->second);
@@ -70,26 +91,8 @@ bool Index::Insert(const map<string, string>& dimensions) {
 }
 
 /*
- * Insert a dimensional row
+ * Key Management
  */
-bool Index::Insert(const RecordID record, const map<string, string>& dimensions) {
-	vector<string> elements;
-	map<string, string>::const_iterator dimension;
-	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		elements.push_back(this->Component(dimension->first, dimension->second));
-	}
-	
-	vector< vector<string> > sets = Common::PowerSet(elements);
-	
-	for(size_t i = 0; i < sets.size(); i++) {
-		BDB::PutCat(this->Key(sets[i]), record);
-	}
-						 
-	this->Insert(dimensions);
-	
-	return true;
-}
-
 string Index::Key(const string& component) {
 	return "<" + component + ">";
 }

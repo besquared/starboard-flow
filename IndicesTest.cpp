@@ -48,13 +48,13 @@ namespace {
 		allocated.insert("fare-group");
 		allocated.insert("station");
 		
-		ValueMap fragment1;
-		ValueMap fragment2;
-		fragment1["card-id"] = "00000001";
-		fragment1["day"] = "20091020";
-		fragment1["district"] = "financial";
-		fragment1["fare-group"] = "Regular";
-		fragment2["station"] = "16th";
+		Record record1(1);
+		Record record2(1);
+		record1["card-id"] = "00000001";
+		record1["day"] = "20091020";
+		record1["district"] = "financial";
+		record1["fare-group"] = "Regular";
+		record2["station"] = "16th";
 		
 		EXPECT_CALL(*this->meta, OpenWriter()).WillOnce(Return(true));
 		EXPECT_CALL(*this->meta, Allocate(allocated)).WillOnce(Return(true));
@@ -67,8 +67,8 @@ namespace {
 		EXPECT_CALL(*this->meta, Close()).Times(2).WillRepeatedly(Return(true));
 
 		EXPECT_CALL(*this->index, OpenWriter()).WillOnce(Return(true));
-		EXPECT_CALL(*this->index, Insert(fragment1)).WillOnce(Return(true));
-		EXPECT_CALL(*this->index, Insert(fragment2)).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Insert(record1)).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Insert(record2)).WillOnce(Return(true));
 		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
 		
 		Record record(1);

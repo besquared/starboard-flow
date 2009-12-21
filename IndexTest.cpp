@@ -1,5 +1,5 @@
 /*
- *  FragmentTest.cpp
+ *  IndexTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/14/09.
@@ -10,12 +10,12 @@
 #include "TestHelper.h"
 
 namespace {
-	class FragmentTest : public ::testing::Test {
+	class IndexTest : public ::testing::Test {
 	protected:
 		Index* database;
 		
-		FragmentTest() {}
-		virtual ~FragmentTest() {}
+		IndexTest() {}
+		virtual ~IndexTest() {}
 		
 		virtual void SetUp() {
 			string path = "/tmp/flow";			
@@ -25,7 +25,7 @@ namespace {
 			this->database->Truncate();
 			
 			if(!this->database->OpenWriter()) {
-				FAIL() << "Could not open database for FragmentTest => " << this->database->Error() << endl;
+				FAIL() << "Could not open database for IndexTest => " << this->database->Error() << endl;
 			}
 		}
 		
@@ -34,7 +34,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(FragmentTest, GeneratesKey) {
+	TEST_F(IndexTest, GeneratesKey) {
 		vector<string> components;
 		components.push_back("first");
 		components.push_back("second");
@@ -42,25 +42,25 @@ namespace {
 		ASSERT_EQ("<first:second>", this->database->Key(components));
 	}
 	
-	TEST_F(FragmentTest, GeneratesValuesKey) {
+	TEST_F(IndexTest, GeneratesValuesKey) {
 		ASSERT_EQ("[dimension]:values", this->database->ValuesKey("dimension"));
 	}
 	
-	TEST_F(FragmentTest, GeneratesValueKey) {
+	TEST_F(IndexTest, GeneratesValueKey) {
 		ASSERT_EQ("[dimension]:[1]", this->database->ValueKey("dimension", "1"));
 	}
 	
-	TEST_F(FragmentTest, InsertsValues) {
-		map<string, string> dimensions;
+	TEST_F(IndexTest, InsertsValues) {
+		Record record(1);
 		
-		dimensions["day"] = "20091020";
-		dimensions["fare-group"] = "Regular";
-		dimensions["station"] = "16th";
-		ASSERT_EQ(true, this->database->Insert(dimensions));
+		record["day"] = "20091020";
+		record["fare-group"] = "Regular";
+		record["station"] = "16th";
+		ASSERT_EQ(true, this->database->InsertValues(record));
 		
-		dimensions["fare-group"] = "Senior";
-		dimensions["station"] = "24th";
-		ASSERT_EQ(true, this->database->Insert(dimensions));
+		record["fare-group"] = "Senior";
+		record["station"] = "24th";
+		ASSERT_EQ(true, this->database->InsertValues(record));
 		
 		vector<string> values;
 		
@@ -83,14 +83,13 @@ namespace {
 		EXPECT_EQ("24th", values[1]);		
 	}
 	
-	TEST_F(FragmentTest, InsertsRecords) {
-		RecordID record = 1;
-		map<string, string> dimensions;
-		dimensions["day"] = "20091020";
-		dimensions["fare-group"] = "Regular";
-		dimensions["station"] = "16th";
+	TEST_F(IndexTest, InsertsRecords) {
+		Record record(1);
+		record["day"] = "20091020";
+		record["fare-group"] = "Regular";
+		record["station"] = "16th";
 		
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		ASSERT_EQ(true, this->database->Insert(record));
 		
 		RIDList records;
 		
@@ -141,40 +140,37 @@ namespace {
 		EXPECT_EQ(1, records[0]);		
 	}
 	
-	TEST_F(FragmentTest, InstantiatesRecords) {
-		RecordID record;
-
-		map<string, string> dimensions;
-		dimensions["day"] = "20091020";
-		dimensions["fare-group"] = "Regular";
-		dimensions["station"] = "16th";
+	TEST_F(IndexTest, InstantiatesRecords) {
+		Record record;
+		record["day"] = "20091020";
+		record["fare-group"] = "Regular";
+		record["station"] = "16th";
 		
-		record = 1;
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		record.id = 1;
+		ASSERT_EQ(true, this->database->Insert(record));
 		
-		record = 2;
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		record.id = 2;
+		ASSERT_EQ(true, this->database->Insert(record));
 
 		RIDList records;
-		ASSERT_EQ(true, this->database->Lookup(dimensions, records));
+		ASSERT_EQ(true, this->database->Lookup(record, records));
 		ASSERT_EQ(2, records.size());
 		EXPECT_EQ(1, records[0]);
 		EXPECT_EQ(2, records[1]);
 	}
 
-	TEST_F(FragmentTest, InquiresDimensionValues) {
-		RecordID record;
-		map<string, string> dimensions;
+	TEST_F(IndexTest, InquiresDimensionValues) {
+		Record record;
 		
-		record = 1;
-		dimensions["day"] = "20091020";
-		dimensions["fare-group"] = "Regular";
-		dimensions["station"] = "16th";		
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		record.id = 1;
+		record["day"] = "20091020";
+		record["fare-group"] = "Regular";
+		record["station"] = "16th";		
+		ASSERT_EQ(true, this->database->Insert(record));
 		
-		record = 2;
-		dimensions["fare-group"] = "Senior";
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		record.id = 2;
+		record["fare-group"] = "Senior";
+		ASSERT_EQ(true, this->database->Insert(record));
 		
 		set<string> lookup;
 		lookup.insert("day");
@@ -197,19 +193,18 @@ namespace {
 		}
 	}
 	
-	TEST_F(FragmentTest, InquiresDimensionValueRecords) {
-		RecordID record;
-		map<string, string> dimensions;
+	TEST_F(IndexTest, InquiresDimensionValueRecords) {
+		Record record;
 		
-		record = 1;
-		dimensions["day"] = "20091020";
-		dimensions["fare-group"] = "Regular";
-		dimensions["station"] = "16th";		
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		record.id = 1;
+		record["day"] = "20091020";
+		record["fare-group"] = "Regular";
+		record["station"] = "16th";		
+		ASSERT_EQ(true, this->database->Insert(record));
 		
-		record = 2;
-		dimensions["fare-group"] = "Senior";
-		ASSERT_EQ(true, this->database->Insert(record, dimensions));
+		record.id = 2;
+		record["fare-group"] = "Senior";
+		ASSERT_EQ(true, this->database->Insert(record));
 		
 		vector<string> values;
 		values.push_back("Regular");

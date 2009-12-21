@@ -13,6 +13,7 @@
 #include "Common.h"
 #include "BDB.h"
 
+#include "Record.h"
 #include "RIDList.h"
 #include "RIDMap.h"
 
@@ -39,15 +40,15 @@ namespace Flow {
 		virtual bool Lookup(const string& dimension, const vector<string>& values, RIDMap& results);
 		
 		/*
-		 * Uniquely inserts a set of dimensions and their values
-		 */
-		virtual bool Insert(const map<string, string>& dimensions);
-		
-		/*
 		 * Inserts a single row into the index
 		 */
-		virtual bool Insert(const RecordID record, const map<string, string>& dimensions);
-
+		virtual bool Insert(const Record& record);
+		
+		/*
+		 * Uniquely inserts a set of dimensions and their values
+		 */
+		virtual bool InsertValues(const Record& record);
+		
 		string Key(const string& component);
 		string Key(const vector<string>& components);
 		string ValuesKey(const string& dimension);

@@ -24,7 +24,8 @@ namespace Flow {
 				MOCK_METHOD0(OpenReader, bool());
 				MOCK_METHOD0(Close, bool());
 				
-				MOCK_METHOD1(Insert, bool(const map<string, string>& dimensions));
+				MOCK_METHOD1(Insert, bool(const Record& record));
+				MOCK_METHOD1(InsertValues, bool(const Record& record));
 				MOCK_METHOD2(Lookup, bool(const set<string>& dimensions, ValuesMap& results));
 				MOCK_METHOD3(Lookup, bool(const string& dimension, const vector<string>& values, RIDMap& results));
 			};
