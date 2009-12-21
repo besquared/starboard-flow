@@ -10,7 +10,7 @@
 #include "Dimension.h"
 
 
-Dimension::Dimension(string path, string name) {
+Dimension::Dimension(const string& path, const string& name) {
   this->path = path;
   this->name = name;
   this->database = tchdbnew();
@@ -21,85 +21,80 @@ Dimension::~Dimension() {
   tchdbdel(this->database);	
 }
 
+string Dimension::Path() {
+  return this->path + "/" + this->name + ".tch";
+}
+
 /*
  * I/O Management
  */
 
-tuple<bool, string> Dimension::Create() {
+bool Dimension::Create() {
 	tchdbtune(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
-
-	if(tchdbopen(this->database, this->Path().c_str(), HDBOWRITER | HDBOCREAT)) {
-		tchdbclose(this->database);
-		return make_tuple(ok, success);
+	if(this->Open(HDBOWRITER | HDBOCREAT)) {
+		this->Close();
+		return true;
 	} else {
-		return make_tuple(error, this->Error());
+		return false;
+	}
+}
+
+bool Dimension::Truncate() {
+	if(this->Open(HDBOWRITER | HDBOTRUNC)) {
+		this->Close();
+		return true;
+	} else {
+		return false;
 	}	
 }
 
-tuple<bool, string> Dimension::OpenReader() {
-  return this->Open(false);
-}
-
-tuple<bool, string> Dimension::OpenWriter() {
-  return this->Open(true);
-}
-
-tuple<bool, string> Dimension::Open(bool writer) {
-	int mode = (writer ? (HDBOWRITER | HDBOCREAT) : HDBOREADER);
-	if(tchdbopen(this->database, this->Path().c_str(), mode)) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
-tuple<bool, string> Dimension::Close() {
-	if(tchdbrnum(this->database) % (1<<16) == 0) {
-		tchdboptimize(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
-	}
-	
+bool Dimension::Close() {	
   if(tchdbclose(this->database)){
-		return make_tuple(ok, success);
+		return true;
   } else {
-    return make_tuple(error, this->Error());
+    return false;
   }
 }
 
-tuple<bool, string> Dimension::Truncate() {
-	if(tchdbopen(this->database, this->Path().c_str(), HDBOWRITER | HDBOTRUNC)) {
-		tchdbclose(this->database);
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
+bool Dimension::Optimize() {
+	if(tchdbrnum(this->database) % (1<<16) == 0) {
+		tchdboptimize(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
 	}	
 }
 
-string Dimension::Path() {
-  return this->path + "/" + this->name + ".tch";
+bool Dimension::OpenReader() {
+  return this->Open(HDBOREADER);
+}
+
+bool Dimension::OpenWriter() {
+  return this->Open(HDBOWRITER | HDBOCREAT);
+}
+
+bool Dimension::Open(int mode) {
+	return tchdbopen(this->database, this->Path().c_str(), mode);
 }
 
 /*
  * Reading
  */ 
 
-string Dimension::Get(RecordID key) {
+void Dimension::Lookup(const RecordID key, string& result) {
 	int vsize;
 	void* value = tchdbget(this->database, &key, sizeof(RecordID), &vsize);
 	
 	if(value == NULL) {
-		return string("NULL");
+		result = string("NULL");
 	} else {
-		string result = string((char*)value, (size_t)vsize);
+		result = string((char*)value, (size_t)vsize);
 		free(value);
-		return result;
 	}
 }
 
-void Dimension::Get(const vector<RecordID>& keys, vector<string>& results) {
+void Dimension::Lookup(const RIDList& keys, vector<string>& results) {
 	results.reserve(keys.size());
 	
 	int written = 0;
-	int bsize = 256;
+	int bsize = 1024;
 	void* buffer = malloc(bsize * sizeof(char));
 	size_t size_k = keys.size();
 	for(size_t i = 0; i < size_k; i++) {
@@ -114,7 +109,7 @@ void Dimension::Get(const vector<RecordID>& keys, vector<string>& results) {
 	free(buffer);
 }
 
-void Dimension::Get(const vector<RecordID>& keys, map<RecordID, string>& results) {
+void Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
 	int written = 0;
 	int bsize = 4096;
 	void* buffer = malloc(bsize * sizeof(char));
@@ -135,39 +130,12 @@ void Dimension::Get(const vector<RecordID>& keys, map<RecordID, string>& results
  * Writing
  */
 
-tuple<bool, string> Dimension::Put(RecordID key, string value) {
-#ifdef DEBUG
-//	cout << "Dimension::Put(" << key << ", " << value << ")" << endl;
-#endif
+bool Dimension::Insert(const RecordID key, const string& value) {
 	if(tchdbput(this->database, &key, sizeof(RecordID), value.c_str(), value.size())) {
-		return make_tuple(ok, success);
+		return true;
 	} else {
-		return make_tuple(error, this->Error());
+		return false;
 	}
-}
-
-tuple<bool, string> Dimension::PutAsync(RecordID key, string value) {
-	if(tchdbputasync(this->database, &key, sizeof(RecordID), value.c_str(), value.size())) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
-/*
- * Transactions
- */
-
-bool Dimension::TransactionBegin() {
-	return tchdbtranbegin(this->database);
-}
-
-bool Dimension::TransactionAbort() {
-	return tchdbtranabort(this->database);
-}
-
-bool Dimension::TransactionCommit() {
-	return tchdbtrancommit(this->database);
 }
 
 /*

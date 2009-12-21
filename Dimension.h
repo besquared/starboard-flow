@@ -11,6 +11,7 @@
 #define _dimension_included_
 
 #include "Common.h"
+#include "RIDList.h"
 
 namespace Flow {
 	class Dimension {
@@ -19,39 +20,32 @@ namespace Flow {
 		string name;
 		TCHDB* database;
 		
-		Dimension(string path, string name);
+		Dimension(const string& path, const string& name);
 		~Dimension();
-		
+		string Path();
+
 		/*
 		 * I/O Management
 		 */
-		tuple<bool, string> Create();
-		tuple<bool, string> OpenReader();
-		tuple<bool, string> OpenWriter();
-		tuple<bool, string> Open(bool writer);
-		tuple<bool, string> Close();
-		tuple<bool, string> Truncate();
-		string Path();
+		bool Create();
+		bool Truncate();
+		bool Close();
+		bool Optimize();
+		bool OpenReader();
+		bool OpenWriter();
+		bool Open(int mode);
 		
 		/*
 		 * Reading
 		 */
-		string Get(RecordID key);
-		void Get(const vector<RecordID>& keys, vector<string>& results);
-		void Get(const vector<RecordID>& keys, map<RecordID, string>& results);
+		void Lookup(const RecordID key, string& result);
+		void Lookup(const RIDList& keys, vector<string>& results);
+		void Lookup(const RIDList& keys, map<RecordID, string>& results);
 
 		/*
 		 * Writing
 		 */
-		tuple<bool, string> Put(RecordID key, string value);
-		tuple<bool, string> PutAsync(RecordID key, string value);
-
-		/*
-		 * Transactions
-		 */
-		bool TransactionBegin();
-		bool TransactionAbort();
-		bool TransactionCommit();
+		bool Insert(const RecordID key, const string& value);
 		
 		/*
 		 * Error Handling
