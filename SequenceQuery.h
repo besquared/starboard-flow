@@ -7,10 +7,10 @@
  *
  */
 
-#ifndef _sequence_query_included_
-#define _sequence_query_included_
+#ifndef _flow_sequence_query_h_
+#define _flow_sequence_query_h_
 
-#include "Common.h"
+#include "Common.h" 
 
 #include "RIDList.h"
 #include "RIDMap.h"
@@ -50,33 +50,33 @@ namespace Flow {
 		/*
 		 * Querying
 		 */
-    tuple< bool, string, shared_ptr<Table> > Execute();
+    bool Execute(Table& result);
 		
 		// Materializes all tables
-		Response Materialize(vector< shared_ptr<Table> >& results);
+		bool Materialize(vector<Table>& results);
 		
 		// Materializes a single table
-		Response Materialize(shared_ptr<Table> results);
+		bool Materialize(Table& results);
 		
 		// Materializes clustered events column
-		Response Materialize(shared_ptr<Column> column, const string& dimension, const string& alias);
+		bool Materialize(Column& column, const string& dimension, const string& alias);
 
-		Response Merge(vector< shared_ptr<Table> >& tables, shared_ptr<Table> results);
-		Response Match(shared_ptr<Table> results);
-		Response Aggregate(shared_ptr<Table> results);
-		Response Sweep(shared_ptr<Table> base);
+		bool Merge(vector<Table>& tables, Table& results);
+		bool Match(Table& results);
+		bool Aggregate(Table& results);
+		bool Sweep(Table& base);
 
-		Response GatherMeasures(const set<string>& measures, shared_ptr<Table> base);
-		Response GatherDimensions(const set<string>& dimensions, shared_ptr<Table> base);
-		Response GatherEventDimension(const string& dimension, shared_ptr<Table> base);
+		bool GatherMeasures(const set<string>& measures, Table& base);
+		bool GatherDimensions(const set<string>& dimensions, Table& base);
+		bool GatherEventDimension(const string& dimension, Table& base);
 		
 	protected:
 		/*
 		 * Constructing Results
 		 */
-		void Construct(Inquired & inquired, vector<string> & dimensions, shared_ptr<Table> results);
-    void Construct(Inquired & inquired, vector<string> & dimensions, 
-									 int offset, vector<string> & values, vector<RecordID> & records, shared_ptr<Table> results);
+		void Construct(RIDTree& tree, vector<string>& dimensions, Table& results);
+    void Construct(RIDTree& tree, vector<string>& dimensions, 
+									 int offset, vector<string>& values, RIDList& records, Table& results);
 	};
 }
 

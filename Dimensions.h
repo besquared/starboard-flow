@@ -7,24 +7,22 @@
  *
  */
 
-#ifndef _dimensions_included_
-#define _dimensions_included_
+#ifndef _flow_dimensions_h_
+#define _flow_dimensions_h_
 
 #include "Common.h"
 #include "Dimension.h"
+#include "Record.h"
 
 namespace Flow {
 	class Dimensions {
-	public:
+	protected:
 		string path;
 		
-		Dimensions(const string& path);
-		
-		tuple< bool, string, shared_ptr<Dimension> > Create(const string& name);
-		tuple< bool, string, shared_ptr<Dimension> > OpenReader(const string& name);
-		tuple< bool, string, shared_ptr<Dimension> > OpenWriter(const string& name);
-		
-		tuple<bool, string> Insert(RecordID record, const map<string, string>& dimensions);
+	public:
+		Dimensions(const string& path);		
+		bool Insert(const Record& record);
+		bool Lookup(const string& dimension, const RIDList& keys, vector<string>& results);
 	};
 }
 

@@ -9,7 +9,6 @@
 
 #include "Dimension.h"
 
-
 Dimension::Dimension(const string& path, const string& name) {
   this->path = path;
   this->name = name;

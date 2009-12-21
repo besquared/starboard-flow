@@ -17,26 +17,26 @@
 #include "Common.h"
 
 #include "Table.h"
-#include "Dimension.h"
-#include "Dimensions.h"
+#include "Index.h"
+#include "Indices.h"
 #include "Measure.h"
 #include "Measures.h"
-#include "ShellFragment.h"
-#include "ShellFragments.h"
+#include "Dimension.h"
+#include "Dimensions.h"
 
 namespace Flow {
 	class Base {
 	public:
 		string path;
-		Dimensions* dimensions;
+		Meta* meta;
+		Indices* indices;
 		Measures* measures;
-		ShellFragments* fragments;
+		Dimensions* dimensions;
 		
 		Base(const string& path);
 		~Base();
 		
-		tuple<bool, string> Insert(RecordID record, const map<string, string>& row, const map<string, double>& measures);
-		tuple< bool, string, shared_ptr<Table> > Query(const map<string, string>& conditions);
+		bool Insert(const Record& record, const map<string, double>& measures);
 	};
 }
 

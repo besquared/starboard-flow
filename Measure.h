@@ -7,10 +7,11 @@
  *
  */
 
-#ifndef _measure_included_
-#define _measure_included_
+#ifndef _flow_measure_h_
+#define _flow_measure_h_
 
 #include "Common.h"
+#include "RIDList.h"
 
 namespace Flow {
 	class Measure {
@@ -21,35 +22,28 @@ namespace Flow {
 		
 		Measure(string path, string name);
 		~Measure();
+		string Path();
 
 		/*
 		 * I/O Management
 		 */
-		tuple<bool, string> Create();
-		tuple<bool, string> OpenReader();
-		tuple<bool, string> OpenWriter();
-		tuple<bool, string> Open(bool writer);
-		tuple<bool, string> Close();
-		tuple<bool, string> Truncate();
-		string Path();
+		bool Create();
+		bool Close();
+		bool Truncate();
+		bool OpenReader();
+		bool OpenWriter();
+		bool Open(int mode);
 		
 		/*
 		 * Reading
 		 */
-		double Get(RecordID key);
-		void Get(const vector<RecordID>& keys, vector<double>& results);
+		bool Lookup(RecordID key, double& result);
+		void Lookup(const RIDList& keys, vector<double>& results);
 		
 		/*
 		 * Writing
 		 */
-		tuple<bool, string> Put(RecordID key, double value);
-		
-		/*
-		 * Transactions
-		 */
-		bool TransactionBegin();
-		bool TransactionAbort();
-		bool TransactionCommit();
+		bool Insert(RecordID key, double value);
 		
 		/*
 		 * Error Handling

@@ -20,84 +20,78 @@ Measure::~Measure() {
   tcfdbdel(this->database);
 }
 
+string Measure::Path() {
+  return this->path + "/" + this->name + ".tcf";
+}
+
 /*
  * I/O Management
  */
 
-tuple<bool, string> Measure::Create() {	
+bool Measure::Create() {	
 	tcfdbtune(this->database, sizeof(double), INT_MAX);
 	
-	if(tcfdbopen(this->database, this->Path().c_str(), FDBOWRITER | FDBOCREAT)) {
-		tcfdbclose(this->database);
-		return make_tuple(ok, success);
+	if(this->Open(FDBOWRITER | FDBOCREAT)) {
+		this->Close();
+		return true;
 	} else {
-		return make_tuple(error, this->Error());
+		return false;
 	}	
 }
 
-tuple<bool, string> Measure::OpenReader() {
-  return this->Open(false);
-}
-
-tuple<bool, string> Measure::OpenWriter() {
-  return this->Open(true);
-}
-
-tuple<bool, string> Measure::Open(bool writer) {
-	int mode = (writer ? (FDBOWRITER | FDBOCREAT) : FDBOREADER);
-	
-	if(tcfdbopen(this->database, this->Path().c_str(), mode)) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
-tuple<bool, string> Measure::Close() {
+bool Measure::Close() {
   if(tcfdbclose(this->database)){
-		return make_tuple(ok, success);
+		return true;
   } else {
-    return make_tuple(error, this->Error());
+    return false;
   }
 }
 
-tuple<bool, string> Measure::Truncate() {
-	if(tcfdbopen(this->database, this->Path().c_str(), FDBOWRITER | FDBOTRUNC)) {
-		tcfdbclose(this->database);
-		return make_tuple(ok, success);
+bool Measure::Truncate() {
+	if(this->Open(FDBOWRITER | FDBOTRUNC)) {
+		this->Close();
+		return true;
 	} else {
-		return make_tuple(error, this->Error());
+		return false;
 	}	
 }
 
-string Measure::Path() {
-  return this->path + "/" + this->name + ".tcf";
+bool Measure::OpenReader() {
+  return this->Open(FDBOREADER);
+}
+
+bool Measure::OpenWriter() {
+  return this->Open(FDBOWRITER | FDBOCREAT);
+}
+
+bool Measure::Open(int mode) {
+	return tcfdbopen(this->database, this->Path().c_str(), mode);
 }
 
 /*
  * Reading
  */ 
 
-double Measure::Get(RecordID key) {
+bool Measure::Lookup(RecordID key, double& result) {
 	int size_v;
 	void* value = tcfdbget(this->database, key, &size_v);
 	
 	if(value == NULL) {
-		return NULL;
+		return false;
 	} else {
-		double result = *((double*)(value));
+		result = *((double*)(value));
 		free(value);
-		return result;
+		return true;
 	}
 }
 
-void Measure::Get(const vector<RecordID>& keys, vector<double>& results) {
+void Measure::Lookup(const RIDList& keys, vector<double>& results) {
 	results.reserve(keys.size());
 	
 	double buffer;
-	size_t keys_size = keys.size();
-	for(size_t i = 0; i < keys_size; i++) {
-		if(tcfdbget4(this->database, keys[i], &buffer, sizeof(double)) != -1) {
+	RIDList::const_iterator key;
+	for(key = keys.begin(); key != keys.end(); key++) {
+		if(tcfdbget4(this->database, *key, &buffer, sizeof(double)) != -1) {
 			results.push_back(buffer);
 		}
 	}
@@ -107,28 +101,8 @@ void Measure::Get(const vector<RecordID>& keys, vector<double>& results) {
  * Writing
  */
 
-tuple<bool, string> Measure::Put(RecordID key, double value) {
-	if(tcfdbput(this->database, key, &value, sizeof(double))) {
-		return make_tuple(ok, success);
-	} else {
-		return make_tuple(error, this->Error());
-	}
-}
-
-/*
- * Transactions
- */
-
-bool Measure::TransactionBegin() {
-	return tcfdbtranbegin(this->database);
-}
-
-bool Measure::TransactionAbort() {
-	return tcfdbtranabort(this->database);
-}
-
-bool Measure::TransactionCommit() {
-	return tcfdbtrancommit(this->database);
+bool Measure::Insert(RecordID key, double value) {
+	return tcfdbput(this->database, key, &value, sizeof(double));
 }
 
 /*

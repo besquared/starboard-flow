@@ -11,52 +11,21 @@
 
 Base::Base(const string& path) {
 	this->path = path;
-	this->dimensions = new Dimensions(path);
+	this->meta = new Meta(path);
+	this->indices = new Indices(meta);
 	this->measures = new Measures(path);
-	this->fragments = new ShellFragments(path);
+	this->dimensions = new Dimensions(path);
 }
 
 Base::~Base() {
+	delete(this->indices);
 	delete(this->measures);
-	delete(this->fragments);
+	delete(this->dimensions);
 }
 
-tuple<bool, string> Base::Insert(RecordID record, 
-																 const map<string, string>& dimensions, 
-																 const map<string, double>& measures) {
-
-	Response opened;
-	Response inserted;
-	
-	inserted = this->dimensions->Insert(record, dimensions);
-	
-	if(!inserted.get<0>()) {
-		return inserted;
-	}
-	
-	inserted = this->measures->Insert(record, measures);
-	
-	if(!inserted.get<0>()) {
-		return inserted;
-	}
-	
-	opened = this->fragments->OpenWriter();
-	
-	if(!opened.get<0>()) {
-		return opened;
-	}
-	
-	inserted = this->fragments->Insert(record, dimensions);
-	
-	if(!inserted.get<0>()) {
-		return inserted;
-	}
-	
-	this->fragments->Close();
-
-	return make_tuple(ok, success);
-}
-
-tuple< bool, string, shared_ptr<Table> > Base::Query(const map<string, string>& conditions) {
-	
+bool Base::Insert(const Record& record, const map<string, double>& measures) {
+	if(!this->dimensions->Insert(record)) { return false;	}
+	if(!this->measures->Insert(record.id, measures)) { return false; }
+	if(!this->indices->Insert(record)) { return false; }
+	return true;
 }

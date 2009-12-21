@@ -29,49 +29,39 @@ namespace {
 		}		
 	};
 	
-	TEST_F(DimensionsTest, OpensWriter) {
-		tuple< bool, string, shared_ptr<Dimension> > opened;
-		opened = this->dimensions->OpenWriter("product");
-		
-		if(!opened.get<0>()) {
-			FAIL() << "Could not open measure database sales for writing: " << opened.get<1>() << endl;
-		}
-	}
-	
 	TEST_F(DimensionsTest, WritesDimensions) {
-		map<string, string> dimensions;
-		dimensions["store"] = "S1";
-		dimensions["product"] = "P2";
+		Record record;
+		record["store"] = "S1";
+		record["product"] = "P2";
 		
-		this->dimensions->Insert(1, dimensions);
-		this->dimensions->Insert(2, dimensions);
+		record.id = 1;
+		this->dimensions->Insert(record);
 		
-		vector<RecordID> records;
+		record.id = 2;
+		this->dimensions->Insert(record);
+		
+		RIDList records;
 		records.push_back(1);
 		records.push_back(2);
 		
 		vector<string> results;
-		shared_ptr<Dimension> database;
-		tuple< bool, string, shared_ptr<Dimension> > opened;
 		
-		// Check sales first
-		opened = this->dimensions->OpenWriter("store");
-		ASSERT_EQ(true, opened.get<0>());
+		// Check store first
+		Dimension store("/tmp/flow", "sales");
+		ASSERT_EQ(true, store.OpenReader());
 		
-		database = opened.get<2>();
-		database->Get(records, results);
+		store.Lookup(records, results);
 		ASSERT_EQ(2, results.size());
 		EXPECT_EQ("S1", results[0]);
 		EXPECT_EQ("S1", results[1]);
 		
 		results.clear();
 		
-		// Now tax
-		opened = this->dimensions->OpenWriter("product");
-		ASSERT_EQ(true, opened.get<0>());
-		
-		database = opened.get<2>();
-		database->Get(records, results);
+		// Now product		
+		Dimension product("/tmp/flow", "sales");
+		ASSERT_EQ(true, product.OpenReader());
+
+		product.Lookup(records, results);
 		ASSERT_EQ(2, results.size());
 		EXPECT_EQ("P2", results[0]);
 		EXPECT_EQ("P2", results[1]);		

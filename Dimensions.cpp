@@ -13,41 +13,26 @@ Dimensions::Dimensions(const string& path) {
 	this->path = path;
 }
 
-tuple< bool, string, shared_ptr<Dimension> > Dimensions::Create(const string& name) {
-	shared_ptr<Dimension> dimension(new Dimension(this->path, name));
-	tuple<bool, string> created = dimension->Create();
-	return make_tuple(created.get<0>(), created.get<1>(), dimension);
-}
-
-tuple< bool, string, shared_ptr<Dimension> > Dimensions::OpenReader(const string& name) {
-	shared_ptr<Dimension> dimension(new Dimension(this->path, name));
-	tuple<bool, string> opened = dimension->OpenReader();
-	return make_tuple(opened.get<0>(), opened.get<1>(), dimension);
-}
-
-tuple< bool, string, shared_ptr<Dimension> > Dimensions::OpenWriter(const string& name) {
-	shared_ptr<Dimension> dimension(new Dimension(this->path, name));
-	tuple<bool, string> opened = dimension->OpenWriter();
-	return make_tuple(opened.get<0>(), opened.get<1>(), dimension);	
-}
-
-tuple<bool, string> Dimensions::Insert(RecordID record, const map<string, string>& dimensions) {
+bool Dimensions::Insert(const Record& record) {
 	map<string, string>::const_iterator dimension;
-	tuple< bool, string, shared_ptr<Dimension> > opened;
-	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		opened = this->OpenWriter(dimension->first);
-		if(opened.get<0>()) {
-			shared_ptr<Dimension> database = opened.get<2>();
-			bool written = database->Insert(record, dimension->second);
-			database->Close();
-			
-			if(written) {
-				return make_tuple(error, "failed");
-			}
-		} else {
-			return make_tuple(error, "failed");
+	for(dimension = record.begin(); dimension != record.end(); dimension++) {
+		Dimension database(this->path, dimension->first);
+
+		if(!database.OpenWriter()) {
+			return false;
 		}
+		
+		if(!database.Insert(record.id, dimension->second)) {
+			database.Close();
+			return false;
+		}
+		
+		database.Close();
 	}
 	
-	return make_tuple(ok, success);
+	return true;
+}
+
+bool Dimensions::Lookup(const string& dimension, const RIDList& keys, vector<string>& results) {
+	return true;
 }

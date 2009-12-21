@@ -23,10 +23,8 @@ namespace {
 			this->database->Create();
 			this->database->Truncate();
 			
-			tuple<bool, string> open = this->database->OpenWriter();
-			
-			if(!open.get<0>()) {
-				FAIL() << "Could not open measure database => " << open.get<1>() << endl;
+			if(!this->database->OpenWriter()) {
+				FAIL() << "Could not open measure database" << endl;
 			}
 		}
 		
@@ -35,34 +33,31 @@ namespace {
 		}
 	};
 	
-	TEST_F(MeasureTest, PutsAndGetsValues) {
-		tuple<bool, string> put = this->database->Put(100, 100.25);
-		
-		if(!put.get<0>()) {
-			FAIL() << "Could not store measure value => " << put.get<1>();
+	TEST_F(MeasureTest, PutsAndLookupsValues) {
+		if(!this->database->Insert(100, 100.25)) {
+			FAIL() << "Could not store measure value";
 		}
 		
-		ASSERT_EQ(100.25, this->database->Get(100));
+		double value;
+		ASSERT_EQ(true, this->database->Lookup(100, value));
+		EXPECT_EQ(100.25, value);
 	}
 	
-	TEST_F(MeasureTest, PutsAndGetsMultipleValues) {
+	TEST_F(MeasureTest, PutsAndLookupsMultipleValues) {
 		for(double i = 1; i <= 2; i++) {
-			this->database->Put(i, i);
+			this->database->Insert(i, i);
 		}
 		
-		vector<RecordID> keys;
+		RIDList keys;
 		for(RecordID k = 1; k <= 2; k++) {
 			keys.push_back(k);
 		}
 		
 		vector<double> values;
-		this->database->Get(keys, values);
+		this->database->Lookup(keys, values);
 		
 		ASSERT_EQ(2, values.size());
 		EXPECT_EQ(1, values[0]);
 		EXPECT_EQ(2, values[1]);
-	}
-	
-	TEST_F(MeasureTest, PerformsTransactions) {
 	}
 }

@@ -119,11 +119,11 @@ void SubwayFixture::LoadDimensions() {
 	vector< vector<string> > data = this->GetData();
 	
 	for(size_t row = 0; row < data.size(); row++) {
-		map<string, string> datum;
+		Record record(row + 1);
 		for(size_t column = 0; column < data[row].size(); column++) {
-			datum[dimensions[column]] = data[row][column];
+			record[dimensions[column]] = data[row][column];
 		}
-		database.Insert(row + 1, datum);
+		database.Insert(record);
 	}
 }
 

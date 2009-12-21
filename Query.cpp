@@ -94,32 +94,22 @@ Response Query::Gather(const set<string>& measures, shared_ptr<Table> base) {
 	for(iter = measures.begin(); iter != measures.end(); iter++) {
 		string measure = *iter;
 		
-		if(base->columns->exist(measure)) {
-			continue;
-		}
+		if(base->columns->exist(measure)) { continue; }
 		
 		shared_ptr< TListColumn<double> > values(new TListColumn<double>);
 		
-		tuple< bool, string, shared_ptr<Measure> > opened = this->measures->OpenReader(measure);
+		shared_ptr< TColumn<RIDList> > records = 
+		static_pointer_cast< TColumn<RIDList> >(base->columns->at("records"));
 		
-		if(opened.get<0>()) {
-			shared_ptr<Measure> database = opened.get<2>();
-			
-			shared_ptr< TListColumn<RecordID> > records = 
-			static_pointer_cast< TListColumn<RecordID> >(base->columns->at("records"));
-			
-			vector<double> mvalues;
-			for(size_t i = 0; i < records->size(); i++) {
-				mvalues.clear();
-				database->Get(records->at(i), mvalues);
-				values->push_back(mvalues);
-			}
-			
-			shared_ptr<Column> avalues = static_pointer_cast<Column>(values);
-			base->columns->push_back(measure, avalues);
-		} else {
-			return make_tuple(error, opened.get<1>());
+		vector<double> mvalues;
+		for(size_t i = 0; i < records->size(); i++) {
+			mvalues.clear();
+			this->measures->Lookup(measure, records->at(i), mvalues);
+			values->push_back(mvalues);
 		}
+			
+		shared_ptr<Column> avalues = static_pointer_cast<Column>(values);
+		base->columns->push_back(measure, avalues);
 	}
 	
 	return make_tuple(ok, success);

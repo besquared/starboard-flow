@@ -21,22 +21,16 @@ namespace {
 		virtual void SetUp() {
 			this->database = new Dimension("/tmp/flow", "test");
 			
-			tuple<bool, string> created = this->database->Create();
-			
-			if(!created.get<0>()) {
-				FAIL() << "Could not create dimension database => " << created.get<1>() << endl;
+			if(!this->database->Create()) {
+				FAIL() << "Could not create dimension database" << endl;
 			}
 			
-			tuple<bool, string> truncated = this->database->Truncate();
-			
-			if(!truncated.get<0>()) {
-				FAIL() << "Could not truncate dimension database => " << truncated.get<1>() << endl;
+			if(!this->database->Truncate()) {
+				FAIL() << "Could not truncate dimension database" << endl;
 			}
 			
-			tuple<bool, string> open = this->database->OpenWriter();
-			
-			if(!open.get<0>()) {
-				FAIL() << "Could not open dimension database => " << open.get<1>() << endl;
+			if(!this->database->OpenWriter()) {
+				FAIL() << "Could not open dimension database" << endl;
 			}
 		}
 		
@@ -45,26 +39,26 @@ namespace {
 		}
 	};
 	
-	TEST_F(DimensionTest, PutsAndGetsValues) {
-		tuple<bool, string> put = this->database->Put(100, "S1");
-		
-		if(!put.get<0>()) {
+	TEST_F(DimensionTest, InsertsAndLookupsValues) {		
+		if(!this->database->Insert(100, "S1")) {
 			FAIL() << "Could not store dimension value => " << put.get<1>();
 		}
 		
-		ASSERT_EQ("S1", this->database->Get(100));
+		string value;
+		ASSERT_EQ(true, this->database->Lookup(100, value));
+		ASSERT_EQ("S1", value);
 	}
 	
-	TEST_F(DimensionTest, PutsAndGetsMultipleValues) {		
-		this->database->Put(1, "S1");
-		this->database->Put(2, "S2");
+	TEST_F(DimensionTest, InsertsAndLookupsMultipleValues) {		
+		this->database->Insert(1, "S1");
+		this->database->Insert(2, "S2");
 		
-		vector<RecordID> keys;
+		RIDList keys;
 		keys.push_back(1);
 		keys.push_back(2);
 		
 		vector<string> values;
-		this->database->Get(keys, values);
+		this->database->Lookup(keys, values);
 		
 		ASSERT_EQ(2, values.size());
 		EXPECT_EQ("S1", values[0]);

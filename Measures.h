@@ -15,16 +15,14 @@
 
 namespace Flow {
 	class Measures {
-	public:
+	protected:
 		string path;
-		
+
+	public:		
 		Measures(const string& path);
 		
-		tuple< bool, string, shared_ptr<Measure> > Create(const string& name);
-		tuple< bool, string, shared_ptr<Measure> > OpenReader(const string& name);
-		tuple< bool, string, shared_ptr<Measure> > OpenWriter(const string& name);
-		
-		tuple<bool, string> Insert(RecordID record, const map<string, double>& measures);
+		bool Insert(RecordID record, const map<string, double>& measures);
+		bool Lookup(const string& measure, const RIDList& records, vector<double>& results);
 	};
 }
 
