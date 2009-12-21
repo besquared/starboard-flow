@@ -79,7 +79,7 @@ bool Indices::Lookup(const set<string>& dimensions,
 	for(vlist = values.begin(); vlist != values.end(); vlist++) {
 		sort(vlist->second.begin(), vlist->second.end());
 		conditions.Apply(vlist->first, vlist->second);
-		
+				
 		if(!this->meta->index->Lookup(vlist->first, vlist->second, records)) { 
 			this->meta->index->Close();
 			return false;

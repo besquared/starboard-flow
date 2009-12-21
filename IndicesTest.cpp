@@ -81,15 +81,47 @@ namespace {
 		ASSERT_EQ(true, this->indices->Insert(record));
 	}
 	
-	TEST_F(IndicesTest, LooksUpRecords) {		
+	TEST_F(IndicesTest, PerformsBasicLookup) {
+		ValuesMap values;
+		vector<string> days;
+		vector<string> faregroups;
+		days.push_back("20091220");
+		days.push_back("20091219");
+		faregroups.push_back("Regular");
+		values["day"] = days;
+		values["fare-group"] = faregroups;
+		
+		vector<string> sorteddays = days;
+		sort(sorteddays.begin(), sorteddays.end());
+		
+		RIDList rids;
+		RIDMap dayrids;
+		RIDMap faregrouprids;
+		rids.push_back(1);
+		rids.push_back(2);
+		dayrids["20091219"] = rids;
+		dayrids["20091220"] = rids;
+		faregrouprids["Regular"] = rids;
+		
+		set<string> dimensions;
+		dimensions.insert("day");
+		dimensions.insert("fare-group");
+		
 		EXPECT_CALL(*this->index, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Lookup(dimensions, _)).WillOnce(DoAll(SetArgReferee<1>(values), Return(true)));
+		EXPECT_CALL(*this->index, Lookup("day", sorteddays, _)).WillOnce(DoAll(SetArgReferee<2>(dayrids), Return(true)));
+		EXPECT_CALL(*this->index, Lookup("fare-group", faregroups, _)).WillOnce(DoAll(SetArgReferee<2>(faregrouprids), Return(true)));
 		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
 		
 		RIDTree records;
 		Conditions conditions;
-		set<string> dimensions;
-		dimensions.insert("day");
-		dimensions.insert("fare-group");		
 		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions, records));
+		
+		ASSERT_EQ(2, records.size());
+		ASSERT_EQ(2, records["day"].size());
+		EXPECT_EQ(2, records["day"]["20091219"].size());
+		EXPECT_EQ(2, records["day"]["20091220"].size());
+		ASSERT_EQ(1, records["fare-group"].size());
+		EXPECT_EQ(2, records["fare-group"]["Regular"].size());
 	}
 }

@@ -31,7 +31,7 @@ bool Index::Lookup(const map<string, string>& dimensions, RIDList& results) {
 /*
  * Looks up unique values for a given set of dimensions
  */
-bool Index::Lookup(const set<string>& dimensions, map< string, vector<string> >& results) {
+bool Index::Lookup(const set<string>& dimensions, ValuesMap& results) {
 	vector<string> component;
 	set<string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
