@@ -133,11 +133,7 @@ void Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
  */
 
 bool Dimension::Insert(const RecordID key, const string& value) {
-	if(tchdbput(this->database, &key, sizeof(RecordID), value.c_str(), value.size())) {
-		return true;
-	} else {
-		return false;
-	}
+	return tchdbput(this->database, &key, sizeof(RecordID), value.c_str(), value.size());
 }
 
 /*
