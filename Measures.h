@@ -22,7 +22,7 @@ namespace Flow {
 		Measures(const string& path);
 		
 		bool Insert(RecordID record, const map<string, double>& measures);
-		bool Lookup(const string& measure, const RIDList& records, vector<double>& results);
+		void Lookup(const string& measure, const RIDList& records, vector<double>& results);
 	};
 }
 

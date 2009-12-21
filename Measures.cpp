@@ -31,6 +31,11 @@ bool Measures::Insert(RecordID record, const map<string, double>& measures) {
 	return true;
 }
 
-bool Measures::Lookup(const string& measure, const RIDList& records, vector<double>& results) {
-	return true;
+void Measures::Lookup(const string& measure, const RIDList& records, vector<double>& results) {
+	RIDList::const_iterator record;
+	Measure database(this->path, measure);
+	if(database.OpenReader()) { 
+		database.Lookup(records, results);
+		database.Close();
+	}
 }

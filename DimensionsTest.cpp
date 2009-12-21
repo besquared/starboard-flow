@@ -44,26 +44,20 @@ namespace {
 		records.push_back(1);
 		records.push_back(2);
 		
-		vector<string> results;
+		vector<string> values;
 		
 		// Check store first
-		Dimension store("/tmp/flow", "sales");
-		ASSERT_EQ(true, store.OpenReader());
+		this->dimensions->Lookup("store", records, values);
+		ASSERT_EQ(2, values.size());
+		EXPECT_EQ("S1", values[0]);
+		EXPECT_EQ("S1", values[1]);
 		
-		store.Lookup(records, results);
-		ASSERT_EQ(2, results.size());
-		EXPECT_EQ("S1", results[0]);
-		EXPECT_EQ("S1", results[1]);
-		
-		results.clear();
+		values.clear();
 		
 		// Now product		
-		Dimension product("/tmp/flow", "sales");
-		ASSERT_EQ(true, product.OpenReader());
-
-		product.Lookup(records, results);
-		ASSERT_EQ(2, results.size());
-		EXPECT_EQ("P2", results[0]);
-		EXPECT_EQ("P2", results[1]);		
+		this->dimensions->Lookup("product", records, values);
+		ASSERT_EQ(2, values.size());
+		EXPECT_EQ("P2", values[0]);
+		EXPECT_EQ("P2", values[1]);		
 	}
 }

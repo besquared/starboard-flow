@@ -20,9 +20,10 @@ namespace Flow {
 		string path;
 		
 	public:
-		Dimensions(const string& path);		
+		Dimensions(const string& path);
+		
 		bool Insert(const Record& record);
-		bool Lookup(const string& dimension, const RIDList& keys, vector<string>& results);
+		void Lookup(const string& dimension, const RIDList& records, vector<string>& results);
 	};
 }
 

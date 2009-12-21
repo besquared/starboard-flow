@@ -33,6 +33,11 @@ bool Dimensions::Insert(const Record& record) {
 	return true;
 }
 
-bool Dimensions::Lookup(const string& dimension, const RIDList& keys, vector<string>& results) {
-	return true;
+void Dimensions::Lookup(const string& dimension, const RIDList& records, vector<string>& results) {
+	RIDList::const_iterator record;
+	Dimension database(this->path, dimension);
+	if(database.OpenReader()) { 
+		database.Lookup(records, results);
+		database.Close();
+	}
 }

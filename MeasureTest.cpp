@@ -33,7 +33,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(MeasureTest, PutsAndLookupsValues) {
+	TEST_F(MeasureTest, PutsAndLooksupValues) {
 		if(!this->database->Insert(100, 100.25)) {
 			FAIL() << "Could not store measure value";
 		}
@@ -43,7 +43,7 @@ namespace {
 		EXPECT_EQ(100.25, value);
 	}
 	
-	TEST_F(MeasureTest, PutsAndLookupsMultipleValues) {
+	TEST_F(MeasureTest, PutsAndLooksupMultipleValues) {
 		for(double i = 1; i <= 2; i++) {
 			this->database->Insert(i, i);
 		}

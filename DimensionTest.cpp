@@ -39,17 +39,17 @@ namespace {
 		}
 	};
 	
-	TEST_F(DimensionTest, InsertsAndLookupsValues) {		
+	TEST_F(DimensionTest, InsertsAndLooksupValues) {		
 		if(!this->database->Insert(100, "S1")) {
-			FAIL() << "Could not store dimension value => " << put.get<1>();
+			FAIL() << "Could not store dimension value";
 		}
 		
 		string value;
-		ASSERT_EQ(true, this->database->Lookup(100, value));
+		this->database->Lookup(100, value);
 		ASSERT_EQ("S1", value);
 	}
 	
-	TEST_F(DimensionTest, InsertsAndLookupsMultipleValues) {		
+	TEST_F(DimensionTest, InsertsAndLooksupMultipleValues) {		
 		this->database->Insert(1, "S1");
 		this->database->Insert(2, "S2");
 		
