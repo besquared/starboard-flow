@@ -124,4 +124,41 @@ namespace {
 		ASSERT_EQ(1, records["fare-group"].size());
 		EXPECT_EQ(2, records["fare-group"]["Regular"].size());
 	}
+	
+	TEST_F(IndicesTest, PerformsConditionalLookup) {
+		ValuesMap values;
+		values["day"].push_back("20091220");
+		values["day"].push_back("20091219");
+		values["day"].push_back("20091221");
+		values["day"].push_back("20091222");
+		
+		vector<string> days;
+		days.push_back("20091221");
+		days.push_back("20091222");
+		
+		RIDList rids;
+		RIDMap dayrids;
+		rids.push_back(1);
+		rids.push_back(2);
+		dayrids["20091221"] = rids;
+		dayrids["20091222"] = rids;
+
+		set<string> dimensions;
+		dimensions.insert("day");
+		
+		EXPECT_CALL(*this->index, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Lookup(dimensions, _)).WillOnce(DoAll(SetArgReferee<1>(values), Return(true)));
+		EXPECT_CALL(*this->index, Lookup("day", days, _)).WillOnce(DoAll(SetArgReferee<2>(dayrids), Return(true)));
+		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
+		
+		RIDTree records;
+		Conditions conditions;
+		conditions.gt("day", "20091220");
+		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions, records));
+		
+		ASSERT_EQ(1, records.size());
+		ASSERT_EQ(2, records["day"].size());
+		EXPECT_EQ(2, records["day"]["20091221"].size());
+		EXPECT_EQ(2, records["day"]["20091222"].size());
+	}
 }
