@@ -96,9 +96,10 @@ void Dimension::Lookup(const RIDList& keys, vector<string>& results) {
 	int written = 0;
 	int bsize = 1024;
 	void* buffer = malloc(bsize * sizeof(char));
-	size_t size_k = keys.size();
-	for(size_t i = 0; i < size_k; i++) {
-		written = tchdbget3(this->database, &keys[i], sizeof(RecordID), buffer, bsize);
+	
+	RIDList::iterator key;
+	for(key = keys.begin(); key != keys.end(); key++) {
+		written = tchdbget3(this->database, key, sizeof(RecordID), buffer, bsize);
 		if(written == -1) {
 			results.push_back(NULL);
 		} else {
@@ -113,13 +114,14 @@ void Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
 	int written = 0;
 	int bsize = 4096;
 	void* buffer = malloc(bsize * sizeof(char));
-	size_t size_k = keys.size();
-	for(size_t i = 0; i < size_k; i++) {
-		written = tchdbget3(this->database, &keys[i], sizeof(RecordID), buffer, bsize);
+	
+	RIDList::iterator key;
+	for(key = keys.begin(); key != keys.end(); key++) {
+		written = tchdbget3(this->database, key, sizeof(RecordID), buffer, bsize);
 		if(written == -1) {
-			results[keys[i]] = string(NULL);
+			results[*key] = string(NULL);
 		} else {
-			results[keys[i]] = string((char*)buffer, (size_t)written);
+			results[*key] = string((char*)buffer, (size_t)written);
 		}
 	}
 	
