@@ -123,7 +123,7 @@ Response SequenceQuery::Materialize(shared_ptr< Column > column, const string& d
 		shared_ptr<Dimension> database = opened.get<2>();
 		
 		size_t i, j, evsize;
-		vector<RecordID> keys;
+		RIDList keys;
 		map<RecordID, string> values;
 		vector<SequenceEvent> events;
 		
@@ -137,7 +137,7 @@ Response SequenceQuery::Materialize(shared_ptr< Column > column, const string& d
 		}
 		
 		// Fetch all the dimension values at once
-		database->Get(keys, values);
+		database->Lookup(keys, values);
 		
 		// Assign each sequence event the proper value
 		for(i = 0; i < base->size(); i++) {

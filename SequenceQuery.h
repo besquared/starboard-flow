@@ -11,6 +11,11 @@
 #define _sequence_query_included_
 
 #include "Common.h"
+
+#include "RIDList.h"
+#include "RIDMap.h"
+#include "RIDTree.h"
+
 #include "Measure.h"
 #include "Measures.h"
 #include "Dimension.h"

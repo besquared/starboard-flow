@@ -38,14 +38,14 @@ tuple<bool, string> Dimensions::Insert(RecordID record, const map<string, string
 		opened = this->OpenWriter(dimension->first);
 		if(opened.get<0>()) {
 			shared_ptr<Dimension> database = opened.get<2>();
-			tuple<bool, string> written = database->Put(record, dimension->second);
+			bool written = database->Insert(record, dimension->second);
 			database->Close();
 			
-			if(!written.get<0>()) {
-				return make_tuple(error, written.get<1>());
+			if(written) {
+				return make_tuple(error, "failed");
 			}
 		} else {
-			return make_tuple(error, opened.get<1>());
+			return make_tuple(error, "failed");
 		}
 	}
 	

@@ -58,8 +58,10 @@ bool Dimension::Close() {
 
 bool Dimension::Optimize() {
 	if(tchdbrnum(this->database) % (1<<16) == 0) {
-		tchdboptimize(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
-	}	
+		return tchdboptimize(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
+	} else {
+		return false;
+	}
 }
 
 bool Dimension::OpenReader() {
@@ -97,9 +99,9 @@ void Dimension::Lookup(const RIDList& keys, vector<string>& results) {
 	int bsize = 1024;
 	void* buffer = malloc(bsize * sizeof(char));
 	
-	RIDList::iterator key;
+	RIDList::const_iterator key;
 	for(key = keys.begin(); key != keys.end(); key++) {
-		written = tchdbget3(this->database, key, sizeof(RecordID), buffer, bsize);
+		written = tchdbget3(this->database, &(*key), sizeof(RecordID), buffer, bsize);
 		if(written == -1) {
 			results.push_back(NULL);
 		} else {
@@ -115,9 +117,9 @@ void Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
 	int bsize = 4096;
 	void* buffer = malloc(bsize * sizeof(char));
 	
-	RIDList::iterator key;
+	RIDList::const_iterator key;
 	for(key = keys.begin(); key != keys.end(); key++) {
-		written = tchdbget3(this->database, key, sizeof(RecordID), buffer, bsize);
+		written = tchdbget3(this->database, &(*key), sizeof(RecordID), buffer, bsize);
 		if(written == -1) {
 			results[*key] = string(NULL);
 		} else {
