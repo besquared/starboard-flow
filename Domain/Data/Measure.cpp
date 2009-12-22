@@ -9,18 +9,18 @@
 
 #include "Measure.h"
 
-Measure::Measure(string path, string name) {
+Domain::Data::Measure::Measure(string path, string name) {
   this->path = path;
   this->name = name;
   this->database = tcfdbnew();
 }
 
-Measure::~Measure() {
+Domain::Data::Measure::~Measure() {
   this->Close();
   tcfdbdel(this->database);
 }
 
-string Measure::Path() {
+string Domain::Data::Measure::Path() {
   return this->path + "/" + this->name + ".tcf";
 }
 
@@ -28,7 +28,7 @@ string Measure::Path() {
  * I/O Management
  */
 
-bool Measure::Create() {	
+bool Domain::Data::Measure::Create() {	
 	tcfdbtune(this->database, sizeof(double), INT_MAX);
 	
 	if(this->Open(FDBOWRITER | FDBOCREAT)) {
@@ -39,7 +39,7 @@ bool Measure::Create() {
 	}	
 }
 
-bool Measure::Close() {
+bool Domain::Data::Measure::Close() {
   if(tcfdbclose(this->database)){
 		return true;
   } else {
@@ -47,7 +47,7 @@ bool Measure::Close() {
   }
 }
 
-bool Measure::Truncate() {
+bool Domain::Data::Measure::Truncate() {
 	if(this->Open(FDBOWRITER | FDBOTRUNC)) {
 		this->Close();
 		return true;
@@ -56,15 +56,15 @@ bool Measure::Truncate() {
 	}	
 }
 
-bool Measure::OpenReader() {
+bool Domain::Data::Measure::OpenReader() {
   return this->Open(FDBOREADER);
 }
 
-bool Measure::OpenWriter() {
+bool Domain::Data::Measure::OpenWriter() {
   return this->Open(FDBOWRITER | FDBOCREAT);
 }
 
-bool Measure::Open(int mode) {
+bool Domain::Data::Measure::Open(int mode) {
 	return tcfdbopen(this->database, this->Path().c_str(), mode);
 }
 
@@ -72,7 +72,7 @@ bool Measure::Open(int mode) {
  * Reading
  */ 
 
-bool Measure::Lookup(RecordID key, double& result) {
+bool Domain::Data::Measure::Lookup(RecordID key, double& result) {
 	int size_v;
 	void* value = tcfdbget(this->database, key, &size_v);
 	
@@ -85,7 +85,7 @@ bool Measure::Lookup(RecordID key, double& result) {
 	}
 }
 
-void Measure::Lookup(const RIDList& keys, vector<double>& results) {
+void Domain::Data::Measure::Lookup(const RIDList& keys, vector<double>& results) {
 	results.reserve(keys.size());
 	
 	double buffer;
@@ -101,7 +101,7 @@ void Measure::Lookup(const RIDList& keys, vector<double>& results) {
  * Writing
  */
 
-bool Measure::Insert(RecordID key, double value) {
+bool Domain::Data::Measure::Insert(RecordID key, double value) {
 	return tcfdbput(this->database, key, &value, sizeof(double));
 }
 
@@ -109,6 +109,6 @@ bool Measure::Insert(RecordID key, double value) {
  * Error Management
  */
 
-string Measure::Error() {
+string Domain::Data::Measure::Error() {
 	return string(tcfdberrmsg(tcfdbecode(this->database)));
 }

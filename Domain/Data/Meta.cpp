@@ -9,16 +9,16 @@
 
 #include "Meta.h"
 
-Meta::Meta(const string& path) : BDB::BDB(path, "meta") {
-	this->index = new Flow::Index(this->path);
+Domain::Data::Meta::Meta(const string& path) : Domain::Data::BDB::BDB(path, "meta") {
+	this->index = new Domain::Data::Index(this->path);
 }
 
-Meta::~Meta() {
+Domain::Data::Meta::~Meta() {
 	delete(this->index);
 }
 
-bool Meta::Create(const string& path) {
-	if(BDB::Create(path, "meta")) {
+bool Domain::Data::Meta::Create(const string& path) {
+	if(Domain::Data::BDB::Create(path, "meta")) {
 		return Index::Create(path);
 	} else {
 		return false;
@@ -28,35 +28,35 @@ bool Meta::Create(const string& path) {
 /*
  * Returns a list of all indices
  */
-bool Meta::Indices(vector<string>& results) {
-	return BDB::Get("indices", results);
+bool Domain::Data::Meta::Indices(vector<string>& results) {
+	return Domain::Data::BDB::Get("indices", results);
 }
 
 /*
  * Returns the fragment which contains the given dimension
  */
-bool Meta::Index(const string& dimension, string& result) {
-	return BDB::Get(dimension, result);
+bool Domain::Data::Meta::Index(const string& dimension, string& result) {
+	return Domain::Data::BDB::Get(dimension, result);
 }
 
 /*
  * Returns a list of all dimensions in the database
  */
-bool Meta::Dimensions(set<string>& results) {
-	return BDB::Get("dimensions", results);
+bool Domain::Data::Meta::Dimensions(set<string>& results) {
+	return Domain::Data::BDB::Get("dimensions", results);
 }
 
 /*
  * Returns a list of all dimensions in the given fragment
  */
-bool Meta::Dimensions(const string& fragment, set<string>& results) {
-	return BDB::Get(fragment, results);
+bool Domain::Data::Meta::Dimensions(const string& fragment, set<string>& results) {
+	return Domain::Data::BDB::Get(fragment, results);
 }
 
 /*
  * Returns a list of all dimensions *not* in the database
  */
-bool Meta::Dimensions(const set<string>& dimensions, set<string>& results) {
+bool Domain::Data::Meta::Dimensions(const set<string>& dimensions, set<string>& results) {
 	set<string> existing;
 	
 	if(this->Dimensions(existing) || this->ErrorCode() == TCENOREC) {
@@ -73,7 +73,7 @@ bool Meta::Dimensions(const set<string>& dimensions, set<string>& results) {
 /*
  * Generates all the necessary indices to hold dimensions
  */
-bool Meta::Allocate(const set<string>& dimensions) {
+bool Domain::Data::Meta::Allocate(const set<string>& dimensions) {
 	set<string> alldims;
 	set<string> newdims;
 	this->Dimensions(alldims);
@@ -92,24 +92,24 @@ bool Meta::Allocate(const set<string>& dimensions) {
 		string fragment;
 		if(alldims.size() % FRAGMENT_SIZE == 0) {
 			current_fragment++;
-			fragment = lexical_cast<string>(current_fragment);
+			fragment = boost::lexical_cast<string>(current_fragment);
 			
-			if(!BDB::PutDup("indices", fragment)) {
+			if(!Domain::Data::BDB::PutDup("indices", fragment)) {
 				return false;
 			}
 		} else {
-			fragment = lexical_cast<string>(current_fragment);
+			fragment = boost::lexical_cast<string>(current_fragment);
 		}
 
-		if(!BDB::Put(*dimension, fragment)) {
+		if(!Domain::Data::BDB::Put(*dimension, fragment)) {
 			return false;
 		}
 		
-		if(!BDB::PutDup(fragment, *dimension)) {
+		if(!Domain::Data::BDB::PutDup(fragment, *dimension)) {
 			return false;
 		}
 		
-		if(!BDB::PutDup("dimensions", *dimension)) {
+		if(!Domain::Data::BDB::PutDup("dimensions", *dimension)) {
 			return false;
 		}
 
@@ -122,6 +122,6 @@ bool Meta::Allocate(const set<string>& dimensions) {
 /*
  * Generates a new global record id
  */
-bool Meta::GenerateRecordID(RecordID& result) {
-	return BDB::Add("records", 1, result);
+bool Domain::Data::Meta::GenerateRecordID(RecordID& result) {
+	return Domain::Data::BDB::Add("records", 1, result);
 }

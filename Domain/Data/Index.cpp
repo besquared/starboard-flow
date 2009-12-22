@@ -9,33 +9,33 @@
 
 #include "Index.h"
 
-Index::Index(const string& path) : BDB::BDB(path, "fragments") {}
+Domain::Data::Index::Index(const string& path) : Domain::Data::BDB::BDB(path, "fragments") {}
 
-bool Index::Create(const string& path) {
-	return BDB::Create(path, "fragments");
+bool Domain::Data::Index::Create(const string& path) {
+	return Domain::Data::BDB::Create(path, "fragments");
 }
 
 /*
  * Looks up a list of record ids from a single index key
  */
-bool Index::Lookup(const map<string, string>& dimensions, RIDList& results) {
+bool Domain::Data::Index::Lookup(const map<string, string>& dimensions, RIDList& results) {
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
 		elements.push_back(this->Component(dimension->first, dimension->second));
 	}
 	
-	return BDB::Get(this->Key(elements), results);
+	return Domain::Data::BDB::Get(this->Key(elements), results);
 }
 
 /*
  * Looks up unique values for a given set of dimensions
  */
-bool Index::Lookup(const set<string>& dimensions, ValuesMap& results) {
+bool Domain::Data::Index::Lookup(const set<string>& dimensions, ValuesMap& results) {
 	vector<string> component;
 	set<string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
-		BDB::Get(this->ValuesKey(*dimension), results[*dimension]);
+		Domain::Data::BDB::Get(this->ValuesKey(*dimension), results[*dimension]);
 	}
 	
 	return true;
@@ -44,9 +44,9 @@ bool Index::Lookup(const set<string>& dimensions, ValuesMap& results) {
 /*
  * Looks up the records for a list of dimension values
  */
-bool Index::Lookup(const string& dimension, const vector<string>& values, RIDMap& results) {
+bool Domain::Data::Index::Lookup(const string& dimension, const vector<string>& values, RIDMap& results) {
 	for(size_t i = 0; i < values.size(); i++) {
-		BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
+		Domain::Data::BDB::Get(this->Key(this->Component(dimension, values[i])), results[values[i]]);
 	}
 	
 	return true;
@@ -55,7 +55,7 @@ bool Index::Lookup(const string& dimension, const vector<string>& values, RIDMap
 /*
  * Insert a dimensional row
  */
-bool Index::Insert(const Record& record) {
+bool Domain::Data::Index::Insert(const Record& record) {
 	vector<string> elements;
 	Record::const_iterator element;
 	for(element = record.begin(); element != record.end(); element++) {
@@ -65,7 +65,7 @@ bool Index::Insert(const Record& record) {
 	vector< vector<string> > sets = this->PowerSet(elements);
 	
 	for(size_t i = 0; i < sets.size(); i++) {
-		BDB::PutCat(this->Key(sets[i]), record.id);
+		Domain::Data::BDB::PutCat(this->Key(sets[i]), record.id);
 	}
 						 
 	this->InsertValues(record);
@@ -76,13 +76,13 @@ bool Index::Insert(const Record& record) {
 /*
  * Insert dimension values
  */
-bool Index::InsertValues(const Record& record) {
+bool Domain::Data::Index::InsertValues(const Record& record) {
 	int count;
 	map<string, string>::const_iterator dimension;
 	for(dimension = record.begin(); dimension != record.end(); dimension++) {
-		if(BDB::Add(this->ValueKey(dimension->first, dimension->second), 1, count)) {
+		if(Domain::Data::BDB::Add(this->ValueKey(dimension->first, dimension->second), 1, count)) {
 			if(count == 1) {
-				BDB::PutDup(this->ValuesKey(dimension->first), dimension->second);
+				Domain::Data::BDB::PutDup(this->ValuesKey(dimension->first), dimension->second);
 			}
 		}
 	}
@@ -93,34 +93,34 @@ bool Index::InsertValues(const Record& record) {
 /*
  * Key Management
  */
-string Index::Key(const string& component) {
+string Domain::Data::Index::Key(const string& component) {
 	return "<" + component + ">";
 }
 
-string Index::Key(const vector<string>& components) {
+string Domain::Data::Index::Key(const vector<string>& components) {
 	return this->Key(boost::join(components, ":"));
 }
 
-string Index::ValuesKey(const string& dimension) {
+string Domain::Data::Index::ValuesKey(const string& dimension) {
 	return "[" + dimension + "]:values";
 }
 
-string Index::ValueKey(const string& dimension, const string& value) {
+string Domain::Data::Index::ValueKey(const string& dimension, const string& value) {
 	return "[" + dimension + "]:[" + value + "]";
 }
 
-string Index::Component(const string& dimension, const string& value) {
+string Domain::Data::Index::Component(const string& dimension, const string& value) {
 	return "[" + dimension + ":" + value + "]";
 }
 
-vector< vector<string> > Index::PowerSet(vector<string>& values) {
+vector< vector<string> > Domain::Data::Index::PowerSet(vector<string>& values) {
 	vector< vector<string> > results;
 	results.push_back(vector<string>());
 	
 	for(unsigned int i = 1; i <= (1 << values.size()) - 1; i++) {
 		vector<string> combination;
 		for(int j = 0; j <= values.size() - 1; j++) {
-			if(IsSet(&i, j)) { combination.push_back(values[j]); }
+			if(this->IsSet(&i, j)) { combination.push_back(values[j]); }
 		}
 		
 		if(combination.size() > 0) { results.push_back(combination); }
@@ -129,6 +129,6 @@ vector< vector<string> > Index::PowerSet(vector<string>& values) {
 	return results;
 }
 
-bool Index::IsSet(const unsigned int *set, int i) {
+bool Domain::Data::Index::IsSet(const unsigned int *set, int i) {
 	return (set[i / 32] & (1 << (i & 31)));
 }
