@@ -38,7 +38,9 @@
 		0369A1E010E0649D0017E895 /* SequenceKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DB10E0649D0017E895 /* SequenceKey.h */; };
 		0369A1E110E0649D0017E895 /* SequenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DC10E0649D0017E895 /* SequenceEvent.h */; };
 		0369A1E210E0649D0017E895 /* SequenceDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DD10E0649D0017E895 /* SequenceDimension.h */; };
-		036AE62D10CE0BF2002304AE /* Aggregation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC71910C793D7006288C0 /* Aggregation.cpp */; };
+		0369A1EC10E067EA0017E895 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1EA10E067EA0017E895 /* Aggregation.h */; };
+		0369A1ED10E067EA0017E895 /* Aggregation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0369A1EB10E067EA0017E895 /* Aggregation.cpp */; };
+		0369A1EF10E068070017E895 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1EE10E068070017E895 /* Condition.h */; };
 		036AE62E10CE0BF2002304AE /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC86110C8F61A006288C0 /* Base.cpp */; };
 		036AE63010CE0BF2002304AE /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4E0B210C33E6000D5068E /* Common.cpp */; };
 		036AE63210CE0BF2002304AE /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4E88610C5C80D00D5068E /* Conditions.cpp */; };
@@ -127,6 +129,9 @@
 		0369A1DB10E0649D0017E895 /* SequenceKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceKey.h; path = Engine/SOLAP/SequenceKey.h; sourceTree = "<group>"; };
 		0369A1DC10E0649D0017E895 /* SequenceEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceEvent.h; path = Engine/SOLAP/SequenceEvent.h; sourceTree = "<group>"; };
 		0369A1DD10E0649D0017E895 /* SequenceDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceDimension.h; path = Engine/SOLAP/SequenceDimension.h; sourceTree = "<group>"; };
+		0369A1EA10E067EA0017E895 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Aggregation.h; path = Aggregate/Aggregation.h; sourceTree = "<group>"; };
+		0369A1EB10E067EA0017E895 /* Aggregation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Aggregation.cpp; path = Aggregate/Aggregation.cpp; sourceTree = "<group>"; };
+		0369A1EE10E068070017E895 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Condition.h; path = Predicate/Condition.h; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
 		036AEE7810D22EBF002304AE /* Aggregations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aggregations.cpp; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
@@ -166,7 +171,6 @@
 		039EABB010E063560026C8B2 /* TListColumn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TListColumn.h; path = Engine/TListColumn.h; sourceTree = "<group>"; };
 		039EABB110E063560026C8B2 /* TColumn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TColumn.h; path = Engine/TColumn.h; sourceTree = "<group>"; };
 		039EABB210E063560026C8B2 /* Table.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Table.h; path = Engine/Table.h; sourceTree = "<group>"; };
-		03ABC71910C793D7006288C0 /* Aggregation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aggregation.cpp; sourceTree = "<group>"; };
 		03ABC86110C8F61A006288C0 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +206,7 @@
 		036AEA9710D0719E002304AE /* Predicate */ = {
 			isa = PBXGroup;
 			children = (
+				0369A1EE10E068070017E895 /* Condition.h */,
 				039EAB8610E05FE40026C8B2 /* EQ.cpp */,
 				0369A1A610E063E30017E895 /* EQ.h */,
 				039EAB8510E05FE40026C8B2 /* GT.cpp */,
@@ -266,6 +271,8 @@
 		03ABC5E810C782AB006288C0 /* Aggregate */ = {
 			isa = PBXGroup;
 			children = (
+				0369A1EA10E067EA0017E895 /* Aggregation.h */,
+				0369A1EB10E067EA0017E895 /* Aggregation.cpp */,
 				039EAB9110E060830026C8B2 /* COUNT.cpp */,
 				0369A19C10E063C60017E895 /* COUNT.h */,
 				039EAB9010E060830026C8B2 /* SUM.cpp */,
@@ -317,10 +324,10 @@
 				039EAB4A10E053B30026C8B2 /* OLAP */,
 				039EA51410DC4B330026C8B2 /* SOLAP */,
 				039EABAD10E061410026C8B2 /* Columns.cpp */,
-				039EABAC10E061410026C8B2 /* Table.cpp */,
-				0369A1D410E064790017E895 /* Column.h */,
 				0369A1D310E064790017E895 /* Columns.h */,
+				039EABAC10E061410026C8B2 /* Table.cpp */,
 				039EABB210E063560026C8B2 /* Table.h */,
+				0369A1D410E064790017E895 /* Column.h */,
 				039EABB110E063560026C8B2 /* TColumn.h */,
 				039EABB010E063560026C8B2 /* TListColumn.h */,
 			);
@@ -342,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				03ABC5E810C782AB006288C0 /* Aggregate */,
-				03ABC71910C793D7006288C0 /* Aggregation.cpp */,
 				036AEE7810D22EBF002304AE /* Aggregations.cpp */,
 				036AEA9710D0719E002304AE /* Predicate */,
 				03E4E88610C5C80D00D5068E /* Conditions.cpp */,
@@ -409,6 +415,8 @@
 				0369A1E010E0649D0017E895 /* SequenceKey.h in Headers */,
 				0369A1E110E0649D0017E895 /* SequenceEvent.h in Headers */,
 				0369A1E210E0649D0017E895 /* SequenceDimension.h in Headers */,
+				0369A1EC10E067EA0017E895 /* Aggregation.h in Headers */,
+				0369A1EF10E068070017E895 /* Condition.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +495,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				036AE62D10CE0BF2002304AE /* Aggregation.cpp in Sources */,
 				036AE62E10CE0BF2002304AE /* Base.cpp in Sources */,
 				036AE63010CE0BF2002304AE /* Common.cpp in Sources */,
 				036AE63210CE0BF2002304AE /* Conditions.cpp in Sources */,
@@ -524,6 +531,7 @@
 				039EABAE10E061410026C8B2 /* Table.cpp in Sources */,
 				039EABAF10E061410026C8B2 /* Columns.cpp in Sources */,
 				0369A1D010E064620017E895 /* ShellFragments.cpp in Sources */,
+				0369A1ED10E067EA0017E895 /* Aggregation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
