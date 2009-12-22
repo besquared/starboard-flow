@@ -1,5 +1,5 @@
 /*
- *  Aggregate.cpp
+ *  Base.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/2/09.
@@ -7,12 +7,12 @@
  *
  */
 
-#include "Aggregation.h"
+#include "Base.h"
 
-Aggregation::Aggregation(const string& measure) {
+Aggregate::Base::Base(const string& measure) {
 	this->measures.push_back(measure);
 }
 
-Aggregation::Aggregation(const vector<string>& measures) {
+Aggregate::Base::Base(const vector<string>& measures) {
 	this->measures = measures;
 }

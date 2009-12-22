@@ -1,5 +1,5 @@
 /*
- *  SUM.h
+ *  Sum.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/2/09.
@@ -13,14 +13,17 @@
 #include "Common.h"
 
 #include "Table.h"
-#include "Aggregation.h"
+#include "Engine/Table.h"
+#include "Aggregate/Base.h"
 
 namespace Flow {
-  class SUM : public Aggregation {		
-	public:
-		SUM(const string& measure);
-		void Apply(shared_ptr<Table> base);		
-	};
+	namespace Aggregate {
+		class Sum : public Base {		
+		public:
+			Sum(const string& measure);
+			void Apply(Table& base);		
+		};
+	}
 }
 
 #endif

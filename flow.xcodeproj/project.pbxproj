@@ -7,82 +7,85 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0369A19D10E063C60017E895 /* SUM.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A19B10E063C60017E895 /* SUM.h */; };
-		0369A19E10E063C60017E895 /* COUNT.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A19C10E063C60017E895 /* COUNT.h */; };
-		0369A1A710E063E30017E895 /* LTE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1A110E063E30017E895 /* LTE.h */; };
-		0369A1A810E063E30017E895 /* LT.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1A210E063E30017E895 /* LT.h */; };
-		0369A1A910E063E30017E895 /* IN.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1A310E063E30017E895 /* IN.h */; };
-		0369A1AA10E063E30017E895 /* GTE.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1A410E063E30017E895 /* GTE.h */; };
-		0369A1AB10E063E30017E895 /* GT.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1A510E063E30017E895 /* GT.h */; };
-		0369A1AC10E063E30017E895 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1A610E063E30017E895 /* EQ.h */; };
-		0369A1B910E063FA0017E895 /* ShellFragment.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1AF10E063F90017E895 /* ShellFragment.h */; };
-		0369A1BA10E063FA0017E895 /* RIDTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B010E063F90017E895 /* RIDTree.h */; };
-		0369A1BB10E063FA0017E895 /* RIDMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B110E063F90017E895 /* RIDMap.h */; };
-		0369A1BC10E063FA0017E895 /* RIDList.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B210E063F90017E895 /* RIDList.h */; };
-		0369A1BD10E063FA0017E895 /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B310E063F90017E895 /* Record.h */; };
-		0369A1BE10E063FA0017E895 /* Meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B410E063F90017E895 /* Meta.h */; };
-		0369A1BF10E063FA0017E895 /* Measure.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B510E063FA0017E895 /* Measure.h */; };
-		0369A1C010E063FA0017E895 /* Index.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B610E063FA0017E895 /* Index.h */; };
-		0369A1C110E063FA0017E895 /* Dimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B710E063FA0017E895 /* Dimension.h */; };
-		0369A1C210E063FA0017E895 /* BDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1B810E063FA0017E895 /* BDB.h */; };
-		0369A1C810E064320017E895 /* Measures.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1C710E064320017E895 /* Measures.h */; };
-		0369A1CA10E0643E0017E895 /* Indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1C910E0643E0017E895 /* Indices.h */; };
-		0369A1CC10E0644C0017E895 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1CB10E0644C0017E895 /* Events.h */; };
-		0369A1CE10E064570017E895 /* Dimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1CD10E064570017E895 /* Dimensions.h */; };
-		0369A1D010E064620017E895 /* ShellFragments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0369A1CF10E064620017E895 /* ShellFragments.cpp */; };
-		0369A1D510E064790017E895 /* Columns.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1D310E064790017E895 /* Columns.h */; };
-		0369A1D610E064790017E895 /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1D410E064790017E895 /* Column.h */; };
-		0369A1D810E064890017E895 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1D710E064890017E895 /* Query.h */; };
-		0369A1DE10E0649D0017E895 /* SequenceTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1D910E0649D0017E895 /* SequenceTemplate.h */; };
-		0369A1DF10E0649D0017E895 /* SequenceQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DA10E0649D0017E895 /* SequenceQuery.h */; };
-		0369A1E010E0649D0017E895 /* SequenceKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DB10E0649D0017E895 /* SequenceKey.h */; };
-		0369A1E110E0649D0017E895 /* SequenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DC10E0649D0017E895 /* SequenceEvent.h */; };
-		0369A1E210E0649D0017E895 /* SequenceDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1DD10E0649D0017E895 /* SequenceDimension.h */; };
-		0369A1EC10E067EA0017E895 /* Aggregation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1EA10E067EA0017E895 /* Aggregation.h */; };
-		0369A1ED10E067EA0017E895 /* Aggregation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0369A1EB10E067EA0017E895 /* Aggregation.cpp */; };
-		0369A1EF10E068070017E895 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369A1EE10E068070017E895 /* Condition.h */; };
-		036AE62E10CE0BF2002304AE /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC86110C8F61A006288C0 /* Base.cpp */; };
-		036AE63010CE0BF2002304AE /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4E0B210C33E6000D5068E /* Common.cpp */; };
-		036AE63210CE0BF2002304AE /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E4E88610C5C80D00D5068E /* Conditions.cpp */; };
-		036AEE7A10D22EBF002304AE /* Aggregations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 036AEE7810D22EBF002304AE /* Aggregations.cpp */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF38710D379E1002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38A10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
 		036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
-		039EAB5D10E05F680026C8B2 /* ShellFragment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5310E05F680026C8B2 /* ShellFragment.cpp */; };
-		039EAB5E10E05F680026C8B2 /* RIDTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5410E05F680026C8B2 /* RIDTree.cpp */; };
-		039EAB5F10E05F680026C8B2 /* RIDMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5510E05F680026C8B2 /* RIDMap.cpp */; };
-		039EAB6010E05F680026C8B2 /* RIDList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5610E05F680026C8B2 /* RIDList.cpp */; };
-		039EAB6110E05F680026C8B2 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5710E05F680026C8B2 /* Record.cpp */; };
-		039EAB6210E05F680026C8B2 /* Meta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5810E05F680026C8B2 /* Meta.cpp */; };
-		039EAB6310E05F680026C8B2 /* Measure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5910E05F680026C8B2 /* Measure.cpp */; };
-		039EAB6410E05F680026C8B2 /* Index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5A10E05F680026C8B2 /* Index.cpp */; };
-		039EAB6510E05F680026C8B2 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5B10E05F680026C8B2 /* Dimension.cpp */; };
-		039EAB6610E05F680026C8B2 /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB5C10E05F680026C8B2 /* BDB.cpp */; };
-		039EAB8710E05FE40026C8B2 /* LTE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB8110E05FE40026C8B2 /* LTE.cpp */; };
-		039EAB8810E05FE40026C8B2 /* LT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB8210E05FE40026C8B2 /* LT.cpp */; };
-		039EAB8910E05FE40026C8B2 /* IN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB8310E05FE40026C8B2 /* IN.cpp */; };
-		039EAB8A10E05FE40026C8B2 /* GTE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB8410E05FE40026C8B2 /* GTE.cpp */; };
-		039EAB8B10E05FE40026C8B2 /* GT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB8510E05FE40026C8B2 /* GT.cpp */; };
-		039EAB8C10E05FE40026C8B2 /* EQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB8610E05FE40026C8B2 /* EQ.cpp */; };
-		039EAB9210E060830026C8B2 /* SUM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9010E060830026C8B2 /* SUM.cpp */; };
-		039EAB9310E060830026C8B2 /* COUNT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9110E060830026C8B2 /* COUNT.cpp */; };
-		039EAB9B10E0609E0026C8B2 /* ShellDimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9510E0609E0026C8B2 /* ShellDimensions.cpp */; };
-		039EAB9C10E0609E0026C8B2 /* Measures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9610E0609E0026C8B2 /* Measures.cpp */; };
-		039EAB9D10E0609E0026C8B2 /* Indices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9710E0609E0026C8B2 /* Indices.cpp */; };
-		039EAB9E10E0609E0026C8B2 /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9810E0609E0026C8B2 /* Events.cpp */; };
-		039EAB9F10E0609E0026C8B2 /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EAB9910E0609E0026C8B2 /* Dimensions.cpp */; };
-		039EABA110E060F90026C8B2 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABA010E060F90026C8B2 /* Query.cpp */; };
-		039EABA710E0611A0026C8B2 /* SequenceTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABA210E0611A0026C8B2 /* SequenceTemplate.cpp */; };
-		039EABA810E0611A0026C8B2 /* SequenceQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABA310E0611A0026C8B2 /* SequenceQuery.cpp */; };
-		039EABA910E0611A0026C8B2 /* SequenceKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABA410E0611A0026C8B2 /* SequenceKey.cpp */; };
-		039EABAA10E0611A0026C8B2 /* SequenceEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABA510E0611A0026C8B2 /* SequenceEvent.cpp */; };
-		039EABAB10E0611A0026C8B2 /* SequenceDimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABA610E0611A0026C8B2 /* SequenceDimension.cpp */; };
-		039EABAE10E061410026C8B2 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABAC10E061410026C8B2 /* Table.cpp */; };
-		039EABAF10E061410026C8B2 /* Columns.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 039EABAD10E061410026C8B2 /* Columns.cpp */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
+		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
+		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
+		03E72A6010E0911200D5E4C1 /* Count.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1610E0911200D5E4C1 /* Count.cpp */; };
+		03E72A6110E0911200D5E4C1 /* Count.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1710E0911200D5E4C1 /* Count.h */; };
+		03E72A6210E0911200D5E4C1 /* Sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1810E0911200D5E4C1 /* Sum.cpp */; };
+		03E72A6310E0911200D5E4C1 /* Sum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1910E0911200D5E4C1 /* Sum.h */; };
+		03E72A6410E0911200D5E4C1 /* Aggregates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */; };
+		03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1B10E0911200D5E4C1 /* Aggregates.h */; };
+		03E72A6610E0911200D5E4C1 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1D10E0911200D5E4C1 /* Query.cpp */; };
+		03E72A6710E0911200D5E4C1 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1E10E0911200D5E4C1 /* Query.h */; };
+		03E72A6B10E0911200D5E4C1 /* SequenceDimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2310E0911200D5E4C1 /* SequenceDimension.cpp */; };
+		03E72A6C10E0911200D5E4C1 /* SequenceDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2410E0911200D5E4C1 /* SequenceDimension.h */; };
+		03E72A6D10E0911200D5E4C1 /* SequenceEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2510E0911200D5E4C1 /* SequenceEvent.cpp */; };
+		03E72A6E10E0911200D5E4C1 /* SequenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2610E0911200D5E4C1 /* SequenceEvent.h */; };
+		03E72A6F10E0911200D5E4C1 /* SequenceKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2710E0911200D5E4C1 /* SequenceKey.cpp */; };
+		03E72A7010E0911200D5E4C1 /* SequenceKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2810E0911200D5E4C1 /* SequenceKey.h */; };
+		03E72A7110E0911200D5E4C1 /* SequenceQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2910E0911200D5E4C1 /* SequenceQuery.cpp */; };
+		03E72A7210E0911200D5E4C1 /* SequenceQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2A10E0911200D5E4C1 /* SequenceQuery.h */; };
+		03E72A7310E0911200D5E4C1 /* SequenceTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2B10E0911200D5E4C1 /* SequenceTemplate.cpp */; };
+		03E72A7410E0911200D5E4C1 /* SequenceTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2C10E0911200D5E4C1 /* SequenceTemplate.h */; };
+		03E72A7510E0911200D5E4C1 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2D10E0911200D5E4C1 /* Table.cpp */; };
+		03E72A7610E0911200D5E4C1 /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2E10E0911200D5E4C1 /* Table.h */; };
+		03E72A7910E0911200D5E4C1 /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3310E0911200D5E4C1 /* BDB.cpp */; };
+		03E72A7A10E0911200D5E4C1 /* BDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3410E0911200D5E4C1 /* BDB.h */; };
+		03E72A7B10E0911200D5E4C1 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3510E0911200D5E4C1 /* Dimension.cpp */; };
+		03E72A7C10E0911200D5E4C1 /* Dimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3610E0911200D5E4C1 /* Dimension.h */; };
+		03E72A7D10E0911200D5E4C1 /* Index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3710E0911200D5E4C1 /* Index.cpp */; };
+		03E72A7E10E0911200D5E4C1 /* Index.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3810E0911200D5E4C1 /* Index.h */; };
+		03E72A7F10E0911200D5E4C1 /* Measure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3910E0911200D5E4C1 /* Measure.cpp */; };
+		03E72A8010E0911200D5E4C1 /* Measure.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3A10E0911200D5E4C1 /* Measure.h */; };
+		03E72A8110E0911200D5E4C1 /* Meta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3B10E0911200D5E4C1 /* Meta.cpp */; };
+		03E72A8210E0911200D5E4C1 /* Meta.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3C10E0911200D5E4C1 /* Meta.h */; };
+		03E72A8310E0911200D5E4C1 /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3D10E0911200D5E4C1 /* Record.cpp */; };
+		03E72A8410E0911200D5E4C1 /* Record.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3E10E0911200D5E4C1 /* Record.h */; };
+		03E72A8510E0911200D5E4C1 /* RIDList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3F10E0911200D5E4C1 /* RIDList.cpp */; };
+		03E72A8610E0911200D5E4C1 /* RIDList.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4010E0911200D5E4C1 /* RIDList.h */; };
+		03E72A8710E0911200D5E4C1 /* RIDMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4110E0911200D5E4C1 /* RIDMap.cpp */; };
+		03E72A8810E0911200D5E4C1 /* RIDMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4210E0911200D5E4C1 /* RIDMap.h */; };
+		03E72A8910E0911200D5E4C1 /* RIDTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4310E0911200D5E4C1 /* RIDTree.cpp */; };
+		03E72A8A10E0911200D5E4C1 /* RIDTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4410E0911200D5E4C1 /* RIDTree.h */; };
+		03E72A8B10E0911200D5E4C1 /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4510E0911200D5E4C1 /* Dimensions.cpp */; };
+		03E72A8C10E0911200D5E4C1 /* Dimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4610E0911200D5E4C1 /* Dimensions.h */; };
+		03E72A8D10E0911200D5E4C1 /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4710E0911200D5E4C1 /* Events.cpp */; };
+		03E72A8E10E0911200D5E4C1 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4810E0911200D5E4C1 /* Events.h */; };
+		03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4910E0911200D5E4C1 /* Indices.cpp */; };
+		03E72A9010E0911200D5E4C1 /* Indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4A10E0911200D5E4C1 /* Indices.h */; };
+		03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4B10E0911200D5E4C1 /* Measures.cpp */; };
+		03E72A9210E0911200D5E4C1 /* Measures.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4C10E0911200D5E4C1 /* Measures.h */; };
+		03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4D10E0911200D5E4C1 /* Conditions.h */; };
+		03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4E10E0911200D5E4C1 /* Conditions.cpp */; };
+		03E72A9510E0911200D5E4C1 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5010E0911200D5E4C1 /* Condition.h */; };
+		03E72A9610E0911200D5E4C1 /* EQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5110E0911200D5E4C1 /* EQ.cpp */; };
+		03E72A9710E0911200D5E4C1 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5210E0911200D5E4C1 /* EQ.h */; };
+		03E72A9810E0911200D5E4C1 /* GT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5310E0911200D5E4C1 /* GT.cpp */; };
+		03E72A9910E0911200D5E4C1 /* GT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5410E0911200D5E4C1 /* GT.h */; };
+		03E72A9A10E0911200D5E4C1 /* GTE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5510E0911200D5E4C1 /* GTE.cpp */; };
+		03E72A9B10E0911200D5E4C1 /* GTE.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5610E0911200D5E4C1 /* GTE.h */; };
+		03E72A9C10E0911200D5E4C1 /* IN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5710E0911200D5E4C1 /* IN.cpp */; };
+		03E72A9D10E0911200D5E4C1 /* IN.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5810E0911200D5E4C1 /* IN.h */; };
+		03E72A9E10E0911200D5E4C1 /* LT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5910E0911200D5E4C1 /* LT.cpp */; };
+		03E72A9F10E0911200D5E4C1 /* LT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5A10E0911200D5E4C1 /* LT.h */; };
+		03E72AA010E0911200D5E4C1 /* LTE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5B10E0911200D5E4C1 /* LTE.cpp */; };
+		03E72AA110E0911200D5E4C1 /* LTE.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5C10E0911200D5E4C1 /* LTE.h */; };
+		03E72AA210E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5D10E0911200D5E4C1 /* Base.h */; };
+		03E72AA610E0916D00D5E4C1 /* Flow.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AA510E0916D00D5E4C1 /* Flow.h */; };
+		03E72AA810E0917500D5E4C1 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72AA710E0917500D5E4C1 /* Common.cpp */; };
+		03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AA910E0917B00D5E4C1 /* Common.h */; };
+		03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC010E091F900D5E4C1 /* TListColumn.h */; };
+		03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC110E091F900D5E4C1 /* TColumn.h */; };
+		03E72AC710E091F900D5E4C1 /* Columns.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC210E091F900D5E4C1 /* Columns.h */; };
+		03E72AC810E091F900D5E4C1 /* Columns.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72AC310E091F900D5E4C1 /* Columns.cpp */; };
+		03E72AC910E091F900D5E4C1 /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC410E091F900D5E4C1 /* Column.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,86 +99,84 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0369A19B10E063C60017E895 /* SUM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SUM.h; path = Aggregate/SUM.h; sourceTree = "<group>"; };
-		0369A19C10E063C60017E895 /* COUNT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COUNT.h; path = Aggregate/COUNT.h; sourceTree = "<group>"; };
-		0369A1A110E063E30017E895 /* LTE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LTE.h; path = Predicate/LTE.h; sourceTree = "<group>"; };
-		0369A1A210E063E30017E895 /* LT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LT.h; path = Predicate/LT.h; sourceTree = "<group>"; };
-		0369A1A310E063E30017E895 /* IN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IN.h; path = Predicate/IN.h; sourceTree = "<group>"; };
-		0369A1A410E063E30017E895 /* GTE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTE.h; path = Predicate/GTE.h; sourceTree = "<group>"; };
-		0369A1A510E063E30017E895 /* GT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GT.h; path = Predicate/GT.h; sourceTree = "<group>"; };
-		0369A1A610E063E30017E895 /* EQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EQ.h; path = Predicate/EQ.h; sourceTree = "<group>"; };
-		0369A1AF10E063F90017E895 /* ShellFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShellFragment.h; path = Data/ShellFragment.h; sourceTree = "<group>"; };
-		0369A1B010E063F90017E895 /* RIDTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RIDTree.h; path = Data/RIDTree.h; sourceTree = "<group>"; };
-		0369A1B110E063F90017E895 /* RIDMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RIDMap.h; path = Data/RIDMap.h; sourceTree = "<group>"; };
-		0369A1B210E063F90017E895 /* RIDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RIDList.h; path = Data/RIDList.h; sourceTree = "<group>"; };
-		0369A1B310E063F90017E895 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Record.h; path = Data/Record.h; sourceTree = "<group>"; };
-		0369A1B410E063F90017E895 /* Meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Meta.h; path = Data/Meta.h; sourceTree = "<group>"; };
-		0369A1B510E063FA0017E895 /* Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Measure.h; path = Data/Measure.h; sourceTree = "<group>"; };
-		0369A1B610E063FA0017E895 /* Index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Index.h; path = Data/Index.h; sourceTree = "<group>"; };
-		0369A1B710E063FA0017E895 /* Dimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dimension.h; path = Data/Dimension.h; sourceTree = "<group>"; };
-		0369A1B810E063FA0017E895 /* BDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDB.h; path = Data/BDB.h; sourceTree = "<group>"; };
-		0369A1C510E064130017E895 /* ShellFragments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShellFragments.h; path = Domain/ShellFragments.h; sourceTree = "<group>"; };
-		0369A1C610E064240017E895 /* ShellDimensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShellDimensions.h; path = Domain/ShellDimensions.h; sourceTree = "<group>"; };
-		0369A1C710E064320017E895 /* Measures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Measures.h; path = Domain/Measures.h; sourceTree = "<group>"; };
-		0369A1C910E0643E0017E895 /* Indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Indices.h; path = Domain/Indices.h; sourceTree = "<group>"; };
-		0369A1CB10E0644C0017E895 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Events.h; path = Domain/Events.h; sourceTree = "<group>"; };
-		0369A1CD10E064570017E895 /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dimensions.h; path = Domain/Dimensions.h; sourceTree = "<group>"; };
-		0369A1CF10E064620017E895 /* ShellFragments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShellFragments.cpp; path = Domain/ShellFragments.cpp; sourceTree = "<group>"; };
-		0369A1D310E064790017E895 /* Columns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Columns.h; path = Engine/Columns.h; sourceTree = "<group>"; };
-		0369A1D410E064790017E895 /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Column.h; path = Engine/Column.h; sourceTree = "<group>"; };
-		0369A1D710E064890017E895 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Query.h; path = Engine/OLAP/Query.h; sourceTree = "<group>"; };
-		0369A1D910E0649D0017E895 /* SequenceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceTemplate.h; path = Engine/SOLAP/SequenceTemplate.h; sourceTree = "<group>"; };
-		0369A1DA10E0649D0017E895 /* SequenceQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceQuery.h; path = Engine/SOLAP/SequenceQuery.h; sourceTree = "<group>"; };
-		0369A1DB10E0649D0017E895 /* SequenceKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceKey.h; path = Engine/SOLAP/SequenceKey.h; sourceTree = "<group>"; };
-		0369A1DC10E0649D0017E895 /* SequenceEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceEvent.h; path = Engine/SOLAP/SequenceEvent.h; sourceTree = "<group>"; };
-		0369A1DD10E0649D0017E895 /* SequenceDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SequenceDimension.h; path = Engine/SOLAP/SequenceDimension.h; sourceTree = "<group>"; };
-		0369A1EA10E067EA0017E895 /* Aggregation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Aggregation.h; path = Aggregate/Aggregation.h; sourceTree = "<group>"; };
-		0369A1EB10E067EA0017E895 /* Aggregation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Aggregation.cpp; path = Aggregate/Aggregation.cpp; sourceTree = "<group>"; };
-		0369A1EE10E068070017E895 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Condition.h; path = Predicate/Condition.h; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
-		036AEE7810D22EBF002304AE /* Aggregations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aggregations.cpp; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF38910D37A13002304AE /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/lib/libtokyocabinet.dylib; sourceTree = DEVELOPER_DIR; };
-		039EAB5310E05F680026C8B2 /* ShellFragment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShellFragment.cpp; path = Data/ShellFragment.cpp; sourceTree = "<group>"; };
-		039EAB5410E05F680026C8B2 /* RIDTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RIDTree.cpp; path = Data/RIDTree.cpp; sourceTree = "<group>"; };
-		039EAB5510E05F680026C8B2 /* RIDMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RIDMap.cpp; path = Data/RIDMap.cpp; sourceTree = "<group>"; };
-		039EAB5610E05F680026C8B2 /* RIDList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RIDList.cpp; path = Data/RIDList.cpp; sourceTree = "<group>"; };
-		039EAB5710E05F680026C8B2 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Record.cpp; path = Data/Record.cpp; sourceTree = "<group>"; };
-		039EAB5810E05F680026C8B2 /* Meta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Meta.cpp; path = Data/Meta.cpp; sourceTree = "<group>"; };
-		039EAB5910E05F680026C8B2 /* Measure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Measure.cpp; path = Data/Measure.cpp; sourceTree = "<group>"; };
-		039EAB5A10E05F680026C8B2 /* Index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Index.cpp; path = Data/Index.cpp; sourceTree = "<group>"; };
-		039EAB5B10E05F680026C8B2 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Dimension.cpp; path = Data/Dimension.cpp; sourceTree = "<group>"; };
-		039EAB5C10E05F680026C8B2 /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BDB.cpp; path = Data/BDB.cpp; sourceTree = "<group>"; };
-		039EAB8110E05FE40026C8B2 /* LTE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LTE.cpp; path = Predicate/LTE.cpp; sourceTree = "<group>"; };
-		039EAB8210E05FE40026C8B2 /* LT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LT.cpp; path = Predicate/LT.cpp; sourceTree = "<group>"; };
-		039EAB8310E05FE40026C8B2 /* IN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IN.cpp; path = Predicate/IN.cpp; sourceTree = "<group>"; };
-		039EAB8410E05FE40026C8B2 /* GTE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GTE.cpp; path = Predicate/GTE.cpp; sourceTree = "<group>"; };
-		039EAB8510E05FE40026C8B2 /* GT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GT.cpp; path = Predicate/GT.cpp; sourceTree = "<group>"; };
-		039EAB8610E05FE40026C8B2 /* EQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EQ.cpp; path = Predicate/EQ.cpp; sourceTree = "<group>"; };
-		039EAB9010E060830026C8B2 /* SUM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SUM.cpp; path = Aggregate/SUM.cpp; sourceTree = "<group>"; };
-		039EAB9110E060830026C8B2 /* COUNT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = COUNT.cpp; path = Aggregate/COUNT.cpp; sourceTree = "<group>"; };
-		039EAB9510E0609E0026C8B2 /* ShellDimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShellDimensions.cpp; path = Domain/ShellDimensions.cpp; sourceTree = "<group>"; };
-		039EAB9610E0609E0026C8B2 /* Measures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Measures.cpp; path = Domain/Measures.cpp; sourceTree = "<group>"; };
-		039EAB9710E0609E0026C8B2 /* Indices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Indices.cpp; path = Domain/Indices.cpp; sourceTree = "<group>"; };
-		039EAB9810E0609E0026C8B2 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Events.cpp; path = Domain/Events.cpp; sourceTree = "<group>"; };
-		039EAB9910E0609E0026C8B2 /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Dimensions.cpp; path = Domain/Dimensions.cpp; sourceTree = "<group>"; };
-		039EABA010E060F90026C8B2 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Query.cpp; path = Engine/OLAP/Query.cpp; sourceTree = "<group>"; };
-		039EABA210E0611A0026C8B2 /* SequenceTemplate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequenceTemplate.cpp; path = Engine/SOLAP/SequenceTemplate.cpp; sourceTree = "<group>"; };
-		039EABA310E0611A0026C8B2 /* SequenceQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequenceQuery.cpp; path = Engine/SOLAP/SequenceQuery.cpp; sourceTree = "<group>"; };
-		039EABA410E0611A0026C8B2 /* SequenceKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequenceKey.cpp; path = Engine/SOLAP/SequenceKey.cpp; sourceTree = "<group>"; };
-		039EABA510E0611A0026C8B2 /* SequenceEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequenceEvent.cpp; path = Engine/SOLAP/SequenceEvent.cpp; sourceTree = "<group>"; };
-		039EABA610E0611A0026C8B2 /* SequenceDimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SequenceDimension.cpp; path = Engine/SOLAP/SequenceDimension.cpp; sourceTree = "<group>"; };
-		039EABAC10E061410026C8B2 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Table.cpp; path = Engine/Table.cpp; sourceTree = "<group>"; };
-		039EABAD10E061410026C8B2 /* Columns.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Columns.cpp; path = Engine/Columns.cpp; sourceTree = "<group>"; };
-		039EABB010E063560026C8B2 /* TListColumn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TListColumn.h; path = Engine/TListColumn.h; sourceTree = "<group>"; };
-		039EABB110E063560026C8B2 /* TColumn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TColumn.h; path = Engine/TColumn.h; sourceTree = "<group>"; };
-		039EABB210E063560026C8B2 /* Table.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Table.h; path = Engine/Table.h; sourceTree = "<group>"; };
-		03ABC86110C8F61A006288C0 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		03E4E0B210C33E6000D5068E /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
-		03E4E88610C5C80D00D5068E /* Conditions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conditions.cpp; sourceTree = "<group>"; };
+		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
+		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
+		03E72A1610E0911200D5E4C1 /* Count.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Count.cpp; sourceTree = "<group>"; };
+		03E72A1710E0911200D5E4C1 /* Count.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Count.h; sourceTree = "<group>"; };
+		03E72A1810E0911200D5E4C1 /* Sum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sum.cpp; sourceTree = "<group>"; };
+		03E72A1910E0911200D5E4C1 /* Sum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sum.h; sourceTree = "<group>"; };
+		03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aggregates.cpp; sourceTree = "<group>"; };
+		03E72A1B10E0911200D5E4C1 /* Aggregates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregates.h; sourceTree = "<group>"; };
+		03E72A1D10E0911200D5E4C1 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
+		03E72A1E10E0911200D5E4C1 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
+		03E72A2310E0911200D5E4C1 /* SequenceDimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceDimension.cpp; sourceTree = "<group>"; };
+		03E72A2410E0911200D5E4C1 /* SequenceDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceDimension.h; sourceTree = "<group>"; };
+		03E72A2510E0911200D5E4C1 /* SequenceEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceEvent.cpp; sourceTree = "<group>"; };
+		03E72A2610E0911200D5E4C1 /* SequenceEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceEvent.h; sourceTree = "<group>"; };
+		03E72A2710E0911200D5E4C1 /* SequenceKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceKey.cpp; sourceTree = "<group>"; };
+		03E72A2810E0911200D5E4C1 /* SequenceKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceKey.h; sourceTree = "<group>"; };
+		03E72A2910E0911200D5E4C1 /* SequenceQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceQuery.cpp; sourceTree = "<group>"; };
+		03E72A2A10E0911200D5E4C1 /* SequenceQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceQuery.h; sourceTree = "<group>"; };
+		03E72A2B10E0911200D5E4C1 /* SequenceTemplate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceTemplate.cpp; sourceTree = "<group>"; };
+		03E72A2C10E0911200D5E4C1 /* SequenceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceTemplate.h; sourceTree = "<group>"; };
+		03E72A2D10E0911200D5E4C1 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
+		03E72A2E10E0911200D5E4C1 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
+		03E72A3310E0911200D5E4C1 /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDB.cpp; sourceTree = "<group>"; };
+		03E72A3410E0911200D5E4C1 /* BDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDB.h; sourceTree = "<group>"; };
+		03E72A3510E0911200D5E4C1 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
+		03E72A3610E0911200D5E4C1 /* Dimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimension.h; sourceTree = "<group>"; };
+		03E72A3710E0911200D5E4C1 /* Index.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Index.cpp; sourceTree = "<group>"; };
+		03E72A3810E0911200D5E4C1 /* Index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Index.h; sourceTree = "<group>"; };
+		03E72A3910E0911200D5E4C1 /* Measure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Measure.cpp; sourceTree = "<group>"; };
+		03E72A3A10E0911200D5E4C1 /* Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measure.h; sourceTree = "<group>"; };
+		03E72A3B10E0911200D5E4C1 /* Meta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Meta.cpp; sourceTree = "<group>"; };
+		03E72A3C10E0911200D5E4C1 /* Meta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Meta.h; sourceTree = "<group>"; };
+		03E72A3D10E0911200D5E4C1 /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
+		03E72A3E10E0911200D5E4C1 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		03E72A3F10E0911200D5E4C1 /* RIDList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDList.cpp; sourceTree = "<group>"; };
+		03E72A4010E0911200D5E4C1 /* RIDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDList.h; sourceTree = "<group>"; };
+		03E72A4110E0911200D5E4C1 /* RIDMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMap.cpp; sourceTree = "<group>"; };
+		03E72A4210E0911200D5E4C1 /* RIDMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDMap.h; sourceTree = "<group>"; };
+		03E72A4310E0911200D5E4C1 /* RIDTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTree.cpp; sourceTree = "<group>"; };
+		03E72A4410E0911200D5E4C1 /* RIDTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDTree.h; sourceTree = "<group>"; };
+		03E72A4510E0911200D5E4C1 /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimensions.cpp; sourceTree = "<group>"; };
+		03E72A4610E0911200D5E4C1 /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
+		03E72A4710E0911200D5E4C1 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
+		03E72A4810E0911200D5E4C1 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		03E72A4910E0911200D5E4C1 /* Indices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Indices.cpp; sourceTree = "<group>"; };
+		03E72A4A10E0911200D5E4C1 /* Indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indices.h; sourceTree = "<group>"; };
+		03E72A4B10E0911200D5E4C1 /* Measures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Measures.cpp; sourceTree = "<group>"; };
+		03E72A4C10E0911200D5E4C1 /* Measures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measures.h; sourceTree = "<group>"; };
+		03E72A4D10E0911200D5E4C1 /* Conditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conditions.h; sourceTree = "<group>"; };
+		03E72A4E10E0911200D5E4C1 /* Conditions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conditions.cpp; sourceTree = "<group>"; };
+		03E72A5010E0911200D5E4C1 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
+		03E72A5110E0911200D5E4C1 /* EQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EQ.cpp; sourceTree = "<group>"; };
+		03E72A5210E0911200D5E4C1 /* EQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQ.h; sourceTree = "<group>"; };
+		03E72A5310E0911200D5E4C1 /* GT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GT.cpp; sourceTree = "<group>"; };
+		03E72A5410E0911200D5E4C1 /* GT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GT.h; sourceTree = "<group>"; };
+		03E72A5510E0911200D5E4C1 /* GTE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GTE.cpp; sourceTree = "<group>"; };
+		03E72A5610E0911200D5E4C1 /* GTE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTE.h; sourceTree = "<group>"; };
+		03E72A5710E0911200D5E4C1 /* IN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IN.cpp; sourceTree = "<group>"; };
+		03E72A5810E0911200D5E4C1 /* IN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IN.h; sourceTree = "<group>"; };
+		03E72A5910E0911200D5E4C1 /* LT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LT.cpp; sourceTree = "<group>"; };
+		03E72A5A10E0911200D5E4C1 /* LT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LT.h; sourceTree = "<group>"; };
+		03E72A5B10E0911200D5E4C1 /* LTE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTE.cpp; sourceTree = "<group>"; };
+		03E72A5C10E0911200D5E4C1 /* LTE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTE.h; sourceTree = "<group>"; };
+		03E72A5D10E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
+		03E72AA510E0916D00D5E4C1 /* Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flow.h; sourceTree = "<group>"; };
+		03E72AA710E0917500D5E4C1 /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
+		03E72AA910E0917B00D5E4C1 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		03E72AC010E091F900D5E4C1 /* TListColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TListColumn.h; path = Column/TListColumn.h; sourceTree = "<group>"; };
+		03E72AC110E091F900D5E4C1 /* TColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TColumn.h; path = Column/TColumn.h; sourceTree = "<group>"; };
+		03E72AC210E091F900D5E4C1 /* Columns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Columns.h; path = Column/Columns.h; sourceTree = "<group>"; };
+		03E72AC310E091F900D5E4C1 /* Columns.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Columns.cpp; path = Column/Columns.cpp; sourceTree = "<group>"; };
+		03E72AC410E091F900D5E4C1 /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Column.h; path = Column/Column.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,82 +204,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		036AEA9710D0719E002304AE /* Predicate */ = {
+		0369A3FF10E0892D0017E895 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0369A1EE10E068070017E895 /* Condition.h */,
-				039EAB8610E05FE40026C8B2 /* EQ.cpp */,
-				0369A1A610E063E30017E895 /* EQ.h */,
-				039EAB8510E05FE40026C8B2 /* GT.cpp */,
-				0369A1A510E063E30017E895 /* GT.h */,
-				039EAB8410E05FE40026C8B2 /* GTE.cpp */,
-				0369A1A410E063E30017E895 /* GTE.h */,
-				039EAB8310E05FE40026C8B2 /* IN.cpp */,
-				0369A1A310E063E30017E895 /* IN.h */,
-				039EAB8210E05FE40026C8B2 /* LT.cpp */,
-				0369A1A210E063E30017E895 /* LT.h */,
-				039EAB8110E05FE40026C8B2 /* LTE.cpp */,
-				0369A1A110E063E30017E895 /* LTE.h */,
+				03E72A1210E0911200D5E4C1 /* Engine */,
+				03E72A3110E0911200D5E4C1 /* Domain */,
+				03E72A4F10E0911200D5E4C1 /* Condition */,
+				03E72A5D10E0911200D5E4C1 /* Base.h */,
+				03E72A4D10E0911200D5E4C1 /* Conditions.h */,
+				03E72A4E10E0911200D5E4C1 /* Conditions.cpp */,
+				03E72AA510E0916D00D5E4C1 /* Flow.h */,
+				03E72AA710E0917500D5E4C1 /* Common.cpp */,
+				03E72AA910E0917B00D5E4C1 /* Common.h */,
 			);
-			name = Predicate;
-			sourceTree = "<group>";
-		};
-		039EA51410DC4B330026C8B2 /* SOLAP */ = {
-			isa = PBXGroup;
-			children = (
-				039EABA610E0611A0026C8B2 /* SequenceDimension.cpp */,
-				0369A1DD10E0649D0017E895 /* SequenceDimension.h */,
-				039EABA510E0611A0026C8B2 /* SequenceEvent.cpp */,
-				0369A1DC10E0649D0017E895 /* SequenceEvent.h */,
-				039EABA410E0611A0026C8B2 /* SequenceKey.cpp */,
-				0369A1DB10E0649D0017E895 /* SequenceKey.h */,
-				039EABA310E0611A0026C8B2 /* SequenceQuery.cpp */,
-				0369A1DA10E0649D0017E895 /* SequenceQuery.h */,
-				039EABA210E0611A0026C8B2 /* SequenceTemplate.cpp */,
-				0369A1D910E0649D0017E895 /* SequenceTemplate.h */,
-			);
-			name = SOLAP;
-			sourceTree = "<group>";
-		};
-		039EAB3010E024470026C8B2 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				039EAB9910E0609E0026C8B2 /* Dimensions.cpp */,
-				0369A1CD10E064570017E895 /* Dimensions.h */,
-				039EAB9810E0609E0026C8B2 /* Events.cpp */,
-				0369A1CB10E0644C0017E895 /* Events.h */,
-				039EAB9710E0609E0026C8B2 /* Indices.cpp */,
-				0369A1C910E0643E0017E895 /* Indices.h */,
-				039EAB9610E0609E0026C8B2 /* Measures.cpp */,
-				0369A1C710E064320017E895 /* Measures.h */,
-				039EAB9510E0609E0026C8B2 /* ShellDimensions.cpp */,
-				0369A1C610E064240017E895 /* ShellDimensions.h */,
-				0369A1CF10E064620017E895 /* ShellFragments.cpp */,
-				0369A1C510E064130017E895 /* ShellFragments.h */,
-			);
-			name = Domain;
-			sourceTree = "<group>";
-		};
-		039EAB4A10E053B30026C8B2 /* OLAP */ = {
-			isa = PBXGroup;
-			children = (
-				0369A1D710E064890017E895 /* Query.h */,
-				039EABA010E060F90026C8B2 /* Query.cpp */,
-			);
-			name = OLAP;
-			sourceTree = "<group>";
-		};
-		03ABC5E810C782AB006288C0 /* Aggregate */ = {
-			isa = PBXGroup;
-			children = (
-				0369A1EA10E067EA0017E895 /* Aggregation.h */,
-				0369A1EB10E067EA0017E895 /* Aggregation.cpp */,
-				039EAB9110E060830026C8B2 /* COUNT.cpp */,
-				0369A19C10E063C60017E895 /* COUNT.h */,
-				039EAB9010E060830026C8B2 /* SUM.cpp */,
-				0369A19B10E063C60017E895 /* SUM.h */,
-			);
-			name = Aggregate;
+			name = Source;
 			sourceTree = "<group>";
 		};
 		03AF8D7410BE4B8500AF17CB /* Libraries */ = {
@@ -291,74 +230,142 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
-		03E4DDD710C23EEF00D5068E /* Data */ = {
+		03E72A1210E0911200D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				039EAB5C10E05F680026C8B2 /* BDB.cpp */,
-				0369A1B810E063FA0017E895 /* BDB.h */,
-				039EAB5B10E05F680026C8B2 /* Dimension.cpp */,
-				0369A1B710E063FA0017E895 /* Dimension.h */,
-				039EAB5A10E05F680026C8B2 /* Index.cpp */,
-				0369A1B610E063FA0017E895 /* Index.h */,
-				039EAB5910E05F680026C8B2 /* Measure.cpp */,
-				0369A1B510E063FA0017E895 /* Measure.h */,
-				039EAB5810E05F680026C8B2 /* Meta.cpp */,
-				0369A1B410E063F90017E895 /* Meta.h */,
-				039EAB5710E05F680026C8B2 /* Record.cpp */,
-				0369A1B310E063F90017E895 /* Record.h */,
-				039EAB5610E05F680026C8B2 /* RIDList.cpp */,
-				0369A1B210E063F90017E895 /* RIDList.h */,
-				039EAB5510E05F680026C8B2 /* RIDMap.cpp */,
-				0369A1B110E063F90017E895 /* RIDMap.h */,
-				039EAB5410E05F680026C8B2 /* RIDTree.cpp */,
-				0369A1B010E063F90017E895 /* RIDTree.h */,
-				039EAB5310E05F680026C8B2 /* ShellFragment.cpp */,
-				0369A1AF10E063F90017E895 /* ShellFragment.h */,
+				03E72AAB10E0919100D5E4C1 /* Column */,
+				03E72A2D10E0911200D5E4C1 /* Table.cpp */,
+				03E72A2E10E0911200D5E4C1 /* Table.h */,
+				03E72A1310E0911200D5E4C1 /* Aggregate */,
+				03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */,
+				03E72A1B10E0911200D5E4C1 /* Aggregates.h */,
+				03E72A1C10E0911200D5E4C1 /* Analytical */,
+				03E72A2210E0911200D5E4C1 /* Sequential */,
 			);
-			name = Data;
+			path = Engine;
 			sourceTree = "<group>";
 		};
-		03E4E87E10C5C6D400D5068E /* Engine */ = {
+		03E72A1310E0911200D5E4C1 /* Aggregate */ = {
 			isa = PBXGroup;
 			children = (
-				039EAB4A10E053B30026C8B2 /* OLAP */,
-				039EA51410DC4B330026C8B2 /* SOLAP */,
-				039EABAD10E061410026C8B2 /* Columns.cpp */,
-				0369A1D310E064790017E895 /* Columns.h */,
-				039EABAC10E061410026C8B2 /* Table.cpp */,
-				039EABB210E063560026C8B2 /* Table.h */,
-				0369A1D410E064790017E895 /* Column.h */,
-				039EABB110E063560026C8B2 /* TColumn.h */,
-				039EABB010E063560026C8B2 /* TListColumn.h */,
+				03E72A1410E0911200D5E4C1 /* Base.cpp */,
+				03E72A1510E0911200D5E4C1 /* Base.h */,
+				03E72A1610E0911200D5E4C1 /* Count.cpp */,
+				03E72A1710E0911200D5E4C1 /* Count.h */,
+				03E72A1810E0911200D5E4C1 /* Sum.cpp */,
+				03E72A1910E0911200D5E4C1 /* Sum.h */,
 			);
-			name = Engine;
+			path = Aggregate;
+			sourceTree = "<group>";
+		};
+		03E72A1C10E0911200D5E4C1 /* Analytical */ = {
+			isa = PBXGroup;
+			children = (
+				03E72A1D10E0911200D5E4C1 /* Query.cpp */,
+				03E72A1E10E0911200D5E4C1 /* Query.h */,
+			);
+			path = Analytical;
+			sourceTree = "<group>";
+		};
+		03E72A2210E0911200D5E4C1 /* Sequential */ = {
+			isa = PBXGroup;
+			children = (
+				03E72A2310E0911200D5E4C1 /* SequenceDimension.cpp */,
+				03E72A2410E0911200D5E4C1 /* SequenceDimension.h */,
+				03E72A2510E0911200D5E4C1 /* SequenceEvent.cpp */,
+				03E72A2610E0911200D5E4C1 /* SequenceEvent.h */,
+				03E72A2710E0911200D5E4C1 /* SequenceKey.cpp */,
+				03E72A2810E0911200D5E4C1 /* SequenceKey.h */,
+				03E72A2910E0911200D5E4C1 /* SequenceQuery.cpp */,
+				03E72A2A10E0911200D5E4C1 /* SequenceQuery.h */,
+				03E72A2B10E0911200D5E4C1 /* SequenceTemplate.cpp */,
+				03E72A2C10E0911200D5E4C1 /* SequenceTemplate.h */,
+			);
+			path = Sequential;
+			sourceTree = "<group>";
+		};
+		03E72A3110E0911200D5E4C1 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				03E72A3210E0911200D5E4C1 /* Data */,
+				03E72A4510E0911200D5E4C1 /* Dimensions.cpp */,
+				03E72A4610E0911200D5E4C1 /* Dimensions.h */,
+				03E72A4710E0911200D5E4C1 /* Events.cpp */,
+				03E72A4810E0911200D5E4C1 /* Events.h */,
+				03E72A4910E0911200D5E4C1 /* Indices.cpp */,
+				03E72A4A10E0911200D5E4C1 /* Indices.h */,
+				03E72A4B10E0911200D5E4C1 /* Measures.cpp */,
+				03E72A4C10E0911200D5E4C1 /* Measures.h */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		03E72A3210E0911200D5E4C1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				03E72A3310E0911200D5E4C1 /* BDB.cpp */,
+				03E72A3410E0911200D5E4C1 /* BDB.h */,
+				03E72A3510E0911200D5E4C1 /* Dimension.cpp */,
+				03E72A3610E0911200D5E4C1 /* Dimension.h */,
+				03E72A3710E0911200D5E4C1 /* Index.cpp */,
+				03E72A3810E0911200D5E4C1 /* Index.h */,
+				03E72A3910E0911200D5E4C1 /* Measure.cpp */,
+				03E72A3A10E0911200D5E4C1 /* Measure.h */,
+				03E72A3B10E0911200D5E4C1 /* Meta.cpp */,
+				03E72A3C10E0911200D5E4C1 /* Meta.h */,
+				03E72A3D10E0911200D5E4C1 /* Record.cpp */,
+				03E72A3E10E0911200D5E4C1 /* Record.h */,
+				03E72A3F10E0911200D5E4C1 /* RIDList.cpp */,
+				03E72A4010E0911200D5E4C1 /* RIDList.h */,
+				03E72A4110E0911200D5E4C1 /* RIDMap.cpp */,
+				03E72A4210E0911200D5E4C1 /* RIDMap.h */,
+				03E72A4310E0911200D5E4C1 /* RIDTree.cpp */,
+				03E72A4410E0911200D5E4C1 /* RIDTree.h */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		03E72A4F10E0911200D5E4C1 /* Condition */ = {
+			isa = PBXGroup;
+			children = (
+				03E72A5010E0911200D5E4C1 /* Condition.h */,
+				03E72A5110E0911200D5E4C1 /* EQ.cpp */,
+				03E72A5210E0911200D5E4C1 /* EQ.h */,
+				03E72A5310E0911200D5E4C1 /* GT.cpp */,
+				03E72A5410E0911200D5E4C1 /* GT.h */,
+				03E72A5510E0911200D5E4C1 /* GTE.cpp */,
+				03E72A5610E0911200D5E4C1 /* GTE.h */,
+				03E72A5710E0911200D5E4C1 /* IN.cpp */,
+				03E72A5810E0911200D5E4C1 /* IN.h */,
+				03E72A5910E0911200D5E4C1 /* LT.cpp */,
+				03E72A5A10E0911200D5E4C1 /* LT.h */,
+				03E72A5B10E0911200D5E4C1 /* LTE.cpp */,
+				03E72A5C10E0911200D5E4C1 /* LTE.h */,
+			);
+			path = Condition;
+			sourceTree = "<group>";
+		};
+		03E72AAB10E0919100D5E4C1 /* Column */ = {
+			isa = PBXGroup;
+			children = (
+				03E72AC010E091F900D5E4C1 /* TListColumn.h */,
+				03E72AC110E091F900D5E4C1 /* TColumn.h */,
+				03E72AC210E091F900D5E4C1 /* Columns.h */,
+				03E72AC310E091F900D5E4C1 /* Columns.cpp */,
+				03E72AC410E091F900D5E4C1 /* Column.h */,
+			);
+			name = Column;
 			sourceTree = "<group>";
 		};
 		08FB7794FE84155DC02AAC07 /* flow */ = {
 			isa = PBXGroup;
 			children = (
-				08FB7795FE84155DC02AAC07 /* Source */,
+				0369A3FF10E0892D0017E895 /* Source */,
 				03AF8D7410BE4B8500AF17CB /* Libraries */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = flow;
-			sourceTree = "<group>";
-		};
-		08FB7795FE84155DC02AAC07 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				03ABC5E810C782AB006288C0 /* Aggregate */,
-				036AEE7810D22EBF002304AE /* Aggregations.cpp */,
-				036AEA9710D0719E002304AE /* Predicate */,
-				03E4E88610C5C80D00D5068E /* Conditions.cpp */,
-				03E4DDD710C23EEF00D5068E /* Data */,
-				039EAB3010E024470026C8B2 /* Domain */,
-				03E4E87E10C5C6D400D5068E /* Engine */,
-				03ABC86110C8F61A006288C0 /* Base.cpp */,
-				03E4E0B210C33E6000D5068E /* Common.cpp */,
-			);
-			name = Source;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
@@ -385,38 +392,45 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0369A19D10E063C60017E895 /* SUM.h in Headers */,
-				0369A19E10E063C60017E895 /* COUNT.h in Headers */,
-				0369A1A710E063E30017E895 /* LTE.h in Headers */,
-				0369A1A810E063E30017E895 /* LT.h in Headers */,
-				0369A1A910E063E30017E895 /* IN.h in Headers */,
-				0369A1AA10E063E30017E895 /* GTE.h in Headers */,
-				0369A1AB10E063E30017E895 /* GT.h in Headers */,
-				0369A1AC10E063E30017E895 /* EQ.h in Headers */,
-				0369A1B910E063FA0017E895 /* ShellFragment.h in Headers */,
-				0369A1BA10E063FA0017E895 /* RIDTree.h in Headers */,
-				0369A1BB10E063FA0017E895 /* RIDMap.h in Headers */,
-				0369A1BC10E063FA0017E895 /* RIDList.h in Headers */,
-				0369A1BD10E063FA0017E895 /* Record.h in Headers */,
-				0369A1BE10E063FA0017E895 /* Meta.h in Headers */,
-				0369A1BF10E063FA0017E895 /* Measure.h in Headers */,
-				0369A1C010E063FA0017E895 /* Index.h in Headers */,
-				0369A1C110E063FA0017E895 /* Dimension.h in Headers */,
-				0369A1C210E063FA0017E895 /* BDB.h in Headers */,
-				0369A1C810E064320017E895 /* Measures.h in Headers */,
-				0369A1CA10E0643E0017E895 /* Indices.h in Headers */,
-				0369A1CC10E0644C0017E895 /* Events.h in Headers */,
-				0369A1CE10E064570017E895 /* Dimensions.h in Headers */,
-				0369A1D510E064790017E895 /* Columns.h in Headers */,
-				0369A1D610E064790017E895 /* Column.h in Headers */,
-				0369A1D810E064890017E895 /* Query.h in Headers */,
-				0369A1DE10E0649D0017E895 /* SequenceTemplate.h in Headers */,
-				0369A1DF10E0649D0017E895 /* SequenceQuery.h in Headers */,
-				0369A1E010E0649D0017E895 /* SequenceKey.h in Headers */,
-				0369A1E110E0649D0017E895 /* SequenceEvent.h in Headers */,
-				0369A1E210E0649D0017E895 /* SequenceDimension.h in Headers */,
-				0369A1EC10E067EA0017E895 /* Aggregation.h in Headers */,
-				0369A1EF10E068070017E895 /* Condition.h in Headers */,
+				03E72A5F10E0911200D5E4C1 /* Base.h in Headers */,
+				03E72A6110E0911200D5E4C1 /* Count.h in Headers */,
+				03E72A6310E0911200D5E4C1 /* Sum.h in Headers */,
+				03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */,
+				03E72A6710E0911200D5E4C1 /* Query.h in Headers */,
+				03E72A6C10E0911200D5E4C1 /* SequenceDimension.h in Headers */,
+				03E72A6E10E0911200D5E4C1 /* SequenceEvent.h in Headers */,
+				03E72A7010E0911200D5E4C1 /* SequenceKey.h in Headers */,
+				03E72A7210E0911200D5E4C1 /* SequenceQuery.h in Headers */,
+				03E72A7410E0911200D5E4C1 /* SequenceTemplate.h in Headers */,
+				03E72A7610E0911200D5E4C1 /* Table.h in Headers */,
+				03E72A7A10E0911200D5E4C1 /* BDB.h in Headers */,
+				03E72A7C10E0911200D5E4C1 /* Dimension.h in Headers */,
+				03E72A7E10E0911200D5E4C1 /* Index.h in Headers */,
+				03E72A8010E0911200D5E4C1 /* Measure.h in Headers */,
+				03E72A8210E0911200D5E4C1 /* Meta.h in Headers */,
+				03E72A8410E0911200D5E4C1 /* Record.h in Headers */,
+				03E72A8610E0911200D5E4C1 /* RIDList.h in Headers */,
+				03E72A8810E0911200D5E4C1 /* RIDMap.h in Headers */,
+				03E72A8A10E0911200D5E4C1 /* RIDTree.h in Headers */,
+				03E72A8C10E0911200D5E4C1 /* Dimensions.h in Headers */,
+				03E72A8E10E0911200D5E4C1 /* Events.h in Headers */,
+				03E72A9010E0911200D5E4C1 /* Indices.h in Headers */,
+				03E72A9210E0911200D5E4C1 /* Measures.h in Headers */,
+				03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */,
+				03E72A9510E0911200D5E4C1 /* Condition.h in Headers */,
+				03E72A9710E0911200D5E4C1 /* EQ.h in Headers */,
+				03E72A9910E0911200D5E4C1 /* GT.h in Headers */,
+				03E72A9B10E0911200D5E4C1 /* GTE.h in Headers */,
+				03E72A9D10E0911200D5E4C1 /* IN.h in Headers */,
+				03E72A9F10E0911200D5E4C1 /* LT.h in Headers */,
+				03E72AA110E0911200D5E4C1 /* LTE.h in Headers */,
+				03E72AA210E0911200D5E4C1 /* Base.h in Headers */,
+				03E72AA610E0916D00D5E4C1 /* Flow.h in Headers */,
+				03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */,
+				03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */,
+				03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */,
+				03E72AC710E091F900D5E4C1 /* Columns.h in Headers */,
+				03E72AC910E091F900D5E4C1 /* Column.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,43 +509,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				036AE62E10CE0BF2002304AE /* Base.cpp in Sources */,
-				036AE63010CE0BF2002304AE /* Common.cpp in Sources */,
-				036AE63210CE0BF2002304AE /* Conditions.cpp in Sources */,
-				036AEE7A10D22EBF002304AE /* Aggregations.cpp in Sources */,
-				039EAB5D10E05F680026C8B2 /* ShellFragment.cpp in Sources */,
-				039EAB5E10E05F680026C8B2 /* RIDTree.cpp in Sources */,
-				039EAB5F10E05F680026C8B2 /* RIDMap.cpp in Sources */,
-				039EAB6010E05F680026C8B2 /* RIDList.cpp in Sources */,
-				039EAB6110E05F680026C8B2 /* Record.cpp in Sources */,
-				039EAB6210E05F680026C8B2 /* Meta.cpp in Sources */,
-				039EAB6310E05F680026C8B2 /* Measure.cpp in Sources */,
-				039EAB6410E05F680026C8B2 /* Index.cpp in Sources */,
-				039EAB6510E05F680026C8B2 /* Dimension.cpp in Sources */,
-				039EAB6610E05F680026C8B2 /* BDB.cpp in Sources */,
-				039EAB8710E05FE40026C8B2 /* LTE.cpp in Sources */,
-				039EAB8810E05FE40026C8B2 /* LT.cpp in Sources */,
-				039EAB8910E05FE40026C8B2 /* IN.cpp in Sources */,
-				039EAB8A10E05FE40026C8B2 /* GTE.cpp in Sources */,
-				039EAB8B10E05FE40026C8B2 /* GT.cpp in Sources */,
-				039EAB8C10E05FE40026C8B2 /* EQ.cpp in Sources */,
-				039EAB9210E060830026C8B2 /* SUM.cpp in Sources */,
-				039EAB9310E060830026C8B2 /* COUNT.cpp in Sources */,
-				039EAB9B10E0609E0026C8B2 /* ShellDimensions.cpp in Sources */,
-				039EAB9C10E0609E0026C8B2 /* Measures.cpp in Sources */,
-				039EAB9D10E0609E0026C8B2 /* Indices.cpp in Sources */,
-				039EAB9E10E0609E0026C8B2 /* Events.cpp in Sources */,
-				039EAB9F10E0609E0026C8B2 /* Dimensions.cpp in Sources */,
-				039EABA110E060F90026C8B2 /* Query.cpp in Sources */,
-				039EABA710E0611A0026C8B2 /* SequenceTemplate.cpp in Sources */,
-				039EABA810E0611A0026C8B2 /* SequenceQuery.cpp in Sources */,
-				039EABA910E0611A0026C8B2 /* SequenceKey.cpp in Sources */,
-				039EABAA10E0611A0026C8B2 /* SequenceEvent.cpp in Sources */,
-				039EABAB10E0611A0026C8B2 /* SequenceDimension.cpp in Sources */,
-				039EABAE10E061410026C8B2 /* Table.cpp in Sources */,
-				039EABAF10E061410026C8B2 /* Columns.cpp in Sources */,
-				0369A1D010E064620017E895 /* ShellFragments.cpp in Sources */,
-				0369A1ED10E067EA0017E895 /* Aggregation.cpp in Sources */,
+				03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */,
+				03E72A6010E0911200D5E4C1 /* Count.cpp in Sources */,
+				03E72A6210E0911200D5E4C1 /* Sum.cpp in Sources */,
+				03E72A6410E0911200D5E4C1 /* Aggregates.cpp in Sources */,
+				03E72A6610E0911200D5E4C1 /* Query.cpp in Sources */,
+				03E72A6B10E0911200D5E4C1 /* SequenceDimension.cpp in Sources */,
+				03E72A6D10E0911200D5E4C1 /* SequenceEvent.cpp in Sources */,
+				03E72A6F10E0911200D5E4C1 /* SequenceKey.cpp in Sources */,
+				03E72A7110E0911200D5E4C1 /* SequenceQuery.cpp in Sources */,
+				03E72A7310E0911200D5E4C1 /* SequenceTemplate.cpp in Sources */,
+				03E72A7510E0911200D5E4C1 /* Table.cpp in Sources */,
+				03E72A7910E0911200D5E4C1 /* BDB.cpp in Sources */,
+				03E72A7B10E0911200D5E4C1 /* Dimension.cpp in Sources */,
+				03E72A7D10E0911200D5E4C1 /* Index.cpp in Sources */,
+				03E72A7F10E0911200D5E4C1 /* Measure.cpp in Sources */,
+				03E72A8110E0911200D5E4C1 /* Meta.cpp in Sources */,
+				03E72A8310E0911200D5E4C1 /* Record.cpp in Sources */,
+				03E72A8510E0911200D5E4C1 /* RIDList.cpp in Sources */,
+				03E72A8710E0911200D5E4C1 /* RIDMap.cpp in Sources */,
+				03E72A8910E0911200D5E4C1 /* RIDTree.cpp in Sources */,
+				03E72A8B10E0911200D5E4C1 /* Dimensions.cpp in Sources */,
+				03E72A8D10E0911200D5E4C1 /* Events.cpp in Sources */,
+				03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */,
+				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
+				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
+				03E72A9610E0911200D5E4C1 /* EQ.cpp in Sources */,
+				03E72A9810E0911200D5E4C1 /* GT.cpp in Sources */,
+				03E72A9A10E0911200D5E4C1 /* GTE.cpp in Sources */,
+				03E72A9C10E0911200D5E4C1 /* IN.cpp in Sources */,
+				03E72A9E10E0911200D5E4C1 /* LT.cpp in Sources */,
+				03E72AA010E0911200D5E4C1 /* LTE.cpp in Sources */,
+				03E72AA810E0917500D5E4C1 /* Common.cpp in Sources */,
+				03E72AC810E091F900D5E4C1 /* Columns.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
