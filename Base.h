@@ -16,13 +16,10 @@
 
 #include "Common.h"
 
-#include "Table.h"
-#include "Index.h"
-#include "Indices.h"
-#include "Measure.h"
-#include "Measures.h"
-#include "Dimension.h"
-#include "Dimensions.h"
+#include "Engine/Table.h"
+#include "Domain/Indices.h"
+#include "Domain/Measures.h"
+#include "Domain/Dimensions.h"
 
 namespace Flow {
 	class Base {

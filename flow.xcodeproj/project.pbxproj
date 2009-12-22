@@ -83,9 +83,7 @@
 		03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AA910E0917B00D5E4C1 /* Common.h */; };
 		03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC010E091F900D5E4C1 /* TListColumn.h */; };
 		03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC110E091F900D5E4C1 /* TColumn.h */; };
-		03E72AC710E091F900D5E4C1 /* Columns.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC210E091F900D5E4C1 /* Columns.h */; };
-		03E72AC810E091F900D5E4C1 /* Columns.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72AC310E091F900D5E4C1 /* Columns.cpp */; };
-		03E72AC910E091F900D5E4C1 /* Column.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC410E091F900D5E4C1 /* Column.h */; };
+		03E72AC910E091F900D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC410E091F900D5E4C1 /* Base.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,9 +172,7 @@
 		03E72AA910E0917B00D5E4C1 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		03E72AC010E091F900D5E4C1 /* TListColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TListColumn.h; path = Column/TListColumn.h; sourceTree = "<group>"; };
 		03E72AC110E091F900D5E4C1 /* TColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TColumn.h; path = Column/TColumn.h; sourceTree = "<group>"; };
-		03E72AC210E091F900D5E4C1 /* Columns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Columns.h; path = Column/Columns.h; sourceTree = "<group>"; };
-		03E72AC310E091F900D5E4C1 /* Columns.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Columns.cpp; path = Column/Columns.cpp; sourceTree = "<group>"; };
-		03E72AC410E091F900D5E4C1 /* Column.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Column.h; path = Column/Column.h; sourceTree = "<group>"; };
+		03E72AC410E091F900D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base.h; path = Column/Base.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,9 +206,9 @@
 				03E72A1210E0911200D5E4C1 /* Engine */,
 				03E72A3110E0911200D5E4C1 /* Domain */,
 				03E72A4F10E0911200D5E4C1 /* Condition */,
-				03E72A5D10E0911200D5E4C1 /* Base.h */,
 				03E72A4D10E0911200D5E4C1 /* Conditions.h */,
 				03E72A4E10E0911200D5E4C1 /* Conditions.cpp */,
+				03E72A5D10E0911200D5E4C1 /* Base.h */,
 				03E72AA510E0916D00D5E4C1 /* Flow.h */,
 				03E72AA710E0917500D5E4C1 /* Common.cpp */,
 				03E72AA910E0917B00D5E4C1 /* Common.h */,
@@ -348,11 +344,9 @@
 		03E72AAB10E0919100D5E4C1 /* Column */ = {
 			isa = PBXGroup;
 			children = (
-				03E72AC010E091F900D5E4C1 /* TListColumn.h */,
+				03E72AC410E091F900D5E4C1 /* Base.h */,
 				03E72AC110E091F900D5E4C1 /* TColumn.h */,
-				03E72AC210E091F900D5E4C1 /* Columns.h */,
-				03E72AC310E091F900D5E4C1 /* Columns.cpp */,
-				03E72AC410E091F900D5E4C1 /* Column.h */,
+				03E72AC010E091F900D5E4C1 /* TListColumn.h */,
 			);
 			name = Column;
 			sourceTree = "<group>";
@@ -429,8 +423,7 @@
 				03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */,
 				03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */,
 				03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */,
-				03E72AC710E091F900D5E4C1 /* Columns.h in Headers */,
-				03E72AC910E091F900D5E4C1 /* Column.h in Headers */,
+				03E72AC910E091F900D5E4C1 /* Base.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +534,6 @@
 				03E72A9E10E0911200D5E4C1 /* LT.cpp in Sources */,
 				03E72AA010E0911200D5E4C1 /* LTE.cpp in Sources */,
 				03E72AA810E0917500D5E4C1 /* Common.cpp in Sources */,
-				03E72AC810E091F900D5E4C1 /* Columns.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

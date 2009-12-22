@@ -1,17 +1,24 @@
 #include "Table.h"
 
-Table::Table() {
-	shared_ptr<Columns> columns(new Columns(this));
-	
-	this->columns = columns;
+Engine::Table::Table() {}
+
+void Engine::Table::erase(const string& name) {}
+
+Column::Base& Engine::Table::at(const string& name) {
+	vector<Column::Base>::iterator column;
+	for(column = this->begin(); column != this->end(); column++) {
+		if(column->name == name) {
+			return *column;
+		}
+	}
 }
 
-string Table::Inspect() {
+string Engine::Table::Inspect() {
 	string out;
 	
-	for(size_t i = 0; i < this->columns->size(); i++) {
-		out += this->columns->at(i)->Inspect();
-		if(i < this->columns->size() - 1) out += ", "; 
+	for(size_t i = 0; i < this->size(); i++) {
+		out += this->at(i).Inspect();
+		if(i < this->size() - 1) out += ", "; 
 	}
 	
 	return out;	

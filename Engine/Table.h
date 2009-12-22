@@ -2,22 +2,28 @@
 #define _table_included_
 
 #include "Common.h"
-#include "Column.h"
-#include "Columns.h"
-#include "TColumn.h"
-#include "TListColumn.h"
+#include "Engine/Column/Base.h"
+
+using namespace std;
+using namespace Flow;
+using namespace Flow::Engine;
 
 namespace Flow {
-	class Columns;
-	
-  class Table {
-  public:
-    shared_ptr<Columns> columns;
-		
-		Table();
-		
-		string Inspect();
-  };
+	namespace Engine {
+		class Table : vector<Column::Base> {
+		public:
+			Table();
+			
+			void push_back(const Column::Base& column);
+			void push_back(const string& name, const Column::Base& column);
+			void erase(const string& name);
+
+			Column::Base& at(const size_t position);
+			Column::Base& at(const string& name);
+
+			string Inspect();
+		};
+	}
 }
 
 #endif

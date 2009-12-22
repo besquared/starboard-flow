@@ -13,18 +13,21 @@
 
 #include "Common.h"
 #include "Engine/Table.h"
-#include "Aggregate/Base.h"
+#include "Engine/Aggregate/Base.h"
 
 using namespace std;
 using namespace Flow;
+using namespace Flow::Engine;
 
 namespace Flow {
-	namespace Aggregate {
-		class Count : public Base {		
-		public:
-			Count(const string& measure);
-			void Apply(Table& base);		
-		};
+	namespace Engine {
+		namespace Aggregate {
+			class Count : public Base {		
+			public:
+				Count(const string& measure);
+				void Apply(Table& base);		
+			};
+		}
 	}
 }
 

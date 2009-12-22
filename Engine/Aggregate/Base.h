@@ -17,15 +17,17 @@ using namespace std;
 using namespace Flow;
 
 namespace Flow {
-	namespace Aggregate {
-		class Base {
-		public:
-			vector<string> measures;
-			
-			Base(const string& measure);
-			Base(const vector<string>& measure);
-			virtual void Apply(Table& base) = 0;		
-		};
+	namespace Engine {
+		namespace Aggregate {
+			class Base {
+			public:
+				vector<string> measures;
+				
+				Base(const string& measure);
+				Base(const vector<string>& measure);
+				virtual void Apply(Table& base) = 0;		
+			};
+		}
 	}
 }
 

@@ -10,10 +10,15 @@
 #ifndef _master_included_
 #define _master_included_
 
+#define FRAGMENT_SIZE 4
+
 #include "Common.h"
 
 #include "BDB.h"
 #include "Index.h"
+
+using namespace std;
+using namespace Flow;
 
 namespace Flow {
 	class Meta : public BDB {

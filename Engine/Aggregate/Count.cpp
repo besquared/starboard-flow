@@ -9,24 +9,19 @@
 
 #include "Count.h"
 
-Aggregate::Count::Count(const string& measure) : 
-Aggregate::Base::Base(measure) {}
+Engine::Aggregate::Count::Count(const string& measure) : 
+Engine::Aggregate::Base::Base(measure) {}
 
-void Aggregate::Count::Apply(shared_ptr<Table> base) {
+void Engine::Aggregate::Count::Apply(Table& base) {
 	string measure = this->measures.at(0);
 	
-	// This only works on 'records' column if RecordID is a double
-	shared_ptr< TListColumn<double> > column = 
-	static_pointer_cast< TListColumn<double> >(base->columns->at(measure));
+	Column::TListColumn<double> column = 
+	static_cast< Column::TListColumn<double> >(base.at(measure));
 	
-	shared_ptr< TColumn<double> > aggregated(new TColumn<double>);
-	
+	Column::TColumn<double> aggregated;
 	size_t column_size = column->size();
 	for(size_t i = 0; i < column_size; i++) {
 		aggregated->push_back((double)column->at(i).size());
 	}
-	
-	shared_ptr<Column> summed = static_pointer_cast<Column>(aggregated);
-	
-	base.columns->push_back("count_" + measure, summed);
+	base.push_back("count_" + measure, static_cast<Column::Base>(aggregated));
 }

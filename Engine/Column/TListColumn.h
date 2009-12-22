@@ -11,19 +11,27 @@
 #define _tlist_column_included_
 
 #include "Common.h"
-#include "Column.h"
+#include "Engine/Column/Base.h"
+
+using namespace std;
+using namespace Flow;
+using namespace Flow::Engine;
 
 namespace Flow {
-	template <typename T>
-  class TListColumn : public Column, public vector< vector<T> > {
-	public:
-		string Inspect();
-		string Inspect(const vector<T>& tlist);
-	};
+	namespace Engine {
+		namespace Column {
+			template <typename T>
+			class TListColumn : public Column::Base, public vector< vector<T> > {
+			public:
+				string Inspect();
+				string Inspect(const vector<T>& tlist);
+			};
+		}
+	}
 }
 
 template <typename T> 
-string TListColumn<T>::Inspect() {
+string Engine::Column::TListColumn<T>::Inspect() {
 	string out;
 	
 	out += "[";
@@ -37,7 +45,7 @@ string TListColumn<T>::Inspect() {
 }
 
 template <typename T> 
-string TListColumn<T>::Inspect(const vector<T>& tlist) {
+string Engine::Column::TListColumn<T>::Inspect(const vector<T>& tlist) {
 	string out;
 	
 	out += "[";

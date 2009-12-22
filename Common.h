@@ -25,42 +25,22 @@
 #include <boost/functional/hash.hpp>
 #include <boost/filesystem.hpp>
 
-#define ok true
-#define error false
-#define success "Success"
-
-#define FRAGMENT_SIZE 4
-
 #define DEBUG
 
-using namespace std;
-using namespace boost;
-
 namespace Flow {
-	typedef double RecordID;
+	using namespace std;
 	
+	typedef double RecordID;
 	typedef map<string, string> ValueMap;
 	typedef map< string, vector<string> > ValuesMap;
 	
-  typedef map<string, vector<RecordID> > InquiredDimension;
-  typedef map<string, InquiredDimension> Inquired;
-  typedef vector<RecordID> Instantiated;
-
-	typedef tuple<bool, string> Response;
-	
 	namespace Common {
-		vector<RecordID> Intersect(vector<RecordID>& a, vector<RecordID> & b);
 		vector<string> Intersect(vector<string>& a, vector<string>& b);
 		vector<string> Difference(vector<string>& a, vector<string>& b);
-		
-		bool IsSet(const unsigned int* set, int i);
-		vector< vector<string> > PowerSet(vector<string>& values);
 		
 		/*
 		 * Inspection
 		 */
-		
-		string Inspect(Inquired m);
 		
 		template <class T>
 		string Inspect(const vector<T>& v) {
@@ -77,7 +57,5 @@ namespace Flow {
 		}		
 	}
 }
-
-using namespace Flow;
 
 #endif

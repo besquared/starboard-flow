@@ -11,18 +11,26 @@
 #define _tcolumn_included_
 
 #include "Common.h"
-#include "Column.h"
+#include "Engine/Column/Base.h"
+
+using namespace std;
+using namespace Flow;
+using namespace Flow::Engine;
 
 namespace Flow {
-	template <typename T>
-  class TColumn : public Column, public vector<T> {
-	public:
-		string Inspect();
-	};
+	namespace Engine {
+		namespace Column {
+			template <typename T>
+			class TColumn : public Column::Base, public vector<T> {
+			public:
+				string Inspect();
+			};
+		}
+	}
 }
 
 template <typename T> 
-string TColumn<T>::Inspect() {
+string Engine::Column::TColumn<T>::Inspect() {
 	string out;
 	
 	out += "[";
