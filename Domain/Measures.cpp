@@ -9,14 +9,14 @@
 
 #include "Measures.h"
 
-Measures::Measures(const string& path) {
+Domain::Measures::Measures(const string& path) {
 	this->path = path;
 }
 
-bool Measures::Insert(RecordID record, const map<string, double>& measures) {
+bool Domain::Measures::Insert(RecordID record, const map<string, double>& measures) {
 	map<string, double>::const_iterator measure;
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
-		Measure database(this->path, measure->first);
+		Data::Measure database(this->path, measure->first);
 
 		if(!database.OpenWriter()) {
 			return false;
@@ -31,9 +31,9 @@ bool Measures::Insert(RecordID record, const map<string, double>& measures) {
 	return true;
 }
 
-void Measures::Lookup(const string& measure, const RIDList& records, vector<double>& results) {
-	RIDList::const_iterator record;
-	Measure database(this->path, measure);
+void Domain::Measures::Lookup(const string& measure, const Data::RIDList& records, vector<double>& results) {
+	Data::RIDList::const_iterator record;
+	Data::Measure database(this->path, measure);
 	if(database.OpenReader()) { 
 		database.Lookup(records, results);
 		database.Close();

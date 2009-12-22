@@ -56,8 +56,8 @@
 		03E72A8A10E0911200D5E4C1 /* RIDTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4410E0911200D5E4C1 /* RIDTree.h */; };
 		03E72A8B10E0911200D5E4C1 /* Dimensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4510E0911200D5E4C1 /* Dimensions.cpp */; };
 		03E72A8C10E0911200D5E4C1 /* Dimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4610E0911200D5E4C1 /* Dimensions.h */; };
-		03E72A8D10E0911200D5E4C1 /* Events.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4710E0911200D5E4C1 /* Events.cpp */; };
-		03E72A8E10E0911200D5E4C1 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4810E0911200D5E4C1 /* Events.h */; };
+		03E72A8D10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4710E0911200D5E4C1 /* Base.cpp */; };
+		03E72A8E10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4810E0911200D5E4C1 /* Base.h */; };
 		03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4910E0911200D5E4C1 /* Indices.cpp */; };
 		03E72A9010E0911200D5E4C1 /* Indices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4A10E0911200D5E4C1 /* Indices.h */; };
 		03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4B10E0911200D5E4C1 /* Measures.cpp */; };
@@ -139,8 +139,8 @@
 		03E72A4410E0911200D5E4C1 /* RIDTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIDTree.h; sourceTree = "<group>"; };
 		03E72A4510E0911200D5E4C1 /* Dimensions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimensions.cpp; sourceTree = "<group>"; };
 		03E72A4610E0911200D5E4C1 /* Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimensions.h; sourceTree = "<group>"; };
-		03E72A4710E0911200D5E4C1 /* Events.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Events.cpp; sourceTree = "<group>"; };
-		03E72A4810E0911200D5E4C1 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		03E72A4710E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
+		03E72A4810E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03E72A4910E0911200D5E4C1 /* Indices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Indices.cpp; sourceTree = "<group>"; };
 		03E72A4A10E0911200D5E4C1 /* Indices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indices.h; sourceTree = "<group>"; };
 		03E72A4B10E0911200D5E4C1 /* Measures.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Measures.cpp; sourceTree = "<group>"; };
@@ -272,10 +272,10 @@
 			isa = PBXGroup;
 			children = (
 				03E72A3210E0911200D5E4C1 /* Data */,
+				03E72A4710E0911200D5E4C1 /* Base.cpp */,
+				03E72A4810E0911200D5E4C1 /* Base.h */,
 				03E72A4510E0911200D5E4C1 /* Dimensions.cpp */,
 				03E72A4610E0911200D5E4C1 /* Dimensions.h */,
-				03E72A4710E0911200D5E4C1 /* Events.cpp */,
-				03E72A4810E0911200D5E4C1 /* Events.h */,
 				03E72A4910E0911200D5E4C1 /* Indices.cpp */,
 				03E72A4A10E0911200D5E4C1 /* Indices.h */,
 				03E72A4B10E0911200D5E4C1 /* Measures.cpp */,
@@ -389,7 +389,7 @@
 				03E72A8810E0911200D5E4C1 /* RIDMap.h in Headers */,
 				03E72A8A10E0911200D5E4C1 /* RIDTree.h in Headers */,
 				03E72A8C10E0911200D5E4C1 /* Dimensions.h in Headers */,
-				03E72A8E10E0911200D5E4C1 /* Events.h in Headers */,
+				03E72A8E10E0911200D5E4C1 /* Base.h in Headers */,
 				03E72A9010E0911200D5E4C1 /* Indices.h in Headers */,
 				03E72A9210E0911200D5E4C1 /* Measures.h in Headers */,
 				03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */,
@@ -505,7 +505,7 @@
 				03E72A8710E0911200D5E4C1 /* RIDMap.cpp in Sources */,
 				03E72A8910E0911200D5E4C1 /* RIDTree.cpp in Sources */,
 				03E72A8B10E0911200D5E4C1 /* Dimensions.cpp in Sources */,
-				03E72A8D10E0911200D5E4C1 /* Events.cpp in Sources */,
+				03E72A8D10E0911200D5E4C1 /* Base.cpp in Sources */,
 				03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */,
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,

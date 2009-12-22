@@ -9,14 +9,14 @@
 
 #include "Dimensions.h"
 
-Dimensions::Dimensions(const string& path) {
+Domain::Dimensions::Dimensions(const string& path) {
 	this->path = path;
 }
 
-bool Dimensions::Insert(const Record& record) {
+bool Domain::Dimensions::Insert(const Data::Record& record) {
 	map<string, string>::const_iterator dimension;
 	for(dimension = record.begin(); dimension != record.end(); dimension++) {
-		Dimension database(this->path, dimension->first);
+		Data::Dimension database(this->path, dimension->first);
 
 		if(!database.OpenWriter()) {
 			return false;
@@ -33,9 +33,9 @@ bool Dimensions::Insert(const Record& record) {
 	return true;
 }
 
-void Dimensions::Lookup(const string& dimension, const RIDList& records, vector<string>& results) {
-	RIDList::const_iterator record;
-	Dimension database(this->path, dimension);
+void Domain::Dimensions::Lookup(const string& dimension, const Data::RIDList& records, vector<string>& results) {
+	Data::RIDList::const_iterator record;
+	Data::Dimension database(this->path, dimension);
 	if(database.OpenReader()) { 
 		database.Lookup(records, results);
 		database.Close();

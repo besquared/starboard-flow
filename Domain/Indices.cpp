@@ -9,25 +9,25 @@
 
 #include "Indices.h"
 
-Indices::Indices(Meta *meta) {
+Domain::Indices::Indices(Data::Meta *meta) {
 	this->meta = meta;
 }
 
-bool Indices::Allocate(const Record& record) {
+bool Domain::Indices::Allocate(const Data::Record& record) {
 	if(!this->meta->OpenWriter()) { return false; }	
 	if(!this->meta->Allocate(record.Dimensions())) { return false; }
 	this->meta->Close();
 	return true;
 }
 
-bool Indices::Insert(const Record& record) {
+bool Domain::Indices::Insert(const Data::Record& record) {
 	if(!this->Allocate(record)) { return false; }
 	
 	// Collect fragment membership
 	
 	if(!this->meta->OpenReader()) { return false; }
 	string name;
-	Record::const_iterator cell;
+	Data::Record::const_iterator cell;
 	map< string, set<string> > indices;
 	for(cell = record.begin(); cell != record.end(); cell++) {
 		if(this->meta->Index(cell->first, name)) {
@@ -42,7 +42,7 @@ bool Indices::Insert(const Record& record) {
 	
 	if(!this->meta->index->OpenWriter()) { return false; }
 
-	Record partition;
+	Data::Record partition;
 	vector<string>::iterator dimension;
 	map< string, set<string> >::iterator fragment;
 	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
@@ -57,7 +57,7 @@ bool Indices::Insert(const Record& record) {
 }
 
 // ValueMap map<string, string>
-bool Indices::Lookup(const ValueMap& specified) {
+bool Domain::Indices::Lookup(const ValueMap& specified) {
 	if(!this->meta->OpenReader()) { return false; }
 	this->meta->Close();
 	return true;
@@ -65,8 +65,9 @@ bool Indices::Lookup(const ValueMap& specified) {
 
 // RIDMap map<string, RIDList>
 // RIDTree map<string, ValueMap>
-bool Indices::Lookup(const set<string>& dimensions,
-										 const Conditions& conditions, RIDTree& results) {
+bool Domain::Indices::Lookup(const set<string>& dimensions,
+														 const Conditions& conditions, 
+														 Data::RIDTree& results) {
 	
 	ValuesMap values;
 	if(!this->meta->index->OpenReader()) { return false; }
@@ -74,7 +75,7 @@ bool Indices::Lookup(const set<string>& dimensions,
 		this->meta->index->Close();return false; 
 	}
 	
-	RIDMap records;
+	Data::RIDMap records;
 	ValuesMap::iterator vlist;
 	for(vlist = values.begin(); vlist != values.end(); vlist++) {
 		sort(vlist->second.begin(), vlist->second.end());

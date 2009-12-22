@@ -16,6 +16,7 @@
 
 using namespace std;
 using namespace Flow;
+namespace Data = Flow::Domain::Data;
 
 namespace Flow {
 	namespace Domain {
@@ -26,8 +27,8 @@ namespace Flow {
 		public:
 			Dimensions(const string& path);
 			
-			bool Insert(const Record& record);
-			void Lookup(const string& dimension, const RIDList& records, vector<string>& results);
+			bool Insert(const Data::Record& record);
+			void Lookup(const string& dimension, const Data::RIDList& records, vector<string>& results);
 		};
 	}
 }
