@@ -9,28 +9,34 @@
 
 #include "Conditions.h"
 
-void Conditions::eq(const string& name, const string& value) {
-	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new EQ(name, value)));
+void Conditions::Eq(const string& name, const string& value) {
+	shared_ptr<Condition::Base> eq(new Condition::Eq(name, value));
+	vector< shared_ptr<Condition::Base> >::push_back(eq);
 }
 
-void Conditions::gt(const string& name, const string& value) {
-	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new GT(name, value)));
+void Conditions::Gt(const string& name, const string& value) {
+	shared_ptr<Condition::Base> gt(new Condition::Gt(name, value));
+	vector< shared_ptr<Condition::Base> >::push_back(gt);
 }
 
-void Conditions::gte(const string& name, const string& value) {
-	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new GTE(name, value)));
+void Conditions::Gte(const string& name, const string& value) {
+	shared_ptr<Condition::Base> gte(new Condition::Gte(name, value));
+	vector< shared_ptr<Condition::Base> >::push_back(gte);
 }
 
-void Conditions::lt(const string& name, const string& value) {
-	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new LT(name, value)));
+void Conditions::Lt(const string& name, const string& value) {
+	shared_ptr<Condition::Base> lt(new Condition::Lt(name, value));
+	vector< shared_ptr<Condition::Base> >::push_back(lt);
 }
 
-void Conditions::lte(const string& name, const string& value) {
-	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new LTE(name, value)));
+void Conditions::Lte(const string& name, const string& value) {
+	shared_ptr<Condition::Base> lte(new Condition::Lte(name, value));
+	vector< shared_ptr<Condition::Base> >::push_back(lte);
 }
 
-void Conditions::in(const string& name, const vector<string>& values) {
-	vector< shared_ptr<Condition> >::push_back(shared_ptr<Condition>(new IN(name, values)));
+void Conditions::In(const string& name, const vector<string>& values) {
+	shared_ptr<Condition::Base> in(new Condition::In(name, values));
+	vector< shared_ptr<Condition::Base> >::push_back(in);
 }
 
 /*
@@ -38,7 +44,7 @@ void Conditions::in(const string& name, const vector<string>& values) {
  */
 
 void Conditions::Apply(const string& column, vector<string>& values) const {
-	shared_ptr<Condition> condition;
+	shared_ptr<Condition::Base> condition;
 	for(size_t i = 0; i < this->size(); i++) {
 		condition = this->at(i);
 		if(condition != NULL && condition->column == column) {

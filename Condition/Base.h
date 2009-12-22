@@ -7,25 +7,30 @@
  *
  */
 
-#ifndef _condition_included_
-#define _condition_included_
+#ifndef _flow_engine_condition_base_h_
+#define _flow_engine_condition_base_h_
 
 #include "Common.h"
 
-namespace Flow {
-  class Condition {
-	public:
-		enum ConditionType { EQ, GT, GTE, LT, LTE, IN };
+using namespace std;
+using namespace Flow;
 
-		string column;
-		ConditionType type;
-		
-		Condition(const string& column) {
-			this->column = column;
-		}
-		
-		virtual void Apply(vector<string>& values) = 0;
-	};
+namespace Flow {
+	namespace Condition {
+		class Base {
+		public:
+			enum ConditionType { EQ, GT, GTE, LT, LTE, IN };
+
+			string column;
+			ConditionType type;
+			
+			Base(const string& column) {
+				this->column = column;
+			}
+			
+			virtual void Apply(vector<string>& values) = 0;
+		};
+	}
 }
 
 #endif

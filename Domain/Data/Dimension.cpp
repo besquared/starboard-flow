@@ -9,18 +9,18 @@
 
 #include "Dimension.h"
 
-Dimension::Dimension(const string& path, const string& name) {
+Domain::Data::Dimension::Dimension(const string& path, const string& name) {
   this->path = path;
   this->name = name;
   this->database = tchdbnew();
 }
 
-Dimension::~Dimension() {
+Domain::Data::Dimension::~Dimension() {
   this->Close();
   tchdbdel(this->database);	
 }
 
-string Dimension::Path() {
+string Domain::Data::Dimension::Path() {
   return this->path + "/" + this->name + ".tch";
 }
 
@@ -28,7 +28,7 @@ string Dimension::Path() {
  * I/O Management
  */
 
-bool Dimension::Create() {
+bool Domain::Data::Dimension::Create() {
 	tchdbtune(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
 	if(this->Open(HDBOWRITER | HDBOCREAT)) {
 		this->Close();
@@ -38,7 +38,7 @@ bool Dimension::Create() {
 	}
 }
 
-bool Dimension::Truncate() {
+bool Domain::Data::Dimension::Truncate() {
 	if(this->Open(HDBOWRITER | HDBOTRUNC)) {
 		this->Close();
 		return true;
@@ -47,7 +47,7 @@ bool Dimension::Truncate() {
 	}	
 }
 
-bool Dimension::Close() {	
+bool Domain::Data::Dimension::Close() {	
   if(tchdbclose(this->database)){
 		return true;
   } else {
@@ -55,7 +55,7 @@ bool Dimension::Close() {
   }
 }
 
-bool Dimension::Optimize() {
+bool Domain::Data::Dimension::Optimize() {
 	if(tchdbrnum(this->database) % (1<<16) == 0) {
 		return tchdboptimize(database, -1, -1, -1, HDBTLARGE | HDBTDEFLATE);
 	} else {
@@ -63,15 +63,15 @@ bool Dimension::Optimize() {
 	}
 }
 
-bool Dimension::OpenReader() {
+bool Domain::Data::Dimension::OpenReader() {
   return this->Open(HDBOREADER);
 }
 
-bool Dimension::OpenWriter() {
+bool Domain::Data::Dimension::OpenWriter() {
   return this->Open(HDBOWRITER | HDBOCREAT);
 }
 
-bool Dimension::Open(int mode) {
+bool Domain::Data::Dimension::Open(int mode) {
 	return tchdbopen(this->database, this->Path().c_str(), mode);
 }
 
@@ -79,7 +79,7 @@ bool Dimension::Open(int mode) {
  * Reading
  */ 
 
-void Dimension::Lookup(const RecordID key, string& result) {
+void Domain::Data::Dimension::Lookup(const RecordID key, string& result) {
 	int vsize;
 	void* value = tchdbget(this->database, &key, sizeof(RecordID), &vsize);
 	
@@ -91,7 +91,7 @@ void Dimension::Lookup(const RecordID key, string& result) {
 	}
 }
 
-void Dimension::Lookup(const RIDList& keys, vector<string>& results) {
+void Domain::Data::Dimension::Lookup(const RIDList& keys, vector<string>& results) {
 	results.reserve(keys.size());
 	
 	int written = 0;
@@ -111,7 +111,7 @@ void Dimension::Lookup(const RIDList& keys, vector<string>& results) {
 	free(buffer);
 }
 
-void Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
+void Domain::Data::Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
 	int written = 0;
 	int bsize = 4096;
 	void* buffer = malloc(bsize * sizeof(char));
@@ -133,7 +133,7 @@ void Dimension::Lookup(const RIDList& keys, map<RecordID, string>& results) {
  * Writing
  */
 
-bool Dimension::Insert(const RecordID key, const string& value) {
+bool Domain::Data::Dimension::Insert(const RecordID key, const string& value) {
 	return tchdbput(this->database, &key, sizeof(RecordID), value.c_str(), value.size());
 }
 
@@ -141,6 +141,6 @@ bool Dimension::Insert(const RecordID key, const string& value) {
  * Error Management
  */
 
-string Dimension::Error() {
+string Domain::Data::Dimension::Error() {
 	return string(tchdberrmsg(tchdbecode(this->database)));
 }

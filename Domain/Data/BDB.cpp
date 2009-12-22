@@ -9,22 +9,22 @@
 
 #include "BDB.h"
 
-BDB::BDB(const string& path, const string& name) {
+Domain::Data::BDB::BDB(const string& path, const string& name) {
 	this->path = path;
 	this->name = name;
 	this->database = tcbdbnew();
 }
 
-BDB::~BDB() {
+Domain::Data::BDB::~BDB() {
 	this->Close();
   tcbdbdel(this->database);
 }
 
-bool BDB::Create(const string& path, const string& name) {
+bool Domain::Data::BDB::Create(const string& path, const string& name) {
 	TCBDB* database = tcbdbnew();
 	
 	tcbdbtune(database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
-	if(tcbdbopen(database, BDB::Path(path, name).c_str(), BDBOWRITER | BDBOCREAT)) {
+	if(tcbdbopen(database, Domain::Data::BDB::Path(path, name).c_str(), BDBOWRITER | BDBOCREAT)) {
 		tcbdbclose(database);
 		tcbdbdel(database);
 		return true;
@@ -34,19 +34,19 @@ bool BDB::Create(const string& path, const string& name) {
 	}
 }
 
-string BDB::Path(const string& path, const string& name) {
+string Domain::Data::BDB::Path(const string& path, const string& name) {
   return path + "/" + name + ".tcb";
 }
 
-bool BDB::OpenReader() {
+bool Domain::Data::BDB::OpenReader() {
   return this->Open(BDBOREADER);
 }
 
-bool BDB::OpenWriter() {
+bool Domain::Data::BDB::OpenWriter() {
   return this->Open(BDBOWRITER | BDBOCREAT);
 }
 
-bool BDB::Truncate() {
+bool Domain::Data::BDB::Truncate() {
 	if(this->Open(BDBOWRITER | BDBOTRUNC)) {
 		this->Close();
 		return true;
@@ -55,11 +55,11 @@ bool BDB::Truncate() {
 	}
 }
 
-bool BDB::Open(int mode) {
-	return tcbdbopen(this->database, BDB::Path(this->path, this->name).c_str(), mode);
+bool Domain::Data::BDB::Open(int mode) {
+	return tcbdbopen(this->database, Domain::Data::BDB::Path(this->path, this->name).c_str(), mode);
 }
 
-bool BDB::Close() {
+bool Domain::Data::BDB::Close() {
 	if(tcbdbrnum(this->database) % (1<<16) == 0) {
 		tcbdboptimize(database, -1, -1, -1, -1, -1, BDBTLARGE | BDBTDEFLATE);
 	}
@@ -67,7 +67,7 @@ bool BDB::Close() {
 	return tcbdbclose(this->database);
 }
 
-bool BDB::Get(const string& key, string& result) {
+bool Domain::Data::BDB::Get(const string& key, string& result) {
 	int b_size;
 	void* buffer;
 	
@@ -82,7 +82,7 @@ bool BDB::Get(const string& key, string& result) {
 	}
 }
 
-bool BDB::Get(const string& key, set<string>& results) {
+bool Domain::Data::BDB::Get(const string& key, set<string>& results) {
 	TCLIST* values = tcbdbget4(this->database, key.c_str(), key.size());
 	
 	if(values != NULL) {
@@ -99,7 +99,7 @@ bool BDB::Get(const string& key, set<string>& results) {
 	}
 }
 
-bool BDB::Get(const string& key, vector<string>& results) {
+bool Domain::Data::BDB::Get(const string& key, vector<string>& results) {
 	TCLIST* values = tcbdbget4(this->database, key.c_str(), key.size());
 	
 	if(values != NULL) {
@@ -116,7 +116,7 @@ bool BDB::Get(const string& key, vector<string>& results) {
 	}
 }
 
-bool BDB::Get(const string& key, RIDList& results) {
+bool Domain::Data::BDB::Get(const string& key, RIDList& results) {
 	int size = (int)sizeof(RecordID);
 	void* records = tcbdbget(this->database, key.c_str(), key.size(), &size);
 	
@@ -130,19 +130,19 @@ bool BDB::Get(const string& key, RIDList& results) {
 	}
 }
 
-bool BDB::Put(const string& key, const string& value) {
+bool Domain::Data::BDB::Put(const string& key, const string& value) {
 	return tcbdbput(this->database, key.c_str(), key.size(), value.c_str(), value.size());
 }
 
-bool BDB::PutDup(const string& key, const string& value) {
+bool Domain::Data::BDB::PutDup(const string& key, const string& value) {
 	return tcbdbputdup(this->database, key.c_str(), key.size(), value.c_str(), value.size());
 }
 
-bool BDB::PutCat(const string& key, const RecordID& value) {
+bool Domain::Data::BDB::PutCat(const string& key, const RecordID& value) {
 	return tcbdbputcat(this->database, key.c_str(), key.size(), &value, sizeof(RecordID));
 }
 
-bool BDB::Add(const string& key, const int value, int& result) {
+bool Domain::Data::BDB::Add(const string& key, const int value, int& result) {
 	result = tcbdbaddint(this->database, key.c_str(), key.length(), value);
 	
 	if(isnan(result)) {
@@ -152,7 +152,7 @@ bool BDB::Add(const string& key, const int value, int& result) {
 	}
 }
 
-bool BDB::Add(const string& key, const double value, double& result) {
+bool Domain::Data::BDB::Add(const string& key, const double value, double& result) {
 	result = tcbdbadddouble(this->database, key.c_str(), key.length(), value);
 	
 	if(isnan(result)) {
@@ -165,10 +165,10 @@ bool BDB::Add(const string& key, const double value, double& result) {
 /*
  * Returns the last error to occur on the database
  */
-string BDB::Error() {
+string Domain::Data::BDB::Error() {
 	return string(tcbdberrmsg(tcbdbecode(this->database)));
 }
 
-int BDB::ErrorCode() {
+int Domain::Data::BDB::ErrorCode() {
 	return tcbdbecode(this->database);
 }

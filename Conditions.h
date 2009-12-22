@@ -7,31 +7,34 @@
  *
  */
 
-#ifndef _conditions_included_
-#define _conditions_included_
+#ifndef _flow_conditions_h_
+#define _flow_conditions_h_
 
 #include "Common.h"
-#include "Condition.h"
+#include "Condition/Base.h"
+#include "Condition/Eq.h"
+#include "Condition/In.h"
+#include "Condition/Gt.h"
+#include "Condition/Gte.h"
+#include "Condition/Lt.h"
+#include "Condition/Lte.h"
 
-#include "EQ.h"
-#include "IN.h"
-#include "GT.h"
-#include "GTE.h"
-#include "LT.h"
-#include "LTE.h"
+using namespace std;
+using namespace boost;
+using namespace Flow;
 
 namespace Flow {
-  class Conditions : public vector< shared_ptr<Condition> > {
+  class Conditions : public vector< shared_ptr<Condition::Base> > {
   public:
 		/*
 		 * Shortcuts
 		 */
-		void eq(const string& name, const string& value);
-		void gt(const string& name, const string& value);
-		void gte(const string& name, const string& value);
-		void lt(const string& name, const string& value);
-		void lte(const string& name, const string& value);
-		void in(const string& name, const vector<string>& value);
+		void Eq(const string& name, const string& value);
+		void Gt(const string& name, const string& value);
+		void Gte(const string& name, const string& value);
+		void Lt(const string& name, const string& value);
+		void Lte(const string& name, const string& value);
+		void In(const string& name, const vector<string>& value);
 
 		/*
 		 * Application

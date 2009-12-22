@@ -65,18 +65,12 @@
 		03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4D10E0911200D5E4C1 /* Conditions.h */; };
 		03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4E10E0911200D5E4C1 /* Conditions.cpp */; };
 		03E72A9510E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5010E0911200D5E4C1 /* Base.h */; };
-		03E72A9610E0911200D5E4C1 /* EQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5110E0911200D5E4C1 /* EQ.cpp */; };
-		03E72A9710E0911200D5E4C1 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5210E0911200D5E4C1 /* EQ.h */; };
-		03E72A9810E0911200D5E4C1 /* GT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5310E0911200D5E4C1 /* GT.cpp */; };
-		03E72A9910E0911200D5E4C1 /* GT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5410E0911200D5E4C1 /* GT.h */; };
-		03E72A9A10E0911200D5E4C1 /* GTE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5510E0911200D5E4C1 /* GTE.cpp */; };
-		03E72A9B10E0911200D5E4C1 /* GTE.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5610E0911200D5E4C1 /* GTE.h */; };
-		03E72A9C10E0911200D5E4C1 /* IN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5710E0911200D5E4C1 /* IN.cpp */; };
-		03E72A9D10E0911200D5E4C1 /* IN.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5810E0911200D5E4C1 /* IN.h */; };
-		03E72A9E10E0911200D5E4C1 /* LT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5910E0911200D5E4C1 /* LT.cpp */; };
-		03E72A9F10E0911200D5E4C1 /* LT.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5A10E0911200D5E4C1 /* LT.h */; };
-		03E72AA010E0911200D5E4C1 /* LTE.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5B10E0911200D5E4C1 /* LTE.cpp */; };
-		03E72AA110E0911200D5E4C1 /* LTE.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5C10E0911200D5E4C1 /* LTE.h */; };
+		03E72A9710E0911200D5E4C1 /* Eq.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5210E0911200D5E4C1 /* Eq.h */; };
+		03E72A9910E0911200D5E4C1 /* Gt.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5410E0911200D5E4C1 /* Gt.h */; };
+		03E72A9B10E0911200D5E4C1 /* Gte.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5610E0911200D5E4C1 /* Gte.h */; };
+		03E72A9D10E0911200D5E4C1 /* In.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5810E0911200D5E4C1 /* In.h */; };
+		03E72A9F10E0911200D5E4C1 /* Lt.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5A10E0911200D5E4C1 /* Lt.h */; };
+		03E72AA110E0911200D5E4C1 /* Lte.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5C10E0911200D5E4C1 /* Lte.h */; };
 		03E72AA210E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5D10E0911200D5E4C1 /* Base.h */; };
 		03E72AA610E0916D00D5E4C1 /* Flow.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AA510E0916D00D5E4C1 /* Flow.h */; };
 		03E72AA810E0917500D5E4C1 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72AA710E0917500D5E4C1 /* Common.cpp */; };
@@ -154,18 +148,12 @@
 		03E72A4D10E0911200D5E4C1 /* Conditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conditions.h; sourceTree = "<group>"; };
 		03E72A4E10E0911200D5E4C1 /* Conditions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conditions.cpp; sourceTree = "<group>"; };
 		03E72A5010E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
-		03E72A5110E0911200D5E4C1 /* EQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EQ.cpp; sourceTree = "<group>"; };
-		03E72A5210E0911200D5E4C1 /* EQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQ.h; sourceTree = "<group>"; };
-		03E72A5310E0911200D5E4C1 /* GT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GT.cpp; sourceTree = "<group>"; };
-		03E72A5410E0911200D5E4C1 /* GT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GT.h; sourceTree = "<group>"; };
-		03E72A5510E0911200D5E4C1 /* GTE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GTE.cpp; sourceTree = "<group>"; };
-		03E72A5610E0911200D5E4C1 /* GTE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTE.h; sourceTree = "<group>"; };
-		03E72A5710E0911200D5E4C1 /* IN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IN.cpp; sourceTree = "<group>"; };
-		03E72A5810E0911200D5E4C1 /* IN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IN.h; sourceTree = "<group>"; };
-		03E72A5910E0911200D5E4C1 /* LT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LT.cpp; sourceTree = "<group>"; };
-		03E72A5A10E0911200D5E4C1 /* LT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LT.h; sourceTree = "<group>"; };
-		03E72A5B10E0911200D5E4C1 /* LTE.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTE.cpp; sourceTree = "<group>"; };
-		03E72A5C10E0911200D5E4C1 /* LTE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTE.h; sourceTree = "<group>"; };
+		03E72A5210E0911200D5E4C1 /* Eq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eq.h; sourceTree = "<group>"; };
+		03E72A5410E0911200D5E4C1 /* Gt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gt.h; sourceTree = "<group>"; };
+		03E72A5610E0911200D5E4C1 /* Gte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gte.h; sourceTree = "<group>"; };
+		03E72A5810E0911200D5E4C1 /* In.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = In.h; sourceTree = "<group>"; };
+		03E72A5A10E0911200D5E4C1 /* Lt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lt.h; sourceTree = "<group>"; };
+		03E72A5C10E0911200D5E4C1 /* Lte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lte.h; sourceTree = "<group>"; };
 		03E72A5D10E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03E72AA510E0916D00D5E4C1 /* Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flow.h; sourceTree = "<group>"; };
 		03E72AA710E0917500D5E4C1 /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
@@ -203,11 +191,11 @@
 		0369A3FF10E0892D0017E895 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				03E72A1210E0911200D5E4C1 /* Engine */,
-				03E72A3110E0911200D5E4C1 /* Domain */,
 				03E72A4F10E0911200D5E4C1 /* Condition */,
 				03E72A4D10E0911200D5E4C1 /* Conditions.h */,
 				03E72A4E10E0911200D5E4C1 /* Conditions.cpp */,
+				03E72A3110E0911200D5E4C1 /* Domain */,
+				03E72A1210E0911200D5E4C1 /* Engine */,
 				03E72A5D10E0911200D5E4C1 /* Base.h */,
 				03E72AA510E0916D00D5E4C1 /* Flow.h */,
 				03E72AA710E0917500D5E4C1 /* Common.cpp */,
@@ -325,18 +313,12 @@
 			isa = PBXGroup;
 			children = (
 				03E72A5010E0911200D5E4C1 /* Base.h */,
-				03E72A5110E0911200D5E4C1 /* EQ.cpp */,
-				03E72A5210E0911200D5E4C1 /* EQ.h */,
-				03E72A5310E0911200D5E4C1 /* GT.cpp */,
-				03E72A5410E0911200D5E4C1 /* GT.h */,
-				03E72A5510E0911200D5E4C1 /* GTE.cpp */,
-				03E72A5610E0911200D5E4C1 /* GTE.h */,
-				03E72A5710E0911200D5E4C1 /* IN.cpp */,
-				03E72A5810E0911200D5E4C1 /* IN.h */,
-				03E72A5910E0911200D5E4C1 /* LT.cpp */,
-				03E72A5A10E0911200D5E4C1 /* LT.h */,
-				03E72A5B10E0911200D5E4C1 /* LTE.cpp */,
-				03E72A5C10E0911200D5E4C1 /* LTE.h */,
+				03E72A5210E0911200D5E4C1 /* Eq.h */,
+				03E72A5410E0911200D5E4C1 /* Gt.h */,
+				03E72A5610E0911200D5E4C1 /* Gte.h */,
+				03E72A5810E0911200D5E4C1 /* In.h */,
+				03E72A5A10E0911200D5E4C1 /* Lt.h */,
+				03E72A5C10E0911200D5E4C1 /* Lte.h */,
 			);
 			path = Condition;
 			sourceTree = "<group>";
@@ -412,12 +394,12 @@
 				03E72A9210E0911200D5E4C1 /* Measures.h in Headers */,
 				03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */,
 				03E72A9510E0911200D5E4C1 /* Base.h in Headers */,
-				03E72A9710E0911200D5E4C1 /* EQ.h in Headers */,
-				03E72A9910E0911200D5E4C1 /* GT.h in Headers */,
-				03E72A9B10E0911200D5E4C1 /* GTE.h in Headers */,
-				03E72A9D10E0911200D5E4C1 /* IN.h in Headers */,
-				03E72A9F10E0911200D5E4C1 /* LT.h in Headers */,
-				03E72AA110E0911200D5E4C1 /* LTE.h in Headers */,
+				03E72A9710E0911200D5E4C1 /* Eq.h in Headers */,
+				03E72A9910E0911200D5E4C1 /* Gt.h in Headers */,
+				03E72A9B10E0911200D5E4C1 /* Gte.h in Headers */,
+				03E72A9D10E0911200D5E4C1 /* In.h in Headers */,
+				03E72A9F10E0911200D5E4C1 /* Lt.h in Headers */,
+				03E72AA110E0911200D5E4C1 /* Lte.h in Headers */,
 				03E72AA210E0911200D5E4C1 /* Base.h in Headers */,
 				03E72AA610E0916D00D5E4C1 /* Flow.h in Headers */,
 				03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */,
@@ -527,12 +509,6 @@
 				03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */,
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
-				03E72A9610E0911200D5E4C1 /* EQ.cpp in Sources */,
-				03E72A9810E0911200D5E4C1 /* GT.cpp in Sources */,
-				03E72A9A10E0911200D5E4C1 /* GTE.cpp in Sources */,
-				03E72A9C10E0911200D5E4C1 /* IN.cpp in Sources */,
-				03E72A9E10E0911200D5E4C1 /* LT.cpp in Sources */,
-				03E72AA010E0911200D5E4C1 /* LTE.cpp in Sources */,
 				03E72AA810E0917500D5E4C1 /* Common.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
