@@ -23,6 +23,7 @@ namespace Flow {
 			template <typename T>
 			class TColumn : public Column::Base, public vector<T> {
 			public:
+				TColumn(const string& name) : Column::Base::Base(name) {}
 				string Inspect();
 			};
 		}

@@ -9,10 +9,10 @@
 
 #include "Base.h"
 
-Engine::Aggregate::Base::Base(const string& measure) {
+Aggregate::Base::Base(const string& measure) {
 	this->measures.push_back(measure);
 }
 
-Engine::Aggregate::Base::Base(const vector<string>& measures) {
+Aggregate::Base::Base(const vector<string>& measures) {
 	this->measures = measures;
 }

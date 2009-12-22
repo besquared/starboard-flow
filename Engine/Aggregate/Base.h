@@ -12,9 +12,12 @@
 
 #include "Common.h"
 #include "Engine/Table.h"
+#include "Engine/Column/TColumn.h"
+#include "Engine/Column/TListColumn.h"
 
 using namespace std;
 using namespace Flow;
+using namespace Flow::Engine;
 
 namespace Flow {
 	namespace Engine {

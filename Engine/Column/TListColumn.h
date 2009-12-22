@@ -23,6 +23,8 @@ namespace Flow {
 			template <typename T>
 			class TListColumn : public Column::Base, public vector< vector<T> > {
 			public:
+				TListColumn(const string& name) : Column::Base::Base(name) {}
+
 				string Inspect();
 				string Inspect(const vector<T>& tlist);
 			};
@@ -31,7 +33,7 @@ namespace Flow {
 }
 
 template <typename T> 
-string Engine::Column::TListColumn<T>::Inspect() {
+string Column::TListColumn<T>::Inspect() {
 	string out;
 	
 	out += "[";
@@ -45,7 +47,7 @@ string Engine::Column::TListColumn<T>::Inspect() {
 }
 
 template <typename T> 
-string Engine::Column::TListColumn<T>::Inspect(const vector<T>& tlist) {
+string Column::TListColumn<T>::Inspect(const vector<T>& tlist) {
 	string out;
 	
 	out += "[";

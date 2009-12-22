@@ -9,15 +9,16 @@
 
 #include "Sum.h"
 
-Aggregate::Sum::Sum(const string& measure) : Aggregate::Base::Base(measure) {}
+Aggregate::Sum::Sum(const string& measure) : 
+Aggregate::Base::Base(measure) {}
 
 void Aggregate::Sum::Apply(Table& base) {
 	string measure = this->measures.at(0);
 	
-	shared_ptr< TListColumn<double> > column = 
-		static_pointer_cast< TListColumn<double> >(base->columns->at(measure));
+	shared_ptr< Column::TListColumn<double> > column = 
+	static_pointer_cast< Column::TListColumn<double> >(base.at(measure));
 	
-	shared_ptr< TColumn<double> > aggregated(new TColumn<double>);
+	shared_ptr< Column::TColumn<double> > aggregated(new Column::TColumn<double>("sum_" + measure));
 	
 	size_t column_size = column->size();
 	for(size_t i = 0; i < column_size; i++) {
@@ -29,9 +30,6 @@ void Aggregate::Sum::Apply(Table& base) {
 			sum += members[j];
 		}
 		aggregated->push_back(sum);
-	}
-	
-	shared_ptr<Column> summed = static_pointer_cast<Column>(aggregated);
-	
-	base.columns->push_back("sum_" + measure, summed);
+	}	
+	base.push_back(aggregated);
 }

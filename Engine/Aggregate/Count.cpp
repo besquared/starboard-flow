@@ -9,19 +9,20 @@
 
 #include "Count.h"
 
-Engine::Aggregate::Count::Count(const string& measure) : 
-Engine::Aggregate::Base::Base(measure) {}
+Aggregate::Count::Count(const string& measure) : 
+Aggregate::Base::Base(measure) {}
 
-void Engine::Aggregate::Count::Apply(Table& base) {
+void Aggregate::Count::Apply(Table& base) {
 	string measure = this->measures.at(0);
 	
-	Column::TListColumn<double> column = 
-	static_cast< Column::TListColumn<double> >(base.at(measure));
+	shared_ptr< Column::TListColumn<double> > column = 
+	static_pointer_cast< Column::TListColumn<double> >(base.at(measure));
 	
-	Column::TColumn<double> aggregated;
+	shared_ptr< Column::TColumn<double> > aggregated(new Column::TColumn<double>("count_" + measure));
+	
 	size_t column_size = column->size();
 	for(size_t i = 0; i < column_size; i++) {
 		aggregated->push_back((double)column->at(i).size());
 	}
-	base.push_back("count_" + measure, static_cast<Column::Base>(aggregated));
+	base.push_back(aggregated);
 }

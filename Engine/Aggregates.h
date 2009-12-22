@@ -7,20 +7,25 @@
  *
  */
 
-#ifndef _flow_aggregates_h_
-#define _flow_aggregates_h_
+#ifndef _flow_engine_aggregates_h_
+#define _flow_engine_aggregates_h_
 
 #include "Common.h"
+#include "Engine/Aggregate/Count.h"
+#include "Engine/Aggregate/Sum.h"
 
 using namespace std;
 using namespace Flow;
+using namespace Flow::Engine;
 
 namespace Flow {
-	class Aggregates : public vector<Aggregate> {
-	public:
-		void Count(const string& name);
-		void Sum(const string& name);
-	};
+	namespace Engine {
+		class Aggregates : public vector< shared_ptr<Aggregate::Base> > {
+		public:
+			void Count(const string& name);
+			void Sum(const string& name);
+		};
+	}
 }
 
 #endif

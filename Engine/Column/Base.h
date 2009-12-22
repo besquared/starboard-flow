@@ -12,6 +12,7 @@ namespace Flow {
 			class Base {
 			public:
 				string name;
+				Base(const string& name) { this->name = name; }
 				virtual string Inspect() = 0;
 			};
 		}

@@ -8,13 +8,13 @@
  */
 
 #include "Aggregates.h"
-#include "Aggregates/Count.h"
-#include "Aggregates/Sum.h"
 
 void Aggregates::Count(const string& name) {
-	vector<Aggregate>::push_back(Count(name));
+	shared_ptr<Aggregate::Count> count(new Aggregate::Count(name));
+	vector< shared_ptr<Aggregate::Base> >::push_back(count);
 }
 
 void Aggregates::Sum(const string& name) {
-	vector<Aggregate>::push_back(Sum(name));
+	shared_ptr<Aggregate::Sum> sum(new Aggregate::Sum(name));
+	vector< shared_ptr<Aggregate::Base> >::push_back(sum);
 }

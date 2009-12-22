@@ -10,16 +10,15 @@ using namespace Flow::Engine;
 
 namespace Flow {
 	namespace Engine {
-		class Table : vector<Column::Base> {
+		class Table : vector< shared_ptr<Column::Base> > {
 		public:
 			Table();
 			
-			void push_back(const Column::Base& column);
-			void push_back(const string& name, const Column::Base& column);
+			void push_back(const shared_ptr<Column::Base> column);
 			void erase(const string& name);
 
-			Column::Base& at(const size_t position);
-			Column::Base& at(const string& name);
+			shared_ptr<Column::Base> at(const size_t position);
+			shared_ptr<Column::Base> at(const string& name);
 
 			string Inspect();
 		};

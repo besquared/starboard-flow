@@ -64,7 +64,7 @@
 		03E72A9210E0911200D5E4C1 /* Measures.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4C10E0911200D5E4C1 /* Measures.h */; };
 		03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A4D10E0911200D5E4C1 /* Conditions.h */; };
 		03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A4E10E0911200D5E4C1 /* Conditions.cpp */; };
-		03E72A9510E0911200D5E4C1 /* Condition.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5010E0911200D5E4C1 /* Condition.h */; };
+		03E72A9510E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5010E0911200D5E4C1 /* Base.h */; };
 		03E72A9610E0911200D5E4C1 /* EQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5110E0911200D5E4C1 /* EQ.cpp */; };
 		03E72A9710E0911200D5E4C1 /* EQ.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5210E0911200D5E4C1 /* EQ.h */; };
 		03E72A9810E0911200D5E4C1 /* GT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A5310E0911200D5E4C1 /* GT.cpp */; };
@@ -153,7 +153,7 @@
 		03E72A4C10E0911200D5E4C1 /* Measures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measures.h; sourceTree = "<group>"; };
 		03E72A4D10E0911200D5E4C1 /* Conditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conditions.h; sourceTree = "<group>"; };
 		03E72A4E10E0911200D5E4C1 /* Conditions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conditions.cpp; sourceTree = "<group>"; };
-		03E72A5010E0911200D5E4C1 /* Condition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Condition.h; sourceTree = "<group>"; };
+		03E72A5010E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03E72A5110E0911200D5E4C1 /* EQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EQ.cpp; sourceTree = "<group>"; };
 		03E72A5210E0911200D5E4C1 /* EQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EQ.h; sourceTree = "<group>"; };
 		03E72A5310E0911200D5E4C1 /* GT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GT.cpp; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		03E72A4F10E0911200D5E4C1 /* Condition */ = {
 			isa = PBXGroup;
 			children = (
-				03E72A5010E0911200D5E4C1 /* Condition.h */,
+				03E72A5010E0911200D5E4C1 /* Base.h */,
 				03E72A5110E0911200D5E4C1 /* EQ.cpp */,
 				03E72A5210E0911200D5E4C1 /* EQ.h */,
 				03E72A5310E0911200D5E4C1 /* GT.cpp */,
@@ -411,7 +411,7 @@
 				03E72A9010E0911200D5E4C1 /* Indices.h in Headers */,
 				03E72A9210E0911200D5E4C1 /* Measures.h in Headers */,
 				03E72A9310E0911200D5E4C1 /* Conditions.h in Headers */,
-				03E72A9510E0911200D5E4C1 /* Condition.h in Headers */,
+				03E72A9510E0911200D5E4C1 /* Base.h in Headers */,
 				03E72A9710E0911200D5E4C1 /* EQ.h in Headers */,
 				03E72A9910E0911200D5E4C1 /* GT.h in Headers */,
 				03E72A9B10E0911200D5E4C1 /* GTE.h in Headers */,
