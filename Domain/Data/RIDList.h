@@ -7,19 +7,26 @@
  *
  */
 
-#ifndef _flow_rid_list_h_
-#define _flow_rid_list_h_
+#ifndef _flow_domain_data_rid_list_h_
+#define _flow_domain_data_rid_list_h_
 
 #include "Common.h"
 
+using namespace std;
+using namespace Flow;
+
 namespace Flow {
-	class RIDList : public vector<RecordID> {
-	public:
-		RIDList();		
-		RIDList operator&(RIDList& other);
-		RIDList operator|(RIDList& other);
-		string Inspect();
-	};
+	namespace Domain {
+		namespace Data {
+			class RIDList : public vector<RecordID> {
+			public:
+				RIDList();		
+				RIDList operator&(RIDList& other);
+				RIDList operator|(RIDList& other);
+				string Inspect();
+			};
+		}
+	}
 }
 
 #endif

@@ -7,19 +7,26 @@
  *
  */
 
-#ifndef _flow_rid_tree_h_
-#define _flow_rid_tree_h_
+#ifndef _flow_domain_data_rid_tree_h_
+#define _flow_domain_data_rid_tree_h_
 
 #include "Common.h"
-#include "RIDList.h"
-#include "RIDMap.h"
+#include "Domain/Data/RIDList.h"
+#include "Domain/Data/RIDMap.h"
+
+using namespace std;
+using namespace Flow;
 
 namespace Flow {
-	class RIDTree : public map<string, RIDMap> {
-	public:
-		void operator&(RIDList& records);
-		void operator|(RIDList& records);
-	};
+	namespace Domain {
+		namespace Data {
+			class RIDTree : public map<string, Domain::Data::RIDMap> {
+			public:
+				void operator&(Domain::Data::RIDList& records);
+				void operator|(Domain::Data::RIDList& records);
+			};
+		}
+	}
 }
 
 #endif

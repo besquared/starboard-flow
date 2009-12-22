@@ -7,23 +7,30 @@
  *
  */
 
-#ifndef _flow_record_h_
-#define _flow_record_h_
+#ifndef _flow_domain_data_record_h_
+#define _flow_domain_data_record_h_
 
 #include "Common.h"
 
-namespace Flow {
-	class Record : public map<string, string> {
-	public:
-		RecordID id;
-		
-		Record();
-		Record(RecordID id);
+using namespace std;
+using namespace Flow;
 
-		set<string> Dimensions() const;
-		vector<string> Values() const;
-		Record Partition(const set<string>& dimensions) const;
-	};
+namespace Flow {
+	namespace Domain {
+		namespace Data {
+			class Record : public map<string, string> {
+			public:
+				RecordID id;
+				
+				Record();
+				Record(RecordID id);
+
+				set<string> Dimensions() const;
+				vector<string> Values() const;
+				Record Partition(const set<string>& dimensions) const;
+			};
+		}
+	}
 }
 
 #endif
