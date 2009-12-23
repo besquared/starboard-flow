@@ -16,6 +16,8 @@ using namespace std;
 using namespace Flow;
 
 namespace Flow {
+	typedef double RecordID;
+
 	namespace Domain {
 		namespace Data {
 			class Record : public map<string, string> {

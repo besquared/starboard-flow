@@ -1,3 +1,11 @@
+/*
+ *  Base.h
+ *  Flow
+ *
+ *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *
+ */
+
 #ifndef _flow_engine_column_base_included_
 #define _flow_engine_column_base_included_
 

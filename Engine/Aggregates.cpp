@@ -9,12 +9,12 @@
 
 #include "Aggregates.h"
 
-void Aggregates::Count(const string& name) {
+void Engine::Aggregates::Count(const string& name) {
 	shared_ptr<Aggregate::Count> count(new Aggregate::Count(name));
 	vector< shared_ptr<Aggregate::Base> >::push_back(count);
 }
 
-void Aggregates::Sum(const string& name) {
+void Engine::Aggregates::Sum(const string& name) {
 	shared_ptr<Aggregate::Sum> sum(new Aggregate::Sum(name));
 	vector< shared_ptr<Aggregate::Base> >::push_back(sum);
 }

@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _tlist_column_included_
-#define _tlist_column_included_
+#ifndef _flow_engine_column_tlist_column_included_
+#define _flow_engine_column_tlist_column_included_
 
 #include "Common.h"
 #include "Engine/Column/Base.h"

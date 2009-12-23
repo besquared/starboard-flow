@@ -12,10 +12,13 @@
  *  accesses meta, indices, dimensions and measures
  */
 
-#ifndef _flow_events_h_
-#define _flow_events_h_
+#ifndef _flow_domain_base_h_
+#define _flow_domain_base_h_
 
 #include "Common.h"
+#include "Domain/Data/RIDList.h"
+#include "Domain/Data/RIDMap.h"
+#include "Domain/Data/RIDTree.h"
 #include "Domain/Data/Meta.h"
 #include "Domain/Indices.h"
 #include "Domain/Dimensions.h"
@@ -30,13 +33,13 @@ namespace Flow {
 		protected:
 			string path;
 			string dpath;
-			
 			Domain::Data::Meta* meta;
+
+		public:			
 			Domain::Indices* indices;
 			Domain::Dimensions* dimensions;
 			Domain::Measures* measures;
 			
-		public:
 			Base(const string& path, const string& dpath);
 		};
 	}

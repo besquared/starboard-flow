@@ -21,7 +21,12 @@ namespace Flow {
 		bool operator==(SequenceKey& other);
 		
 		friend ostream& operator<<(ostream& out, const SequenceKey& key) {
-			out << Common::Inspect(key.components);
+			out << "[";
+			for(size_t i = 0; i < key.components.size(); i++) {
+				out << >(key.components[i]);
+				if(i < key.components.size() - 1) out << ", "; 
+			}
+			out << "]";
 			return out;
 		}
 	};

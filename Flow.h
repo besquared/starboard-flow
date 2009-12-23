@@ -7,27 +7,14 @@
  *
  */
 
-#ifndef _flow_included_
-#define _flow_included_
+#ifndef _flow_flow_h_
+#define _flow_flow_h_
 
 #include "Common.h"
 
 #include "Base.h"
-#include "Dimension.h"
-#include "Dimensions.h"
-#include "Measure.h"
-#include "Measures.h"
-#include "ShellFragment.h"
-#include "ShellFragments.h"
-#include "ShellDimensions.h"
-
-#include "BDB.h"
-#include "Meta.h"
-#include "Index.h"
-#include "Indices.h"
-
-#include "Table.h"
-#include "Query.h"
-#include "SequenceQuery.h"
+#include "Domain/Base.h"
+#include "Engine/Analytical/Query.h"
+#include "Engine/Sequential/Query.h"
 
 #endif

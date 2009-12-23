@@ -23,48 +23,40 @@
 
 #include "Query.h"
 
-Query::Query(ShellFragments* fragments, Measures* measures) {
-	this->fragments = fragments;
-	this->measures = measures;
+Analytical::Query::Query(Domain::Base* domain) {
+	this->domain = domain;
 	this->conditions = new Conditions();
-	this->aggregations = new vector< shared_ptr<Aggregation> >;
+	this->aggregates = new Aggregates();
 }
 
-tuple< bool, string, shared_ptr<Table> > Query::Execute() {
-	shared_ptr<Table> table(new Table);
+bool Analytical::Query::Execute(Table& results) {
+	shared_ptr<Column::Base> values(new Column::TListColumn<string>("values"));
+	shared_ptr<Column::Base> records(new Column::TListColumn<RecordID>("records"));
+	results.push_back(values);		
+	results.push_back(records);
 	
-	shared_ptr<Column> column(new TListColumn<string>);
-	shared_ptr<Column> records(new TListColumn<RecordID>);
-	table->columns->push_back("values", column);		
-	table->columns->push_back("records", records);
-	
-	Response materialized = this->Materialize(table);
-	Response aggregated = this->Aggregate(table);
-	Response swept = this->Sweep(table);
-	
-	if(aggregated.get<0>()) {
-		return make_tuple(ok, success, table);
-	} else {
-		return make_tuple(error, aggregated.get<1>(), table);
-	}
+	if(!this->Materialize(results)) { return false; }
+	if(!this->Aggregate(results)) { return false; }
+	if(!this->Sweep(results)) { return false; }
+	return true;
 }
 
-Response Query::Materialize(shared_ptr<Table> table) {
-	vector<string> inquire;
+bool Analytical::Query::Materialize(Table& table) {
+	set<string> inquire;
 	vector<string> dimensions;
 	map<string, string> instantiate;
 	Conditions inquiry_conditions;
 	
 	Conditions* conditions = this->conditions;
 	for(size_t i = 0; i < conditions->size(); i++) {
-		shared_ptr<Condition> condition = conditions->at(i);
+		shared_ptr<Condition::Base> condition = conditions->at(i);
 		
 		switch(condition->type) {
-			case Condition::EQ : {
-				shared_ptr<EQ> equals = static_pointer_cast<EQ>(condition);
+			case Condition::Base::EQ : {
+				shared_ptr<Condition::Eq> equals = static_pointer_cast<Condition::Eq>(condition);
 				
 				if(equals->value == "?") {
-					inquire.push_back(condition->column);
+					inquire.insert(condition->column);
 				} else {
 					instantiate[condition->column] = equals->value;
 				}
@@ -80,92 +72,84 @@ Response Query::Materialize(shared_ptr<Table> table) {
 		dimensions.push_back(condition->column);
 	}
 	
-	Inquired inquired;
-	this->fragments->Lookup(instantiate, inquire, inquiry_conditions, inquired);
-
+	RIDTree inquired;
+	this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
 	this->Construct(inquired, dimensions, table);
 	
-	return make_tuple(ok, success);
+	return true;
 }
 
 // Gather all the measures needed by the aggregates
-Response Query::Gather(const set<string>& measures, shared_ptr<Table> base) {
-	set<string>::iterator iter;
-	for(iter = measures.begin(); iter != measures.end(); iter++) {
-		string measure = *iter;
+bool Analytical::Query::Gather(const set<string>& measures, Table& base) {
+	set<string>::const_iterator measure;
+	for(measure = measures.begin(); measure != measures.end(); measure++) {
+//		if(base->columns->exist(*measure)) { continue; }
 		
-		if(base->columns->exist(measure)) { continue; }
+		shared_ptr< Column::TListColumn<double> > values(new Column::TListColumn<double>(*measure));
 		
-		shared_ptr< TListColumn<double> > values(new TListColumn<double>);
-		
-		shared_ptr< TColumn<RIDList> > records = 
-		static_pointer_cast< TColumn<RIDList> >(base->columns->at("records"));
+		shared_ptr< Column::TColumn<RIDList> > records = 
+		static_pointer_cast< Column::TColumn<RIDList> >(base.at("records"));
 		
 		vector<double> mvalues;
 		for(size_t i = 0; i < records->size(); i++) {
 			mvalues.clear();
-			this->measures->Lookup(measure, records->at(i), mvalues);
+			this->domain->measures->Lookup(*measure, records->at(i), mvalues);
 			values->push_back(mvalues);
-		}
-			
-		shared_ptr<Column> avalues = static_pointer_cast<Column>(values);
-		base->columns->push_back(measure, avalues);
+		}			
+		base.push_back(static_pointer_cast<Column::Base>(values));
 	}
 	
-	return make_tuple(ok, success);
+	return true;
 }
 
-Response Query::Aggregate(shared_ptr<Table> base) {
+bool Analytical::Query::Aggregate(Table& base) {
 	// go through all the aggregations and gather
 	//   their measures from disk if we don't have them
-	size_t size = this->aggregations->size();
+	size_t size = this->aggregates->size();
 	
 	set<string> measures;
 	for(size_t i = 0; i < size; i++) {
-		vector<string> ameasures = this->aggregations->at(i)->measures;
+		vector<string> ameasures = this->aggregates->at(i)->measures;
 		measures.insert(ameasures.begin(), ameasures.end());
 	}
 	
-	Response gathered = this->Gather(measures, base);
-	
-	if(gathered.get<0>()) {
+	if(this->Gather(measures, base)) {
 		for(size_t j = 0; j < size; j++) {
-			this->aggregations->at(j)->Apply(base);	
+			this->aggregates->at(j)->Apply(base);	
 		}
-		return make_tuple(ok, success);
+		return true;
 	} else {
-		return gathered;
+		return false;
 	}
 }
 
-Response Query::Sweep(shared_ptr<Table> base) {
+bool Analytical::Query::Sweep(Table& base) {
 	// go through and drop the columns that 
 	//  we don't want returned (records and measures)
 	
-	size_t size = this->aggregations->size();
+	size_t size = this->aggregates->size();
 	
 	set<string> measures;
 	for(size_t i = 0; i < size; i++) {
-		vector<string> ameasures = this->aggregations->at(i)->measures;
+		vector<string> ameasures = this->aggregates->at(i)->measures;
 		measures.insert(ameasures.begin(), ameasures.end());
 	}
 	measures.insert("records");
 	
 	set<string>::iterator measure;
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
-		base->columns->erase(*measure);
+		base.erase(*measure);
 	}
 	
-	return make_tuple(ok, success);
+	return true;
 }
 
 /*
  * Construction
  */
-
-void Query::Construct(Inquired& inquired, vector<string>& dimensions, shared_ptr<Table> results) {
+void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions, Table& results) {
 	vector<string> values;
-	vector<RecordID> records;
+	RIDList records;
 	this->Construct(inquired, dimensions, 0, values, records, results);
 }
 
@@ -191,17 +175,17 @@ void Query::Construct(Inquired& inquired, vector<string>& dimensions, shared_ptr
  and the id list into the table and return. We continue by searching B:b2
  and so on.
 */
-void Query::Construct(Inquired& inquired, vector<string>& dimensions, 
-	int offset, vector<string>& values, vector<RecordID>& records, shared_ptr<Table> results) {
+void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions, 
+																	int offset, vector<string>& values, RIDList& records, Table& results) {
 	
 	if(dimensions.size() == offset) {
 		// offsets and limits for later
 		// if(iteration >= loffset) return;
 
-		shared_ptr< TListColumn<string> > values_column = 
-			static_pointer_cast< TListColumn<string> >(results->columns->at("values"));
-		shared_ptr< TListColumn<RecordID> > records_column = 
-			static_pointer_cast< TListColumn<RecordID> >(results->columns->at("records"));
+		shared_ptr< Column::TListColumn<string> > values_column = 
+			static_pointer_cast< Column::TListColumn<string> >(results.at("values"));
+		shared_ptr< Column::TColumn<RIDList> > records_column = 
+			static_pointer_cast< Column::TColumn<RIDList> >(results.at("records"));
 		
 		// cout << "Pushing back " << Common::Inspect(values) << 
 		//		" => " << Common::Inspect(records)  <<  endl;
@@ -212,20 +196,20 @@ void Query::Construct(Inquired& inquired, vector<string>& dimensions,
 		return;
 	}
 	
-	InquiredDimension::iterator iter;
-	InquiredDimension dimension = inquired[dimensions[offset]];
+	RIDMap::iterator rpair;
+	RIDMap rmap = inquired[dimensions[offset]];
 
-	for(iter = dimension.begin(); iter != dimension.end(); iter++) {		
-		vector<RecordID> intersection;
+	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {		
+		RIDList intersection;
 
 		if(records.size() == 0) {
-			intersection = iter->second;
+			intersection = rpair->second;
 		} else {
-			intersection = Common::Intersect(records, iter->second);
+			intersection = records & rpair->second;
 		}
 		
 		if(intersection.size() > 0) {
-			values.push_back(iter->first);
+			values.push_back(rpair->first);
 			this->Construct(inquired, dimensions, offset + 1, values, intersection, results);
 			values.pop_back();
 		}

@@ -35,12 +35,15 @@ namespace Flow {
 			}			
 			
 			void Apply(vector<string>& values) {
-				values = Common::Intersect(values, this->values);
+				vector<string> intersected;
+				set_intersection(values.begin(), values.end(), this->values.begin(), this->values.end(), back_inserter(intersected));
+				values = intersected;
 			}
 			
 			void ApplyNegation(vector<string>& values) {
-				// THIS DOESN'T WORK YET use stl
-				values = Common::Difference(values, this->values);
+				vector<string> differenced;
+				set_difference(values.begin(), values.end(), this->values.begin(), this->values.end(), back_inserter(differenced));
+				values = differenced;
 			}
 		};
 	}
