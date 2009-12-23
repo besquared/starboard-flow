@@ -11,7 +11,7 @@
 #define _flow_engine_sequential_dimension_h_
 
 #include <Common.h>
-#include "Conditions.h"
+#include <Conditions.h>
 
 using namespace std;
 using namespace Flow;
