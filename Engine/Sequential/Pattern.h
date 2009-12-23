@@ -1,5 +1,5 @@
 /*
- *  Template.h
+ *  Pattern.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/10/09.
@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _flow_engine_sequential_template_h_
-#define _flow_engine_sequential_template_h_
+#ifndef _flow_engine_sequential_pattern_h_
+#define _flow_engine_sequential_pattern_h_
 
 #include <Common.h>
 #include "Dimension.h"
@@ -19,7 +19,7 @@ using namespace Flow;
 namespace Flow {
 	namespace Engine {
 		namespace Sequential {
-			class Template : public vector< boost::shared_ptr<Sequential::Dimension> > {
+			class Pattern : public vector< boost::shared_ptr<Sequential::Dimension> > {
 			public:
 				enum Matching { SUBSTRING, FUNNEL, CONVERSION };
 				enum Restriction { LEFT_MATCH, LEFT_DATA, ALL_MATCH };
@@ -27,7 +27,7 @@ namespace Flow {
 				Matching matching;
 				Restriction restriction;
 				
-				Template();
+				Pattern();
 				
 				void push_back(const string& name, const string& symbol, const string& alias);
 				void push_back(const string& name, const string& symbol, const string& alias, const Conditions& conditions);

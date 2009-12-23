@@ -18,7 +18,7 @@
 
 #include "Key.h"
 #include "Event.h"
-#include "Template.h"
+#include "Pattern.h"
 
 using namespace std;
 using namespace Flow;
@@ -37,7 +37,7 @@ namespace Flow {
 				vector<string> groupings;		
 				Conditions conditions;
 				Aggregates aggregates;
-				Template pattern;
+				Pattern pattern;
 				
 				Query(const string& path);
 				
