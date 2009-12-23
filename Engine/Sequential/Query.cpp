@@ -7,7 +7,7 @@
  *
  */
 
-#include "SequenceQuery.h"
+#include "Query.h"
 
 //SequenceQuery::SequenceQuery(const string& path) {
 //	this->measures = shared_ptr<Measures>(new Measures(path));

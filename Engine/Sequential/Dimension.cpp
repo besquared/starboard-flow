@@ -13,10 +13,9 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 	this->name = name;
 	this->symbol = symbol;
 	this->alias = alias;
-	this->conditions = shared_ptr<Conditions>(new Conditions);
 }
 
-Engine::Sequential::Dimension::Dimension(const string& name, const string& symbol, const string& alias, const shared_ptr<Conditions>& conditions) {
+Engine::Sequential::Dimension::Dimension(const string& name, const string& symbol, const string& alias, const Conditions& conditions) {
 	this->name = name;
 	this->symbol = symbol;
 	this->alias = alias;

@@ -24,10 +24,10 @@ namespace Flow {
 				string name;
 				string symbol;
 				string alias;
-				shared_ptr<Conditions> conditions;
+				Conditions conditions;
 				
 				Dimension(const string& name, const string& symbol, const string& alias);
-				Dimension(const string& name, const string& symbol, const string& alias, const shared_ptr<Conditions>& conditions);
+				Dimension(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
 			};
 		}
 	}
