@@ -11,13 +11,13 @@
 #define _flow_conditions_h_
 
 #include <Common.h>
-#include "Condition/Base.h"
-#include "Condition/Eq.h"
-#include "Condition/In.h"
-#include "Condition/Gt.h"
-#include "Condition/Gte.h"
-#include "Condition/Lt.h"
-#include "Condition/Lte.h"
+#include <Condition/Base.h>
+#include <Condition/Eq.h>
+#include <Condition/In.h>
+#include <Condition/Gt.h>
+#include <Condition/Gte.h>
+#include <Condition/Lt.h>
+#include <Condition/Lte.h>
 
 using namespace std;
 using namespace boost;

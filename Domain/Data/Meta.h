@@ -13,8 +13,8 @@
 #define FRAGMENT_SIZE 4
 
 #include <Common.h>
-#include "Domain/Data/BDB.h"
-#include "Domain/Data/Index.h"
+#include <Domain/Data/BDB.h>
+#include <Domain/Data/Index.h>
 
 using namespace std;
 using namespace Flow;

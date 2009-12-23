@@ -11,10 +11,10 @@
 #define _flow_flow_h_
 
 #include <Common.h>
+#include <Domain/Base.h>
+#include <Engine/Analytical/Query.h>
+#include <Engine/Sequential/Query.h>
 
 #include "Base.h"
-#include "Domain/Base.h"
-#include "Engine/Analytical/Query.h"
-#include "Engine/Sequential/Query.h"
 
 #endif

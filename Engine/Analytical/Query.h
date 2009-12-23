@@ -6,14 +6,14 @@
  *
  */
 
-#ifndef _flow_engine_query_h_
-#define _flow_engine_query_h_
+#ifndef _flow_engine_analytical_query_h_
+#define _flow_engine_analytical_query_h_
 
 #include <Common.h>
-#include "Conditions.h"
-#include "Domain/Base.h"
-#include "Engine/Table.h"
-#include "Engine/Aggregates.h"
+#include <Conditions.h>
+#include <Domain/Base.h>
+#include <Engine/Table.h>
+#include <Engine/Aggregates.h>
 
 using namespace std;
 using namespace Flow;

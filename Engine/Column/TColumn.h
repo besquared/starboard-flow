@@ -11,7 +11,8 @@
 #define _flow_engine_tcolumn_included_
 
 #include <Common.h>
-#include "Engine/Column/Base.h"
+
+#include "Base.h"
 
 using namespace std;
 using namespace Flow;

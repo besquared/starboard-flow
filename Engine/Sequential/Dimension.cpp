@@ -7,7 +7,7 @@
  *
  */
 
-#include "Engine/Sequential/Dimension.h"
+#include <Engine/Sequential/Dimension.h>
 
 Engine::Sequential::Dimension::Dimension(const string& name, const string& symbol, const string& alias) {
 	this->name = name;

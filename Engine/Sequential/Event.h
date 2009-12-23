@@ -11,7 +11,7 @@
 #define _flow_engine_sequential_event_h_
 
 #include <Common.h>
-#include "Domain/Data/Record.h"
+#include <Domain/Data/Record.h>
 
 using namespace std;
 using namespace Flow;

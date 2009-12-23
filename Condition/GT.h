@@ -11,7 +11,8 @@
 #define _flow_condition_gt_h_
 
 #include <Common.h>
-#include "Condition/Base.h"
+
+#include "Base.h"
 
 namespace Flow {
 	namespace Condition {

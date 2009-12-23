@@ -11,7 +11,8 @@
 #define _flow_aggregates_count_h_
 
 #include <Common.h>
-#include "Engine/Aggregate/Base.h"
+
+#include "Base.h"
 
 using namespace std;
 using namespace Flow;

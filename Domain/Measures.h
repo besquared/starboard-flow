@@ -11,7 +11,7 @@
 #define _flow_domain_measures_h_
 
 #include <Common.h>
-#include "Domain/Data/Measure.h"
+#include <Domain/Data/Measure.h>
 
 using namespace std;
 using namespace Flow;

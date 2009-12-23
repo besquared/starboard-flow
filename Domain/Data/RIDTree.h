@@ -11,8 +11,8 @@
 #define _flow_domain_data_rid_tree_h_
 
 #include <Common.h>
-#include "Domain/Data/RIDList.h"
-#include "Domain/Data/RIDMap.h"
+#include <Domain/Data/RIDList.h>
+#include <Domain/Data/RIDMap.h>
 
 using namespace std;
 using namespace Flow;

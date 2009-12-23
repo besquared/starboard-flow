@@ -11,8 +11,8 @@
 #define _flow_dimensions_h_
 
 #include <Common.h>
-#include "Domain/Data/Dimension.h"
-#include "Domain/Data/Record.h"
+#include <Domain/Data/Dimension.h>
+#include <Domain/Data/Record.h>
 
 using namespace std;
 using namespace Flow;

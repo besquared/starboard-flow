@@ -11,13 +11,13 @@
 #define _flow_domain_data_indices_h_
 
 #include <Common.h>
-#include "Conditions.h"
-#include "Domain/Data/Meta.h"
-#include "Domain/Data/Index.h"
-#include "Domain/Data/Record.h"
-#include "Domain/Data/RIDList.h"
-#include "Domain/Data/RIDMap.h"
-#include "Domain/Data/RIDTree.h"
+#include <Conditions.h>
+#include <Domain/Data/Meta.h>
+#include <Domain/Data/Index.h>
+#include <Domain/Data/Record.h>
+#include <Domain/Data/RIDList.h>
+#include <Domain/Data/RIDMap.h>
+#include <Domain/Data/RIDTree.h>
 
 using namespace std;
 using namespace Flow;

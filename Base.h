@@ -15,11 +15,10 @@
 #define _flow_base_h_
 
 #include <Common.h>
-
-#include "Engine/Table.h"
-#include "Domain/Indices.h"
-#include "Domain/Measures.h"
-#include "Domain/Dimensions.h"
+#include <Engine/Table.h>
+#include <Domain/Indices.h>
+#include <Domain/Measures.h>
+#include <Domain/Dimensions.h>
 
 namespace Flow {
 	class Base {

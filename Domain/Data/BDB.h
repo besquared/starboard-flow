@@ -11,7 +11,7 @@
 #define _flow_domain_data_bdb_h_
 
 #include <Common.h>
-#include "Domain/Data/RIDList.h"
+#include <Domain/Data/RIDList.h>
 
 using namespace std;
 using namespace Flow;
