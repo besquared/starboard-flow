@@ -15,7 +15,7 @@
 #ifndef _flow_domain_base_h_
 #define _flow_domain_base_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Domain/Data/RIDList.h"
 #include "Domain/Data/RIDMap.h"
 #include "Domain/Data/RIDTree.h"

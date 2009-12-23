@@ -9,7 +9,7 @@
 #ifndef _flow_engine_column_base_included_
 #define _flow_engine_column_base_included_
 
-#include "Common.h"
+#include <Common.h>
 
 using namespace std;
 using namespace boost;

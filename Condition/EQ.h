@@ -10,7 +10,7 @@
 #ifndef _flow_condition_eq_h_
 #define _flow_condition_eq_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Condition/Base.h"
 
 namespace Flow {

@@ -10,7 +10,7 @@
 #ifndef _flow_domain_data_index_h_
 #define _flow_domain_data_index_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Domain/Data/BDB.h"
 #include "Domain/Data/Record.h"
 #include "Domain/Data/RIDList.h"

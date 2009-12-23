@@ -24,16 +24,16 @@
 		03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1B10E0911200D5E4C1 /* Aggregates.h */; };
 		03E72A6610E0911200D5E4C1 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1D10E0911200D5E4C1 /* Query.cpp */; };
 		03E72A6710E0911200D5E4C1 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1E10E0911200D5E4C1 /* Query.h */; };
-		03E72A6B10E0911200D5E4C1 /* SequenceDimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2310E0911200D5E4C1 /* SequenceDimension.cpp */; };
-		03E72A6C10E0911200D5E4C1 /* SequenceDimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2410E0911200D5E4C1 /* SequenceDimension.h */; };
-		03E72A6D10E0911200D5E4C1 /* SequenceEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2510E0911200D5E4C1 /* SequenceEvent.cpp */; };
-		03E72A6E10E0911200D5E4C1 /* SequenceEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2610E0911200D5E4C1 /* SequenceEvent.h */; };
-		03E72A6F10E0911200D5E4C1 /* SequenceKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2710E0911200D5E4C1 /* SequenceKey.cpp */; };
-		03E72A7010E0911200D5E4C1 /* SequenceKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2810E0911200D5E4C1 /* SequenceKey.h */; };
-		03E72A7110E0911200D5E4C1 /* SequenceQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2910E0911200D5E4C1 /* SequenceQuery.cpp */; };
-		03E72A7210E0911200D5E4C1 /* SequenceQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2A10E0911200D5E4C1 /* SequenceQuery.h */; };
-		03E72A7310E0911200D5E4C1 /* SequenceTemplate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2B10E0911200D5E4C1 /* SequenceTemplate.cpp */; };
-		03E72A7410E0911200D5E4C1 /* SequenceTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2C10E0911200D5E4C1 /* SequenceTemplate.h */; };
+		03E72A6B10E0911200D5E4C1 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2310E0911200D5E4C1 /* Dimension.cpp */; };
+		03E72A6C10E0911200D5E4C1 /* Dimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2410E0911200D5E4C1 /* Dimension.h */; };
+		03E72A6D10E0911200D5E4C1 /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2510E0911200D5E4C1 /* Event.cpp */; };
+		03E72A6E10E0911200D5E4C1 /* Event.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2610E0911200D5E4C1 /* Event.h */; };
+		03E72A6F10E0911200D5E4C1 /* Key.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2710E0911200D5E4C1 /* Key.cpp */; };
+		03E72A7010E0911200D5E4C1 /* Key.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2810E0911200D5E4C1 /* Key.h */; };
+		03E72A7110E0911200D5E4C1 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2910E0911200D5E4C1 /* Query.cpp */; };
+		03E72A7210E0911200D5E4C1 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2A10E0911200D5E4C1 /* Query.h */; };
+		03E72A7310E0911200D5E4C1 /* Template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2B10E0911200D5E4C1 /* Template.cpp */; };
+		03E72A7410E0911200D5E4C1 /* Template.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2C10E0911200D5E4C1 /* Template.h */; };
 		03E72A7510E0911200D5E4C1 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2D10E0911200D5E4C1 /* Table.cpp */; };
 		03E72A7610E0911200D5E4C1 /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2E10E0911200D5E4C1 /* Table.h */; };
 		03E72A7910E0911200D5E4C1 /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3310E0911200D5E4C1 /* BDB.cpp */; };
@@ -106,16 +106,16 @@
 		03E72A1B10E0911200D5E4C1 /* Aggregates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregates.h; sourceTree = "<group>"; };
 		03E72A1D10E0911200D5E4C1 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
 		03E72A1E10E0911200D5E4C1 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
-		03E72A2310E0911200D5E4C1 /* SequenceDimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceDimension.cpp; sourceTree = "<group>"; };
-		03E72A2410E0911200D5E4C1 /* SequenceDimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceDimension.h; sourceTree = "<group>"; };
-		03E72A2510E0911200D5E4C1 /* SequenceEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceEvent.cpp; sourceTree = "<group>"; };
-		03E72A2610E0911200D5E4C1 /* SequenceEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceEvent.h; sourceTree = "<group>"; };
-		03E72A2710E0911200D5E4C1 /* SequenceKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceKey.cpp; sourceTree = "<group>"; };
-		03E72A2810E0911200D5E4C1 /* SequenceKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceKey.h; sourceTree = "<group>"; };
-		03E72A2910E0911200D5E4C1 /* SequenceQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceQuery.cpp; sourceTree = "<group>"; };
-		03E72A2A10E0911200D5E4C1 /* SequenceQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceQuery.h; sourceTree = "<group>"; };
-		03E72A2B10E0911200D5E4C1 /* SequenceTemplate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequenceTemplate.cpp; sourceTree = "<group>"; };
-		03E72A2C10E0911200D5E4C1 /* SequenceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequenceTemplate.h; sourceTree = "<group>"; };
+		03E72A2310E0911200D5E4C1 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
+		03E72A2410E0911200D5E4C1 /* Dimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimension.h; sourceTree = "<group>"; };
+		03E72A2510E0911200D5E4C1 /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
+		03E72A2610E0911200D5E4C1 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		03E72A2710E0911200D5E4C1 /* Key.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Key.cpp; sourceTree = "<group>"; };
+		03E72A2810E0911200D5E4C1 /* Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Key.h; sourceTree = "<group>"; };
+		03E72A2910E0911200D5E4C1 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
+		03E72A2A10E0911200D5E4C1 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
+		03E72A2B10E0911200D5E4C1 /* Template.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Template.cpp; sourceTree = "<group>"; };
+		03E72A2C10E0911200D5E4C1 /* Template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Template.h; sourceTree = "<group>"; };
 		03E72A2D10E0911200D5E4C1 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
 		03E72A2E10E0911200D5E4C1 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		03E72A3310E0911200D5E4C1 /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDB.cpp; sourceTree = "<group>"; };
@@ -251,16 +251,16 @@
 		03E72A2210E0911200D5E4C1 /* Sequential */ = {
 			isa = PBXGroup;
 			children = (
-				03E72A2310E0911200D5E4C1 /* SequenceDimension.cpp */,
-				03E72A2410E0911200D5E4C1 /* SequenceDimension.h */,
-				03E72A2510E0911200D5E4C1 /* SequenceEvent.cpp */,
-				03E72A2610E0911200D5E4C1 /* SequenceEvent.h */,
-				03E72A2710E0911200D5E4C1 /* SequenceKey.cpp */,
-				03E72A2810E0911200D5E4C1 /* SequenceKey.h */,
-				03E72A2910E0911200D5E4C1 /* SequenceQuery.cpp */,
-				03E72A2A10E0911200D5E4C1 /* SequenceQuery.h */,
-				03E72A2B10E0911200D5E4C1 /* SequenceTemplate.cpp */,
-				03E72A2C10E0911200D5E4C1 /* SequenceTemplate.h */,
+				03E72A2310E0911200D5E4C1 /* Dimension.cpp */,
+				03E72A2410E0911200D5E4C1 /* Dimension.h */,
+				03E72A2510E0911200D5E4C1 /* Event.cpp */,
+				03E72A2610E0911200D5E4C1 /* Event.h */,
+				03E72A2710E0911200D5E4C1 /* Key.cpp */,
+				03E72A2810E0911200D5E4C1 /* Key.h */,
+				03E72A2910E0911200D5E4C1 /* Query.cpp */,
+				03E72A2A10E0911200D5E4C1 /* Query.h */,
+				03E72A2B10E0911200D5E4C1 /* Template.cpp */,
+				03E72A2C10E0911200D5E4C1 /* Template.h */,
 			);
 			path = Sequential;
 			sourceTree = "<group>";
@@ -370,11 +370,11 @@
 				03E72A6310E0911200D5E4C1 /* Sum.h in Headers */,
 				03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */,
 				03E72A6710E0911200D5E4C1 /* Query.h in Headers */,
-				03E72A6C10E0911200D5E4C1 /* SequenceDimension.h in Headers */,
-				03E72A6E10E0911200D5E4C1 /* SequenceEvent.h in Headers */,
-				03E72A7010E0911200D5E4C1 /* SequenceKey.h in Headers */,
-				03E72A7210E0911200D5E4C1 /* SequenceQuery.h in Headers */,
-				03E72A7410E0911200D5E4C1 /* SequenceTemplate.h in Headers */,
+				03E72A6C10E0911200D5E4C1 /* Dimension.h in Headers */,
+				03E72A6E10E0911200D5E4C1 /* Event.h in Headers */,
+				03E72A7010E0911200D5E4C1 /* Key.h in Headers */,
+				03E72A7210E0911200D5E4C1 /* Query.h in Headers */,
+				03E72A7410E0911200D5E4C1 /* Template.h in Headers */,
 				03E72A7610E0911200D5E4C1 /* Table.h in Headers */,
 				03E72A7A10E0911200D5E4C1 /* BDB.h in Headers */,
 				03E72A7C10E0911200D5E4C1 /* Dimension.h in Headers */,
@@ -486,11 +486,11 @@
 				03E72A6210E0911200D5E4C1 /* Sum.cpp in Sources */,
 				03E72A6410E0911200D5E4C1 /* Aggregates.cpp in Sources */,
 				03E72A6610E0911200D5E4C1 /* Query.cpp in Sources */,
-				03E72A6B10E0911200D5E4C1 /* SequenceDimension.cpp in Sources */,
-				03E72A6D10E0911200D5E4C1 /* SequenceEvent.cpp in Sources */,
-				03E72A6F10E0911200D5E4C1 /* SequenceKey.cpp in Sources */,
-				03E72A7110E0911200D5E4C1 /* SequenceQuery.cpp in Sources */,
-				03E72A7310E0911200D5E4C1 /* SequenceTemplate.cpp in Sources */,
+				03E72A6B10E0911200D5E4C1 /* Dimension.cpp in Sources */,
+				03E72A6D10E0911200D5E4C1 /* Event.cpp in Sources */,
+				03E72A6F10E0911200D5E4C1 /* Key.cpp in Sources */,
+				03E72A7110E0911200D5E4C1 /* Query.cpp in Sources */,
+				03E72A7310E0911200D5E4C1 /* Template.cpp in Sources */,
 				03E72A7510E0911200D5E4C1 /* Table.cpp in Sources */,
 				03E72A7910E0911200D5E4C1 /* BDB.cpp in Sources */,
 				03E72A7B10E0911200D5E4C1 /* Dimension.cpp in Sources */,

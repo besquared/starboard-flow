@@ -10,7 +10,7 @@
 #ifndef _flow_domain_measures_h_
 #define _flow_domain_measures_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Domain/Data/Measure.h"
 
 using namespace std;

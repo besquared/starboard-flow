@@ -10,7 +10,7 @@
 #ifndef _flow_domain_data_record_h_
 #define _flow_domain_data_record_h_
 
-#include "Common.h"
+#include <Common.h>
 
 using namespace std;
 using namespace Flow;

@@ -14,7 +14,7 @@
 #ifndef _flow_base_h_
 #define _flow_base_h_
 
-#include "Common.h"
+#include <Common.h>
 
 #include "Engine/Table.h"
 #include "Domain/Indices.h"

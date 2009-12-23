@@ -75,7 +75,6 @@ bool Analytical::Query::Materialize(Table& table) {
 	RIDTree inquired;
 	this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
 	this->Construct(inquired, dimensions, table);
-	
 	return true;
 }
 
@@ -179,16 +178,10 @@ void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions,
 																	int offset, vector<string>& values, RIDList& records, Table& results) {
 	
 	if(dimensions.size() == offset) {
-		// offsets and limits for later
-		// if(iteration >= loffset) return;
-
 		shared_ptr< Column::TListColumn<string> > values_column = 
 			static_pointer_cast< Column::TListColumn<string> >(results.at("values"));
 		shared_ptr< Column::TColumn<RIDList> > records_column = 
 			static_pointer_cast< Column::TColumn<RIDList> >(results.at("records"));
-		
-		// cout << "Pushing back " << Common::Inspect(values) << 
-		//		" => " << Common::Inspect(records)  <<  endl;
 
 		values_column->push_back(values);
 		records_column->push_back(records);
@@ -201,7 +194,6 @@ void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions,
 
 	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {		
 		RIDList intersection;
-
 		if(records.size() == 0) {
 			intersection = rpair->second;
 		} else {
@@ -213,8 +205,5 @@ void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions,
 			this->Construct(inquired, dimensions, offset + 1, values, intersection, results);
 			values.pop_back();
 		}
-		
-		// offsets and limits for later
-		// if(table->size() > limit) break;
 	}
 }

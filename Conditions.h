@@ -10,7 +10,7 @@
 #ifndef _flow_conditions_h_
 #define _flow_conditions_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Condition/Base.h"
 #include "Condition/Eq.h"
 #include "Condition/In.h"

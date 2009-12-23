@@ -12,7 +12,7 @@
 
 #define FRAGMENT_SIZE 4
 
-#include "Common.h"
+#include <Common.h>
 #include "Domain/Data/BDB.h"
 #include "Domain/Data/Index.h"
 

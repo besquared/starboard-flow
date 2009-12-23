@@ -10,7 +10,7 @@
 #ifndef _flow_domain_data_indices_h_
 #define _flow_domain_data_indices_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Conditions.h"
 #include "Domain/Data/Meta.h"
 #include "Domain/Data/Index.h"

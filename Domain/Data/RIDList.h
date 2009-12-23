@@ -10,7 +10,7 @@
 #ifndef _flow_domain_data_rid_list_h_
 #define _flow_domain_data_rid_list_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Domain/Data/Record.h"
 
 using namespace std;

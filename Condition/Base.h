@@ -10,7 +10,7 @@
 #ifndef _flow_engine_condition_base_h_
 #define _flow_engine_condition_base_h_
 
-#include "Common.h"
+#include <Common.h>
 
 using namespace std;
 using namespace Flow;

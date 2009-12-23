@@ -10,7 +10,7 @@
 #ifndef _flow_engine_aggregates_h_
 #define _flow_engine_aggregates_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Engine/Aggregate/Count.h"
 #include "Engine/Aggregate/Sum.h"
 

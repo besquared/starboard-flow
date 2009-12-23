@@ -10,7 +10,7 @@
 #ifndef _flow_domain_data_measure_h_
 #define _flow_domain_data_measure_h_
 
-#include "Common.h"
+#include <Common.h>
 #include "Domain/Data/RIDList.h"
 
 using namespace std;
