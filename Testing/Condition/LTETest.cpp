@@ -10,6 +10,8 @@
 
 #include "TestHelper.h"
 
+using namespace Condition;
+
 namespace {
 	class LTETest : public ::testing::Test {
 	protected:
@@ -28,7 +30,7 @@ namespace {
 	};
 	
 	TEST_F(LTETest, Applies) {		
-		LTE lte("year", "2008");
+		Lte lte("year", "2008");
 		
 		vector<string> values;
 		values.push_back("2007");

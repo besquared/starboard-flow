@@ -9,6 +9,8 @@
 
 #include "TestHelper.h"
 
+using namespace Condition;
+
 namespace {
 	class EqualsTest : public ::testing::Test {
 	protected:
@@ -27,7 +29,7 @@ namespace {
 	};
 	
 	TEST_F(EqualsTest, Applies) {
-		EQ equals("year", "2009");
+		Eq equals("year", "2009");
 		
 		vector<string> values;
 		values.push_back("2007");
@@ -42,7 +44,7 @@ namespace {
 	}
 	
 	TEST_F(EqualsTest, AppliesNegation) {
-		EQ equals("year", "2009", true);
+		Eq equals("year", "2009", true);
 		
 		vector<string> values;
 		values.push_back("2007");

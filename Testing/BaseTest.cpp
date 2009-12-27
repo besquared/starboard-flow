@@ -12,20 +12,16 @@
 namespace {
 	class BaseTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
 		Base *flow;
 		
 		BaseTest() {}
 		virtual ~BaseTest() {}
 		
 		virtual void SetUp() {
-			this->helper = new TestHelper();
 			this->flow = new Base("/tmp/flow");
-			this->flow->meta->Truncate();
 		}
 		
 		virtual void TearDown() {
-			delete(this->helper);
 			delete(this->flow);
 		}
 	};

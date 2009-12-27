@@ -33,7 +33,7 @@ namespace Flow {
 		protected:
 			string path;
 			string dpath;
-			Domain::Data::Meta* meta;
+			Data::Meta* meta;
 
 		public:			
 			Domain::Indices* indices;

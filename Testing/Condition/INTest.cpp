@@ -9,6 +9,8 @@
 
 #include "TestHelper.h"
 
+using namespace Condition;
+
 namespace {
 	class INTest : public ::testing::Test {
 	protected:
@@ -31,7 +33,7 @@ namespace {
 		include.push_back("2009");
 		include.push_back("2010");
 		
-		IN in("year", include);
+		In in("year", include);
 		
 		vector<string> values;
 		values.push_back("2007");

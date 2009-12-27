@@ -153,7 +153,7 @@ namespace {
 		
 		RIDTree records;
 		Conditions conditions;
-		conditions.gt("day", "20091220");
+		conditions.Gt("day", "20091220");
 		ASSERT_EQ(true, this->indices->Lookup(dimensions, conditions, records));
 		
 		ASSERT_EQ(1, records.size());

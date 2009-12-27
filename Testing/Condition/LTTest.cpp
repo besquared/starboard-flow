@@ -10,6 +10,8 @@
 
 #include "TestHelper.h"
 
+using namespace Condition;
+
 namespace {
 	class LTTest : public ::testing::Test {
 	protected:
@@ -28,7 +30,7 @@ namespace {
 	};
 	
 	TEST_F(LTTest, Applies) {		
-		LT lt("year", "2008");
+		Lt lt("year", "2008");
 		
 		vector<string> values;
 		values.push_back("2007");

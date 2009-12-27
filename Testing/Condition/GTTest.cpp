@@ -9,6 +9,8 @@
 
 #include "TestHelper.h"
 
+using namespace Condition;
+
 namespace {
 	class GTTest : public ::testing::Test {
 	protected:
@@ -27,7 +29,7 @@ namespace {
 	};
 	
 	TEST_F(GTTest, Applies) {		
-		GT gt("year", "2008");
+		Gt gt("year", "2008");
 		
 		vector<string> values;
 		values.push_back("2007");

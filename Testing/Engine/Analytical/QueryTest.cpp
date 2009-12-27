@@ -12,114 +12,36 @@
 namespace {
 	class QueryTest : public ::testing::Test {
 	protected:
-		TestHelper* helper;
-		Measures* measures;
-		ShellFragments* fragments;
+		Meta* meta;
+		Indices* indices;
 		
 		QueryTest() {}
 		virtual ~QueryTest() {}
 		
 		virtual void SetUp() {
-			this->helper = new TestHelper();
-			this->measures = new Measures("/tmp/flow");
-			this->fragments = new ShellFragments("/tmp/flow");
-			this->fragments->database->Truncate();
-			tuple<bool, string> opened = this->fragments->database->OpenWriter();
-			
-			if(!opened.get<0>()) {
-				FAIL() << "Could not open fragments database for dimensions test";
-			}
+			this->meta = new Meta("/tmp/flow");
+			this->indices = new Indices(this->meta);
 		}
 		
 		virtual void TearDown() {
-			delete(this->helper);
-			delete(this->fragments);
-		}
-		
-		/*
-		 * +-------+----+----+--------+-------+
-		 * | Store | Product | Season | Sales |
-		 * +=======+=========+========|=======+
-		 * | S1    | P1      | s      | 6     |
-		 * +-------+---------+--------|-------+
-		 * | S1    | P2      | s      | 12    |
-		 * +-------+---------+--------+-------|
-		 * | S2    | P1      | f      | 9     |
-		 * +-------+---------+--------|-------|
-		 */		
-		virtual void LoadProductData() {
-			int record_id = 1;
-			map<string, string> row;
-			map<string, double> measures;
-			row["store"] = "S1";
-			row["product"] = "P1";
-			row["season"] = "s";
-			measures["sales"] = 6;
-			
-			this->fragments->Insert(record_id, row);
-			this->measures->Insert(record_id, measures);
-			
-			record_id = 2;
-			row["store"] = "S1";
-			row["product"] = "P2";
-			row["season"] = "s";
-			measures["sales"] = 12;
-			this->fragments->Insert(record_id, row);
-			this->measures->Insert(record_id, measures);
-			
-			record_id = 3;
-			row["store"] = "S2";
-			row["product"] = "P1";
-			row["season"] = "f";
-			measures["sales"] = 9;
-			
-			this->fragments->Insert(record_id, row);		
-			this->measures->Insert(record_id, measures);
-		}
-		
-		/*
-		 * +----+----+----+----+----+
-		 * | A  | B  | C  | D  | E  |
-		 * +----|----|----|----|----+
-		 * | a1 | b1 | c1 |    |    |
-		 * +----|----|----|----|----+
-		 * | a2 | b1 | c1 | d1 | e1 |
-		 * +----+----+----+----+----+
-		 * | a3 |    | c2 |    | e2 |
-		 * +----+----+----+----+----+
-		 *
-		 */		
-		virtual void LoadSparseData() {
-			int record_id;
-			
-			record_id = 1;
-			map<string, string> row;
-			row["A"] = "a1";
-			row["B"] = "b1";
-			row["C"] = "c1";
-			
-			this->fragments->Insert(record_id, row);
-			
-			record_id = 2;
-			map<string, string> row2;
-			row2["A"] = "a2";
-			row2["B"] = "b1";
-			row2["C"] = "c1";
-			row2["D"] = "d1";
-			row2["E"] = "e1";
-			
-			this->fragments->Insert(record_id, row2);
-			
-			record_id = 3;
-			map<string, string> row3;
-			row3["A"] = "a3";
-			row3["C"] = "c2";
-			row3["E"] = "e2";
-			
-			this->fragments->Insert(record_id, row3);
+			delete(this->meta);
+			delete(this->indices);
 		}
 	};
-		
+	
+	
+	/*
+	 * +-------+----+----+--------+-------+
+	 * | Store | Product | Season | Sales |
+	 * +=======+=========+========|=======+
+	 * | S1    | P1      | s      | 6     |
+	 * +-------+---------+--------|-------+
+	 * | S1    | P2      | s      | 12    |
+	 * +-------+---------+--------+-------|
+	 * | S2    | P1      | f      | 9     |
+	 * +-------+---------+--------|-------|
+	 */		
+	
 //	TEST_F(QueryTest, ProcessesPurePointQuery) {
 //		this->LoadProductData();
 //		
