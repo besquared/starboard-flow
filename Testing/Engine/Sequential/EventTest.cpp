@@ -13,15 +13,15 @@
 using namespace Flow::Engine;
 
 namespace {
-	class EventTest : public ::testing::Test {
+	class SequentialEventTest : public ::testing::Test {
 	protected:
-		EventTest() {}
-		virtual ~EventTest() {}
+		SequentialEventTest() {}
+		virtual ~SequentialEventTest() {}
 		virtual void SetUp() {}
 		virtual void TearDown() {}
 	};
 	
-	TEST_F(EventTest, Compares) {
+	TEST_F(SequentialEventTest, Compares) {
 		Sequential::Event wheaton(1, "x1", "wheaton");
 		Sequential::Event pentagon(2, "x1", "pentagon");
 		

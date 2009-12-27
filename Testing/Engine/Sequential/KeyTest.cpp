@@ -13,23 +13,15 @@
 using namespace Flow::Engine;
 
 namespace {
-	class KeyTest : public ::testing::Test {
+	class SequentialKeyTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		
-		KeyTest() {}
-		virtual ~KeyTest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		SequentialKeyTest() {}
+		virtual ~SequentialKeyTest() {}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
-	TEST_F(KeyTest, Compares) {
+	TEST_F(SequentialKeyTest, Compares) {
 		vector<string> components;
 		components.push_back("user");
 		components.push_back("20091020");
@@ -47,7 +39,7 @@ namespace {
 		ASSERT_EQ(false, second == third);
 	}
 	
-	TEST_F(KeyTest, Benchmarks) {
+	TEST_F(SequentialKeyTest, Benchmarks) {
 //		vector<string> components;
 //		components.push_back("user");
 //		components.push_back("20091020");

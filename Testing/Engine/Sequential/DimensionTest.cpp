@@ -13,15 +13,15 @@
 using namespace Flow::Engine;
 
 namespace {
-	class DimensionTest : public ::testing::Test {
+	class SequentialDimensionTest : public ::testing::Test {
 	protected:
-		DimensionTest() {}
-		virtual ~DimensionTest() {}
+		SequentialDimensionTest() {}
+		virtual ~SequentialDimensionTest() {}
 		virtual void SetUp() {}
 		virtual void TearDown() {}
 	};
 	
-	TEST_F(DimensionTest, Instantiates) {
+	TEST_F(SequentialDimensionTest, Instantiates) {
 		Sequential::Dimension dimension("station", "X", "x1");
 		
 		EXPECT_EQ("station", dimension.name);

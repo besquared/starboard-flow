@@ -13,12 +13,12 @@
 using namespace Flow::Engine;
 
 namespace {
-	class QueryTest : public ::testing::Test {
+	class SequentialQueryTest : public ::testing::Test {
 	protected:
 		Sequential::Query *query;
 		
-		QueryTest() {}
-		virtual ~QueryTest() {}
+		SequentialQueryTest() {}
+		virtual ~SequentialQueryTest() {}
 		
 		virtual void SetUp() {
 //			this->query = new Query("/tmp/flow");
@@ -49,7 +49,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(QueryTest, MaterializesSingleTable) {		
+	TEST_F(SequentialQueryTest, MaterializesSingleTable) {		
 //		shared_ptr<Table> table(new Table());
 //		shared_ptr<Column> key(new TColumn<SequenceKey>);
 //		shared_ptr<Column> events(new TListColumn<SequenceEvent>);

@@ -13,15 +13,15 @@
 using namespace Flow::Engine;
 
 namespace {
-	class PatternTest : public ::testing::Test {
+	class SequentialPatternTest : public ::testing::Test {
 	protected:
-		PatternTest() {}
-		virtual ~PatternTest() {}
+		SequentialPatternTest() {}
+		virtual ~SequentialPatternTest() {}
 		virtual void SetUp() {}
 		virtual void TearDown() {}
 	};
 	
-	TEST_F(PatternTest, Instantiates) {
+	TEST_F(SequentialPatternTest, Instantiates) {
 		Sequential::Pattern pattern;
 		pattern.push_back("station", "X", "x1");
 		
@@ -29,5 +29,5 @@ namespace {
 		EXPECT_EQ("station", pattern[0]->name);
 		EXPECT_EQ("X", pattern[0]->symbol);
 		EXPECT_EQ("x1", pattern[0]->alias);
-	}	
+	}
 }  // namespace
