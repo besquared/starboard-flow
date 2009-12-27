@@ -610,9 +610,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		03AF8D7F10BE4CEB00AF17CB /* Test */ = {
+		03AF8D7F10BE4CEB00AF17CB /* test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03AF8D8E10BE4D0B00AF17CB /* Build configuration list for PBXNativeTarget "Test" */;
+			buildConfigurationList = 03AF8D8E10BE4D0B00AF17CB /* Build configuration list for PBXNativeTarget "test" */;
 			buildPhases = (
 				03E4D5FD10BE5A7800D5068E /* Headers */,
 				03AF8D7D10BE4CEB00AF17CB /* Sources */,
@@ -623,7 +623,7 @@
 			dependencies = (
 				03E4D5DC10BE58FF00D5068E /* PBXTargetDependency */,
 			);
-			name = Test;
+			name = test;
 			productName = Test;
 			productReference = 03AF8D8010BE4CEB00AF17CB /* Test */;
 			productType = "com.apple.product-type.tool";
@@ -658,7 +658,7 @@
 			projectRoot = "";
 			targets = (
 				03E4D53810BE538E00D5068E /* flow */,
-				03AF8D7F10BE4CEB00AF17CB /* Test */,
+				03AF8D7F10BE4CEB00AF17CB /* test */,
 			);
 		};
 /* End PBXProject section */
@@ -820,7 +820,10 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					.,
+					/usr/local/include,
+				);
 				INSTALL_PATH = /usr/local/bin;
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
@@ -833,6 +836,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Test;
+				SKIP_INSTALL = NO;
 			};
 			name = Debug;
 		};
@@ -931,7 +935,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03AF8D8E10BE4D0B00AF17CB /* Build configuration list for PBXNativeTarget "Test" */ = {
+		03AF8D8E10BE4D0B00AF17CB /* Build configuration list for PBXNativeTarget "test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03AF8D8210BE4CED00AF17CB /* Debug */,

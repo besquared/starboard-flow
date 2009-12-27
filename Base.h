@@ -7,10 +7,6 @@
  *
  */
 
-/*
- * Like a database
- */
-
 #ifndef _flow_base_h_
 #define _flow_base_h_
 
@@ -19,11 +15,19 @@
 #include <Domain/Indices.h>
 #include <Domain/Measures.h>
 #include <Domain/Dimensions.h>
+#include <Domain/Data/Meta.h>
+
+using namespace std;
+using namespace Flow;
+using namespace Flow::Domain;
+using namespace Flow::Domain::Data;
 
 namespace Flow {
 	class Base {
-	public:
+	protected:
 		string path;
+
+	public:
 		Meta* meta;
 		Indices* indices;
 		Measures* measures;
