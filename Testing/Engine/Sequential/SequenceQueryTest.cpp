@@ -1,5 +1,5 @@
 /*
- *  SequenceQueryTest.cpp
+ *  QueryTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/11/09.
@@ -8,22 +8,20 @@
  */
 
 #include "TestHelper.h"
-#include "SubwayFixture.h"
+#include <Engine/Sequential/Query.h>
+
+using namespace Flow::Engine;
 
 namespace {
-	class SequenceQueryTest : public ::testing::Test {
+	class QueryTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		SequenceQuery *query;
-		SubwayFixture *subway;
+		Sequential::Query *query;
 		
-		SequenceQueryTest() {}
-		virtual ~SequenceQueryTest() {}
+		QueryTest() {}
+		virtual ~QueryTest() {}
 		
 		virtual void SetUp() {
-			this->helper = new TestHelper();
-			this->subway = new SubwayFixture("/tmp/flow");
-//			this->query = new SequenceQuery("/tmp/flow");
+//			this->query = new Query("/tmp/flow");
 //			
 //			this->query->clusters->push_back("card-id");
 //			this->query->clusters->push_back("day");
@@ -47,13 +45,11 @@ namespace {
 		}
 		
 		virtual void TearDown() {
-			delete(this->helper);
 //			delete(this->query);
-			delete(this->subway);
 		}
 	};
 	
-	TEST_F(SequenceQueryTest, MaterializesSingleTable) {		
+	TEST_F(QueryTest, MaterializesSingleTable) {		
 //		shared_ptr<Table> table(new Table());
 //		shared_ptr<Column> key(new TColumn<SequenceKey>);
 //		shared_ptr<Column> events(new TListColumn<SequenceEvent>);

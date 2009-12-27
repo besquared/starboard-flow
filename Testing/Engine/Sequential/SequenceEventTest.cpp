@@ -1,5 +1,5 @@
 /*
- *  SequenceEventTest.cpp
+ *  EventTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/11/09.
@@ -8,27 +8,22 @@
  */
 
 #include "TestHelper.h"
+#include <Engine/Sequential/Event.h>
+
+using namespace Flow::Engine;
 
 namespace {
-	class SequenceEventTest : public ::testing::Test {
+	class EventTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		
-		SequenceEventTest() {}
-		virtual ~SequenceEventTest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		EventTest() {}
+		virtual ~EventTest() {}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
-	TEST_F(SequenceEventTest, Compares) {
-		SequenceEvent wheaton(1, "x1", "wheaton");
-		SequenceEvent pentagon(2, "x1", "pentagon");
+	TEST_F(EventTest, Compares) {
+		Sequential::Event wheaton(1, "x1", "wheaton");
+		Sequential::Event pentagon(2, "x1", "pentagon");
 		
 		ASSERT_EQ(true, wheaton < pentagon);
 	}

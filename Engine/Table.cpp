@@ -23,6 +23,10 @@ shared_ptr<Column::Base> Engine::Table::at(const string& name) {
 	return shared_ptr<Column::Base>();
 }
 
+size_t Engine::Table::size() const {
+	return vector< shared_ptr<Column::Base> >::size();
+}
+
 string Engine::Table::Inspect() {
 	string out;
 	

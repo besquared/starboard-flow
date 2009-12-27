@@ -9,6 +9,8 @@
 
 #include "TestHelper.h"
 
+using namespace Engine::Column;
+
 namespace {
 	class TListColumnTest : public ::testing::Test {
 	protected:
@@ -34,7 +36,7 @@ namespace {
 		vector<double> second;
 		second.push_back(3);
 		
-		TListColumn<double> column;
+		TListColumn<double> column("name");
 		column.push_back(first);
 		column.push_back(second);
 		

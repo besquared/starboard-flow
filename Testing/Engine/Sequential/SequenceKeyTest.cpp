@@ -1,5 +1,5 @@
 /*
- *  SequenceKeyTest.cpp
+ *  KeyTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/11/09.
@@ -8,14 +8,17 @@
  */
 
 #include "TestHelper.h"
+#include <Engine/Sequential/Key.h>
+
+using namespace Flow::Engine;
 
 namespace {
-	class SequenceKeyTest : public ::testing::Test {
+	class KeyTest : public ::testing::Test {
 	protected:
 		TestHelper *helper;
 		
-		SequenceKeyTest() {}
-		virtual ~SequenceKeyTest() {}
+		KeyTest() {}
+		virtual ~KeyTest() {}
 		
 		virtual void SetUp() {
 			this->helper = new TestHelper();
@@ -26,31 +29,31 @@ namespace {
 		}
 	};
 	
-	TEST_F(SequenceKeyTest, Compares) {
+	TEST_F(KeyTest, Compares) {
 		vector<string> components;
 		components.push_back("user");
 		components.push_back("20091020");
 		
-		SequenceKey first(components);
-		SequenceKey second(components);
+		Sequential::Key first(components);
+		Sequential::Key second(components);
 		
 		ASSERT_EQ(true, first == second);
 		
 		components.push_back("red");
 		
-		SequenceKey third(components);
+		Sequential::Key third(components);
 		
 		ASSERT_EQ(false, first == third);
 		ASSERT_EQ(false, second == third);
 	}
 	
-	TEST_F(SequenceKeyTest, Benchmarks) {
+	TEST_F(KeyTest, Benchmarks) {
 //		vector<string> components;
 //		components.push_back("user");
 //		components.push_back("20091020");
 //		
 //		for(int i = 0; i < 100000; i++) {
-//			SequenceKey key(components);
+//			Key key(components);
 //		}
 	}
 }  // namespace

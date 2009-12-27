@@ -9,52 +9,46 @@
 
 #include "TestHelper.h"
 
+using namespace Flow::Engine::Column;
+
 namespace {
 	class TableTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		
 		TableTest() {}
 		virtual ~TableTest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
 	TEST_F(TableTest, AddsColumns) {
 		shared_ptr<Table> table(new Table());
 		
-		shared_ptr<Column> store(new TColumn<string>);
-		table->columns->push_back("store", store);
+		shared_ptr<Column::Base> store(new TColumn<string>("store"));
+		table->push_back(store);
 		
-		shared_ptr<Column> sales(new TColumn<double>);
-		table->columns->push_back("sales", sales);
+		shared_ptr<Column::Base> sales(new TColumn<double>("sales"));
+		table->push_back(sales);
 		
-		shared_ptr<Column> records(new TListColumn<RecordID>);
-		table->columns->push_back("records", records);
+		shared_ptr<Column::Base> records(new TListColumn<RecordID>("records"));
+		table->push_back(records);
 
-		ASSERT_EQ(3, table->columns->size());
+		ASSERT_EQ(3, table->size());
 	}
 	
 	TEST_F(TableTest, OverloadsVector) {
 		shared_ptr<Table> table(new Table);
 		
-		shared_ptr< TColumn<string> > store(new TColumn<string>);
+		shared_ptr< TColumn<string> > store(new TColumn<string>("store"));
 		store->push_back("S1");
 		store->push_back("S2");
 		store->push_back("S3");
-		shared_ptr<Column> pstore = static_pointer_cast<Column>(store);
+		shared_ptr<Column::Base> pstore = static_pointer_cast<Column::Base>(store);
 		
-		table->columns->push_back("store", pstore);
+		table->push_back(pstore);
 		
-		shared_ptr<Column> cstore;
-		if(table->columns->size() >= 0) {
-			cstore = table->columns->at(0);
+		shared_ptr<Column::Base> cstore;
+		if(table->size() >= 0) {
+			cstore = table->at(0);
 		} else {
 			FAIL() << "Looking up store column failed";
 		}

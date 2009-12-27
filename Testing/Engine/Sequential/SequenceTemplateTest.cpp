@@ -1,5 +1,5 @@
 /*
- *  SequenceTemplateTest.cpp
+ *  PatternTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/11/09.
@@ -8,26 +8,21 @@
  */
 
 #include "TestHelper.h"
+#include <Engine/Sequential/Pattern.h>
+
+using namespace Flow::Engine;
 
 namespace {
-	class SequenceTemplateTest : public ::testing::Test {
+	class PatternTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		
-		SequenceTemplateTest() {}
-		virtual ~SequenceTemplateTest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		PatternTest() {}
+		virtual ~PatternTest() {}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
-	TEST_F(SequenceTemplateTest, Instantiates) {
-		SequenceTemplate pattern;
+	TEST_F(PatternTest, Instantiates) {
+		Sequential::Pattern pattern;
 		pattern.push_back("station", "X", "x1");
 		
 		ASSERT_EQ(1, pattern.size());

@@ -19,7 +19,9 @@ namespace Flow {
 
 			shared_ptr<Column::Base> at(const size_t position);
 			shared_ptr<Column::Base> at(const string& name);
-
+			
+			size_t size() const;
+			
 			string Inspect();
 		};
 	}

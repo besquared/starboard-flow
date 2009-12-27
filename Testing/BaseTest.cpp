@@ -18,11 +18,9 @@ namespace {
 		virtual ~BaseTest() {}
 		
 		virtual void SetUp() {
-			this->flow = new Base("/tmp/flow");
 		}
 		
 		virtual void TearDown() {
-			delete(this->flow);
 		}
 	};
 	

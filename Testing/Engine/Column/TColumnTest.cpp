@@ -9,6 +9,8 @@
 
 #include "TestHelper.h"
 
+using namespace Flow::Engine::Column;
+
 namespace {
 	class TColumnTest : public ::testing::Test {
 	protected:
@@ -27,7 +29,7 @@ namespace {
 	};
 	
 	TEST_F(TColumnTest, Inspects) {
-		TColumn<double> column;
+		TColumn<double> column("column");
 		column.push_back(1.0);
 		column.push_back(2.0);
 		string inspected = column.Inspect();
