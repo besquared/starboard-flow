@@ -40,6 +40,7 @@ namespace Flow {
 			Domain::Dimensions* dimensions;
 			Domain::Measures* measures;
 			
+			Base(); // mostly for mocking and subclassing
 			Base(const string& path, const string& dpath);
 			~Base();
 		};
