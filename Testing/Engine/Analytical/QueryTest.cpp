@@ -10,23 +10,22 @@
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
 
+using namespace Testing::Domain;
+
 namespace {
 	class QueryTest : public ::testing::Test {
 	protected:
-		Meta* meta;
-		Indices* indices;
+		MockBase* purchases;
 		
 		QueryTest() {}
 		virtual ~QueryTest() {}
 		
 		virtual void SetUp() {
-			this->meta = new Meta("/tmp/flow");
-			this->indices = new Indices(this->meta);
+			this->purchases = new MockBase("/tmp/flow", "/tmp/flow");
 		}
 		
 		virtual void TearDown() {
-			delete(this->meta);
-			delete(this->indices);
+			delete(this->purchases);
 		}
 	};
 	
