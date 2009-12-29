@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _subway_fixture_included_
-#define _subway_fixture_included_
+#ifndef _flow_testing_subway_fixture_h_
+#define _flow_testing_subway_fixture_h_
 
 #include "Fixture.h"
 #include "TestHelper.h"

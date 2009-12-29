@@ -1,5 +1,5 @@
 /*
- *  MeasureDB.cpp
+ *  Measure.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 11/26/09.

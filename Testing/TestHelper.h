@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _test_helper_included_
-#define _test_helper_included_
+#ifndef _flow_testing_test_helper_h_
+#define _flow_testing_test_helper_h_
 
 #include <Common.h>
 #include <Domain/Base.h>

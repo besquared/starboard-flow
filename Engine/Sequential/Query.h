@@ -1,5 +1,5 @@
 /*
- *  SequenceQuery.h
+ *  Query.h
  *  Flow
  *
  *  Created by Josh Ferguson on 12/10/09.

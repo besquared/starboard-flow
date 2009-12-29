@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _included_mock_meta_
-#define _included_mock_meta_
+#ifndef _flow_testing_mock_meta_h_
+#define _flow_testing_mock_meta_h_
 
 #include "Common.h"
 #include "Meta.h"

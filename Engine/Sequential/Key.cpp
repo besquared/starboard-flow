@@ -1,5 +1,5 @@
 /*
- *  Sequential::Key.cpp
+ *  Key.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/11/09.

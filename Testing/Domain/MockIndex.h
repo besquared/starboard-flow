@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _flow_mock_index_h_
-#define _flow_mock_index_h_
+#ifndef _flow_testing_mock_index_h_
+#define _flow_testing_mock_index_h_
 
 #include "Common.h"
 #include "Index.h"

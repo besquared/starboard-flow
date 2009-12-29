@@ -1,3 +1,11 @@
+/*
+ *  Common.h
+ *  Flow
+ *
+ *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *
+ */
+
 #ifndef _flow_common_h_
 #define _flow_common_h_
 

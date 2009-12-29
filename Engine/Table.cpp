@@ -1,3 +1,11 @@
+/*
+ *  Table.cpp
+ *  Flow
+ *
+ *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *
+ */
+
 #include "Table.h"
 
 Engine::Table::Table() {}

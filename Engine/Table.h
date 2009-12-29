@@ -1,5 +1,13 @@
-#ifndef _table_included_
-#define _table_included_
+/*
+ *  Table.h
+ *  Flow
+ *
+ *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *
+ */
+
+#ifndef _flow_engine_table_h_
+#define _flow_engine_table_h_
 
 #include <Common.h>
 #include <Engine/Column/Base.h>

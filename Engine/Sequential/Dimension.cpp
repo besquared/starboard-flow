@@ -1,5 +1,5 @@
 /*
- *  SequenceDimension.cpp
+ *  Dimension.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/11/09.

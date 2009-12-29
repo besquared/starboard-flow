@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _fixture_included_
-#define _fixture_included_
+#ifndef _flow_testing_fixture_h_
+#define _flow_testing_fixture_h_
 
 #include "TestHelper.h"
 
