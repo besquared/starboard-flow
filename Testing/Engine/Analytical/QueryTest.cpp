@@ -8,6 +8,7 @@
  */
 
 #include <Testing/TestHelper.h>
+#include <Testing/Domain/MockBase.h>
 
 namespace {
 	class QueryTest : public ::testing::Test {

@@ -25,6 +25,9 @@
 		03BD729710E9FCF700442C98 /* DimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728C10E9FCF700442C98 /* DimensionTest.cpp */; };
 		03BD729810E9FCF700442C98 /* BDBTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728D10E9FCF700442C98 /* BDBTest.cpp */; };
 		03BD72AE10E9FD7700442C98 /* MockBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72AD10E9FD7700442C98 /* MockBase.h */; };
+		03BD72DF10EA002700442C98 /* MockDimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72DE10EA002700442C98 /* MockDimensions.h */; };
+		03BD72E110EA004800442C98 /* MockIndices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72E010EA004800442C98 /* MockIndices.h */; };
+		03BD72E310EA005600442C98 /* MockMeasures.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72E210EA005600442C98 /* MockMeasures.h */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -143,6 +146,9 @@
 		03BD728C10E9FCF700442C98 /* DimensionTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionTest.cpp; sourceTree = "<group>"; };
 		03BD728D10E9FCF700442C98 /* BDBTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDBTest.cpp; sourceTree = "<group>"; };
 		03BD72AD10E9FD7700442C98 /* MockBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockBase.h; sourceTree = "<group>"; };
+		03BD72DE10EA002700442C98 /* MockDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDimensions.h; sourceTree = "<group>"; };
+		03BD72E010EA004800442C98 /* MockIndices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockIndices.h; sourceTree = "<group>"; };
+		03BD72E210EA005600442C98 /* MockMeasures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMeasures.h; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -482,8 +488,11 @@
 				03E7308010E3392100D5E4C1 /* Data */,
 				03BD72AD10E9FD7700442C98 /* MockBase.h */,
 				03E7308110E3392100D5E4C1 /* DimensionsTest.cpp */,
+				03BD72DE10EA002700442C98 /* MockDimensions.h */,
 				03E7308410E3392100D5E4C1 /* IndicesTest.cpp */,
+				03BD72E010EA004800442C98 /* MockIndices.h */,
 				03E7308510E3392100D5E4C1 /* MeasuresTest.cpp */,
+				03BD72E210EA005600442C98 /* MockMeasures.h */,
 			);
 			name = Domain;
 			path = Testing/Domain;
@@ -608,6 +617,9 @@
 				03BD729210E9FCF700442C98 /* MockMeta.h in Headers */,
 				03BD729310E9FCF700442C98 /* MockIndex.h in Headers */,
 				03BD72AE10E9FD7700442C98 /* MockBase.h in Headers */,
+				03BD72DF10EA002700442C98 /* MockDimensions.h in Headers */,
+				03BD72E110EA004800442C98 /* MockIndices.h in Headers */,
+				03BD72E310EA005600442C98 /* MockMeasures.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

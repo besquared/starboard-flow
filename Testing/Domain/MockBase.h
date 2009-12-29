@@ -1,6 +1,6 @@
 /*
  *  MockBase.h
- *  flow
+ *  Flow
  *
  *  Created by Josh Ferguson on 12/29/09.
  *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
@@ -12,14 +12,15 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
+#include <Testing/Domain/MockDimensions.h>
 
 namespace Flow {
 	namespace Testing {
 		namespace Domain {
-			class MockBase : public Domain::Base {
+			class MockBase : public ::Domain::Base {
 			public:
 				MockBase(const string& path, const string& dpath) : 
-					Domain::Base::Base(path, dpath) {}				
+				::Domain::Base::Base(path, dpath) {}
 			};
 		}
 	}
