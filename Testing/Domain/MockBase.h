@@ -15,6 +15,7 @@
 
 #include <Testing/Domain/MockIndices.h>
 #include <Testing/Domain/MockDimensions.h>
+#include <Testing/Domain/MockMeasures.h>
 
 namespace Flow {
 	namespace Testing {

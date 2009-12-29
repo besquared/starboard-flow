@@ -26,8 +26,8 @@ namespace Flow {
 		public:		
 			Measures(const string& path);
 			
-			bool Insert(RecordID record, const map<string, double>& measures);
-			void Lookup(const string& measure, const Data::RIDList& records, vector<double>& results);
+			virtual bool Insert(const RecordID record, const map<string, double>& measures);
+			virtual void Lookup(const string& measure, const Data::RIDList& records, vector<double>& results);
 		};
 	}
 }
