@@ -33,9 +33,9 @@ namespace Flow {
 		public:
 			Indices(Data::Meta* meta);
 			
-			bool Insert(const Data::Record& record);
-			bool Lookup(const ValueMap& specified);
-			bool Lookup(const set<string>& dimensions, const Conditions& conditions, Data::RIDTree& results);
+			virtual bool Insert(const Data::Record& record);
+			virtual bool Lookup(const ValueMap& specified);
+			virtual bool Lookup(const set<string>& dimensions, const Conditions& conditions, Data::RIDTree& results);
 		};
 	}
 }

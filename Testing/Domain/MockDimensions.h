@@ -20,6 +20,9 @@ namespace Flow {
 			public:
 				MockDimensions(const string& path) : 
 				::Domain::Dimensions::Dimensions(path) {}
+				
+				MOCK_METHOD1(Insert, bool(const ::Domain::Data::Record& record));
+				MOCK_METHOD3(Lookup, void(const string& dimension, const ::Domain::Data::RIDList& record, vector<string>& results));
 			};
 		}
 	}

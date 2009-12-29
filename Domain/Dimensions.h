@@ -27,8 +27,8 @@ namespace Flow {
 		public:
 			Dimensions(const string& path);
 			
-			bool Insert(const Data::Record& record);
-			void Lookup(const string& dimension, const Data::RIDList& records, vector<string>& results);
+			virtual bool Insert(const Data::Record& record);
+			virtual void Lookup(const string& dimension, const Data::RIDList& records, vector<string>& results);
 		};
 	}
 }

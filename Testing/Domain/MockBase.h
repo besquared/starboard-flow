@@ -12,6 +12,8 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
+
+#include <Testing/Domain/MockIndices.h>
 #include <Testing/Domain/MockDimensions.h>
 
 namespace Flow {

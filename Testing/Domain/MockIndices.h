@@ -7,3 +7,28 @@
  *
  */
 
+#ifndef _flow_testing_domain_mock_indices_h_
+#define _flow_testing_domain_mock_indices_h_
+
+#include <Common.h>
+#include <Domain/Indices.h>
+
+#include <Testing/Domain/Data/MockMeta.h>
+
+namespace Flow {
+	namespace Testing {
+		namespace Domain {
+			class MockIndices : public ::Domain::Indices {
+			public:
+				MockIndices(Data::MockMeta* meta) : 
+				::Domain::Indices::Indices(meta) {}
+				
+				MOCK_METHOD1(Insert, bool(const ::Domain::Data::Record& record));
+				MOCK_METHOD1(Lookup, bool(const ValueMap& specified));
+				MOCK_METHOD3(Lookup, bool(const set<string>& dimensions, const Conditions& conditions, ::Domain::Data::RIDTree& results));				
+			};
+		}
+	}
+}
+
+#endif
