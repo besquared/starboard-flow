@@ -8,7 +8,7 @@
  */
 
 
-#include "TestHelper.h"
+#include <Testing/TestHelper.h>
 
 using namespace Condition;
 

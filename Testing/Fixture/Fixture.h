@@ -10,7 +10,7 @@
 #ifndef _flow_testing_fixture_h_
 #define _flow_testing_fixture_h_
 
-#include "TestHelper.h"
+#include <Testing/TestHelper.h>
 
 using namespace std;
 using namespace boost;

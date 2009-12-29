@@ -7,7 +7,7 @@
  *
  */
 
-#include "TestHelper.h"
+#include <Testing/TestHelper.h>
 
 namespace {
 	class RIDListTest : public ::testing::Test {

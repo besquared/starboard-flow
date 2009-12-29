@@ -11,7 +11,7 @@
 #define _flow_testing_subway_fixture_h_
 
 #include "Fixture.h"
-#include "TestHelper.h"
+#include <Testing/TestHelper.h>
 
 /*
  * +--------+-------+------------+----------+----------+-------------+-----------+--------+

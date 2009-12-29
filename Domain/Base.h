@@ -35,12 +35,13 @@ namespace Flow {
 			string dpath;
 			Data::Meta* meta;
 
-		public:			
+		public:
 			Domain::Indices* indices;
 			Domain::Dimensions* dimensions;
 			Domain::Measures* measures;
 			
 			Base(const string& path, const string& dpath);
+			~Base();
 		};
 	}
 }

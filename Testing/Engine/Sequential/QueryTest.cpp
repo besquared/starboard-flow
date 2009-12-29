@@ -7,7 +7,7 @@
  *
  */
 
-#include "TestHelper.h"
+#include <Testing/TestHelper.h>
 #include <Engine/Sequential/Query.h>
 
 using namespace Flow::Engine;

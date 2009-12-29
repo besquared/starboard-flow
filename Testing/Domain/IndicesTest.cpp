@@ -7,11 +7,11 @@
  *
  */
 
-#include "TestHelper.h"
-#include "MockMeta.h"
-#include "MockIndex.h"
+#include <Testing/TestHelper.h>
+#include <Testing/Domain/Data/MockMeta.h>
+#include <Testing/Domain/Data/MockIndex.h>
 
-namespace Mocks = Testing::Database;
+namespace Mocks = Testing::Domain::Data;
 
 using ::testing::Return;
 using ::testing::SetArgReferee;
