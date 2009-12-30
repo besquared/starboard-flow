@@ -18,13 +18,13 @@
 namespace Flow {
 	namespace Testing {
 		namespace Domain {
-			class MockIndices : public ::Domain::Indices {
+			class MockIndices : public ::Domain::Indices {				
 			public:
-				MockIndices(Data::MockMeta* meta) : 
+				MockIndices(::Domain::Data::Meta* meta) : 
 				::Domain::Indices::Indices(meta) {}
 				
 				MOCK_METHOD1(Insert, bool(const ::Domain::Data::Record& record));
-				MOCK_METHOD1(Lookup, bool(const ValueMap& specified));
+				MOCK_METHOD2(Lookup, bool(const ValueMap& specified, ::Domain::Data::RIDList& results));
 				MOCK_METHOD3(Lookup, bool(const set<string>& dimensions, const Conditions& conditions, ::Domain::Data::RIDTree& results));				
 			};
 		}

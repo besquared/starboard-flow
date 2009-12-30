@@ -28,13 +28,15 @@ namespace Flow {
 		class Indices {
 		protected:
 			Data::Meta* meta;
+			
+			Indices();			
 			bool Allocate(const Data::Record& record);
-
+			
 		public:
 			Indices(Data::Meta* meta);
 			
 			virtual bool Insert(const Data::Record& record);
-			virtual bool Lookup(const ValueMap& specified);
+			virtual bool Lookup(const ValueMap& specified, Data::RIDList& results);
 			virtual bool Lookup(const set<string>& dimensions, const Conditions& conditions, Data::RIDTree& results);
 		};
 	}

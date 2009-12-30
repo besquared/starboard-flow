@@ -34,15 +34,16 @@ namespace Flow {
 			string path;
 			string dpath;
 			Data::Meta* meta;
+			
+			Base(); // mostly for mocking and subclassing
 
 		public:
 			Domain::Indices* indices;
 			Domain::Dimensions* dimensions;
 			Domain::Measures* measures;
 			
-			Base(); // mostly for mocking and subclassing
 			Base(const string& path, const string& dpath);
-			~Base();
+			virtual ~Base();
 		};
 	}
 }

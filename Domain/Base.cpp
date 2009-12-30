@@ -9,6 +9,10 @@
 
 #include "Base.h"
 
+Domain::Base::Base() {
+	// not usable in this state, duurrr
+}
+
 Domain::Base::Base(const string& path, const string& dpath) {
 	this->path = path;
 	this->dpath = dpath;

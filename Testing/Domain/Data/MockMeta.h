@@ -18,9 +18,9 @@ namespace Flow {
 	namespace Testing {
 		namespace Domain {
 			namespace Data {
-				class MockMeta : public Meta {
+				class MockMeta : public ::Domain::Data::Meta {
 				public:
-					MockMeta(const string& path) : Meta::Meta(path) {
+					MockMeta(const string& path) : ::Domain::Data::Meta::Meta(path) {
 						this->index = new MockIndex(this->path);
 					}
 					

@@ -9,6 +9,8 @@
 
 #include "Indices.h"
 
+Domain::Indices::Indices() {}
+
 Domain::Indices::Indices(Data::Meta *meta) {
 	this->meta = meta;
 }
@@ -57,8 +59,15 @@ bool Domain::Indices::Insert(const Data::Record& record) {
 }
 
 // ValueMap map<string, string>
-bool Domain::Indices::Lookup(const ValueMap& specified) {
+bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) {
 	if(!this->meta->OpenReader()) { return false; }
+	
+	// UHHH, write this?
+	if(!this->meta->index->OpenReader()) { return false; }
+	if(!this->meta->index->Lookup(specified, results)) { 
+		this->meta->index->Close(); return false; 
+	}
+	
 	this->meta->Close();
 	return true;
 }
@@ -72,7 +81,7 @@ bool Domain::Indices::Lookup(const set<string>& dimensions,
 	ValuesMap values;
 	if(!this->meta->index->OpenReader()) { return false; }
 	if(!this->meta->index->Lookup(dimensions, values)) { 
-		this->meta->index->Close();return false; 
+		this->meta->index->Close(); return false; 
 	}
 	
 	Data::RIDMap records;

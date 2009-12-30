@@ -10,25 +10,27 @@
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
 
+using namespace ::Engine;
 using namespace Testing::Domain;
 
 namespace {
 	class QueryTest : public ::testing::Test {
 	protected:
 		MockBase* purchases;
+		MockIndices* indices;
 		
 		QueryTest() {}
 		virtual ~QueryTest() {}
 		
 		virtual void SetUp() {
 			this->purchases = new MockBase("/tmp/flow", "/tmp/flow");
+			this->indices = (MockIndices*)(this->purchases->indices);
 		}
 		
 		virtual void TearDown() {
 			delete(this->purchases);
 		}
 	};
-	
 	
 	/*
 	 * +-------+----+----+--------+-------+
@@ -40,7 +42,25 @@ namespace {
 	 * +-------+---------+--------+-------|
 	 * | S2    | P1      | f      | 9     |
 	 * +-------+---------+--------|-------|
-	 */		
+	 */
+	
+	TEST_F(QueryTest, ProcessesPurePointQuery) {
+		map<string, string> specified;
+		specified["store"] = "S1";
+		
+		::Domain::Data::RIDList records;
+		records.push_back(1.0);
+		records.push_back(2.0);
+		
+		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));
+		
+		Engine::Table results;
+		Analytical::Query query(this->purchases);
+		query.conditions->Eq("store", "S1");
+		query.aggregates->Count("records");
+		query.aggregates->Sum("sales");
+		query.Execute(results);
+	}
 	
 //	TEST_F(QueryTest, ProcessesPurePointQuery) {
 //		this->LoadProductData();

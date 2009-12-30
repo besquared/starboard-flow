@@ -25,13 +25,8 @@ namespace Flow {
 			protected:
 				string path;
 				string dpath;
-				Data::MockMeta* meta;
 				
 			public:
-				Domain::MockIndices* indices;
-				Domain::MockDimensions* dimensions;
-				Domain::MockMeasures* measures;
-
 				MockBase(const string& path, const string& dpath) {
 					this->path = path;
 					this->dpath = dpath;

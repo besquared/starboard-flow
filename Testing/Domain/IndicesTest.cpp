@@ -13,10 +13,6 @@
 
 namespace Mocks = Testing::Domain::Data;
 
-using ::testing::Return;
-using ::testing::SetArgReferee;
-using ::testing::_;
-
 namespace {
 	class IndicesTest : public ::testing::Test {
 	protected:

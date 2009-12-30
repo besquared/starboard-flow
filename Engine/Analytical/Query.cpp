@@ -72,9 +72,18 @@ bool Analytical::Query::Materialize(Table& table) {
 		dimensions.push_back(condition->column);
 	}
 	
+	// instantiate stuff here
+	RIDList instantiated;
+	if(instantiate.size() > 0) {
+		this->domain->indices->Lookup(instantiate, instantiated);
+	}
+	
 	RIDTree inquired;
-	this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
-	this->Construct(inquired, dimensions, table);
+	if(inquire.size() > 0) {
+		this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
+	}
+	
+	this->Construct(instantiated, inquired, dimensions, table);
 	return true;
 }
 
@@ -146,10 +155,10 @@ bool Analytical::Query::Sweep(Table& base) {
 /*
  * Construction
  */
-void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions, Table& results) {
-	vector<string> values;
+void Analytical::Query::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, Table& results) {
 	RIDList records;
-	this->Construct(inquired, dimensions, 0, values, records, results);
+	vector<string> values;
+	this->Construct(instantiated, inquired, dimensions, 0, values, records, results);
 }
 
 /*
@@ -174,7 +183,7 @@ void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions,
  and the id list into the table and return. We continue by searching B:b2
  and so on.
 */
-void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions, 
+void Analytical::Query::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, 
 																	int offset, vector<string>& values, RIDList& records, Table& results) {
 	
 	if(dimensions.size() == offset) {
@@ -184,25 +193,21 @@ void Analytical::Query::Construct(RIDTree& inquired, vector<string>& dimensions,
 			static_pointer_cast< Column::TColumn<RIDList> >(results.at("records"));
 
 		values_column->push_back(values);
-		records_column->push_back(records);
+		records_column->push_back(records & instantiated);
 
 		return;
 	}
 	
 	RIDMap::iterator rpair;
 	RIDMap rmap = inquired[dimensions[offset]];
-
-	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {		
-		RIDList intersection;
-		if(records.size() == 0) {
-			intersection = rpair->second;
-		} else {
-			intersection = records & rpair->second;
-		}
+	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {
+		RIDList intersection = 
+			(records.empty() ? rpair->second : records & rpair->second);
 		
 		if(intersection.size() > 0) {
 			values.push_back(rpair->first);
-			this->Construct(inquired, dimensions, offset + 1, values, intersection, results);
+			this->Construct(instantiated, inquired, dimensions, 
+											offset + 1, values, intersection, results);
 			values.pop_back();
 		}
 	}

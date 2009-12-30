@@ -18,6 +18,10 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+using ::testing::Return;
+using ::testing::SetArgReferee;
+using ::testing::_;
+
 using namespace Flow;
 
 class TestHelper {};
