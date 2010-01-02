@@ -71,23 +71,30 @@ bool Analytical::Query::Materialize(Table& table) {
 		
 		dimensions.push_back(condition->column);
 	}
-	
-	// instantiate stuff here
+
 	RIDList instantiated;
 	if(instantiate.size() > 0) {
 		this->domain->indices->Lookup(instantiate, instantiated);
-	}
-	
-	cout << instantiated.Inspect() << endl;
-	
-	RIDTree inquired;
-	if(inquire.size() > 0) {
-		this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
-	} else {
 		
+		if(instantiated.size() == 0) { 
+			return true; 
+		}
 	}
 	
-	this->Construct(instantiated, inquired, dimensions, table);
+	if(inquire.size() > 0) {
+		RIDTree inquired;
+		this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
+		
+		if(inquired.size() == 0) {
+			return true;
+		} else {
+			this->Construct(instantiated, inquired, dimensions, table);
+		}
+	} else {
+		if(instantiated.size() > 0) {
+			// just insert the instantiated ids into the blocks
+		}
+	}
 	
 	return true;
 }
