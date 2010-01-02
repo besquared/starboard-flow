@@ -13,6 +13,8 @@ Domain::Dimensions::Dimensions(const string& path) {
 	this->path = path;
 }
 
+Domain::Dimensions::~Dimensions() {}
+
 bool Domain::Dimensions::Insert(const Data::Record& record) {
 	map<string, string>::const_iterator dimension;
 	for(dimension = record.begin(); dimension != record.end(); dimension++) {

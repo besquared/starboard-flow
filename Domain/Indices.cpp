@@ -15,6 +15,8 @@ Domain::Indices::Indices(Data::Meta *meta) {
 	this->meta = meta;
 }
 
+Domain::Indices::~Indices() {}
+
 bool Domain::Indices::Allocate(const Data::Record& record) {
 	if(!this->meta->OpenWriter()) { return false; }	
 	if(!this->meta->Allocate(record.Dimensions())) { return false; }

@@ -21,11 +21,7 @@
 namespace Flow {
 	namespace Testing {
 		namespace Domain {
-			class MockBase : public ::Domain::Base {
-			protected:
-				string path;
-				string dpath;
-				
+			class MockBase : public ::Domain::Base {				
 			public:
 				MockBase(const string& path, const string& dpath) {
 					this->path = path;

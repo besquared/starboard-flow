@@ -78,12 +78,17 @@ bool Analytical::Query::Materialize(Table& table) {
 		this->domain->indices->Lookup(instantiate, instantiated);
 	}
 	
+	cout << instantiated.Inspect() << endl;
+	
 	RIDTree inquired;
 	if(inquire.size() > 0) {
 		this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
+	} else {
+		
 	}
 	
 	this->Construct(instantiated, inquired, dimensions, table);
+	
 	return true;
 }
 

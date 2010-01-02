@@ -34,6 +34,7 @@ namespace Flow {
 			
 		public:
 			Indices(Data::Meta* meta);
+			virtual ~Indices();
 			
 			virtual bool Insert(const Data::Record& record);
 			virtual bool Lookup(const ValueMap& specified, Data::RIDList& results);

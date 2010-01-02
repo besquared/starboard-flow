@@ -25,6 +25,7 @@ namespace Flow {
 
 		public:		
 			Measures(const string& path);
+			virtual ~Measures();
 			
 			virtual bool Insert(const RecordID record, const map<string, double>& measures);
 			virtual void Lookup(const string& measure, const Data::RIDList& records, vector<double>& results);

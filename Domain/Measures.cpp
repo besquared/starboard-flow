@@ -13,6 +13,8 @@ Domain::Measures::Measures(const string& path) {
 	this->path = path;
 }
 
+Domain::Measures::~Measures() {}
+
 bool Domain::Measures::Insert(const RecordID record, const map<string, double>& measures) {
 	map<string, double>::const_iterator measure;
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
