@@ -99,29 +99,6 @@ bool Analytical::Query::Materialize(Table& table) {
 	return true;
 }
 
-// Gather all the measures needed by the aggregates
-bool Analytical::Query::Gather(const set<string>& measures, Table& base) {
-	set<string>::const_iterator measure;
-	for(measure = measures.begin(); measure != measures.end(); measure++) {
-//		if(base->columns->exist(*measure)) { continue; }
-		
-		shared_ptr< Column::TListColumn<double> > values(new Column::TListColumn<double>(*measure));
-		
-		shared_ptr< Column::TColumn<RIDList> > records = 
-		static_pointer_cast< Column::TColumn<RIDList> >(base.at("records"));
-		
-		vector<double> mvalues;
-		for(size_t i = 0; i < records->size(); i++) {
-			mvalues.clear();
-			this->domain->measures->Lookup(*measure, records->at(i), mvalues);
-			values->push_back(mvalues);
-		}			
-		base.push_back(static_pointer_cast<Column::Base>(values));
-	}
-	
-	return true;
-}
-
 bool Analytical::Query::Aggregate(Table& base) {
 	// go through all the aggregations and gather
 	//   their measures from disk if we don't have them
@@ -159,6 +136,29 @@ bool Analytical::Query::Sweep(Table& base) {
 	set<string>::iterator measure;
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
 		base.erase(*measure);
+	}
+	
+	return true;
+}
+
+// Gather all the measures needed by the aggregates
+bool Analytical::Query::Gather(const set<string>& measures, Table& base) {
+	set<string>::const_iterator measure;
+	for(measure = measures.begin(); measure != measures.end(); measure++) {
+//		if(base->columns->exist(*measure)) { continue; }
+		
+		shared_ptr< Column::TListColumn<double> > values(new Column::TListColumn<double>(*measure));
+		
+		shared_ptr< Column::TColumn<RIDList> > records = 
+		static_pointer_cast< Column::TColumn<RIDList> >(base.at("records"));
+		
+		vector<double> mvalues;
+		for(size_t i = 0; i < records->size(); i++) {
+			mvalues.clear();
+			this->domain->measures->Lookup(*measure, records->at(i), mvalues);
+			values->push_back(mvalues);
+		}			
+		base.push_back(static_pointer_cast<Column::Base>(values));
 	}
 	
 	return true;

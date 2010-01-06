@@ -1,6 +1,6 @@
 /*
  *  Cluster.h
- *  flow
+ *  Flow
  *
  *  Created by Josh Ferguson on 1/5/10.
  *  Copyright 2010 Cube Tree Labs, LLC. All rights reserved.
@@ -11,14 +11,17 @@
 #define _flow_engine_sequential_cluster_h_
 
 #include <Common.h>
+#include <Domain/Data/Record.h>
+#include <Domain/Data/RIDList.h>
 
 using namespace std;
 using namespace Flow;
+using namespace Flow::Domain;
 
 namespace Flow {
 	namespace Engine {
 		namespace Sequential {
-			class Cluster : public vector<double> {
+			class Cluster : public vector<RecordID> {
 			public:
 				vector<string> table;
 				vector<string> dimensions;

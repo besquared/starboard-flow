@@ -1,6 +1,6 @@
 /*
  *  Cluster.cpp
- *  flow
+ *  Flow
  *
  *  Created by Josh Ferguson on 1/5/10.
  *  Copyright 2010 Cube Tree Labs, LLC. All rights reserved.
