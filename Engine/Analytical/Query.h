@@ -25,6 +25,8 @@ using namespace Flow::Domain::Data;
 namespace Flow {
 	namespace Engine {
 		namespace Analytical {
+			class Executive;
+			
 			class Query {
 			public:
 				Domain::Base* domain;
@@ -33,6 +35,7 @@ namespace Flow {
 				
 				Query(Domain::Base* domain);
 				bool Execute(Groups& results);
+				bool Execute(Executive& executive, Groups& results);
 				
 				void Instantiate(map<string, string>& results);
 				void Inquire(set<string>& dimensions, Conditions& conditions);

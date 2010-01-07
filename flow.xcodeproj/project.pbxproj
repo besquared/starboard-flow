@@ -37,6 +37,7 @@
 		03E51F3910F5653200411368 /* Groups.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51F3710F5653200411368 /* Groups.cpp */; };
 		03E51F9C10F5779900411368 /* Executive.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E51F9A10F5779900411368 /* Executive.h */; };
 		03E51F9D10F5779900411368 /* Executive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51F9B10F5779900411368 /* Executive.cpp */; };
+		03E5203310F589E900411368 /* MockExecutive.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E5203210F589E900411368 /* MockExecutive.h */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
 		03E72A6010E0911200D5E4C1 /* Count.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1610E0911200D5E4C1 /* Count.cpp */; };
@@ -166,6 +167,7 @@
 		03E51F3710F5653200411368 /* Groups.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Groups.cpp; sourceTree = "<group>"; };
 		03E51F9A10F5779900411368 /* Executive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Executive.h; sourceTree = "<group>"; };
 		03E51F9B10F5779900411368 /* Executive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Executive.cpp; sourceTree = "<group>"; };
+		03E5203210F589E900411368 /* MockExecutive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockExecutive.h; sourceTree = "<group>"; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03E72A1610E0911200D5E4C1 /* Count.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Count.cpp; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				03E7307310E3392100D5E4C1 /* QueryTest.cpp */,
+				03E5203210F589E900411368 /* MockExecutive.h */,
 			);
 			path = Analytical;
 			sourceTree = "<group>";
@@ -632,6 +635,7 @@
 				03E51F3410F492C800411368 /* Group.h in Headers */,
 				03E51F3810F5653200411368 /* Groups.h in Headers */,
 				03E51F9C10F5779900411368 /* Executive.h in Headers */,
+				03E5203310F589E900411368 /* MockExecutive.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

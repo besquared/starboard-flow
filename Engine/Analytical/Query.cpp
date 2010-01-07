@@ -30,7 +30,12 @@ Analytical::Query::Query(Domain::Base* domain) {
 }
 
 bool Analytical::Query::Execute(Groups& results) {
-	return Executive(this).Execute(results);
+	Executive executive(this);
+	return this->Execute(executive, results);
+}
+
+bool Analytical::Query::Execute(Executive& executive, Groups& results) {
+	return executive.Execute(results);
 }
 
 // Get a set of dims we're instantiating and their values
@@ -56,9 +61,13 @@ void Analytical::Query::Inquire(set<string>& dimensions, Conditions& conditions)
 			shared_ptr<Condition::Eq> equals = 
 				static_pointer_cast<Condition::Eq>(condition);
 			
-			if(equals->value == "?") dimensions.insert(condition->column);
+			if(equals->value == "?") {
+				conditions.push_back(condition);
+				dimensions.insert(condition->column);
+			}
 		} else {
 			conditions.push_back(condition);
+			dimensions.insert(condition->column);
 		}
 	}
 }

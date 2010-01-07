@@ -28,17 +28,17 @@ namespace Flow {
 			class Executive {
 			protected:
 				Query* query;
-				
+
 			public:
 				Executive(Query* query);
-				bool Execute(Groups& results);
+				virtual bool Execute(Groups& results);
 				
 			protected:
 				bool Materialize(Groups& results);
 				bool Aggregate(Groups& results);
-				bool Gather(const set<string>& measures, Groups& base);
 				bool Sweep(Groups& base);
-				
+				bool Gather(const set<string>& measures, Groups& base);
+
 			protected:
 				/*
 				 * Constructing Results
