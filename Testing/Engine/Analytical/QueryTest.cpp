@@ -78,6 +78,25 @@ namespace {
 		EXPECT_EQ(2, conditions.size());
 	}
 	
+	TEST_F(QueryTest, ProvidesDimensions) {
+		Analytical::Query query(this->purchases);
+		
+		query.conditions->Eq("store", "S1");
+		query.conditions->Eq("season", "?");
+		query.conditions->Lt("age", "00000015");
+		
+		vector<string> inquired;
+		vector<string> instantiated;
+		query.Dimensions(instantiated, inquired);
+		
+		ASSERT_EQ(2, inquired.size());
+		EXPECT_EQ("season", inquired[0]);
+		EXPECT_EQ("age", inquired[1]);
+		
+		ASSERT_EQ(1, instantiated.size());
+		EXPECT_EQ("store", instantiated[0]);
+	}
+	
 	TEST_F(QueryTest, ExecutesQuery) {
 //		map<string, string> specified;
 //		specified["store"] = "S1";

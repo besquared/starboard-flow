@@ -82,9 +82,9 @@ void Analytical::Query::Dimensions(vector<string>& instantiated, vector<string>&
 				static_pointer_cast<Condition::Eq>(condition);
 			
 			if(equals->value == "?") {
-				instantiated.push_back(condition->column);
-			} else {
 				inquired.push_back(condition->column);
+			} else {
+				instantiated.push_back(condition->column);
 			}
 		} else {
 			inquired.push_back(condition->column);
