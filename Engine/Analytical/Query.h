@@ -12,10 +12,10 @@
 #include <Common.h>
 #include <Conditions.h>
 #include <Domain/Base.h>
-#include <Engine/Table.h>
 #include <Engine/Aggregates.h>
 
 #include "Groups.h"
+#include "Executive.h"
 
 using namespace std;
 using namespace Flow;
@@ -32,26 +32,11 @@ namespace Flow {
 				Aggregates* aggregates;
 				
 				Query(Domain::Base* domain);
-				
-				/*
-				 * Querying
-				 */
 				bool Execute(Groups& results);
-				bool Materialize(Groups& results);
-				bool Aggregate(Groups& results);
-				bool Gather(const set<string>& measures, Groups& base);
-				bool Sweep(Groups& base);
 				
-			protected:
-				/*
-				 * Constructing Results
-				 */
-				void Construct(RIDList& instantiated, RIDTree& inquired, 
-											 vector<string>& dimensions, Groups& results);
-				void Construct(RIDList& instantiated, RIDTree& inquired, 
-											 vector<string>& dimensions, int offset, 
-											 vector<string>& values, RIDList& records, 
-											 Groups& results);
+				void Instantiate(map<string, string>& results);
+				void Inquire(set<string>& Dimensions, Conditions& conditions);
+				void Dimensions(vector<string>& instantiated, vector<string>& inquired);
 			};
 		}
 	}
