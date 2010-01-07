@@ -15,6 +15,8 @@
 #include <Engine/Table.h>
 #include <Engine/Aggregates.h>
 
+#include "Groups.h"
+
 using namespace std;
 using namespace Flow;
 using namespace Flow::Domain;
@@ -34,22 +36,22 @@ namespace Flow {
 				/*
 				 * Querying
 				 */
-				bool Execute(Table& results);
-				bool Materialize(Table& results);
-				bool Aggregate(Table& results);
-				bool Gather(const set<string>& measures, Table& base);
-				bool Sweep(Table& base);
+				bool Execute(Groups& results);
+				bool Materialize(Groups& results);
+				bool Aggregate(Groups& results);
+				bool Gather(const set<string>& measures, Groups& base);
+				bool Sweep(Groups& base);
 				
 			protected:
 				/*
 				 * Constructing Results
 				 */
 				void Construct(RIDList& instantiated, RIDTree& inquired, 
-											 vector<string>& dimensions, Table& results);
+											 vector<string>& dimensions, Groups& results);
 				void Construct(RIDList& instantiated, RIDTree& inquired, 
 											 vector<string>& dimensions, int offset, 
 											 vector<string>& values, RIDList& records, 
-											 Table& results);
+											 Groups& results);
 			};
 		}
 	}

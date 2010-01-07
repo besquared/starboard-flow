@@ -54,7 +54,7 @@ namespace {
 		
 		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));
 		
-		Engine::Table results;
+		Engine::Analytical::Groups results;
 		Analytical::Query query(this->purchases);
 		query.conditions->Eq("store", "S1");
 		query.aggregates->Count("records");

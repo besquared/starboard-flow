@@ -11,6 +11,7 @@
 #define _flow_engine_analytical_group_h_
 
 #include <Common.h>
+#include <Domain/Data/Record.h>
 
 using namespace std;
 using namespace Flow;
@@ -18,13 +19,13 @@ using namespace Flow;
 namespace Flow {
 	namespace Engine {
 		namespace Analytical {
-			class Group : public vector<double> {
+			class Group : public vector<RecordID> {
 			public:
 				vector<string> values;
 				map<string, double> aggregates;
 				map< string, vector<double> > measures;
 				
-				Group(const vector<string>& values) {
+				Group(const vector<string>& values) : vector<RecordID>() {
 					this->values = values;
 				}
 			};

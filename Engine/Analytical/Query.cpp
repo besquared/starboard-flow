@@ -29,44 +29,32 @@ Analytical::Query::Query(Domain::Base* domain) {
 	this->aggregates = new Aggregates();
 }
 
-bool Analytical::Query::Execute(Table& results) {
-	shared_ptr<Column::Base> values(new Column::TListColumn<string>("values"));
-	shared_ptr<Column::Base> records(new Column::TListColumn<RecordID>("records"));
-	results.push_back(values);		
-	results.push_back(records);
-	
+bool Analytical::Query::Execute(Groups& results) {	
 	if(!this->Materialize(results)) { return false; }
 	if(!this->Aggregate(results)) { return false; }
 	if(!this->Sweep(results)) { return false; }
 	return true;
 }
 
-bool Analytical::Query::Materialize(Table& table) {
+bool Analytical::Query::Materialize(Groups& results) {
 	set<string> inquire;
 	vector<string> dimensions;
 	map<string, string> instantiate;
 	Conditions inquiry_conditions;
 	
-	Conditions* conditions = this->conditions;
-	for(size_t i = 0; i < conditions->size(); i++) {
-		shared_ptr<Condition::Base> condition = conditions->at(i);
+	for(size_t i = 0; i < this->conditions->size(); i++) {
+		shared_ptr<Condition::Base> condition = this->conditions->at(i);
 		
-		switch(condition->type) {
-			case Condition::Base::EQ : {
-				shared_ptr<Condition::Eq> equals = static_pointer_cast<Condition::Eq>(condition);
-				
-				if(equals->value == "?") {
-					inquire.insert(condition->column);
-				} else {
-					instantiate[condition->column] = equals->value;
-				}
-				break;
-			}
+		if(condition->type == Condition::Base::EQ) {
+			shared_ptr<Condition::Eq> equals = static_pointer_cast<Condition::Eq>(condition);
 			
-			default : {
-				inquiry_conditions.push_back(condition);
-				break;
-			}
+			if(equals->value == "?") {
+				inquire.insert(condition->column);
+			} else {
+				instantiate[condition->column] = equals->value;
+			}			
+		} else {
+			inquiry_conditions.push_back(condition);
 		}
 		
 		dimensions.push_back(condition->column);
@@ -75,10 +63,7 @@ bool Analytical::Query::Materialize(Table& table) {
 	RIDList instantiated;
 	if(instantiate.size() > 0) {
 		this->domain->indices->Lookup(instantiate, instantiated);
-		
-		if(instantiated.size() == 0) { 
-			return true; 
-		}
+		if(instantiated.size() == 0) return true;
 	}
 	
 	if(inquire.size() > 0) {
@@ -88,78 +73,78 @@ bool Analytical::Query::Materialize(Table& table) {
 		if(inquired.size() == 0) {
 			return true;
 		} else {
-			this->Construct(instantiated, inquired, dimensions, table);
+			this->Construct(instantiated, inquired, dimensions, results);
 		}
 	} else {
 		if(instantiated.size() > 0) {
-			// just insert the instantiated ids into the blocks
+			// just insert the instantiated ids into groups
 		}
 	}
 	
 	return true;
 }
 
-bool Analytical::Query::Aggregate(Table& base) {
+bool Analytical::Query::Aggregate(Groups& base) {
 	// go through all the aggregations and gather
 	//   their measures from disk if we don't have them
-	size_t size = this->aggregates->size();
 	
-	set<string> measures;
-	for(size_t i = 0; i < size; i++) {
-		vector<string> ameasures = this->aggregates->at(i)->measures;
-		measures.insert(ameasures.begin(), ameasures.end());
-	}
-	
-	if(this->Gather(measures, base)) {
-		for(size_t j = 0; j < size; j++) {
-			this->aggregates->at(j)->Apply(base);	
-		}
-		return true;
-	} else {
-		return false;
-	}
+//	size_t size = this->aggregates->size();
+//	
+//	set<string> measures;
+//	for(size_t i = 0; i < size; i++) {
+//		vector<string> ameasures = this->aggregates->at(i)->measures;
+//		measures.insert(ameasures.begin(), ameasures.end());
+//	}
+//	
+//	if(this->Gather(measures, base)) {
+//		for(size_t j = 0; j < size; j++) {
+//			this->aggregates->at(j)->Apply(base);	
+//		}
+//		return true;
+//	} else {
+//		return false;
+//	}
+	return true;
 }
 
-bool Analytical::Query::Sweep(Table& base) {
+bool Analytical::Query::Sweep(Groups& base) {
 	// go through and drop the columns that 
 	//  we don't want returned (records and measures)
 	
-	size_t size = this->aggregates->size();
-	
-	set<string> measures;
-	for(size_t i = 0; i < size; i++) {
-		vector<string> ameasures = this->aggregates->at(i)->measures;
-		measures.insert(ameasures.begin(), ameasures.end());
-	}
-	measures.insert("records");
-	
-	set<string>::iterator measure;
-	for(measure = measures.begin(); measure != measures.end(); measure++) {
-		base.erase(*measure);
-	}
-	
+//	size_t size = this->aggregates->size();
+//	
+//	set<string> measures;
+//	for(size_t i = 0; i < size; i++) {
+//		vector<string> ameasures = this->aggregates->at(i)->measures;
+//		measures.insert(ameasures.begin(), ameasures.end());
+//	}
+//	measures.insert("records");
+//	
+//	set<string>::iterator measure;
+//	for(measure = measures.begin(); measure != measures.end(); measure++) {
+//		base.erase(*measure);
+//	}
+//	
 	return true;
 }
 
 // Gather all the measures needed by the aggregates
-bool Analytical::Query::Gather(const set<string>& measures, Table& base) {
-	set<string>::const_iterator measure;
-	for(measure = measures.begin(); measure != measures.end(); measure++) {
-//		if(base->columns->exist(*measure)) { continue; }
-		
-		shared_ptr< Column::TListColumn<double> > values(new Column::TListColumn<double>(*measure));
-		
-		shared_ptr< Column::TColumn<RIDList> > records = 
-		static_pointer_cast< Column::TColumn<RIDList> >(base.at("records"));
-		
-		vector<double> mvalues;
-		for(size_t i = 0; i < records->size(); i++) {
-			mvalues.clear();
-			this->domain->measures->Lookup(*measure, records->at(i), mvalues);
-			values->push_back(mvalues);
-		}			
-		base.push_back(static_pointer_cast<Column::Base>(values));
-	}
+bool Analytical::Query::Gather(const set<string>& measures, Groups& base) {
+//	set<string>::const_iterator measure;
+//	for(measure = measures.begin(); measure != measures.end(); measure++) {		
+//		shared_ptr< Column::TListColumn<double> > values(new Column::TListColumn<double>(*measure));
+//		
+//		shared_ptr< Column::TColumn<RIDList> > records = 
+//		static_pointer_cast< Column::TColumn<RIDList> >(base.at("records"));
+//		
+//		vector<double> mvalues;
+//		for(size_t i = 0; i < records->size(); i++) {
+//			mvalues.clear();
+//			this->domain->measures->Lookup(*measure, records->at(i), mvalues);
+//			values->push_back(mvalues);
+//		}			
+//		base.push_back(static_pointer_cast<Column::Base>(values));
+//	}
 	
 	return true;
 }
@@ -167,7 +152,7 @@ bool Analytical::Query::Gather(const set<string>& measures, Table& base) {
 /*
  * Construction
  */
-void Analytical::Query::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, Table& results) {
+void Analytical::Query::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, Groups& results) {
 	RIDList records;
 	vector<string> values;
 	this->Construct(instantiated, inquired, dimensions, 0, values, records, results);
@@ -196,17 +181,16 @@ void Analytical::Query::Construct(RIDList& instantiated, RIDTree& inquired, vect
  and so on.
 */
 void Analytical::Query::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, 
-																	int offset, vector<string>& values, RIDList& records, Table& results) {
+																	int offset, vector<string>& values, RIDList& records, Groups& results) {
 	
 	if(dimensions.size() == offset) {
-		shared_ptr< Column::TListColumn<string> > values_column = 
-			static_pointer_cast< Column::TListColumn<string> >(results.at("values"));
-		shared_ptr< Column::TColumn<RIDList> > records_column = 
-			static_pointer_cast< Column::TColumn<RIDList> >(results.at("records"));
-
-		values_column->push_back(values);
-		records_column->push_back(records & instantiated);
-
+		RIDList intersected = records & instantiated;
+		
+		if(intersected.size() > 0) {
+			Group group(values);
+			results.push_back(group);
+			copy(results.back().begin(), results.back().end(), back_inserter(results.back()));
+		}
 		return;
 	}
 	
