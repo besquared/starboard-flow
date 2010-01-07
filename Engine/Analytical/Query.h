@@ -35,7 +35,7 @@ namespace Flow {
 				bool Execute(Groups& results);
 				
 				void Instantiate(map<string, string>& results);
-				void Inquire(set<string>& Dimensions, Conditions& conditions);
+				void Inquire(set<string>& dimensions, Conditions& conditions);
 				void Dimensions(vector<string>& instantiated, vector<string>& inquired);
 			};
 		}

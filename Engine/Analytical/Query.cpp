@@ -34,10 +34,51 @@ bool Analytical::Query::Execute(Groups& results) {
 }
 
 // Get a set of dims we're instantiating and their values
-void Instantiate(map<string, string>& results) {}
+void Analytical::Query::Instantiate(map<string, string>& results) {
+	for(size_t i = 0; i < this->conditions->size(); i++) {
+		shared_ptr<Condition::Base> condition = this->conditions->at(i);
+		
+		if(condition->type == Condition::Base::EQ) {
+			shared_ptr<Condition::Eq> equals = 
+				static_pointer_cast<Condition::Eq>(condition);
+			
+			if(equals->value != "?") results[condition->column] = equals->value;			
+		}
+	}
+}
 
 // Get a set of dims we're inquiring and their conditions
-void Inquire(set<string>& Dimensions, Conditions& conditions) {}
+void Analytical::Query::Inquire(set<string>& dimensions, Conditions& conditions) {
+	for(size_t i = 0; i < this->conditions->size(); i++) {
+		shared_ptr<Condition::Base> condition = this->conditions->at(i);
+		
+		if(condition->type == Condition::Base::EQ) {
+			shared_ptr<Condition::Eq> equals = 
+				static_pointer_cast<Condition::Eq>(condition);
+			
+			if(equals->value == "?") dimensions.insert(condition->column);
+		} else {
+			conditions.push_back(condition);
+		}
+	}
+}
 
 // Get a list of the dims we're instantiating and inquiring
-void Dimensions(vector<string>& instantiated, vector<string>& inquired) {}
+void Analytical::Query::Dimensions(vector<string>& instantiated, vector<string>& inquired) {
+	for(size_t i = 0; i < this->conditions->size(); i++) {
+		shared_ptr<Condition::Base> condition = this->conditions->at(i);
+		
+		if(condition->type == Condition::Base::EQ) {
+			shared_ptr<Condition::Eq> equals = 
+				static_pointer_cast<Condition::Eq>(condition);
+			
+			if(equals->value == "?") {
+				instantiated.push_back(condition->column);
+			} else {
+				inquired.push_back(condition->column);
+			}
+		} else {
+			inquired.push_back(condition->column);
+		}
+	}	
+}
