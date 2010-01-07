@@ -37,20 +37,30 @@ bool Analytical::Executive::Materialize(Groups& results) {
 	Conditions conditions;
 	this->query->Inquire(inquire, conditions);
 	
-//	if(inquire.size() > 0) {
-//		RIDTree inquired;
-//		this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);
-//		
-//		if(inquired.size() == 0) {
-//			return true;
-//		} else {
-//			this->Construct(instantiated, inquired, dimensions, results);
-//		}
-//	} else {
-//		if(instantiated.size() > 0) {
-//			// just insert the instantiated ids into groups
-//		}
-//	}
+	vector<string> inquired_dims;
+	vector<string> instantiated_dims;
+	this->query->Dimensions(instantiated_dims, inquired_dims);
+	
+	if(inquire.size() > 0) {
+		RIDTree inquired;
+		this->domain->indices->Lookup(inquire, conditions, inquired);
+		
+		this->Construct(instantiated_dims, instantiated, inquired_dims, inquired, results);
+	} else {
+		if(instantiated.size() > 0) {
+			vector<string> values;
+			for(size_t i = 0; i < instantiated_dims.size(); i++) {
+				results.dimensions.push_back(instantiated_dims[i]);
+				values.push_back(instantiate[instantiated_dims[i]]);
+			}
+			
+			Group group(values);
+			results.push_back(group);
+			copy(instantiated.begin(), instantiated.end(), back_inserter(results.back()));
+			
+			// just insert the instantiated ids into groups
+		}
+	}
 	
 	return true;
 }
@@ -123,10 +133,12 @@ bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
 /*
  * Construction
  */
-void Analytical::Executive::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, Groups& results) {
+void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+																			vector<string>& inquired_dims, RIDTree& inquired, Groups& results) {
 	RIDList records;
 	vector<string> values;
-	this->Construct(instantiated, inquired, dimensions, 0, values, records, results);
+	this->Construct(instantiated_dims, instantiated, 
+									inquired_dims, inquired, 0, values, records, results);
 }
 
 /*
@@ -151,10 +163,11 @@ void Analytical::Executive::Construct(RIDList& instantiated, RIDTree& inquired, 
  and the id list into the table and return. We continue by searching B:b2
  and so on.
  */
-void Analytical::Executive::Construct(RIDList& instantiated, RIDTree& inquired, vector<string>& dimensions, 
-																	int offset, vector<string>& values, RIDList& records, Groups& results) {
+void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+																			vector<string>& inquired_dims, RIDTree& inquired, int offset, 
+																			vector<string>& values, RIDList& records, Groups& results) {
 	
-	if(dimensions.size() == offset) {
+	if(inquired_dims.size() == offset) {
 		RIDList intersected = records & instantiated;
 		
 		if(intersected.size() > 0) {
@@ -166,15 +179,15 @@ void Analytical::Executive::Construct(RIDList& instantiated, RIDTree& inquired, 
 	}
 	
 	RIDMap::iterator rpair;
-	RIDMap rmap = inquired[dimensions[offset]];
+	RIDMap rmap = inquired[inquired_dims[offset]];
 	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {
 		RIDList intersection = 
 		(records.empty() ? rpair->second : records & rpair->second);
 		
 		if(intersection.size() > 0) {
 			values.push_back(rpair->first);
-			this->Construct(instantiated, inquired, dimensions, 
-											offset + 1, values, intersection, results);
+			this->Construct(instantiated_dims, instantiated, inquired_dims, 
+											inquired, offset + 1, values, intersection, results);
 			values.pop_back();
 		}
 	}

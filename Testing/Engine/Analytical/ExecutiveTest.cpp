@@ -33,9 +33,9 @@ namespace {
 	};
 		
 	TEST_F(ExecutiveTest, ExecutesPointQuery) {		
-		Analytical::Groups results;
 		Analytical::Query query;
 		query.conditions->Eq("store", "S1");
+		query.conditions->Eq("season", "Fall");
 		query.aggregates->Count("records");
 		query.aggregates->Sum("sales");
 		
@@ -47,9 +47,22 @@ namespace {
 		
 		map<string, string> specified;
 		specified["store"] = "S1";
-		
+		specified["season"] = "Fall";
+
 		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));		
 		
+		Analytical::Groups results;
 		executive.Execute(results);
+		
+		ASSERT_EQ(1, results.size());
+		ASSERT_EQ(2, results[0].size());
+		EXPECT_EQ(1, results[0][0]);
+		EXPECT_EQ(2, results[0][1]);
+		ASSERT_EQ(2, results.dimensions.size());
+		EXPECT_EQ("store", results.dimensions[0]);
+		EXPECT_EQ("season", results.dimensions[1]);
+		ASSERT_EQ(2, results[0].values.size());
+		EXPECT_EQ("S1", results[0].values[0]);
+		EXPECT_EQ("Fall", results[0].values[1]);
 	}
 }  // namespace

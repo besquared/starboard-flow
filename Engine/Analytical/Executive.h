@@ -45,12 +45,11 @@ namespace Flow {
 				/*
 				 * Constructing Results
 				 */
-				void Construct(RIDList& instantiated, RIDTree& inquired, 
-											 vector<string>& dimensions, Groups& results);
-				void Construct(RIDList& instantiated, RIDTree& inquired, 
-											 vector<string>& dimensions, int offset, 
-											 vector<string>& values, RIDList& records, 
-											 Groups& results);				
+				void Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+											 vector<string>& inquired_dims, RIDTree& inquired, Groups& results);
+				void Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+											 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
+											 vector<string>& values, RIDList& records, Groups& results);				
 			};
 		}
 	}
