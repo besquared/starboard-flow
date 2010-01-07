@@ -11,6 +11,7 @@
 #define _flow_engine_analytical_executive_h_
 
 #include <Common.h>
+#include <Domain/Base.h>
 
 #include "Query.h"
 #include "Groups.h"
@@ -28,9 +29,10 @@ namespace Flow {
 			class Executive {
 			protected:
 				Query* query;
+				Domain::Base* domain;
 
 			public:
-				Executive(Query* query);
+				Executive(Domain::Base* domain, Query* query);
 				virtual bool Execute(Groups& results);
 				
 			protected:

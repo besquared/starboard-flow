@@ -11,7 +11,8 @@
 
 using namespace Flow::Engine;
 
-Analytical::Executive::Executive(Query* query) {
+Analytical::Executive::Executive(Domain::Base* domain, Query* query) {
+	this->domain = domain;
 	this->query = query;
 }
 
@@ -19,39 +20,23 @@ bool Analytical::Executive::Execute(Groups& results) {
 	if(!this->Materialize(results)) return false;
 	if(!this->Aggregate(results)) return false;
 	if(!this->Sweep(results)) return false;
-	return true;	
+	return true;
 }
 
 bool Analytical::Executive::Materialize(Groups& results) {
-//	set<string> inquire;
-//	vector<string> dimensions;
-//	map<string, string> instantiate;
-//	Conditions inquiry_conditions;
-//	
-//	for(size_t i = 0; i < this->conditions->size(); i++) {
-//		shared_ptr<Condition::Base> condition = this->conditions->at(i);
-//		
-//		if(condition->type == Condition::Base::EQ) {
-//			shared_ptr<Condition::Eq> equals = static_pointer_cast<Condition::Eq>(condition);
-//			
-//			if(equals->value == "?") {
-//				inquire.insert(condition->column);
-//			} else {
-//				instantiate[condition->column] = equals->value;
-//			}			
-//		} else {
-//			inquiry_conditions.push_back(condition);
-//		}
-//		
-//		dimensions.push_back(condition->column);
-//	}
-//	
-//	RIDList instantiated;
-//	if(instantiate.size() > 0) {
-//		this->domain->indices->Lookup(instantiate, instantiated);
-//		if(instantiated.size() == 0) return true;
-//	}
-//	
+	map<string, string> instantiate;
+	this->query->Instantiate(instantiate);
+	
+	RIDList instantiated;
+	if(instantiate.size() > 0) {
+		this->domain->indices->Lookup(instantiate, instantiated);
+		if(instantiated.size() == 0) return true;
+	}
+	
+	set<string> inquire;
+	Conditions conditions;
+	this->query->Inquire(inquire, conditions);
+	
 //	if(inquire.size() > 0) {
 //		RIDTree inquired;
 //		this->domain->indices->Lookup(inquire, inquiry_conditions, inquired);

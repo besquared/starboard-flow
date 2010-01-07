@@ -31,14 +31,12 @@ namespace {
 	class QueryTest : public ::testing::Test {
 	protected:
 		MockBase* purchases;
-		MockIndices* indices;
 		
 		QueryTest() {}
 		virtual ~QueryTest() {}
 		
 		virtual void SetUp() {
 			this->purchases = new MockBase("/tmp/flow", "/tmp/flow");
-			this->indices = (MockIndices*)(this->purchases->indices);
 		}
 		
 		virtual void TearDown() {
@@ -47,7 +45,7 @@ namespace {
 	};
 	
 	TEST_F(QueryTest, ProvidesInstantiated) {
-		Analytical::Query query(this->purchases);
+		Analytical::Query query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -61,7 +59,7 @@ namespace {
 	}
 	
 	TEST_F(QueryTest, ProvidesInquired) {
-		Analytical::Query query(this->purchases);
+		Analytical::Query query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -79,7 +77,7 @@ namespace {
 	}
 	
 	TEST_F(QueryTest, ProvidesDimensions) {
-		Analytical::Query query(this->purchases);
+		Analytical::Query query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -97,20 +95,11 @@ namespace {
 		EXPECT_EQ("store", instantiated[0]);
 	}
 	
-	TEST_F(QueryTest, ExecutesQuery) {
-//		map<string, string> specified;
-//		specified["store"] = "S1";
-//		
-//		::Domain::Data::RIDList records;
-//		records.push_back(1.0);
-//		records.push_back(2.0);
-//		
-//		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));
-		
-		Engine::Analytical::Groups results;
-		Analytical::Query query(this->purchases);
-		
-		MockExecutive executive(&query);
+	TEST_F(QueryTest, ExecutesQuery) {		
+		Analytical::Query query;
+		Analytical::Groups results;
+
+		MockExecutive executive(this->purchases, &query);
 		EXPECT_CALL(executive, Execute(results)).WillOnce(Return(true));
 		
 		query.conditions->Eq("store", "S1");
@@ -118,16 +107,4 @@ namespace {
 		query.aggregates->Sum("sales");
 		query.Execute(executive, results);
 	}
-	
-//	TEST_F(QueryTest, ProcessesPurePointQuery) {
-//	}
-//
-//	TEST_F(QueryTest, ProcessesPureRangeQuery) {
-//	}
-//
-//	TEST_F(QueryTest, ProcessesMixedQuery) {
-//	}	
-//	
-//	TEST_F(QueryTest, ProcessesQueryWithNoResults) {
-//	}
 }  // namespace

@@ -29,12 +29,11 @@ namespace Flow {
 			
 			class Query {
 			public:
-				Domain::Base* domain;
 				Conditions* conditions;
 				Aggregates* aggregates;
 				
-				Query(Domain::Base* domain);
-				bool Execute(Groups& results);
+				Query();
+				bool Execute(Domain::Base* domain, Groups& results);
 				bool Execute(Executive& executive, Groups& results);
 				
 				void Instantiate(map<string, string>& results);

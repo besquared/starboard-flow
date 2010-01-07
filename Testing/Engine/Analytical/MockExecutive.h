@@ -11,10 +11,12 @@
 #define _flow_testing_engine_analytical_mock_executive_h_
 
 #include "Common.h"
+#include <Domain/Base.h>
 #include <Engine/Analytical/Groups.h>
 #include <Engine/Analytical/Query.h>
 #include <Engine/Analytical/Executive.h>
 
+using namespace Flow::Domain;
 using namespace Flow::Engine::Analytical;
 
 namespace Flow {
@@ -23,8 +25,8 @@ namespace Flow {
 			namespace Analytical {
 				class MockExecutive : public ::Engine::Analytical::Executive {
 				public:
-					MockExecutive(Query* query) : 
-					::Engine::Analytical::Executive::Executive(query) {}
+					MockExecutive(Domain::MockBase* domain, Query* query) : 
+					Flow::Engine::Analytical::Executive::Executive(domain, query) {}
 					
 					MOCK_METHOD1(Execute, bool(Groups&));
 				};

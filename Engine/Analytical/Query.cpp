@@ -23,14 +23,13 @@
 
 #include "Query.h"
 
-Analytical::Query::Query(Domain::Base* domain) {
-	this->domain = domain;
+Analytical::Query::Query() {
 	this->conditions = new Conditions();
 	this->aggregates = new Aggregates();
 }
 
-bool Analytical::Query::Execute(Groups& results) {
-	Executive executive(this);
+bool Analytical::Query::Execute(Domain::Base* domain, Groups& results) {
+	Executive executive(domain, this);
 	return this->Execute(executive, results);
 }
 
