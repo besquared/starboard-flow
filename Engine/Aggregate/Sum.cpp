@@ -20,18 +20,13 @@ void Aggregate::Sum::Apply(Groups& base) {
 }
 
 void Aggregate::Sum::Apply(Group& group) {
-	group.aggregates[alias] = group.measures[measure].size();
+	vector<double> values = group.measures[measure];
 	
-//	size_t column_size = column->size();
-//	for(size_t i = 0; i < column_size; i++) {
-//		vector<double> members = column->at(i);
-//		
-//		double sum = 0;
-//		size_t member_size = members.size();
-//		for(size_t j = 0; j < member_size; j++) {
-//			sum += members[j];
-//		}
-//		aggregated->push_back(sum);
-//	}	
-//	base.push_back(aggregated);	
+	double sum = 0;
+	vector<double>::iterator value;
+	for(value = values.begin(); value != values.end(); value++) {
+		sum += *value;
+	}
+	
+	group.aggregates[alias] = sum;
 }
