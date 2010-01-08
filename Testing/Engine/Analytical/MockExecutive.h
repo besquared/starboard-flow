@@ -12,7 +12,7 @@
 
 #include "Common.h"
 #include <Domain/Base.h>
-#include <Engine/Analytical/Groups.h>
+#include <Engine/Groups.h>
 #include <Engine/Analytical/Query.h>
 #include <Engine/Analytical/Executive.h>
 

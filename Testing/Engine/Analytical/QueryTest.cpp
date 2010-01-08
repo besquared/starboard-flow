@@ -95,9 +95,9 @@ namespace {
 		EXPECT_EQ("store", instantiated[0]);
 	}
 	
-	TEST_F(QueryTest, ExecutesQuery) {		
+	TEST_F(QueryTest, ExecutesQuery) {
+		Engine::Groups results;
 		Analytical::Query query;
-		Analytical::Groups results;
 
 		MockExecutive executive(this->purchases, &query);
 		EXPECT_CALL(executive, Execute(results)).WillOnce(Return(true));

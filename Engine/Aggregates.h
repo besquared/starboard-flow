@@ -24,6 +24,12 @@ namespace Flow {
 		public:
 			void Count(const string& name);
 			void Sum(const string& name);
+			void Measures(set<string>& results);
+
+			/*
+			 * Application
+			 */
+			void Apply(Groups& base);
 		};
 	}
 }

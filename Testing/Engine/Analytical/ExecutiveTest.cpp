@@ -51,7 +51,7 @@ namespace {
 
 		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));		
 		
-		Analytical::Groups results;
+		Engine::Groups results;
 		executive.Execute(results);
 		
 		ASSERT_EQ(1, results.size());

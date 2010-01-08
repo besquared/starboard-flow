@@ -12,24 +12,24 @@
 
 #include <Common.h>
 #include <Domain/Data/Record.h>
+#include <Domain/Data/RIDList.h>
 
 using namespace std;
 using namespace Flow;
+using namespace Flow::Domain;
 
 namespace Flow {
 	namespace Engine {
-		namespace Analytical {
-			class Group : public vector<RecordID> {
-			public:
-				vector<string> values;
-				map<string, double> aggregates;
-				map< string, vector<double> > measures;
-				
-				Group(const vector<string>& values) : vector<RecordID>() {
-					this->values = values;
-				}
-			};
-		}
+		class Group : public Domain::Data::RIDList {
+		public:
+			vector<string> values;
+			map<string, double> aggregates;
+			map< string, vector<double> > measures;
+			
+			Group(const vector<string>& values) : Domain::Data::RIDList() {
+				this->values = values;
+			}
+		};
 	}
 }
 

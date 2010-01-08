@@ -18,3 +18,11 @@ void Engine::Aggregates::Sum(const string& name) {
 	shared_ptr<Aggregate::Sum> sum(new Aggregate::Sum(name));
 	vector< shared_ptr<Aggregate::Base> >::push_back(sum);
 }
+
+void Engine::Aggregates::Measures(set<string>& results) {
+	set<string> measures;
+	for(size_t i = 0; i < size(); i++) {
+		(*this)[i]->Measures(measures);
+		results.insert(measures.begin(), measures.end());
+	}
+}

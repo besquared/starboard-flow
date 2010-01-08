@@ -11,7 +11,7 @@
 #define _flow_aggregates_base_h_
 
 #include <Common.h>
-#include <Engine/Table.h>
+#include <Engine/Groups.h>
 #include <Engine/Column/TColumn.h>
 #include <Engine/Column/TListColumn.h>
 
@@ -24,11 +24,21 @@ namespace Flow {
 		namespace Aggregate {
 			class Base {
 			public:
+				enum AggregateType { SINGLE, MULTI };
+	
+			protected:
+				string alias;
+				string measure;
 				vector<string> measures;
+				AggregateType type;
 				
+			public:
 				Base(const string& measure);
-				Base(const vector<string>& measure);
-				virtual void Apply(Table& base) = 0;		
+				Base(const string& measure, const string& alias);
+				Base(const vector<string>& measure, const string& alias);
+				
+				void Measures(set<string>& results);
+				virtual void Apply(Groups& base) = 0;
 			};
 		}
 	}

@@ -7,10 +7,11 @@
  *
  */
 
-#ifndef _flow_aggregates_count_h_
-#define _flow_aggregates_count_h_
+#ifndef _flow_aggregate_count_h_
+#define _flow_aggregate_count_h_
 
 #include <Common.h>
+#include <Engine/Groups.h>
 
 #include "Base.h"
 
@@ -24,7 +25,8 @@ namespace Flow {
 			class Count : public Aggregate::Base {		
 			public:
 				Count(const string& measure);
-				void Apply(Table& base);		
+				virtual void Apply(Groups& base);
+				virtual void Apply(Group& group);
 			};
 		}
 	}

@@ -19,18 +19,16 @@ using namespace Flow;
 
 namespace Flow {
 	namespace Engine {
-		namespace Analytical {
-			class Groups : public vector<Group> {
-			public:
-				vector<string> dimensions;
-				
-				Groups() : vector<Group>() {}
-				
-				Groups(const vector<string>& dimensions) : vector<Group>() {
-					this->dimensions = dimensions;
-				}
-			};
-		}
+		class Groups : public vector<Group> {
+		public:
+			vector<string> dimensions;
+			
+			Groups() : vector<Group>() {}
+			
+			Groups(const vector<string>& dimensions) : vector<Group>() {
+				this->dimensions = dimensions;
+			}
+		};
 	}
 }
 

@@ -24,7 +24,8 @@ namespace Flow {
 			class Sum : public Aggregate::Base {		
 			public:
 				Sum(const string& measure);
-				void Apply(Table& base);		
+				virtual void Apply(Groups& base);	
+				virtual void Apply(Group& group);
 			};
 		}
 	}

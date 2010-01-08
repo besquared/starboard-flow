@@ -13,6 +13,8 @@
 		036AF38710D379E1002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38A10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
 		036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
+		0372F00210F7187700BEE006 /* Groups.h in Headers */ = {isa = PBXBuildFile; fileRef = 0372F00010F7187700BEE006 /* Groups.h */; };
+		0372F00310F7187700BEE006 /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 0372F00110F7187700BEE006 /* Group.h */; };
 		03BD728E10E9FCF700442C98 /* RIDTreeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728310E9FCF700442C98 /* RIDTreeTest.cpp */; };
 		03BD728F10E9FCF700442C98 /* RIDMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728410E9FCF700442C98 /* RIDMapTest.cpp */; };
 		03BD729010E9FCF700442C98 /* RIDListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728510E9FCF700442C98 /* RIDListTest.cpp */; };
@@ -31,10 +33,6 @@
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E51ED010F3657E00411368 /* Cluster.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E51ECE10F3657E00411368 /* Cluster.h */; };
 		03E51ED110F3657E00411368 /* Cluster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51ECF10F3657E00411368 /* Cluster.cpp */; };
-		03E51F3410F492C800411368 /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E51F3210F492C800411368 /* Group.h */; };
-		03E51F3510F492C800411368 /* Group.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51F3310F492C800411368 /* Group.cpp */; };
-		03E51F3810F5653200411368 /* Groups.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E51F3610F5653200411368 /* Groups.h */; };
-		03E51F3910F5653200411368 /* Groups.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51F3710F5653200411368 /* Groups.cpp */; };
 		03E51F9C10F5779900411368 /* Executive.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E51F9A10F5779900411368 /* Executive.h */; };
 		03E51F9D10F5779900411368 /* Executive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51F9B10F5779900411368 /* Executive.cpp */; };
 		03E5203310F589E900411368 /* MockExecutive.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E5203210F589E900411368 /* MockExecutive.h */; };
@@ -143,6 +141,8 @@
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF38910D37A13002304AE /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/lib/libtokyocabinet.dylib; sourceTree = DEVELOPER_DIR; };
+		0372F00010F7187700BEE006 /* Groups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Groups.h; sourceTree = "<group>"; };
+		0372F00110F7187700BEE006 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BD728310E9FCF700442C98 /* RIDTreeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTreeTest.cpp; sourceTree = "<group>"; };
 		03BD728410E9FCF700442C98 /* RIDMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMapTest.cpp; sourceTree = "<group>"; };
@@ -162,10 +162,6 @@
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E51ECE10F3657E00411368 /* Cluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cluster.h; sourceTree = "<group>"; };
 		03E51ECF10F3657E00411368 /* Cluster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cluster.cpp; sourceTree = "<group>"; };
-		03E51F3210F492C800411368 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		03E51F3310F492C800411368 /* Group.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Group.cpp; sourceTree = "<group>"; };
-		03E51F3610F5653200411368 /* Groups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Groups.h; sourceTree = "<group>"; };
-		03E51F3710F5653200411368 /* Groups.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Groups.cpp; sourceTree = "<group>"; };
 		03E51F9A10F5779900411368 /* Executive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Executive.h; sourceTree = "<group>"; };
 		03E51F9B10F5779900411368 /* Executive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Executive.cpp; sourceTree = "<group>"; };
 		03E5203210F589E900411368 /* MockExecutive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockExecutive.h; sourceTree = "<group>"; };
@@ -315,6 +311,8 @@
 				03E72AAB10E0919100D5E4C1 /* Column */,
 				03E72A2D10E0911200D5E4C1 /* Table.cpp */,
 				03E72A2E10E0911200D5E4C1 /* Table.h */,
+				0372F00110F7187700BEE006 /* Group.h */,
+				0372F00010F7187700BEE006 /* Groups.h */,
 				03E72A1310E0911200D5E4C1 /* Aggregate */,
 				03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */,
 				03E72A1B10E0911200D5E4C1 /* Aggregates.h */,
@@ -340,10 +338,6 @@
 		03E72A1C10E0911200D5E4C1 /* Analytical */ = {
 			isa = PBXGroup;
 			children = (
-				03E51F3310F492C800411368 /* Group.cpp */,
-				03E51F3210F492C800411368 /* Group.h */,
-				03E51F3710F5653200411368 /* Groups.cpp */,
-				03E51F3610F5653200411368 /* Groups.h */,
 				03E51F9B10F5779900411368 /* Executive.cpp */,
 				03E51F9A10F5779900411368 /* Executive.h */,
 				03E72A1D10E0911200D5E4C1 /* Query.cpp */,
@@ -635,10 +629,10 @@
 				03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */,
 				03E72AC910E091F900D5E4C1 /* Base.h in Headers */,
 				03E51ED010F3657E00411368 /* Cluster.h in Headers */,
-				03E51F3410F492C800411368 /* Group.h in Headers */,
-				03E51F3810F5653200411368 /* Groups.h in Headers */,
 				03E51F9C10F5779900411368 /* Executive.h in Headers */,
 				03E5203310F589E900411368 /* MockExecutive.h in Headers */,
+				0372F00210F7187700BEE006 /* Groups.h in Headers */,
+				0372F00310F7187700BEE006 /* Group.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,8 +777,6 @@
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
 				03E51ED110F3657E00411368 /* Cluster.cpp in Sources */,
-				03E51F3510F492C800411368 /* Group.cpp in Sources */,
-				03E51F3910F5653200411368 /* Groups.cpp in Sources */,
 				03E51F9D10F5779900411368 /* Executive.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,6 +37,10 @@ bool Analytical::Query::Execute(Executive& executive, Groups& results) {
 	return executive.Execute(results);
 }
 
+void Analytical::Query::Measures(set<string>& results) {
+	aggregates->Measures(results);
+}
+
 // Get a set of dims we're instantiating and their values
 void Analytical::Query::Instantiate(map<string, string>& results) {
 	for(size_t i = 0; i < this->conditions->size(); i++) {

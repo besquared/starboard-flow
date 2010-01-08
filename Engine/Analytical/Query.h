@@ -12,9 +12,9 @@
 #include <Common.h>
 #include <Conditions.h>
 #include <Domain/Base.h>
+#include <Engine/Groups.h>
 #include <Engine/Aggregates.h>
 
-#include "Groups.h"
 #include "Executive.h"
 
 using namespace std;
@@ -36,6 +36,7 @@ namespace Flow {
 				bool Execute(Domain::Base* domain, Groups& results);
 				bool Execute(Executive& executive, Groups& results);
 				
+				void Measures(set<string>& results);
 				void Instantiate(map<string, string>& results);
 				void Inquire(set<string>& dimensions, Conditions& conditions);
 				void Dimensions(vector<string>& instantiated, vector<string>& inquired);

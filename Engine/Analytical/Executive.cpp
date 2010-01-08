@@ -25,26 +25,25 @@ bool Analytical::Executive::Execute(Groups& results) {
 
 bool Analytical::Executive::Materialize(Groups& results) {
 	map<string, string> instantiate;
-	this->query->Instantiate(instantiate);
+	query->Instantiate(instantiate);
 	
 	RIDList instantiated;
 	if(instantiate.size() > 0) {
-		this->domain->indices->Lookup(instantiate, instantiated);
+		domain->indices->Lookup(instantiate, instantiated);
 		if(instantiated.size() == 0) return true;
 	}
 	
 	set<string> inquire;
 	Conditions conditions;
-	this->query->Inquire(inquire, conditions);
+	query->Inquire(inquire, conditions);
 	
 	vector<string> inquired_dims;
 	vector<string> instantiated_dims;
-	this->query->Dimensions(instantiated_dims, inquired_dims);
+	query->Dimensions(instantiated_dims, inquired_dims);
 	
 	if(inquire.size() > 0) {
 		RIDTree inquired;
-		this->domain->indices->Lookup(inquire, conditions, inquired);
-		
+		domain->indices->Lookup(inquire, conditions, inquired);
 		this->Construct(instantiated_dims, instantiated, inquired_dims, inquired, results);
 	} else {
 		if(instantiated.size() > 0) {
@@ -57,34 +56,35 @@ bool Analytical::Executive::Materialize(Groups& results) {
 			Group group(values);
 			results.push_back(group);
 			copy(instantiated.begin(), instantiated.end(), back_inserter(results.back()));
-			
-			// just insert the instantiated ids into groups
 		}
 	}
 	
 	return true;
 }
 
-bool Analytical::Executive::Aggregate(Groups& base) {
-	// go through all the aggregations and gather
-	//   their measures from disk if we don't have them
+bool Analytical::Executive::Aggregate(Groups& base) {	
+	set<string> measures;
+	query->Measures(measures);
+	this->Gather(measures, base);
+	// switch this to query->aggregates->Apply(base);
+	for(size_t j = 0; j < query->aggregates->size(); j++) {
+		query->aggregates->at(j)->Apply(base);
+	}
 	
-	//	size_t size = this->aggregates->size();
-	//	
-	//	set<string> measures;
-	//	for(size_t i = 0; i < size; i++) {
-	//		vector<string> ameasures = this->aggregates->at(i)->measures;
-	//		measures.insert(ameasures.begin(), ameasures.end());
-	//	}
-	//	
-	//	if(this->Gather(measures, base)) {
-	//		for(size_t j = 0; j < size; j++) {
-	//			this->aggregates->at(j)->Apply(base);	
-	//		}
-	//		return true;
-	//	} else {
-	//		return false;
-	//	}
+	return true;
+}
+
+// Gather all the measures needed by the aggregates
+bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
+	// Make this multithreaded
+	Groups::iterator group;
+	set<string>::const_iterator measure;
+	for(measure = measures.begin(); measure != measures.end(); measure++) {
+		for(group = base.begin(); group != base.end(); group++) {
+			domain->measures->Lookup(*measure, *group, group->measures[*measure]);
+		}
+	}
+	
 	return true;
 }
 
@@ -109,27 +109,6 @@ bool Analytical::Executive::Sweep(Groups& base) {
 	return true;
 }
 
-// Gather all the measures needed by the aggregates
-bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
-	//	set<string>::const_iterator measure;
-	//	for(measure = measures.begin(); measure != measures.end(); measure++) {		
-	//		shared_ptr< Column::TListColumn<double> > values(new Column::TListColumn<double>(*measure));
-	//		
-	//		shared_ptr< Column::TColumn<RIDList> > records = 
-	//		static_pointer_cast< Column::TColumn<RIDList> >(base.at("records"));
-	//		
-	//		vector<double> mvalues;
-	//		for(size_t i = 0; i < records->size(); i++) {
-	//			mvalues.clear();
-	//			this->domain->measures->Lookup(*measure, records->at(i), mvalues);
-	//			values->push_back(mvalues);
-	//		}			
-	//		base.push_back(static_pointer_cast<Column::Base>(values));
-	//	}
-	
-	return true;
-}
-
 /*
  * Construction
  */
@@ -146,7 +125,7 @@ void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList
  {A => {a1 => [1, 2, 3]}, B => {b1 => [1, 2], b2 => [3]}}
  
  and builds a table with dimension values corresponding record list
- +----+-----+--------+
+ +----------+--------+
  | values   | id     |
  |----------|--------|
  | [a1, b1] | [1, 2] |

@@ -12,17 +12,13 @@
 Aggregate::Count::Count(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
-void Aggregate::Count::Apply(Table& base) {
-	string measure = this->measures.at(0);
-	
-	shared_ptr< Column::TListColumn<double> > column = 
-	static_pointer_cast< Column::TListColumn<double> >(base.at(measure));
-	
-	shared_ptr< Column::TColumn<double> > aggregated(new Column::TColumn<double>("count_" + measure));
-	
-	size_t column_size = column->size();
-	for(size_t i = 0; i < column_size; i++) {
-		aggregated->push_back((double)column->at(i).size());
+void Aggregate::Count::Apply(Groups& base) {
+	Groups::iterator group;
+	for(group = base.begin(); group != base.end(); group++) {
+		this->Apply(*group);
 	}
-	base.push_back(aggregated);
+}
+
+void Aggregate::Count::Apply(Group& group) {	
+	group.aggregates[alias] = group.measures[measure].size();
 }
