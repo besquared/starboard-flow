@@ -80,7 +80,9 @@ bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
 	set<string>::const_iterator measure;
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
 		for(group = base.begin(); group != base.end(); group++) {
-			domain->measures->Lookup(*measure, *group, group->measures(*measure));
+			if(*measure != "records") {
+				domain->measures->Lookup(*measure, *group, group->measures(*measure));
+			}
 		}
 	}
 	

@@ -18,6 +18,8 @@ namespace {
 	protected:
 		MockBase* purchases;
 		MockIndices* indices;
+		MockMeasures* measures;
+		MockDimensions* dimensions;
 		
 		ExecutiveTest() {}
 		virtual ~ExecutiveTest() {}
@@ -25,6 +27,8 @@ namespace {
 		virtual void SetUp() {
 			this->purchases = new MockBase("/tmp/flow", "/tmp/flow");
 			this->indices = (MockIndices*)(this->purchases->indices);
+			this->measures = (MockMeasures*)(this->purchases->measures);
+			this->dimensions = (MockDimensions*)(this->purchases->dimensions);
 		}
 		
 		virtual void TearDown() {
@@ -49,8 +53,13 @@ namespace {
 		specified["store"] = "S1";
 		specified["season"] = "Fall";
 
-		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));		
+		vector<double> sales;
+		sales.push_back(100);
+		sales.push_back(250);
 		
+		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));		
+		EXPECT_CALL(*this->measures, Lookup("sales", records, _)).WillOnce(SetArgReferee<2>(sales));
+
 		Engine::Groups results;
 		executive.Execute(results);
 		
