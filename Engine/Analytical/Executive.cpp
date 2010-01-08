@@ -68,7 +68,7 @@ bool Analytical::Executive::Aggregate(Groups& base) {
 	this->Gather(measures, base);
 	// switch this to query->aggregates->Apply(base);
 	for(size_t j = 0; j < query->aggregates->size(); j++) {
-		query->aggregates->at(j)->Apply(base);
+//		query->aggregates->at(j)->Apply(base);
 	}
 	
 	return true;
@@ -81,7 +81,7 @@ bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
 	set<string>::const_iterator measure;
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
 		for(group = base.begin(); group != base.end(); group++) {
-			domain->measures->Lookup(*measure, *group, group->measures[*measure]);
+			domain->measures->Lookup(*measure, *group, group->measures(*measure));
 		}
 	}
 	

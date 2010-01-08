@@ -25,8 +25,9 @@ namespace Flow {
 			class Count : public Aggregate::Base {		
 			public:
 				Count(const string& measure);
-				virtual void Apply(Groups& base);
-				virtual void Apply(Group& group);
+				virtual string alias();
+				virtual void apply(Groups& base);
+				virtual void apply(Group& group);
 			};
 		}
 	}

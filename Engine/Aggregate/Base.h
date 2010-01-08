@@ -27,7 +27,7 @@ namespace Flow {
 				enum AggregateType { SINGLE, MULTI };
 	
 			protected:
-				string alias;
+				string alias_;
 				string measure;
 				vector<string> measures;
 				AggregateType type;
@@ -37,8 +37,10 @@ namespace Flow {
 				Base(const string& measure, const string& alias);
 				Base(const vector<string>& measure, const string& alias);
 				
-				void Measures(set<string>& results);
-				virtual void Apply(Groups& base) = 0;
+				virtual string alias() = 0;
+				virtual void apply(Groups& base) = 0;
+				
+				void measure_names(set<string>& results);
 			};
 		}
 	}

@@ -103,8 +103,8 @@ namespace {
 		EXPECT_CALL(executive, Execute(results)).WillOnce(Return(true));
 		
 		query.conditions->Eq("store", "S1");
-		query.aggregates->Count("records");
-		query.aggregates->Sum("sales");
+		query.aggregates->count("records");
+		query.aggregates->sum("sales");
 		query.Execute(executive, results);
 	}
 }  // namespace

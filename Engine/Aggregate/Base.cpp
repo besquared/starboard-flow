@@ -11,24 +11,23 @@
 
 Aggregate::Base::Base(const string& measure) {
 	this->measure = measure;
-	this->alias = "count_" + measure;
 	this->type = Aggregate::Base::SINGLE;
 }
 
 Aggregate::Base::Base(const string& measure, const string& alias) {
-	this->alias = alias;
+	this->alias_ = alias;
 	this->measure = measure;
 	this->type = Aggregate::Base::SINGLE;
 }
 
 // Some functions require more than one variable
 Aggregate::Base::Base(const vector<string>& measures, const string& alias) {
-	this->alias = alias;
+	this->alias_ = alias;
 	this->measures = measures;
 	this->type = Aggregate::Base::MULTI;
 }
 
-void Aggregate::Base::Measures(set<string>& results) {
+void Aggregate::Base::measure_names(set<string>& results) {
 	if(this->type == Aggregate::Base::SINGLE) {
 		results.insert(measure);
 	} else {

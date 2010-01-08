@@ -36,8 +36,8 @@ namespace {
 		Analytical::Query query;
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "Fall");
-		query.aggregates->Count("records");
-		query.aggregates->Sum("sales");
+		query.aggregates->count("records");
+		query.aggregates->sum("sales");
 		
 		Analytical::Executive executive(this->purchases, &query);
 		

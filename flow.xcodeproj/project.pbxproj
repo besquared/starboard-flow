@@ -15,6 +15,7 @@
 		036AF38B10D37A13002304AE /* libtokyocabinet.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF38910D37A13002304AE /* libtokyocabinet.dylib */; };
 		0372F00210F7187700BEE006 /* Groups.h in Headers */ = {isa = PBXBuildFile; fileRef = 0372F00010F7187700BEE006 /* Groups.h */; };
 		0372F00310F7187700BEE006 /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 0372F00110F7187700BEE006 /* Group.h */; };
+		0372F0F910F724D500BEE006 /* SumTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0372F0F710F724D500BEE006 /* SumTest.cpp */; };
 		03BD728E10E9FCF700442C98 /* RIDTreeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728310E9FCF700442C98 /* RIDTreeTest.cpp */; };
 		03BD728F10E9FCF700442C98 /* RIDMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728410E9FCF700442C98 /* RIDMapTest.cpp */; };
 		03BD729010E9FCF700442C98 /* RIDListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728510E9FCF700442C98 /* RIDListTest.cpp */; };
@@ -143,6 +144,7 @@
 		036AF38910D37A13002304AE /* libtokyocabinet.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtokyocabinet.dylib; path = usr/lib/libtokyocabinet.dylib; sourceTree = DEVELOPER_DIR; };
 		0372F00010F7187700BEE006 /* Groups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Groups.h; sourceTree = "<group>"; };
 		0372F00110F7187700BEE006 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		0372F0F710F724D500BEE006 /* SumTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SumTest.cpp; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BD728310E9FCF700442C98 /* RIDTreeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTreeTest.cpp; sourceTree = "<group>"; };
 		03BD728410E9FCF700442C98 /* RIDMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMapTest.cpp; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 		03E7307110E3392100D5E4C1 /* Aggregate */ = {
 			isa = PBXGroup;
 			children = (
+				0372F0F710F724D500BEE006 /* SumTest.cpp */,
 			);
 			path = Aggregate;
 			sourceTree = "<group>";
@@ -744,6 +747,7 @@
 				03BD729610E9FCF700442C98 /* IndexTest.cpp in Sources */,
 				03BD729710E9FCF700442C98 /* DimensionTest.cpp in Sources */,
 				03BD729810E9FCF700442C98 /* BDBTest.cpp in Sources */,
+				0372F0F910F724D500BEE006 /* SumTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

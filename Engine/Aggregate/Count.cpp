@@ -12,13 +12,17 @@
 Aggregate::Count::Count(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
-void Aggregate::Count::Apply(Groups& base) {
+string Aggregate::Count::alias() {
+	return "count_" + measure;
+}
+
+void Aggregate::Count::apply(Groups& base) {
 	Groups::iterator group;
 	for(group = base.begin(); group != base.end(); group++) {
-		this->Apply(*group);
+		this->apply(*group);
 	}
 }
 
-void Aggregate::Count::Apply(Group& group) {	
-	group.aggregates[alias] = group.measures[measure].size();
+void Aggregate::Count::apply(Group& group) {	
+	group.aggregate(alias(), group.measures(measure).size());
 }

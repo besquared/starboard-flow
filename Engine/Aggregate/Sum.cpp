@@ -12,21 +12,23 @@
 Aggregate::Sum::Sum(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
-void Aggregate::Sum::Apply(Groups& base) {
+string Aggregate::Sum::alias() {
+	return "sum_" + measure;
+}
+
+void Aggregate::Sum::apply(Groups& base) {
 	Groups::iterator group;
 	for(group = base.begin(); group != base.end(); group++) {
-		this->Apply(*group);
+		this->apply(*group);
 	}
 }
 
-void Aggregate::Sum::Apply(Group& group) {
-	vector<double> values = group.measures[measure];
-	
+void Aggregate::Sum::apply(Group& group) {
 	double sum = 0;
 	vector<double>::iterator value;
+	vector<double> values = group.measures(measure);
 	for(value = values.begin(); value != values.end(); value++) {
 		sum += *value;
 	}
-	
-	group.aggregates[alias] = sum;
+	group.aggregate(alias(), sum);
 }

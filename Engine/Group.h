@@ -21,13 +21,35 @@ using namespace Flow::Domain;
 namespace Flow {
 	namespace Engine {
 		class Group : public Domain::Data::RIDList {
+		protected:
+			map<string, double> aggregates_;
+			map< string, vector<double> > measures_;
+			
 		public:
 			vector<string> values;
-			map<string, double> aggregates;
-			map< string, vector<double> > measures;
-			
+
 			Group(const vector<string>& values) : Domain::Data::RIDList() {
 				this->values = values;
+			}
+			
+			vector<double>& measures(const string& name) {
+				return measures_[name];
+			}
+			
+			void push_measure(const string& name, const double& value) {
+				measures_[name].push_back(value);
+			}
+			
+			void push_measures(const string& name, const vector<double>& values) {
+				copy(values.begin(), values.end(), back_inserter(measures_[name]));
+			}
+			
+			double& aggregate(const string& name) {
+				return aggregates_[name];
+			}
+			
+			void aggregate(const string& name, const double& value) {
+				aggregates_[name] = value;
 			}
 		};
 	}

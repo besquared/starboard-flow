@@ -38,7 +38,7 @@ bool Analytical::Query::Execute(Executive& executive, Groups& results) {
 }
 
 void Analytical::Query::Measures(set<string>& results) {
-	aggregates->Measures(results);
+	aggregates->measure_names(results);
 }
 
 // Get a set of dims we're instantiating and their values
