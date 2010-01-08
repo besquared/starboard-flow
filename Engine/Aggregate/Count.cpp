@@ -12,8 +12,15 @@
 Aggregate::Count::Count(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
+Aggregate::Count::Count(const string& measure, const string& alias) :
+Aggregate::Base::Base(measure, alias) {}
+
 string Aggregate::Count::alias() {
-	return "count_" + measure;
+	if(alias_.empty()) {
+		return "count_" + measure;
+	} else {
+		return alias_;
+	}
 }
 
 void Aggregate::Count::apply(Groups& base) {

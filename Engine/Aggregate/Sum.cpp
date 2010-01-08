@@ -12,8 +12,15 @@
 Aggregate::Sum::Sum(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
+Aggregate::Sum::Sum(const string& measure, const string& alias) :
+Aggregate::Base::Base(measure, alias) {}
+
 string Aggregate::Sum::alias() {
-	return "sum_" + measure;
+	if(alias_.empty()) {
+		return "sum_" + measure;
+	} else {
+		return alias_;
+	}
 }
 
 void Aggregate::Sum::apply(Groups& base) {

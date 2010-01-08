@@ -20,6 +20,14 @@ namespace {
 		virtual void TearDown() {}
 	};
 	
+	TEST_F(SumTest, HasAlias) {
+		Aggregate::Sum sum("sales");
+		EXPECT_EQ("sum_sales", sum.alias());
+		
+		Aggregate::Sum sum_alias("sales", "total_sales");
+		EXPECT_EQ("total_sales", sum_alias.alias());
+	}
+	
 	TEST_F(SumTest, SumsGroup) {
 		vector<string> values;
 		values.push_back("S1");
