@@ -26,3 +26,9 @@ void Engine::Aggregates::measure_names(set<string>& results) {
 		results.insert(measures.begin(), measures.end());
 	}
 }
+
+void Engine::Aggregates::apply(Groups& base_table) {
+	for(size_t i = 0; i < size(); i++) {
+		(*this)[i]->apply(base_table);
+	}	
+}

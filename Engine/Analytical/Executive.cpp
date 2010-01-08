@@ -66,9 +66,8 @@ bool Analytical::Executive::Aggregate(Groups& base) {
 	set<string> measures;
 	query->Measures(measures);
 	this->Gather(measures, base);
-	// switch this to query->aggregates->Apply(base);
 	for(size_t j = 0; j < query->aggregates->size(); j++) {
-//		query->aggregates->at(j)->Apply(base);
+		query->aggregates->apply(base);
 	}
 	
 	return true;

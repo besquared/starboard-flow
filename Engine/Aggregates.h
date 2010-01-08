@@ -25,11 +25,7 @@ namespace Flow {
 			void count(const string& name);
 			void sum(const string& name);
 			void measure_names(set<string>& results);
-
-			/*
-			 * Application
-			 */
-			void apply(Groups& base);
+			void apply(Groups& base_table);
 		};
 	}
 }
