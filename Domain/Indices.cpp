@@ -45,7 +45,6 @@ bool Domain::Indices::Insert(const Data::Record& record) {
 	// Insert each fragment partition into the index
 	
 	if(!this->meta->index->OpenWriter()) { return false; }
-
 	Data::Record partition;
 	vector<string>::iterator dimension;
 	map< string, set<string> >::iterator fragment;
@@ -65,8 +64,25 @@ bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) 
 	if(!this->meta->OpenReader()) { return false; }
 	
 	// UHHH, write this?
+	// Need to figure out which keys are in which partitions
 	if(!this->meta->index->OpenReader()) { return false; }
-	if(!this->meta->index->Lookup(specified, results)) { 
+	
+	string name;
+	ValueMap::const_iterator cell;
+	map< string, set<string> > indices;
+	for(cell = specified.begin(); cell != specified.end(); cell++) {
+		if(this->meta->Index(cell->first, name)) {
+			indices[name].insert(cell->first);
+		} else {
+			this->meta->Close(); return false;
+		}
+	}
+	
+	// ok so now indices tells us which indices contain
+	//  which of our specified dimensions, loop through
+	//  and lookup and merge each of the specified keys
+	
+	if(!this->meta->index->Lookup(specified, results)) {
 		this->meta->index->Close(); return false; 
 	}
 	
