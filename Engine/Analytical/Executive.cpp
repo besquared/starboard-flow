@@ -41,10 +41,16 @@ bool Analytical::Executive::Materialize(Groups& results) {
 	vector<string> instantiated_dims;
 	query->Dimensions(instantiated_dims, inquired_dims);
 	
+	vector<string> instantiated_vals;
+	query->InstantiatedValues(instantiated_vals);
+	
 	if(inquire.size() > 0) {
+		results.dimensions.insert(results.dimensions.end(), inquired_dims.begin(), inquired_dims.end());
+		results.dimensions.insert(results.dimensions.end(), instantiated_dims.begin(), instantiated_dims.end());
+		
 		RIDTree inquired;
 		domain->indices->Lookup(inquire, conditions, inquired);
-		this->Construct(instantiated_dims, instantiated, inquired_dims, inquired, results);
+		this->Construct(instantiated_vals, instantiated, inquired_dims, inquired, results);
 	} else {
 		if(instantiated.size() > 0) {
 			vector<string> values;
@@ -102,11 +108,11 @@ bool Analytical::Executive::Sweep(Groups& base) {
 /*
  * Construction
  */
-void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+void Analytical::Executive::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
 																			vector<string>& inquired_dims, RIDTree& inquired, Groups& results) {
 	RIDList records;
 	vector<string> values;
-	this->Construct(instantiated_dims, instantiated, 
+	this->Construct(instantiated_vals, instantiated, 
 									inquired_dims, inquired, 0, values, records, results);
 }
 
@@ -132,7 +138,7 @@ void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList
  and the id list into the table and return. We continue by searching B:b2
  and so on.
  */
-void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+void Analytical::Executive::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
 																			vector<string>& inquired_dims, RIDTree& inquired, int offset, 
 																			vector<string>& values, RIDList& records, Groups& results) {
 	
@@ -140,9 +146,9 @@ void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList
 		RIDList intersected = records & instantiated;
 		
 		if(intersected.size() > 0) {
-			Group group(values);
-			results.push_back(group);
-			copy(results.back().begin(), results.back().end(), back_inserter(results.back()));
+			results.push_back(Group(values));
+			results.back().insert(results.back().end(), intersected.begin(), intersected.end());
+			results.back().values.insert(results.back().values.end(), instantiated_vals.begin(), instantiated_vals.end());
 		}
 		return;
 	}
@@ -155,7 +161,7 @@ void Analytical::Executive::Construct(vector<string>& instantiated_dims, RIDList
 		
 		if(intersection.size() > 0) {
 			values.push_back(rpair->first);
-			this->Construct(instantiated_dims, instantiated, inquired_dims, 
+			this->Construct(instantiated_vals, instantiated, inquired_dims, 
 											inquired, offset + 1, values, intersection, results);
 			values.pop_back();
 		}

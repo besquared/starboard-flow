@@ -38,6 +38,7 @@ namespace Flow {
 				
 				void Measures(set<string>& results);
 				void Instantiate(map<string, string>& results);
+				void InstantiatedValues(vector<string>& results);
 				void Inquire(set<string>& dimensions, Conditions& conditions);
 				void Dimensions(vector<string>& instantiated, vector<string>& inquired);
 			};

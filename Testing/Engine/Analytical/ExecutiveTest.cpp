@@ -113,5 +113,21 @@ namespace {
 		
 		Engine::Groups results;
 		executive.Execute(results);
+		
+		ASSERT_EQ(1, results.size());
+		ASSERT_EQ(0, results[0].size());
+		
+		ASSERT_EQ(3, results.dimensions.size());
+		EXPECT_EQ("day", results.dimensions[0]);
+		EXPECT_EQ("store", results.dimensions[1]);
+		EXPECT_EQ("season", results.dimensions[2]);
+		
+		ASSERT_EQ(3, results[0].values.size());
+		EXPECT_EQ("20091021", results[0].values[0]);
+		EXPECT_EQ("S1", results[0].values[1]);
+		EXPECT_EQ("Fall", results[0].values[2]);
+		
+		EXPECT_EQ(2, results[0].aggregate("count_records"));
+		EXPECT_EQ(350, results[0].aggregate("sum_sales"));		
 	}	
 }  // namespace

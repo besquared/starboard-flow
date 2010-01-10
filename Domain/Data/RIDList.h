@@ -25,6 +25,16 @@ namespace Flow {
 				RIDList operator&(RIDList& other);
 				RIDList operator|(RIDList& other);
 				string Inspect();
+				
+				friend ostream& operator<<(ostream& out, const RIDList& records) {
+					out << "[";
+					for(size_t i = 0; i < records.size(); i++) {
+						out << records[i];
+						if(i < records.size() - 1) out << ", "; 
+					}
+					out << "]";
+					return out;
+				}				
 			};
 		}
 	}

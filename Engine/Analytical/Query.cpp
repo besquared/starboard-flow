@@ -55,6 +55,19 @@ void Analytical::Query::Instantiate(map<string, string>& results) {
 	}
 }
 
+void Analytical::Query::InstantiatedValues(vector<string>& results) {
+	for(size_t i = 0; i < this->conditions->size(); i++) {
+		shared_ptr<Condition::Base> condition = this->conditions->at(i);
+		
+		if(condition->type == Condition::Base::EQ) {
+			shared_ptr<Condition::Eq> equals = 
+			static_pointer_cast<Condition::Eq>(condition);
+			
+			if(equals->value != "?") results.push_back(equals->value);
+		}
+	}
+}
+
 // Get a set of dims we're inquiring and their conditions
 void Analytical::Query::Inquire(set<string>& dimensions, Conditions& conditions) {
 	for(size_t i = 0; i < this->conditions->size(); i++) {

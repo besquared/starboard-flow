@@ -45,9 +45,9 @@ namespace Flow {
 				/*
 				 * Constructing Results
 				 */
-				void Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+				void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
 											 vector<string>& inquired_dims, RIDTree& inquired, Groups& results);
-				void Construct(vector<string>& instantiated_dims, RIDList& instantiated, 
+				void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
 											 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
 											 vector<string>& values, RIDList& records, Groups& results);				
 			};
