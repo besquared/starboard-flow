@@ -54,8 +54,22 @@ namespace {
 		map<string, string> instantiate;
 		query.Instantiate(instantiate);
 
-		EXPECT_EQ(1, instantiate.size());
+		ASSERT_EQ(1, instantiate.size());
 		EXPECT_EQ("S1", instantiate["store"]);
+	}
+	
+	TEST_F(QueryTest, ProvidesInstantiatedValues) {
+		Analytical::Query query;
+		
+		query.conditions->Eq("store", "S1");
+		query.conditions->Eq("season", "?");
+		query.conditions->Lt("age", "00000015");
+		
+		vector<string> instantiated_vals;
+		query.InstantiatedValues(instantiated_vals);
+		
+		ASSERT_EQ(1, instantiated_vals.size());
+		EXPECT_EQ("S1", instantiated_vals[0]);
 	}
 	
 	TEST_F(QueryTest, ProvidesInquired) {
@@ -69,7 +83,7 @@ namespace {
 		Conditions conditions;
 		query.Inquire(inquire, conditions);
 		
-		EXPECT_EQ(2, inquire.size());
+		ASSERT_EQ(2, inquire.size());
 		EXPECT_EQ(1, inquire.count("season"));
 		EXPECT_EQ(1, inquire.count("age"));
 		
