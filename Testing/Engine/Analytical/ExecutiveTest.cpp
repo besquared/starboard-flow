@@ -74,4 +74,44 @@ namespace {
 		EXPECT_EQ(2, results[0].aggregate("count_records"));
 		EXPECT_EQ(350, results[0].aggregate("sum_sales"));
 	}
+
+	TEST_F(ExecutiveTest, ExecutesMixedQuery) {		
+		Analytical::Query query;
+		query.conditions->Eq("store", "S1");
+		query.conditions->Eq("season", "Fall");
+		query.conditions->Gt("day", "20091020");
+		query.aggregates->count("records");
+		query.aggregates->sum("sales");
+		
+		Analytical::Executive executive(this->purchases, &query);
+		
+		RIDList records;
+		records.push_back(1.0);
+		records.push_back(2.0);
+		
+		map<string, string> specified;
+		specified["store"] = "S1";
+		specified["season"] = "Fall";
+		
+		set<string> inquired;
+		inquired.insert("day");
+
+		RIDTree days;
+		RIDMap dayrecords;
+		dayrecords["20091021"].push_back(1.0);
+		dayrecords["20091021"].push_back(2.0);
+		dayrecords["20091021"].push_back(3.0);
+		days["day"] = dayrecords;
+		
+		vector<double> sales;
+		sales.push_back(100);
+		sales.push_back(250);
+		
+		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));
+		EXPECT_CALL(*this->indices, Lookup(inquired, _, _)).WillOnce(DoAll(SetArgReferee<2>(days), Return(true)));
+		EXPECT_CALL(*this->measures, Lookup("sales", records, _)).WillOnce(SetArgReferee<2>(sales));
+		
+		Engine::Groups results;
+		executive.Execute(results);
+	}	
 }  // namespace
