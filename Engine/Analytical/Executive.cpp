@@ -61,7 +61,7 @@ bool Analytical::Executive::Materialize(Groups& results) {
 			
 			Group group(values);
 			results.push_back(group);
-			copy(instantiated.begin(), instantiated.end(), back_inserter(results.back()));
+			results.back().insert(results.back().end(), instantiated.begin(), instantiated.end());
 		}
 	}
 	
