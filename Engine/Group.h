@@ -44,6 +44,10 @@ namespace Flow {
 				copy(values.begin(), values.end(), back_inserter(measures_[name]));
 			}
 			
+			void clear_measures() {
+				measures_.clear();
+			}
+			
 			double& aggregate(const string& name) {
 				return aggregates_[name];
 			}

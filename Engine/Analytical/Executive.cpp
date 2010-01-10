@@ -90,23 +90,12 @@ bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
 }
 
 bool Analytical::Executive::Sweep(Groups& base) {
-	// go through and drop the columns that 
-	//  we don't want returned (records and measures)
+	Groups::iterator group;
+	for(group = base.begin(); group != base.end(); group++) {
+		group->clear();
+		group->clear_measures();
+	}
 	
-	//	size_t size = this->aggregates->size();
-	//	
-	//	set<string> measures;
-	//	for(size_t i = 0; i < size; i++) {
-	//		vector<string> ameasures = this->aggregates->at(i)->measures;
-	//		measures.insert(ameasures.begin(), ameasures.end());
-	//	}
-	//	measures.insert("records");
-	//	
-	//	set<string>::iterator measure;
-	//	for(measure = measures.begin(); measure != measures.end(); measure++) {
-	//		base.erase(*measure);
-	//	}
-	//	
 	return true;
 }
 

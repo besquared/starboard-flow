@@ -9,6 +9,9 @@
 
 #include "Count.h"
 
+Aggregate::Count::Count() :
+Aggregate::Base::Base() {}
+
 Aggregate::Count::Count(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
@@ -31,5 +34,5 @@ void Aggregate::Count::apply(Groups& base) {
 }
 
 void Aggregate::Count::apply(Group& group) {	
-	group.aggregate(alias(), group.measures(measure).size());
+	group.aggregate(alias(), group.size());
 }

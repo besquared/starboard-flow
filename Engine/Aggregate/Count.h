@@ -24,6 +24,7 @@ namespace Flow {
 		namespace Aggregate {
 			class Count : public Aggregate::Base {		
 			public:
+				Count();
 				Count(const string& measure);
 				Count(const string& measure, const string& alias);
 				

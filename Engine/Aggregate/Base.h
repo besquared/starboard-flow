@@ -33,6 +33,7 @@ namespace Flow {
 				AggregateType type;
 				
 			public:
+				Base();
 				Base(const string& measure);
 				Base(const string& measure, const string& alias);
 				Base(const vector<string>& measure, const string& alias);

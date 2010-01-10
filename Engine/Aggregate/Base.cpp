@@ -9,6 +9,11 @@
 
 #include "Base.h"
 
+Aggregate::Base::Base() {
+	this->measure = "*";
+	this->type = Aggregate::Base::SINGLE;
+}
+
 Aggregate::Base::Base(const string& measure) {
 	this->measure = measure;
 	this->type = Aggregate::Base::SINGLE;
