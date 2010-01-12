@@ -61,10 +61,7 @@ bool Domain::Indices::Insert(const Data::Record& record) {
 
 // ValueMap map<string, string>
 bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) {
-	if(!this->meta->OpenReader()) { return false; }
-	
-	// UHHH, write this?
-	// Need to figure out which keys are in which partitions
+	if(!this->meta->OpenReader()) { return false; }	
 	if(!this->meta->index->OpenReader()) { return false; }
 	
 	string name;
@@ -78,13 +75,27 @@ bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) 
 		}
 	}
 	
-	// ok so now indices tells us which indices contain
-	//  which of our specified dimensions, loop through
-	//  and lookup and merge each of the specified keys
-	
-	if(!this->meta->index->Lookup(specified, results)) {
-		this->meta->index->Close(); return false; 
+	Data::RIDList records;
+	ValueMap partition;
+	map< string, set<string> >::iterator fragment;
+	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
+		this->Partition(specified, fragment->second, partition);
+		if(!this->meta->index->Lookup(partition, records)) {
+			this->meta->index->Close(); return false; 
+		} else {
+			if(records.size() == 0) {
+				results.clear(); return true;
+			} else {
+				if(results.size() == 0) {
+					results.assign(records.begin(), records.end());
+				} else {
+					results = results & records;
+				}
+			}
+		}
 	}
+	this->meta->index->Close();
+	
 	
 	this->meta->Close();
 	return true;
@@ -119,4 +130,13 @@ bool Domain::Indices::Lookup(const set<string>& dimensions,
 	this->meta->index->Close();
 	
 	return true;
+}
+
+void Domain::Indices::Partition(const ValueMap& specified, const set<string>& dimensions, ValueMap& results) {
+	ValueMap::const_iterator element;
+	for(element = specified.begin(); element != specified.end(); element++) {
+		if(dimensions.find(element->first) != dimensions.end()) {
+			results[element->first] = element->second;
+		}
+	}	
 }

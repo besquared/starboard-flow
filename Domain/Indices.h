@@ -39,6 +39,9 @@ namespace Flow {
 			virtual bool Insert(const Data::Record& record);
 			virtual bool Lookup(const ValueMap& specified, Data::RIDList& results);
 			virtual bool Lookup(const set<string>& dimensions, const Conditions& conditions, Data::RIDTree& results);
+			
+		protected:
+			virtual void Partition(const ValueMap& specified, const set<string>& dimensions, ValueMap& results);
 		};
 	}
 }
