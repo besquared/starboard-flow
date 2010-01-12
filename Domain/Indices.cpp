@@ -75,8 +75,8 @@ bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) 
 		}
 	}
 	
-	Data::RIDList records;
 	ValueMap partition;
+	Data::RIDList records;
 	map< string, set<string> >::iterator fragment;
 	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
 		this->Partition(specified, fragment->second, partition);
