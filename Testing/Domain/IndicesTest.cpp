@@ -77,7 +77,43 @@ namespace {
 		ASSERT_EQ(true, this->indices->Insert(record));
 	}
 	
-	TEST_F(IndicesTest, PerformsBasicLookup) {
+	TEST_F(IndicesTest,PerformsInstantiatedLookup) {
+		ValueMap dimensions1;
+		ValueMap dimensions2;
+		dimensions1["day"] = "20091220";
+		dimensions1["fare-group"] = "Regular";
+		dimensions2["station"] = "Montgomery";
+		
+		RIDList records1;
+		RIDList records2;
+		records1.push_back(1);
+		records1.push_back(2);
+		records2.push_back(2);
+		records2.push_back(3);
+		
+		EXPECT_CALL(*this->meta, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->meta, Index("day", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Index("fare-group", _)).WillOnce(DoAll(SetArgReferee<1>("1"), Return(true)));
+		EXPECT_CALL(*this->meta, Index("station", _)).WillOnce(DoAll(SetArgReferee<1>("2"), Return(true)));
+		EXPECT_CALL(*this->meta, Close()).WillOnce(Return(true));
+
+		EXPECT_CALL(*this->index, OpenReader()).WillOnce(Return(true));
+		EXPECT_CALL(*this->index, Lookup(dimensions1, _)).WillOnce(DoAll(SetArgReferee<1>(records1), Return(true)));
+		EXPECT_CALL(*this->index, Lookup(dimensions2, _)).WillOnce(DoAll(SetArgReferee<1>(records2), Return(true)));
+		EXPECT_CALL(*this->index, Close()).WillOnce(Return(true));
+		
+		RIDList results;
+		ValueMap specified;
+		specified["day"] = "20091220";
+		specified["fare-group"] = "Regular";
+		specified["station"] = "Montgomery";
+
+		ASSERT_EQ(true, this->indices->Lookup(specified, results));
+		ASSERT_EQ(1, results.size());
+		EXPECT_EQ(2, results[0]);
+	}
+	
+	TEST_F(IndicesTest, PerformsInquiredLookup) {
 		ValuesMap values;
 		vector<string> days;
 		vector<string> faregroups;

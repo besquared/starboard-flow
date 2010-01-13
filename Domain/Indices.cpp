@@ -79,6 +79,7 @@ bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) 
 	Data::RIDList records;
 	map< string, set<string> >::iterator fragment;
 	for(fragment = indices.begin(); fragment != indices.end(); fragment++) {
+		partition.clear();
 		this->Partition(specified, fragment->second, partition);
 		if(!this->meta->index->Lookup(partition, records)) {
 			this->meta->index->Close(); return false; 
@@ -95,8 +96,6 @@ bool Domain::Indices::Lookup(const ValueMap& specified, Data::RIDList& results) 
 		}
 	}
 	this->meta->index->Close();
-	
-	
 	this->meta->Close();
 	return true;
 }
@@ -138,5 +137,5 @@ void Domain::Indices::Partition(const ValueMap& specified, const set<string>& di
 		if(dimensions.find(element->first) != dimensions.end()) {
 			results[element->first] = element->second;
 		}
-	}	
+	}
 }

@@ -18,7 +18,7 @@ bool Domain::Data::Index::Create(const string& path) {
 /*
  * Looks up a list of record ids from a single index key
  */
-bool Domain::Data::Index::Lookup(const map<string, string>& dimensions, RIDList& results) {
+bool Domain::Data::Index::Lookup(const ValueMap& dimensions, RIDList& results) {
 	vector<string> elements;
 	map<string, string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {

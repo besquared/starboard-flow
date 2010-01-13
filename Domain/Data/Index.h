@@ -31,7 +31,7 @@ namespace Flow {
 				/*
 				 * Returns a list of records corresponding to the specified dimension values
 				 */
-				virtual bool Lookup(const map<string, string>& dimensions, RIDList& results);
+				virtual bool Lookup(const ValueMap& dimensions, RIDList& results);
 				
 				/*
 				 * Returns a set of values for each given dimension as a map
