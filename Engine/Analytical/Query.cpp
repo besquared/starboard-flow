@@ -28,6 +28,11 @@ Analytical::Query::Query() {
 	this->aggregates = new Aggregates();
 }
 
+Analytical::Query::~Query() {
+	delete(this->conditions);
+	delete(this->aggregates);
+}
+
 bool Analytical::Query::Execute(Domain::Base* domain, Groups& results) {
 	Executive executive(domain, this);
 	return this->Execute(executive, results);

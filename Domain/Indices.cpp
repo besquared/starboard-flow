@@ -26,9 +26,7 @@ bool Domain::Indices::Allocate(const Data::Record& record) {
 
 bool Domain::Indices::Insert(const Data::Record& record) {
 	if(!this->Allocate(record)) { return false; }
-	
-	// Collect fragment membership
-	
+		
 	if(!this->meta->OpenReader()) { return false; }
 	string name;
 	Data::Record::const_iterator cell;

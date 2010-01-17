@@ -33,6 +33,7 @@ namespace Flow {
 				Aggregates* aggregates;
 				
 				Query();
+				~Query();
 				bool Execute(Domain::Base* domain, Groups& results);
 				bool Execute(Executive& executive, Groups& results);
 				

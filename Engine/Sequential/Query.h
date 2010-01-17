@@ -31,20 +31,13 @@ namespace Flow {
 		namespace Sequential {
 			class Query {
 			public:
-				Domain::Base* domain;
+				Conditions* conditions;
+				Aggregates* aggregates;
 				
-				vector<string> clusters;
-				vector<string> groupings;		
-				Conditions conditions;
-				Aggregates aggregates;
-				Pattern pattern;
-				
-				Query(const string& path);
-				
-				/*
-				 * Querying
-				 */
-				bool Execute(Table& result);
+				Query();
+				~Query();
+				bool Execute(Domain::Base* domain, Groups& results);
+				bool Execute(Executive& executive, Groups& results);
 				
 				// Materializes all tables
 				bool Materialize(vector<Table>& results);

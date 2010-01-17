@@ -9,24 +9,15 @@
 
 #include "Query.h"
 
-//SequenceQuery::SequenceQuery(const string& path) {
-//	this->measures = shared_ptr<Measures>(new Measures(path));
-//	this->dimensions = shared_ptr<Dimensions>(new Dimensions(path));
-//	this->fragments = shared_ptr<ShellFragments>(new ShellFragments(path));
-//	
-//	this->clusters = shared_ptr< vector<string> >(new vector<string>);
-//	this->groupings = shared_ptr< vector<string> >(new vector<string>);
-//	this->conditions = shared_ptr<Conditions>(new Conditions());
-//	this->aggregations = shared_ptr<Aggregations>(new Aggregations());
-//	this->pattern = shared_ptr<SequenceTemplate>(new SequenceTemplate());
-//}
-//
-//bool SequenceQuery::Execute(Table& result) {
-//	vector<Table> tables;
-//	if(!this->Materialize(tables)) { return false; }
-//	if(!this->Merge(tables, table)) { return false; }
-//	return true;
-//}
+bool Sequential::Query::Execute(Domain::Base* domain, Groups& results) {
+	Executive executive(domain, this);
+	return this->Execute(executive, results);
+}
+
+bool Sequential::Query::Execute(Executive& executive, Groups& results) {
+	return executive.Execute(results);
+}
+
 //
 //bool SequenceQuery::Materialize(vector<Table>& results) {
 //	for(size_t i = 0; i < this->pattern->size(); i++) {
