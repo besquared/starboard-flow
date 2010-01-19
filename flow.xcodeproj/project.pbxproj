@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0346C3D31105639500635E67 /* Constructor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C3D11105639500635E67 /* Constructor.cpp */; };
+		0346C3D41105639500635E67 /* Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D21105639500635E67 /* Constructor.h */; };
+		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
+		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
@@ -17,8 +21,6 @@
 		0372F00310F7187700BEE006 /* Group.h in Headers */ = {isa = PBXBuildFile; fileRef = 0372F00110F7187700BEE006 /* Group.h */; };
 		0372F0F910F724D500BEE006 /* SumTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0372F0F710F724D500BEE006 /* SumTest.cpp */; };
 		0372F25F10F73CA000BEE006 /* CountTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0372F25E10F73CA000BEE006 /* CountTest.cpp */; };
-		0372F4961101CEDE00BEE006 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0372F4941101CEDE00BEE006 /* Base.h */; };
-		0372F4971101CEDE00BEE006 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0372F4951101CEDE00BEE006 /* Base.cpp */; };
 		03BD728E10E9FCF700442C98 /* RIDTreeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728310E9FCF700442C98 /* RIDTreeTest.cpp */; };
 		03BD728F10E9FCF700442C98 /* RIDMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728410E9FCF700442C98 /* RIDMapTest.cpp */; };
 		03BD729010E9FCF700442C98 /* RIDListTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BD728510E9FCF700442C98 /* RIDListTest.cpp */; };
@@ -133,6 +135,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0346C3D11105639500635E67 /* Constructor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Constructor.cpp; path = ../Query/Constructor.cpp; sourceTree = "<group>"; };
+		0346C3D21105639500635E67 /* Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constructor.h; path = ../Query/Constructor.h; sourceTree = "<group>"; };
+		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
+		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
@@ -141,8 +147,6 @@
 		0372F00110F7187700BEE006 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
 		0372F0F710F724D500BEE006 /* SumTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SumTest.cpp; sourceTree = "<group>"; };
 		0372F25E10F73CA000BEE006 /* CountTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CountTest.cpp; sourceTree = "<group>"; };
-		0372F4941101CEDE00BEE006 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
-		0372F4951101CEDE00BEE006 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03AF8D8010BE4CEB00AF17CB /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BD728310E9FCF700442C98 /* RIDTreeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDTreeTest.cpp; sourceTree = "<group>"; };
 		03BD728410E9FCF700442C98 /* RIDMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RIDMapTest.cpp; sourceTree = "<group>"; };
@@ -272,6 +276,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0346C3D01105639500635E67 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				0346C3D81105640400635E67 /* Base.h */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		0346C417110583FC00635E67 /* Executive */ = {
+			isa = PBXGroup;
+			children = (
+				0346C418110583FC00635E67 /* Base.h */,
+				0346C3D11105639500635E67 /* Constructor.cpp */,
+				0346C3D21105639500635E67 /* Constructor.h */,
+			);
+			path = Executive;
+			sourceTree = "<group>";
+		};
 		0369A3FF10E0892D0017E895 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,15 +307,6 @@
 				03E72AA910E0917B00D5E4C1 /* Common.h */,
 			);
 			name = Source;
-			sourceTree = "<group>";
-		};
-		0372F4931101CEC600BEE006 /* Executive */ = {
-			isa = PBXGroup;
-			children = (
-				0372F4951101CEDE00BEE006 /* Base.cpp */,
-				0372F4941101CEDE00BEE006 /* Base.h */,
-			);
-			path = Executive;
 			sourceTree = "<group>";
 		};
 		03AF8D7410BE4B8500AF17CB /* Libraries */ = {
@@ -317,7 +330,8 @@
 				03E72A1310E0911200D5E4C1 /* Aggregate */,
 				03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */,
 				03E72A1B10E0911200D5E4C1 /* Aggregates.h */,
-				0372F4931101CEC600BEE006 /* Executive */,
+				0346C417110583FC00635E67 /* Executive */,
+				0346C3D01105639500635E67 /* Query */,
 				03E72A1C10E0911200D5E4C1 /* Analytical */,
 				03E72A2210E0911200D5E4C1 /* Sequential */,
 			);
@@ -626,7 +640,9 @@
 				03E5203310F589E900411368 /* MockExecutive.h in Headers */,
 				0372F00210F7187700BEE006 /* Groups.h in Headers */,
 				0372F00310F7187700BEE006 /* Group.h in Headers */,
-				0372F4961101CEDE00BEE006 /* Base.h in Headers */,
+				0346C3D41105639500635E67 /* Constructor.h in Headers */,
+				0346C3DA1105640400635E67 /* Base.h in Headers */,
+				0346C419110583FC00635E67 /* Base.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,7 +785,7 @@
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
 				03E51F9D10F5779900411368 /* Executive.cpp in Sources */,
-				0372F4971101CEDE00BEE006 /* Base.cpp in Sources */,
+				0346C3D31105639500635E67 /* Constructor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

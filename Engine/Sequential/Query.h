@@ -13,11 +13,9 @@
 #include <Common.h> 
 #include <Conditions.h>
 #include <Domain/Base.h>
-#include <Engine/Table.h>
+#include <Engine/Groups.h>
 #include <Engine/Aggregates.h>
 
-#include "Key.h"
-#include "Event.h"
 #include "Pattern.h"
 
 using namespace std;
@@ -38,32 +36,12 @@ namespace Flow {
 				~Query();
 				bool Execute(Domain::Base* domain, Groups& results);
 				bool Execute(Executive& executive, Groups& results);
-				
-				// Materializes all tables
-				bool Materialize(vector<Table>& results);
-				
-				// Materializes a single table
-				bool Materialize(Table& results);
-				
-				// Materializes clustered events column
-				bool Materialize(Column::Base& column, const string& dimension, const string& alias);
-
-				bool Merge(vector<Table>& tables, Table& results);
-				bool Match(Table& results);
+								
 				bool Aggregate(Table& results);
 				bool Sweep(Table& base);
 
 				bool GatherMeasures(const set<string>& measures, Table& base);
 				bool GatherDimensions(const set<string>& dimensions, Table& base);
-				bool GatherEventDimension(const string& dimension, Table& base);
-				
-			protected:
-				/*
-				 * Constructing Results
-				 */
-				void Construct(RIDTree& tree, vector<string>& dimensions, Table& results);
-				void Construct(RIDTree& tree, vector<string>& dimensions, 
-											 int offset, vector<string>& values, RIDList& records, Table& results);
 			};
 		}
 	}

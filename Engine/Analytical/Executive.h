@@ -12,9 +12,10 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
+#include <Engine/Groups.h>
+#include <Engine/Executive/Constructor.h>
 
 #include "Query.h"
-#include "Groups.h"
 
 using namespace std;
 using namespace Flow;
@@ -36,20 +37,9 @@ namespace Flow {
 				virtual bool Execute(Groups& results);
 				
 			protected:
-				bool Materialize(Groups& results);
 				bool Aggregate(Groups& results);
 				bool Sweep(Groups& base);
 				bool Gather(const set<string>& measures, Groups& base);
-
-			protected:
-				/*
-				 * Constructing Results
-				 */
-				void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-											 vector<string>& inquired_dims, RIDTree& inquired, Groups& results);
-				void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-											 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
-											 vector<string>& values, RIDList& records, Groups& results);				
 			};
 		}
 	}
