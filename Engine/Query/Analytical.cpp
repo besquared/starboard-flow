@@ -9,7 +9,7 @@
 
 #include "Analytical.h"
 
-void Query::Analytical::Analytical() : Query::Base::Base() {}
+Query::Analytical::Analytical() : Query::Base::Base() {}
 
 void Query::Analytical::Measures(set<string>& results) {
 	aggregates->measure_names(results);

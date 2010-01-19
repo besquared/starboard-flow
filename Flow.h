@@ -12,8 +12,8 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
-#include <Engine/Analytical/Query.h>
-#include <Engine/Sequential/Query.h>
+#include <Engine/Query/Analytical.h>
+#include <Engine/Query/Sequential.h>
 
 #include "Base.h"
 

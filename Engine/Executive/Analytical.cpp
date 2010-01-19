@@ -1,29 +1,22 @@
 /*
- *  Executive.cpp
+ *  Analytical.cpp
  *  flow
  *
- *  Created by Josh Ferguson on 1/6/10.
+ *  Created by Josh Ferguson on 1/18/10.
  *  Copyright 2010 Cube Tree Labs, LLC. All rights reserved.
  *
  */
 
-#include "Executive.h"
+#include "Analytical.h"
 
-using namespace Flow::Engine;
-
-Analytical::Executive::Executive(Domain::Base* domain, Query* query) {
-	this->domain = domain;
-	this->query = query;
-}
-
-bool Analytical::Executive::Execute(Groups& results) {
-	Executive::Constructor constructor().Execute(domain, query, results);
+bool Executive::Analytical::Execute(Groups& results) {
+	Executive::Constructor().Execute(domain, query, results);
 	if(!this->Aggregate(results)) return false;
 	if(!this->Sweep(results)) return false;
 	return true;
 }
 
-bool Analytical::Executive::Aggregate(Groups& base) {	
+bool Executive::Analytical::Aggregate(Groups& base) {	
 	set<string> measures;
 	query->Measures(measures);
 	this->Gather(measures, base);
@@ -35,7 +28,7 @@ bool Analytical::Executive::Aggregate(Groups& base) {
 }
 
 // Gather all the measures needed by the aggregates
-bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
+bool Executive::Analytical::Gather(const set<string>& measures, Groups& base) {
 	// Make this multithreaded
 	Groups::iterator group;
 	set<string>::const_iterator measure;
@@ -50,7 +43,7 @@ bool Analytical::Executive::Gather(const set<string>& measures, Groups& base) {
 	return true;
 }
 
-bool Analytical::Executive::Sweep(Groups& base) {
+bool Executive::Analytical::Sweep(Groups& base) {
 	Groups::iterator group;
 	for(group = base.begin(); group != base.end(); group++) {
 		group->clear();

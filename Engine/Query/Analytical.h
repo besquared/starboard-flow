@@ -17,7 +17,7 @@ using namespace std;
 namespace Flow {
 	namespace Engine {
 		namespace Query {
-			class Analytical {
+			class Analytical : Query::Base {
 			public:
 				Analytical();				
 				void Measures(set<string>& results);

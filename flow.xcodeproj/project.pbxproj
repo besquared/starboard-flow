@@ -13,6 +13,12 @@
 		0346C4491105874400635E67 /* Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4471105874400635E67 /* Constructor.h */; };
 		0346C4B81105903200635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4B61105903200635E67 /* Analytical.h */; };
 		0346C4B91105903200635E67 /* Analytical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4B71105903200635E67 /* Analytical.cpp */; };
+		0346C4F2110592DF00635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4F0110592DF00635E67 /* Analytical.h */; };
+		0346C4F3110592DF00635E67 /* Analytical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4F1110592DF00635E67 /* Analytical.cpp */; };
+		0346C4FC1105935D00635E67 /* Sequential.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4FA1105935D00635E67 /* Sequential.h */; };
+		0346C4FD1105935D00635E67 /* Sequential.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4FB1105935D00635E67 /* Sequential.cpp */; };
+		0346C5081105947300635E67 /* Sequential.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C5061105947300635E67 /* Sequential.h */; };
+		0346C5091105947300635E67 /* Sequential.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C5071105947300635E67 /* Sequential.cpp */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
@@ -39,8 +45,6 @@
 		03BD72E110EA004800442C98 /* MockIndices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72E010EA004800442C98 /* MockIndices.h */; };
 		03BD72E310EA005600442C98 /* MockMeasures.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72E210EA005600442C98 /* MockMeasures.h */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
-		03E51F9C10F5779900411368 /* Executive.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E51F9A10F5779900411368 /* Executive.h */; };
-		03E51F9D10F5779900411368 /* Executive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E51F9B10F5779900411368 /* Executive.cpp */; };
 		03E5203310F589E900411368 /* MockExecutive.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E5203210F589E900411368 /* MockExecutive.h */; };
 		03E5218010F5A79400411368 /* ExecutiveTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E520E110F5A02500411368 /* ExecutiveTest.cpp */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
@@ -51,8 +55,6 @@
 		03E72A6310E0911200D5E4C1 /* Sum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1910E0911200D5E4C1 /* Sum.h */; };
 		03E72A6410E0911200D5E4C1 /* Aggregates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */; };
 		03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1B10E0911200D5E4C1 /* Aggregates.h */; };
-		03E72A6610E0911200D5E4C1 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1D10E0911200D5E4C1 /* Query.cpp */; };
-		03E72A6710E0911200D5E4C1 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1E10E0911200D5E4C1 /* Query.h */; };
 		03E72A6B10E0911200D5E4C1 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2310E0911200D5E4C1 /* Dimension.cpp */; };
 		03E72A6C10E0911200D5E4C1 /* Dimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2410E0911200D5E4C1 /* Dimension.h */; };
 		03E72A7110E0911200D5E4C1 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2910E0911200D5E4C1 /* Query.cpp */; };
@@ -143,6 +145,12 @@
 		0346C4471105874400635E67 /* Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constructor.h; sourceTree = "<group>"; };
 		0346C4B61105903200635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
 		0346C4B71105903200635E67 /* Analytical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Analytical.cpp; sourceTree = "<group>"; };
+		0346C4F0110592DF00635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
+		0346C4F1110592DF00635E67 /* Analytical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Analytical.cpp; sourceTree = "<group>"; };
+		0346C4FA1105935D00635E67 /* Sequential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequential.h; sourceTree = "<group>"; };
+		0346C4FB1105935D00635E67 /* Sequential.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequential.cpp; sourceTree = "<group>"; };
+		0346C5061105947300635E67 /* Sequential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequential.h; sourceTree = "<group>"; };
+		0346C5071105947300635E67 /* Sequential.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequential.cpp; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
@@ -168,8 +176,6 @@
 		03BD72E010EA004800442C98 /* MockIndices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockIndices.h; sourceTree = "<group>"; };
 		03BD72E210EA005600442C98 /* MockMeasures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMeasures.h; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		03E51F9A10F5779900411368 /* Executive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Executive.h; sourceTree = "<group>"; };
-		03E51F9B10F5779900411368 /* Executive.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Executive.cpp; sourceTree = "<group>"; };
 		03E5203210F589E900411368 /* MockExecutive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockExecutive.h; sourceTree = "<group>"; };
 		03E520E110F5A02500411368 /* ExecutiveTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ExecutiveTest.cpp; sourceTree = "<group>"; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
@@ -180,8 +186,6 @@
 		03E72A1910E0911200D5E4C1 /* Sum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sum.h; sourceTree = "<group>"; };
 		03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aggregates.cpp; sourceTree = "<group>"; };
 		03E72A1B10E0911200D5E4C1 /* Aggregates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregates.h; sourceTree = "<group>"; };
-		03E72A1D10E0911200D5E4C1 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
-		03E72A1E10E0911200D5E4C1 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
 		03E72A2310E0911200D5E4C1 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
 		03E72A2410E0911200D5E4C1 /* Dimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimension.h; sourceTree = "<group>"; };
 		03E72A2910E0911200D5E4C1 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				0346C3D81105640400635E67 /* Base.h */,
 				0346C4B71105903200635E67 /* Analytical.cpp */,
 				0346C4B61105903200635E67 /* Analytical.h */,
+				0346C5071105947300635E67 /* Sequential.cpp */,
+				0346C5061105947300635E67 /* Sequential.h */,
 			);
 			path = Query;
 			sourceTree = "<group>";
@@ -296,6 +302,10 @@
 				0346C418110583FC00635E67 /* Base.h */,
 				0346C4461105874400635E67 /* Constructor.cpp */,
 				0346C4471105874400635E67 /* Constructor.h */,
+				0346C4F1110592DF00635E67 /* Analytical.cpp */,
+				0346C4F0110592DF00635E67 /* Analytical.h */,
+				0346C4FB1105935D00635E67 /* Sequential.cpp */,
+				0346C4FA1105935D00635E67 /* Sequential.h */,
 			);
 			path = Executive;
 			sourceTree = "<group>";
@@ -338,7 +348,6 @@
 				03E72A1B10E0911200D5E4C1 /* Aggregates.h */,
 				0346C417110583FC00635E67 /* Executive */,
 				0346C3D01105639500635E67 /* Query */,
-				03E72A1C10E0911200D5E4C1 /* Analytical */,
 				03E72A2210E0911200D5E4C1 /* Sequential */,
 			);
 			path = Engine;
@@ -355,17 +364,6 @@
 				03E72A1910E0911200D5E4C1 /* Sum.h */,
 			);
 			path = Aggregate;
-			sourceTree = "<group>";
-		};
-		03E72A1C10E0911200D5E4C1 /* Analytical */ = {
-			isa = PBXGroup;
-			children = (
-				03E51F9B10F5779900411368 /* Executive.cpp */,
-				03E51F9A10F5779900411368 /* Executive.h */,
-				03E72A1D10E0911200D5E4C1 /* Query.cpp */,
-				03E72A1E10E0911200D5E4C1 /* Query.h */,
-			);
-			path = Analytical;
 			sourceTree = "<group>";
 		};
 		03E72A2210E0911200D5E4C1 /* Sequential */ = {
@@ -610,7 +608,6 @@
 				03E72A6110E0911200D5E4C1 /* Count.h in Headers */,
 				03E72A6310E0911200D5E4C1 /* Sum.h in Headers */,
 				03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */,
-				03E72A6710E0911200D5E4C1 /* Query.h in Headers */,
 				03E72A6C10E0911200D5E4C1 /* Dimension.h in Headers */,
 				03E72A7210E0911200D5E4C1 /* Query.h in Headers */,
 				03E72A7410E0911200D5E4C1 /* Pattern.h in Headers */,
@@ -642,7 +639,6 @@
 				03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */,
 				03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */,
 				03E72AC910E091F900D5E4C1 /* Base.h in Headers */,
-				03E51F9C10F5779900411368 /* Executive.h in Headers */,
 				03E5203310F589E900411368 /* MockExecutive.h in Headers */,
 				0372F00210F7187700BEE006 /* Groups.h in Headers */,
 				0372F00310F7187700BEE006 /* Group.h in Headers */,
@@ -650,6 +646,9 @@
 				0346C419110583FC00635E67 /* Base.h in Headers */,
 				0346C4491105874400635E67 /* Constructor.h in Headers */,
 				0346C4B81105903200635E67 /* Analytical.h in Headers */,
+				0346C4F2110592DF00635E67 /* Analytical.h in Headers */,
+				0346C4FC1105935D00635E67 /* Sequential.h in Headers */,
+				0346C5081105947300635E67 /* Sequential.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +771,6 @@
 				03E72A6010E0911200D5E4C1 /* Count.cpp in Sources */,
 				03E72A6210E0911200D5E4C1 /* Sum.cpp in Sources */,
 				03E72A6410E0911200D5E4C1 /* Aggregates.cpp in Sources */,
-				03E72A6610E0911200D5E4C1 /* Query.cpp in Sources */,
 				03E72A6B10E0911200D5E4C1 /* Dimension.cpp in Sources */,
 				03E72A7110E0911200D5E4C1 /* Query.cpp in Sources */,
 				03E72A7310E0911200D5E4C1 /* Pattern.cpp in Sources */,
@@ -791,9 +789,11 @@
 				03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */,
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
-				03E51F9D10F5779900411368 /* Executive.cpp in Sources */,
 				0346C4481105874400635E67 /* Constructor.cpp in Sources */,
 				0346C4B91105903200635E67 /* Analytical.cpp in Sources */,
+				0346C4F3110592DF00635E67 /* Analytical.cpp in Sources */,
+				0346C4FD1105935D00635E67 /* Sequential.cpp in Sources */,
+				0346C5091105947300635E67 /* Sequential.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

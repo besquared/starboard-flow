@@ -27,7 +27,7 @@ namespace Flow {
 
 				Base() {
 					this->conditions = new Conditions();
-					this->Aggregates = new Aggregates();
+					this->aggregates = new Aggregates();
 				}
 				
 				virtual ~Base() {

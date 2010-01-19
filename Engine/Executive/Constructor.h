@@ -16,9 +16,7 @@
 #include <Engine/Query/Base.h>
 
 using namespace std;
-using namespace Flow;
-using namespace Flow::Domain;
-using namespace Flow::Domain::Data;
+using namespace Domain::Data;
 
 namespace Flow {
 	namespace Engine {
