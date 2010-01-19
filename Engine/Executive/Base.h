@@ -7,19 +7,19 @@
  *
  */
 
-#ifndef _flow_engine_query_executive_base_h_
-#define _flow_engine_query_executive_base_h_
+#ifndef _flow_engine_executive_base_h_
+#define _flow_engine_executive_base_h_
 
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
-#include <Engine/Query/Base.h>
-#include <Engine/Executive/Constructor.h>
-
-using namespace std;
 
 namespace Flow {
 	namespace Engine {
+		namespace Query {
+			class Base;
+		}
+		
 		namespace Executive {
 			class Base {
 			protected:

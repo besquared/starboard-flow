@@ -13,6 +13,7 @@
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
+#include <Engine/Executive/Base.h>
 #include <Engine/Executive/Constructor.h>
 
 #include "Query.h"
@@ -20,20 +21,19 @@
 using namespace std;
 using namespace Flow;
 using namespace Flow::Domain;
-using namespace Flow::Domain::Data;
 
 namespace Flow {
 	namespace Engine {
 		namespace Analytical {
 			class Query; // Forward Declaration
 			
-			class Executive {
+			class Executive : Executive::Base {
 			protected:
-				Query* query;
 				Domain::Base* domain;
+				Analytical::Query* query;
 
 			public:
-				Executive(Domain::Base* domain, Query* query);
+				Executive(Domain::Base* domain, Analytical::Query* query);
 				virtual bool Execute(Groups& results);
 				
 			protected:

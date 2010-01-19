@@ -25,7 +25,7 @@ namespace Flow {
 			namespace Analytical {
 				class MockExecutive : public ::Engine::Analytical::Executive {
 				public:
-					MockExecutive(Domain::MockBase* domain, Query* query) : 
+					MockExecutive(Domain::MockBase* domain, ::Analytical::Query* query) : 
 					Flow::Engine::Analytical::Executive::Executive(domain, query) {}
 					
 					MOCK_METHOD1(Execute, bool(Groups&));

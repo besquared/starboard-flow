@@ -11,11 +11,8 @@
 #define _flow_engine_query_base_h_
 
 #include <Common.h>
-#include <Domain/Base.h>
 #include <Engine/Groups.h>
 #include <Engine/Executive/Base.h>
-
-using namespace std;
 
 namespace Flow {
 	namespace Engine {
