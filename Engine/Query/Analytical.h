@@ -1,29 +1,25 @@
 /*
- *  Query.h
- *  Flow
+ *  Analytical.h
+ *  flow
  *
- *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *  Created by Josh Ferguson on 1/18/10.
+ *  Copyright 2010 Cube Tree Labs, LLC. All rights reserved.
  *
  */
 
-#ifndef _flow_engine_analytical_query_h_
-#define _flow_engine_analytical_query_h_
+#ifndef _flow_engine_query_analytical_h_
+#define _flow_engine_query_analytical_h_
 
-#include <Common.h>
-#include <Conditions.h>
-#include <Engine/Aggregates.h>
+#include "Base.h"
 
 using namespace std;
 
 namespace Flow {
 	namespace Engine {
-		namespace Analytical {
-			class Query {
+		namespace Query {
+			class Analytical {
 			public:
-				
-				Query();
-				~Query();
-				
+				Analytical();				
 				void Measures(set<string>& results);
 				void Instantiate(map<string, string>& results);
 				void InstantiatedValues(vector<string>& results);

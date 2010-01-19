@@ -11,18 +11,35 @@
 #define _flow_engine_query_base_h_
 
 #include <Common.h>
+#include <Conditions.h>
 #include <Engine/Groups.h>
-#include <Engine/Executive/Base.h>
+#include <Engine/Aggregates.h>
+
+using namespace std;
 
 namespace Flow {
 	namespace Engine {
 		namespace Query {
 			class Base {
 			public:
-				Base();
-				virtual ~Base();
-				virtual bool Execute(Domain::Base* domain, Groups& results) = 0;
-				virtual bool Execute(Executive::Base& executive, Groups& results) = 0;
+				Conditions* conditions;
+				Aggregates* aggregates;
+
+				Base() {
+					this->conditions = new Conditions();
+					this->Aggregates = new Aggregates();
+				}
+				
+				virtual ~Base() {
+					delete(this->conditions);
+					delete(this->aggregates);
+				}
+				
+				virtual void Measures(set<string>& results) = 0;
+				virtual void Instantiate(map<string, string>& results) = 0;
+				virtual void InstantiatedValues(vector<string>& results) = 0;
+				virtual void Inquire(set<string>& dimensions, Conditions& conditions) = 0;
+				virtual void Dimensions(vector<string>& instantiated, vector<string>& inquired) = 0;
 			};
 		}
 	}
