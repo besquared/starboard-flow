@@ -34,14 +34,14 @@ namespace Flow {
 				
 				Query();
 				~Query();
-				bool Execute(Domain::Base* domain, Groups& results);
-				bool Execute(Executive& executive, Groups& results);
+//				bool Execute(Domain::Base* domain, Groups& results);
+//				bool Execute(Executive::Base& executive, Groups& results);
 								
-				bool Aggregate(Table& results);
-				bool Sweep(Table& base);
-
-				bool GatherMeasures(const set<string>& measures, Table& base);
-				bool GatherDimensions(const set<string>& dimensions, Table& base);
+//				bool Aggregate(Table& results);
+//				bool Sweep(Table& base);
+//
+//				bool GatherMeasures(const set<string>& measures, Table& base);
+//				bool GatherDimensions(const set<string>& dimensions, Table& base);
 			};
 		}
 	}

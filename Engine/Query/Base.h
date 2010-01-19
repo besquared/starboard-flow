@@ -16,19 +16,19 @@
 #include <Engine/Executive/Base.h>
 
 using namespace std;
-using namespace Flow;
-using namespace Flow::Domain;
 
 namespace Flow {
 	namespace Engine {
 		namespace Query {
 			class Base {
 			public:
-				Query();
-				virtual ~Query();
+				Base();
+				virtual ~Base();
 				virtual bool Execute(Domain::Base* domain, Groups& results) = 0;
 				virtual bool Execute(Executive::Base& executive, Groups& results) = 0;
 			};
 		}
 	}
 }
+
+#endif

@@ -17,9 +17,6 @@
 #include <Engine/Executive/Constructor.h>
 
 using namespace std;
-using namespace Flow;
-using namespace Flow::Domain;
-using namespace Flow::Domain::Data;
 
 namespace Flow {
 	namespace Engine {
@@ -30,7 +27,7 @@ namespace Flow {
 				Domain::Base* domain;
 				
 			public:
-				Executive(Domain::Base* domain, Query* query) {
+				Base(Domain::Base* domain, Query::Base* query) {
 					this->domain = domain;
 					this->query = query;
 				}
@@ -40,3 +37,5 @@ namespace Flow {
 		}
 	}
 }
+
+#endif

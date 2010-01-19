@@ -9,14 +9,14 @@
 
 #include "Query.h"
 
-bool Sequential::Query::Execute(Domain::Base* domain, Groups& results) {
-	Executive executive(domain, this);
-	return this->Execute(executive, results);
-}
-
-bool Sequential::Query::Execute(Executive& executive, Groups& results) {
-	return executive.Execute(results);
-}
+//bool Sequential::Query::Execute(Domain::Base* domain, Groups& results) {
+//	Executive::Base executive(domain, this);
+//	return this->Execute(executive, results);
+//}
+//
+//bool Sequential::Query::Execute(Executive& executive, Groups& results) {
+//	return executive.Execute(results);
+//}
 
 //
 //bool SequenceQuery::Materialize(vector<Table>& results) {

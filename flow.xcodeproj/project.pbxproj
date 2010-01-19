@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0346C3D31105639500635E67 /* Constructor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C3D11105639500635E67 /* Constructor.cpp */; };
-		0346C3D41105639500635E67 /* Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D21105639500635E67 /* Constructor.h */; };
 		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
 		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
+		0346C4481105874400635E67 /* Constructor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4461105874400635E67 /* Constructor.cpp */; };
+		0346C4491105874400635E67 /* Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4471105874400635E67 /* Constructor.h */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
@@ -135,10 +135,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0346C3D11105639500635E67 /* Constructor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Constructor.cpp; path = ../Query/Constructor.cpp; sourceTree = "<group>"; };
-		0346C3D21105639500635E67 /* Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constructor.h; path = ../Query/Constructor.h; sourceTree = "<group>"; };
 		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
+		0346C4461105874400635E67 /* Constructor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constructor.cpp; sourceTree = "<group>"; };
+		0346C4471105874400635E67 /* Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constructor.h; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
@@ -288,8 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				0346C418110583FC00635E67 /* Base.h */,
-				0346C3D11105639500635E67 /* Constructor.cpp */,
-				0346C3D21105639500635E67 /* Constructor.h */,
+				0346C4461105874400635E67 /* Constructor.cpp */,
+				0346C4471105874400635E67 /* Constructor.h */,
 			);
 			path = Executive;
 			sourceTree = "<group>";
@@ -640,9 +640,9 @@
 				03E5203310F589E900411368 /* MockExecutive.h in Headers */,
 				0372F00210F7187700BEE006 /* Groups.h in Headers */,
 				0372F00310F7187700BEE006 /* Group.h in Headers */,
-				0346C3D41105639500635E67 /* Constructor.h in Headers */,
 				0346C3DA1105640400635E67 /* Base.h in Headers */,
 				0346C419110583FC00635E67 /* Base.h in Headers */,
+				0346C4491105874400635E67 /* Constructor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,7 +785,7 @@
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
 				03E51F9D10F5779900411368 /* Executive.cpp in Sources */,
-				0346C3D31105639500635E67 /* Constructor.cpp in Sources */,
+				0346C4481105874400635E67 /* Constructor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

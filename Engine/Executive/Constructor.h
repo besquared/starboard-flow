@@ -25,7 +25,7 @@ namespace Flow {
 		namespace Executive {		
 			class Constructor {				
 			public:
-				virtual bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);
+				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);
 				
 			protected:
 				void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 

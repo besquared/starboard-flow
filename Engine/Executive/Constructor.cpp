@@ -38,7 +38,7 @@ bool Executive::Constructor::Execute(Domain::Base* domain, Query::Base* query, G
 		
 		RIDTree inquired;
 		domain->indices->Lookup(inquire, conditions, inquired);
-		this->Construct(instantiated_vals, instantiated, inquired_dims, inquired, results);
+		Construct(instantiated_vals, instantiated, inquired_dims, inquired, results);
 	} else {
 		if(instantiated.size() > 0) {
 			vector<string> values;
@@ -60,11 +60,11 @@ bool Executive::Constructor::Execute(Domain::Base* domain, Query::Base* query, G
  * Construction
  */
 void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-																			vector<string>& inquired_dims, RIDTree& inquired, Groups& results) {
+																			 vector<string>& inquired_dims, RIDTree& inquired, Groups& results) {
 	RIDList records;
 	vector<string> values;
-	this->Construct(instantiated_vals, instantiated, 
-									inquired_dims, inquired, 0, values, records, results);
+	Construct(instantiated_vals, instantiated, 
+						inquired_dims, inquired, 0, values, records, results);
 }
 
 /*
@@ -90,8 +90,8 @@ void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDLis
  and so on.
  */
 void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-																			vector<string>& inquired_dims, RIDTree& inquired, int offset, 
-																			vector<string>& values, RIDList& records, Groups& results) {
+																			 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
+																			 vector<string>& values, RIDList& records, Groups& results) {
 	
 	if(inquired_dims.size() == offset) {
 		RIDList intersected = records & instantiated;
@@ -112,8 +112,8 @@ void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDLis
 		
 		if(intersection.size() > 0) {
 			values.push_back(rpair->first);
-			this->Construct(instantiated_vals, instantiated, inquired_dims, 
-											inquired, offset + 1, values, intersection, results);
+			Construct(instantiated_vals, instantiated, inquired_dims, 
+								inquired, offset + 1, values, intersection, results);
 			values.pop_back();
 		}
 	}
