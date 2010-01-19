@@ -37,13 +37,13 @@ namespace {
 	};
 		
 	TEST_F(ExecutiveTest, ExecutesPointQuery) {		
-		Analytical::Query query;
+		Query::Analytical query;
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "Fall");
 		query.aggregates->count("records");
 		query.aggregates->sum("sales");
 		
-		Analytical::Executive executive(this->purchases, &query);
+		Executive::Analytical executive(this->purchases, &query);
 		
 		RIDList records;
 		records.push_back(1.0);
@@ -76,14 +76,14 @@ namespace {
 	}
 
 	TEST_F(ExecutiveTest, ExecutesMixedQuery) {		
-		Analytical::Query query;
+		Query::Analytical query;
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "Fall");
 		query.conditions->Gt("day", "20091020");
 		query.aggregates->count("records");
 		query.aggregates->sum("sales");
 		
-		Analytical::Executive executive(this->purchases, &query);
+		Executive::Analytical executive(this->purchases, &query);
 		
 		RIDList records;
 		records.push_back(1.0);

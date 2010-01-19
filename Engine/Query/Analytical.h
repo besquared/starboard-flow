@@ -17,9 +17,9 @@ using namespace std;
 namespace Flow {
 	namespace Engine {
 		namespace Query {
-			class Analytical : Query::Base {
+			class Analytical : public Query::Base {
 			public:
-				Analytical();				
+				Analytical();
 				void Measures(set<string>& results);
 				void Instantiate(map<string, string>& results);
 				void InstantiatedValues(vector<string>& results);

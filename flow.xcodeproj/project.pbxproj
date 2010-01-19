@@ -57,12 +57,8 @@
 		03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1B10E0911200D5E4C1 /* Aggregates.h */; };
 		03E72A6B10E0911200D5E4C1 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2310E0911200D5E4C1 /* Dimension.cpp */; };
 		03E72A6C10E0911200D5E4C1 /* Dimension.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2410E0911200D5E4C1 /* Dimension.h */; };
-		03E72A7110E0911200D5E4C1 /* Query.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2910E0911200D5E4C1 /* Query.cpp */; };
-		03E72A7210E0911200D5E4C1 /* Query.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2A10E0911200D5E4C1 /* Query.h */; };
 		03E72A7310E0911200D5E4C1 /* Pattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2B10E0911200D5E4C1 /* Pattern.cpp */; };
 		03E72A7410E0911200D5E4C1 /* Pattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2C10E0911200D5E4C1 /* Pattern.h */; };
-		03E72A7510E0911200D5E4C1 /* Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A2D10E0911200D5E4C1 /* Table.cpp */; };
-		03E72A7610E0911200D5E4C1 /* Table.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A2E10E0911200D5E4C1 /* Table.h */; };
 		03E72A7910E0911200D5E4C1 /* BDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3310E0911200D5E4C1 /* BDB.cpp */; };
 		03E72A7A10E0911200D5E4C1 /* BDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A3410E0911200D5E4C1 /* BDB.h */; };
 		03E72A7B10E0911200D5E4C1 /* Dimension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A3510E0911200D5E4C1 /* Dimension.cpp */; };
@@ -101,21 +97,15 @@
 		03E72AA210E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A5D10E0911200D5E4C1 /* Base.h */; };
 		03E72AA610E0916D00D5E4C1 /* Flow.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AA510E0916D00D5E4C1 /* Flow.h */; };
 		03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AA910E0917B00D5E4C1 /* Common.h */; };
-		03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC010E091F900D5E4C1 /* TListColumn.h */; };
-		03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC110E091F900D5E4C1 /* TColumn.h */; };
-		03E72AC910E091F900D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72AC410E091F900D5E4C1 /* Base.h */; };
 		03E7309610E3392100D5E4C1 /* TestMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7306A10E3392100D5E4C1 /* TestMain.cpp */; };
 		03E7309710E3392100D5E4C1 /* TestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E7306B10E3392100D5E4C1 /* TestHelper.h */; };
 		03E7309810E3392100D5E4C1 /* Fixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E7306D10E3392100D5E4C1 /* Fixture.h */; };
 		03E7309910E3392100D5E4C1 /* SubwayFixture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7306E10E3392100D5E4C1 /* SubwayFixture.cpp */; };
 		03E7309A10E3392100D5E4C1 /* SubwayFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E7306F10E3392100D5E4C1 /* SubwayFixture.h */; };
 		03E7309B10E3392100D5E4C1 /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307310E3392100D5E4C1 /* QueryTest.cpp */; };
-		03E7309C10E3392100D5E4C1 /* TColumnTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307510E3392100D5E4C1 /* TColumnTest.cpp */; };
-		03E7309D10E3392100D5E4C1 /* TListColumnTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307610E3392100D5E4C1 /* TListColumnTest.cpp */; };
 		03E7309E10E3392100D5E4C1 /* DimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307810E3392100D5E4C1 /* DimensionTest.cpp */; };
 		03E730A110E3392100D5E4C1 /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307B10E3392100D5E4C1 /* QueryTest.cpp */; };
 		03E730A210E3392100D5E4C1 /* PatternTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307C10E3392100D5E4C1 /* PatternTest.cpp */; };
-		03E730A310E3392100D5E4C1 /* TableTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307D10E3392100D5E4C1 /* TableTest.cpp */; };
 		03E730A510E3392100D5E4C1 /* DimensionsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7308110E3392100D5E4C1 /* DimensionsTest.cpp */; };
 		03E730A810E3392100D5E4C1 /* IndicesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7308410E3392100D5E4C1 /* IndicesTest.cpp */; };
 		03E730A910E3392100D5E4C1 /* MeasuresTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7308510E3392100D5E4C1 /* MeasuresTest.cpp */; };
@@ -188,12 +178,8 @@
 		03E72A1B10E0911200D5E4C1 /* Aggregates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregates.h; sourceTree = "<group>"; };
 		03E72A2310E0911200D5E4C1 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
 		03E72A2410E0911200D5E4C1 /* Dimension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dimension.h; sourceTree = "<group>"; };
-		03E72A2910E0911200D5E4C1 /* Query.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Query.cpp; sourceTree = "<group>"; };
-		03E72A2A10E0911200D5E4C1 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
 		03E72A2B10E0911200D5E4C1 /* Pattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pattern.cpp; sourceTree = "<group>"; };
 		03E72A2C10E0911200D5E4C1 /* Pattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
-		03E72A2D10E0911200D5E4C1 /* Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Table.cpp; sourceTree = "<group>"; };
-		03E72A2E10E0911200D5E4C1 /* Table.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Table.h; sourceTree = "<group>"; };
 		03E72A3310E0911200D5E4C1 /* BDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BDB.cpp; sourceTree = "<group>"; };
 		03E72A3410E0911200D5E4C1 /* BDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDB.h; sourceTree = "<group>"; };
 		03E72A3510E0911200D5E4C1 /* Dimension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dimension.cpp; sourceTree = "<group>"; };
@@ -232,21 +218,15 @@
 		03E72A5D10E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03E72AA510E0916D00D5E4C1 /* Flow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flow.h; sourceTree = "<group>"; };
 		03E72AA910E0917B00D5E4C1 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		03E72AC010E091F900D5E4C1 /* TListColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TListColumn.h; path = Column/TListColumn.h; sourceTree = "<group>"; };
-		03E72AC110E091F900D5E4C1 /* TColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TColumn.h; path = Column/TColumn.h; sourceTree = "<group>"; };
-		03E72AC410E091F900D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base.h; path = Column/Base.h; sourceTree = "<group>"; };
 		03E7306A10E3392100D5E4C1 /* TestMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestMain.cpp; path = Testing/TestMain.cpp; sourceTree = "<group>"; };
 		03E7306B10E3392100D5E4C1 /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestHelper.h; path = Testing/TestHelper.h; sourceTree = "<group>"; };
 		03E7306D10E3392100D5E4C1 /* Fixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fixture.h; sourceTree = "<group>"; };
 		03E7306E10E3392100D5E4C1 /* SubwayFixture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubwayFixture.cpp; sourceTree = "<group>"; };
 		03E7306F10E3392100D5E4C1 /* SubwayFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubwayFixture.h; sourceTree = "<group>"; };
 		03E7307310E3392100D5E4C1 /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryTest.cpp; sourceTree = "<group>"; };
-		03E7307510E3392100D5E4C1 /* TColumnTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TColumnTest.cpp; sourceTree = "<group>"; };
-		03E7307610E3392100D5E4C1 /* TListColumnTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TListColumnTest.cpp; sourceTree = "<group>"; };
 		03E7307810E3392100D5E4C1 /* DimensionTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionTest.cpp; sourceTree = "<group>"; };
 		03E7307B10E3392100D5E4C1 /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryTest.cpp; sourceTree = "<group>"; };
 		03E7307C10E3392100D5E4C1 /* PatternTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatternTest.cpp; sourceTree = "<group>"; };
-		03E7307D10E3392100D5E4C1 /* TableTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableTest.cpp; sourceTree = "<group>"; };
 		03E7308110E3392100D5E4C1 /* DimensionsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionsTest.cpp; sourceTree = "<group>"; };
 		03E7308410E3392100D5E4C1 /* IndicesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndicesTest.cpp; sourceTree = "<group>"; };
 		03E7308510E3392100D5E4C1 /* MeasuresTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeasuresTest.cpp; sourceTree = "<group>"; };
@@ -338,9 +318,6 @@
 		03E72A1210E0911200D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				03E72AAB10E0919100D5E4C1 /* Column */,
-				03E72A2D10E0911200D5E4C1 /* Table.cpp */,
-				03E72A2E10E0911200D5E4C1 /* Table.h */,
 				0372F00110F7187700BEE006 /* Group.h */,
 				0372F00010F7187700BEE006 /* Groups.h */,
 				03E72A1310E0911200D5E4C1 /* Aggregate */,
@@ -371,8 +348,6 @@
 			children = (
 				03E72A2310E0911200D5E4C1 /* Dimension.cpp */,
 				03E72A2410E0911200D5E4C1 /* Dimension.h */,
-				03E72A2910E0911200D5E4C1 /* Query.cpp */,
-				03E72A2A10E0911200D5E4C1 /* Query.h */,
 				03E72A2B10E0911200D5E4C1 /* Pattern.cpp */,
 				03E72A2C10E0911200D5E4C1 /* Pattern.h */,
 			);
@@ -434,16 +409,6 @@
 			path = Condition;
 			sourceTree = "<group>";
 		};
-		03E72AAB10E0919100D5E4C1 /* Column */ = {
-			isa = PBXGroup;
-			children = (
-				03E72AC410E091F900D5E4C1 /* Base.h */,
-				03E72AC110E091F900D5E4C1 /* TColumn.h */,
-				03E72AC010E091F900D5E4C1 /* TListColumn.h */,
-			);
-			name = Column;
-			sourceTree = "<group>";
-		};
 		03E72FE210E1B8A700D5E4C1 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,10 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				03E7307110E3392100D5E4C1 /* Aggregate */,
-				03E7307410E3392100D5E4C1 /* Column */,
 				03E7307210E3392100D5E4C1 /* Analytical */,
 				03E7307710E3392100D5E4C1 /* Sequential */,
-				03E7307D10E3392100D5E4C1 /* TableTest.cpp */,
 			);
 			name = Engine;
 			path = Testing/Engine;
@@ -499,15 +462,6 @@
 				03E7307310E3392100D5E4C1 /* QueryTest.cpp */,
 			);
 			path = Analytical;
-			sourceTree = "<group>";
-		};
-		03E7307410E3392100D5E4C1 /* Column */ = {
-			isa = PBXGroup;
-			children = (
-				03E7307510E3392100D5E4C1 /* TColumnTest.cpp */,
-				03E7307610E3392100D5E4C1 /* TListColumnTest.cpp */,
-			);
-			path = Column;
 			sourceTree = "<group>";
 		};
 		03E7307710E3392100D5E4C1 /* Sequential */ = {
@@ -609,9 +563,7 @@
 				03E72A6310E0911200D5E4C1 /* Sum.h in Headers */,
 				03E72A6510E0911200D5E4C1 /* Aggregates.h in Headers */,
 				03E72A6C10E0911200D5E4C1 /* Dimension.h in Headers */,
-				03E72A7210E0911200D5E4C1 /* Query.h in Headers */,
 				03E72A7410E0911200D5E4C1 /* Pattern.h in Headers */,
-				03E72A7610E0911200D5E4C1 /* Table.h in Headers */,
 				03E72A7A10E0911200D5E4C1 /* BDB.h in Headers */,
 				03E72A7C10E0911200D5E4C1 /* Dimension.h in Headers */,
 				03E72A7E10E0911200D5E4C1 /* Index.h in Headers */,
@@ -636,9 +588,6 @@
 				03E72AA210E0911200D5E4C1 /* Base.h in Headers */,
 				03E72AA610E0916D00D5E4C1 /* Flow.h in Headers */,
 				03E72AAA10E0917B00D5E4C1 /* Common.h in Headers */,
-				03E72AC510E091F900D5E4C1 /* TListColumn.h in Headers */,
-				03E72AC610E091F900D5E4C1 /* TColumn.h in Headers */,
-				03E72AC910E091F900D5E4C1 /* Base.h in Headers */,
 				03E5203310F589E900411368 /* MockExecutive.h in Headers */,
 				0372F00210F7187700BEE006 /* Groups.h in Headers */,
 				0372F00310F7187700BEE006 /* Group.h in Headers */,
@@ -733,12 +682,9 @@
 				03E7309610E3392100D5E4C1 /* TestMain.cpp in Sources */,
 				03E7309910E3392100D5E4C1 /* SubwayFixture.cpp in Sources */,
 				03E7309B10E3392100D5E4C1 /* QueryTest.cpp in Sources */,
-				03E7309C10E3392100D5E4C1 /* TColumnTest.cpp in Sources */,
-				03E7309D10E3392100D5E4C1 /* TListColumnTest.cpp in Sources */,
 				03E7309E10E3392100D5E4C1 /* DimensionTest.cpp in Sources */,
 				03E730A110E3392100D5E4C1 /* QueryTest.cpp in Sources */,
 				03E730A210E3392100D5E4C1 /* PatternTest.cpp in Sources */,
-				03E730A310E3392100D5E4C1 /* TableTest.cpp in Sources */,
 				03E730A510E3392100D5E4C1 /* DimensionsTest.cpp in Sources */,
 				03E730A810E3392100D5E4C1 /* IndicesTest.cpp in Sources */,
 				03E730A910E3392100D5E4C1 /* MeasuresTest.cpp in Sources */,
@@ -772,9 +718,7 @@
 				03E72A6210E0911200D5E4C1 /* Sum.cpp in Sources */,
 				03E72A6410E0911200D5E4C1 /* Aggregates.cpp in Sources */,
 				03E72A6B10E0911200D5E4C1 /* Dimension.cpp in Sources */,
-				03E72A7110E0911200D5E4C1 /* Query.cpp in Sources */,
 				03E72A7310E0911200D5E4C1 /* Pattern.cpp in Sources */,
-				03E72A7510E0911200D5E4C1 /* Table.cpp in Sources */,
 				03E72A7910E0911200D5E4C1 /* BDB.cpp in Sources */,
 				03E72A7B10E0911200D5E4C1 /* Dimension.cpp in Sources */,
 				03E72A7D10E0911200D5E4C1 /* Index.cpp in Sources */,

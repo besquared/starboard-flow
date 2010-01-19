@@ -9,6 +9,8 @@
 
 #include "Base.h"
 
+using namespace Flow::Engine;
+
 Aggregate::Base::Base() {
 	this->measure = "*";
 	this->type = Aggregate::Base::SINGLE;

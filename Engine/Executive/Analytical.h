@@ -19,7 +19,7 @@ using namespace std;
 namespace Flow {
 	namespace Engine {
 		namespace Executive {
-			class Analytical : Executive::Base {				
+			class Analytical : public Executive::Base {				
 			public:
 				bool Execute(Groups& results);
 				

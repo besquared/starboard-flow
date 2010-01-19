@@ -45,7 +45,7 @@ namespace {
 	};
 	
 	TEST_F(QueryTest, ProvidesInstantiated) {
-		Analytical::Query query;
+		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -59,7 +59,7 @@ namespace {
 	}
 	
 	TEST_F(QueryTest, ProvidesInstantiatedValues) {
-		Analytical::Query query;
+		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -73,7 +73,7 @@ namespace {
 	}
 	
 	TEST_F(QueryTest, ProvidesInquired) {
-		Analytical::Query query;
+		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -91,7 +91,7 @@ namespace {
 	}
 	
 	TEST_F(QueryTest, ProvidesDimensions) {
-		Analytical::Query query;
+		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "?");
@@ -111,7 +111,7 @@ namespace {
 	
 	TEST_F(QueryTest, ExecutesQuery) {
 		Engine::Groups results;
-		Analytical::Query query;
+		Query::Analytical query;
 
 		MockExecutive executive(this->purchases, &query);
 		EXPECT_CALL(executive, Execute(results)).WillOnce(Return(true));

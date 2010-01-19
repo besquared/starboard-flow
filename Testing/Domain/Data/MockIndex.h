@@ -13,13 +13,15 @@
 #include <Common.h>
 #include <Domain/Data/Index.h>
 
+using namespace Domain::Data;
+
 namespace Flow {
 	namespace Testing {
 		namespace Domain {
 			namespace Data {
-				class MockIndex : public Index {
+				class MockIndex : public ::Index {
 				public:
-					MockIndex(const string& path) : Index::Index(path) {}
+					MockIndex(const string& path) : ::Index::Index(path) {}
 					
 					MOCK_METHOD0(OpenWriter, bool());
 					MOCK_METHOD0(OpenReader, bool());

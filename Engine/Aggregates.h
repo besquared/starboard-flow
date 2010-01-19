@@ -15,8 +15,7 @@
 #include <Engine/Aggregate/Sum.h>
 
 using namespace std;
-using namespace Flow;
-using namespace Flow::Engine;
+using namespace boost;
 
 namespace Flow {
 	namespace Engine {
