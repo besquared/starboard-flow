@@ -1,5 +1,5 @@
 /*
- *  MasterTest.cpp
+ *  MetaTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 12/14/09.
@@ -10,6 +10,9 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain;
+	using namespace Flow::Domain::Data;
+	
 	class MetaTest : public ::testing::Test {
 	protected:
 		Meta* database;

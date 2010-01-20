@@ -22,7 +22,7 @@ namespace Flow {
 			namespace Executive {
 				class MockAnalytical : public ::Engine::Executive::Analytical {
 				public:
-					MockExecutive(Domain::MockBase* domain, ::Query::Analytical* query) : 
+					MockAnalytical(Domain::MockBase* domain, ::Query::Analytical* query) : 
 					Flow::Engine::Executive::Analytical::Analytical(domain, query) {}
 					
 					MOCK_METHOD1(Execute, bool(Groups&));

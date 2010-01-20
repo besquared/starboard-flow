@@ -10,6 +10,9 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain;
+	using namespace Flow::Domain::Data;
+	
 	class BDBTest : public ::testing::Test {
 	protected:
 		BDB* database;

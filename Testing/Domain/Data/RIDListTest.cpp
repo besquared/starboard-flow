@@ -10,6 +10,8 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain::Data;
+	
 	class RIDListTest : public ::testing::Test {
 	protected:
 		RIDListTest() {}

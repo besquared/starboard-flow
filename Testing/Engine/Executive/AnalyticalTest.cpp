@@ -1,5 +1,5 @@
 /*
- *  ExecutiveTest.cpp
+ *  ExecutiveAnalyticalTest.cpp
  *  flow
  *
  *  Created by Josh Ferguson on 1/6/10.
@@ -9,20 +9,22 @@
 
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
+#include <Engine/Executive/Analytical.h>
 
-using namespace ::Engine;
 using namespace Testing::Domain;
 
 namespace {
-	class ExecutiveTest : public ::testing::Test {
+	using namespace Flow::Engine;
+	
+	class ExecutiveAnalyticalTest : public ::testing::Test {
 	protected:
 		MockBase* purchases;
 		MockIndices* indices;
 		MockMeasures* measures;
 		MockDimensions* dimensions;
 		
-		ExecutiveTest() {}
-		virtual ~ExecutiveTest() {}
+		ExecutiveAnalyticalTest() {}
+		virtual ~ExecutiveAnalyticalTest() {}
 		
 		virtual void SetUp() {
 			this->purchases = new MockBase("/tmp/flow", "/tmp/flow");
@@ -36,7 +38,7 @@ namespace {
 		}
 	};
 		
-	TEST_F(ExecutiveTest, ExecutesPointQuery) {		
+	TEST_F(ExecutiveAnalyticalTest, ExecutesPointQuery) {		
 		Query::Analytical query;
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "Fall");
@@ -75,7 +77,7 @@ namespace {
 		EXPECT_EQ(350, results[0].aggregate("sum_sales"));
 	}
 
-	TEST_F(ExecutiveTest, ExecutesMixedQuery) {		
+	TEST_F(ExecutiveAnalyticalTest, ExecutesMixedQuery) {		
 		Query::Analytical query;
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "Fall");

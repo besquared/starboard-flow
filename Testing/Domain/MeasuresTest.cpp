@@ -10,6 +10,8 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain::Data;
+	
 	class MeasuresTest : public ::testing::Test {
 	protected:
 		TestHelper *helper;

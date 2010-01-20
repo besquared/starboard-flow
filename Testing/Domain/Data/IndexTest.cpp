@@ -10,6 +10,9 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain;
+	using namespace Flow::Domain::Data;
+	
 	class IndexTest : public ::testing::Test {
 	protected:
 		Index* database;

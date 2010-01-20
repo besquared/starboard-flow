@@ -1,5 +1,5 @@
 /*
- *  QueryTest.cpp
+ *  QueryAnalyticalTest.cpp
  *  Flow
  *
  *  Created by Josh Ferguson on 11/29/09.
@@ -21,19 +21,19 @@
 
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
-#include <Testing/Engine/Analytical/MockExecutive.h>
+#include <Testing/Engine/Executive/MockAnalytical.h>
 
 using namespace ::Engine;
 using namespace Testing::Domain;
-using namespace Testing::Engine::Analytical;
+using namespace Testing::Engine::Executive;
 
 namespace {
-	class QueryTest : public ::testing::Test {
+	class QueryAnalyticalTest : public ::testing::Test {
 	protected:
 		MockBase* purchases;
 		
-		QueryTest() {}
-		virtual ~QueryTest() {}
+		QueryAnalyticalTest() {}
+		virtual ~QueryAnalyticalTest() {}
 		
 		virtual void SetUp() {
 			this->purchases = new MockBase("/tmp/flow", "/tmp/flow");
@@ -44,7 +44,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(QueryTest, ProvidesInstantiated) {
+	TEST_F(QueryAnalyticalTest, ProvidesInstantiated) {
 		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
@@ -58,7 +58,7 @@ namespace {
 		EXPECT_EQ("S1", instantiate["store"]);
 	}
 	
-	TEST_F(QueryTest, ProvidesInstantiatedValues) {
+	TEST_F(QueryAnalyticalTest, ProvidesInstantiatedValues) {
 		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
@@ -72,7 +72,7 @@ namespace {
 		EXPECT_EQ("S1", instantiated_vals[0]);
 	}
 	
-	TEST_F(QueryTest, ProvidesInquired) {
+	TEST_F(QueryAnalyticalTest, ProvidesInquired) {
 		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
@@ -90,7 +90,7 @@ namespace {
 		EXPECT_EQ(2, conditions.size());
 	}
 	
-	TEST_F(QueryTest, ProvidesDimensions) {
+	TEST_F(QueryAnalyticalTest, ProvidesDimensions) {
 		Query::Analytical query;
 		
 		query.conditions->Eq("store", "S1");
@@ -109,11 +109,11 @@ namespace {
 		EXPECT_EQ("store", instantiated[0]);
 	}
 	
-	TEST_F(QueryTest, ExecutesQuery) {
+	TEST_F(QueryAnalyticalTest, ExecutesQuery) {
 		Engine::Groups results;
 		Query::Analytical query;
 
-		MockExecutive executive(this->purchases, &query);
+		MockAnalytical executive(this->purchases, &query);
 		EXPECT_CALL(executive, Execute(results)).WillOnce(Return(true));
 		
 		query.conditions->Eq("store", "S1");

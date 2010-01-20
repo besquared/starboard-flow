@@ -8,17 +8,17 @@
  */
 
 #include <Testing/TestHelper.h>
-#include <Engine/Sequential/Query.h>
+#include <Engine/Query/Sequential.h>
 
 using namespace Flow::Engine;
 
 namespace {
-	class SequentialQueryTest : public ::testing::Test {
+	class QuerySequentialTest : public ::testing::Test {
 	protected:
-		Sequential::Query *query;
+		Query::Sequential* query;
 		
-		SequentialQueryTest() {}
-		virtual ~SequentialQueryTest() {}
+		QuerySequentialTest() {}
+		virtual ~QuerySequentialTest() {}
 		
 		virtual void SetUp() {
 //			this->query = new Query("/tmp/flow");
@@ -49,7 +49,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(SequentialQueryTest, MaterializesSingleTable) {		
+	TEST_F(QuerySequentialTest, MaterializesSingleTable) {		
 //		shared_ptr<Table> table(new Table());
 //		shared_ptr<Column> key(new TColumn<SequenceKey>);
 //		shared_ptr<Column> events(new TListColumn<SequenceEvent>);

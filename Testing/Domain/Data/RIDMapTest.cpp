@@ -10,6 +10,8 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain::Data;
+	
 	class RIDMapTest : public ::testing::Test {
 	protected:
 		RIDMapTest() {}

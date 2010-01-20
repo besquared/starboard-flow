@@ -11,6 +11,9 @@
 #include <Testing/TestHelper.h>
 
 namespace {
+	using namespace Flow::Domain;
+	using namespace Flow::Domain::Data;
+	
 	class DimensionTest : public ::testing::Test {
 	protected:
 		Dimension* database;
