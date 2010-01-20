@@ -332,13 +332,13 @@
 		03E72A1210E0911200D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				0372F00110F7187700BEE006 /* Group.h */,
-				0372F00010F7187700BEE006 /* Groups.h */,
 				03E72A1310E0911200D5E4C1 /* Aggregate */,
 				03E72A1A10E0911200D5E4C1 /* Aggregates.cpp */,
 				03E72A1B10E0911200D5E4C1 /* Aggregates.h */,
-				0346C417110583FC00635E67 /* Executive */,
+				0372F00110F7187700BEE006 /* Group.h */,
+				0372F00010F7187700BEE006 /* Groups.h */,
 				0346C3D01105639500635E67 /* Query */,
+				0346C417110583FC00635E67 /* Executive */,
 				03E72A2210E0911200D5E4C1 /* Sequential */,
 			);
 			path = Engine;
@@ -451,9 +451,9 @@
 		03E7307010E3392100D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				03E7307710E3392100D5E4C1 /* Sequential */,
 				030684FA1106A73700DC6B74 /* Query */,
 				030684F91106A73700DC6B74 /* Executive */,
+				03E7307710E3392100D5E4C1 /* Sequential */,
 			);
 			name = Engine;
 			path = Testing/Engine;
