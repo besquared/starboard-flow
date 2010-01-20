@@ -13,13 +13,10 @@
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
+#include <Engine/Query/Base.h>
 
 namespace Flow {
-	namespace Engine {
-		namespace Query {
-			class Base;
-		}
-		
+	namespace Engine {		
 		namespace Executive {
 			class Base {
 			protected:

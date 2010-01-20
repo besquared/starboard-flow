@@ -9,6 +9,9 @@
 
 #include "Analytical.h"
 
+Executive::Analytical::Analytical(Domain::Base* domain, Query::Base* query) :
+Executive::Base::Base(domain, query) {}
+
 bool Executive::Analytical::Execute(Groups& results) {
 	Executive::Constructor().Execute(domain, query, results);
 	if(!this->Aggregate(results)) return false;

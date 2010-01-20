@@ -21,6 +21,8 @@ namespace Flow {
 		namespace Executive {
 			class Analytical : public Executive::Base {				
 			public:
+				Analytical(Domain::Base* domain, Query::Base* query);
+				
 				bool Execute(Groups& results);
 				
 			protected:

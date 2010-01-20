@@ -15,7 +15,7 @@ using namespace Flow::Engine;
 namespace {
 	class QuerySequentialTest : public ::testing::Test {
 	protected:
-		Query::Sequential* query;
+//		Query::Sequential* query;
 		
 		QuerySequentialTest() {}
 		virtual ~QuerySequentialTest() {}

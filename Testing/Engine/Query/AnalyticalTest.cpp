@@ -119,6 +119,8 @@ namespace {
 		query.conditions->Eq("store", "S1");
 		query.aggregates->count("records");
 		query.aggregates->sum("sales");
-		query.Execute(executive, results);
+		
+		// TODO make this relevant
+		executive.Execute(results);
 	}
 }  // namespace
