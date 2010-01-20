@@ -10,6 +10,7 @@
 		030685071106A81100DC6B74 /* AnalyticalTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030685051106A81100DC6B74 /* AnalyticalTest.cpp */; };
 		030685081106A81100DC6B74 /* MockAnalytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 030685061106A81100DC6B74 /* MockAnalytical.h */; };
 		0306850A1106A81C00DC6B74 /* AnalyticalTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030685091106A81C00DC6B74 /* AnalyticalTest.cpp */; };
+		030685911106C86800DC6B74 /* SequentialTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030685901106C86800DC6B74 /* SequentialTest.cpp */; };
 		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
 		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
 		0346C4481105874400635E67 /* Constructor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4461105874400635E67 /* Constructor.cpp */; };
@@ -102,7 +103,6 @@
 		03E7309910E3392100D5E4C1 /* SubwayFixture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7306E10E3392100D5E4C1 /* SubwayFixture.cpp */; };
 		03E7309A10E3392100D5E4C1 /* SubwayFixture.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E7306F10E3392100D5E4C1 /* SubwayFixture.h */; };
 		03E7309E10E3392100D5E4C1 /* DimensionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307810E3392100D5E4C1 /* DimensionTest.cpp */; };
-		03E730A110E3392100D5E4C1 /* QueryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307B10E3392100D5E4C1 /* QueryTest.cpp */; };
 		03E730A210E3392100D5E4C1 /* PatternTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7307C10E3392100D5E4C1 /* PatternTest.cpp */; };
 		03E730A510E3392100D5E4C1 /* DimensionsTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7308110E3392100D5E4C1 /* DimensionsTest.cpp */; };
 		03E730A810E3392100D5E4C1 /* IndicesTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7308410E3392100D5E4C1 /* IndicesTest.cpp */; };
@@ -130,6 +130,7 @@
 		030685051106A81100DC6B74 /* AnalyticalTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnalyticalTest.cpp; sourceTree = "<group>"; };
 		030685061106A81100DC6B74 /* MockAnalytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAnalytical.h; sourceTree = "<group>"; };
 		030685091106A81C00DC6B74 /* AnalyticalTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnalyticalTest.cpp; sourceTree = "<group>"; };
+		030685901106C86800DC6B74 /* SequentialTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequentialTest.cpp; sourceTree = "<group>"; };
 		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C4461105874400635E67 /* Constructor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constructor.cpp; sourceTree = "<group>"; };
@@ -221,7 +222,6 @@
 		03E7306E10E3392100D5E4C1 /* SubwayFixture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubwayFixture.cpp; sourceTree = "<group>"; };
 		03E7306F10E3392100D5E4C1 /* SubwayFixture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubwayFixture.h; sourceTree = "<group>"; };
 		03E7307810E3392100D5E4C1 /* DimensionTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionTest.cpp; sourceTree = "<group>"; };
-		03E7307B10E3392100D5E4C1 /* QueryTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QueryTest.cpp; sourceTree = "<group>"; };
 		03E7307C10E3392100D5E4C1 /* PatternTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatternTest.cpp; sourceTree = "<group>"; };
 		03E7308110E3392100D5E4C1 /* DimensionsTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DimensionsTest.cpp; sourceTree = "<group>"; };
 		03E7308410E3392100D5E4C1 /* IndicesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndicesTest.cpp; sourceTree = "<group>"; };
@@ -266,17 +266,16 @@
 				030685051106A81100DC6B74 /* AnalyticalTest.cpp */,
 				030685061106A81100DC6B74 /* MockAnalytical.h */,
 			);
-			name = Executive;
-			path = Testing/Engine/Executive;
+			path = Executive;
 			sourceTree = "<group>";
 		};
 		030684FA1106A73700DC6B74 /* Query */ = {
 			isa = PBXGroup;
 			children = (
 				030685091106A81C00DC6B74 /* AnalyticalTest.cpp */,
+				030685901106C86800DC6B74 /* SequentialTest.cpp */,
 			);
-			name = Query;
-			path = Testing/Engine/Query;
+			path = Query;
 			sourceTree = "<group>";
 		};
 		0346C3D01105639500635E67 /* Query */ = {
@@ -431,8 +430,6 @@
 				03E7308E10E3392100D5E4C1 /* Condition */,
 				03E7307E10E3392100D5E4C1 /* Domain */,
 				03E7307010E3392100D5E4C1 /* Engine */,
-				030684F91106A73700DC6B74 /* Executive */,
-				030684FA1106A73700DC6B74 /* Query */,
 				03E7309510E3392100D5E4C1 /* BaseTest.cpp */,
 				03E7306A10E3392100D5E4C1 /* TestMain.cpp */,
 				03E7306B10E3392100D5E4C1 /* TestHelper.h */,
@@ -455,6 +452,8 @@
 			isa = PBXGroup;
 			children = (
 				03E7307710E3392100D5E4C1 /* Sequential */,
+				030684FA1106A73700DC6B74 /* Query */,
+				030684F91106A73700DC6B74 /* Executive */,
 			);
 			name = Engine;
 			path = Testing/Engine;
@@ -464,7 +463,6 @@
 			isa = PBXGroup;
 			children = (
 				03E7307810E3392100D5E4C1 /* DimensionTest.cpp */,
-				03E7307B10E3392100D5E4C1 /* QueryTest.cpp */,
 				03E7307C10E3392100D5E4C1 /* PatternTest.cpp */,
 			);
 			path = Sequential;
@@ -677,7 +675,6 @@
 				03E7309610E3392100D5E4C1 /* TestMain.cpp in Sources */,
 				03E7309910E3392100D5E4C1 /* SubwayFixture.cpp in Sources */,
 				03E7309E10E3392100D5E4C1 /* DimensionTest.cpp in Sources */,
-				03E730A110E3392100D5E4C1 /* QueryTest.cpp in Sources */,
 				03E730A210E3392100D5E4C1 /* PatternTest.cpp in Sources */,
 				03E730A510E3392100D5E4C1 /* DimensionsTest.cpp in Sources */,
 				03E730A810E3392100D5E4C1 /* IndicesTest.cpp in Sources */,
@@ -700,6 +697,7 @@
 				03BD729810E9FCF700442C98 /* BDBTest.cpp in Sources */,
 				030685071106A81100DC6B74 /* AnalyticalTest.cpp in Sources */,
 				0306850A1106A81C00DC6B74 /* AnalyticalTest.cpp in Sources */,
+				030685911106C86800DC6B74 /* SequentialTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
