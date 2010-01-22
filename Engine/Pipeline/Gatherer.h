@@ -1,5 +1,5 @@
 /*
- *  Aggregator.h
+ *  Gatherer.h
  *  flow
  *
  *  Created by Josh Ferguson on 1/22/10.
@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _flow_engine_pipeline_aggregator_h_
-#define _flow_engine_pipeline_aggregator_h_
+#ifndef _flow_engine_pipeline_gatherer_h_
+#define _flow_engine_pipeline_gatherer_h_
 
 #include <Common.h>
 #include <Domain/Base.h>
@@ -21,7 +21,7 @@ using namespace Domain::Data;
 namespace Flow {
 	namespace Engine {
 		namespace Pipeline {		
-			class Aggregator {				
+			class Gatherer {				
 			public:
 				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);				
 			};
