@@ -11,7 +11,7 @@
 
 using namespace Flow::Engine;
 
-bool Executive::Constructor::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
+bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
 	map<string, string> instantiate;
 	query->Instantiate(instantiate);
 	
@@ -59,7 +59,7 @@ bool Executive::Constructor::Execute(Domain::Base* domain, Query::Base* query, G
 /*
  * Construction
  */
-void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
+void Pipeline::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
 																			 vector<string>& inquired_dims, RIDTree& inquired, Groups& results) {
 	RIDList records;
 	vector<string> values;
@@ -89,7 +89,7 @@ void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDLis
  and the id list into the table and return. We continue by searching B:b2
  and so on.
  */
-void Executive::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
+void Pipeline::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
 																			 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
 																			 vector<string>& values, RIDList& records, Groups& results) {
 	

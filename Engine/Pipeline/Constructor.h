@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _flow_engine_executive_constructor_h_
-#define _flow_engine_executive_constructor_h_
+#ifndef _flow_engine_pipeline_constructor_h_
+#define _flow_engine_pipeline_constructor_h_
 
 #include <Common.h>
 #include <Domain/Base.h>
@@ -20,7 +20,7 @@ using namespace Domain::Data;
 
 namespace Flow {
 	namespace Engine {
-		namespace Executive {		
+		namespace Pipeline {		
 			class Constructor {				
 			public:
 				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);

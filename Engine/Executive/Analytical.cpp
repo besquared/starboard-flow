@@ -13,7 +13,7 @@ Executive::Analytical::Analytical(Domain::Base* domain, Query::Base* query) :
 Executive::Base::Base(domain, query) {}
 
 bool Executive::Analytical::Execute(Groups& results) {
-	Executive::Constructor().Execute(domain, query, results);
+	Pipeline::Constructor().Execute(domain, query, results);
 	if(!this->Aggregate(results)) return false;
 	if(!this->Sweep(results)) return false;
 	return true;

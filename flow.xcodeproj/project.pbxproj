@@ -13,8 +13,6 @@
 		030685911106C86800DC6B74 /* SequentialTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030685901106C86800DC6B74 /* SequentialTest.cpp */; };
 		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
 		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
-		0346C4481105874400635E67 /* Constructor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4461105874400635E67 /* Constructor.cpp */; };
-		0346C4491105874400635E67 /* Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4471105874400635E67 /* Constructor.h */; };
 		0346C4B81105903200635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4B61105903200635E67 /* Analytical.h */; };
 		0346C4B91105903200635E67 /* Analytical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4B71105903200635E67 /* Analytical.cpp */; };
 		0346C4F2110592DF00635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4F0110592DF00635E67 /* Analytical.h */; };
@@ -46,6 +44,12 @@
 		03BD72DF10EA002700442C98 /* MockDimensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72DE10EA002700442C98 /* MockDimensions.h */; };
 		03BD72E110EA004800442C98 /* MockIndices.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72E010EA004800442C98 /* MockIndices.h */; };
 		03BD72E310EA005600442C98 /* MockMeasures.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BD72E210EA005600442C98 /* MockMeasures.h */; };
+		03BF22F21109B853006D4BBB /* Constructor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF22F01109B853006D4BBB /* Constructor.cpp */; };
+		03BF22F31109B853006D4BBB /* Constructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF22F11109B853006D4BBB /* Constructor.h */; };
+		03BF22FF1109BD9A006D4BBB /* Aggregator.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF22FD1109BD9A006D4BBB /* Aggregator.h */; };
+		03BF23001109BD9A006D4BBB /* Aggregator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF22FE1109BD9A006D4BBB /* Aggregator.cpp */; };
+		03BF23031109BDA9006D4BBB /* Sweeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF23011109BDA9006D4BBB /* Sweeper.h */; };
+		03BF23041109BDA9006D4BBB /* Sweeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23021109BDA9006D4BBB /* Sweeper.cpp */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -133,8 +137,6 @@
 		030685901106C86800DC6B74 /* SequentialTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequentialTest.cpp; sourceTree = "<group>"; };
 		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
-		0346C4461105874400635E67 /* Constructor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constructor.cpp; sourceTree = "<group>"; };
-		0346C4471105874400635E67 /* Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constructor.h; sourceTree = "<group>"; };
 		0346C4B61105903200635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
 		0346C4B71105903200635E67 /* Analytical.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Analytical.cpp; sourceTree = "<group>"; };
 		0346C4F0110592DF00635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
@@ -165,6 +167,12 @@
 		03BD72DE10EA002700442C98 /* MockDimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockDimensions.h; sourceTree = "<group>"; };
 		03BD72E010EA004800442C98 /* MockIndices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockIndices.h; sourceTree = "<group>"; };
 		03BD72E210EA005600442C98 /* MockMeasures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMeasures.h; sourceTree = "<group>"; };
+		03BF22F01109B853006D4BBB /* Constructor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Constructor.cpp; sourceTree = "<group>"; };
+		03BF22F11109B853006D4BBB /* Constructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constructor.h; sourceTree = "<group>"; };
+		03BF22FD1109BD9A006D4BBB /* Aggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregator.h; sourceTree = "<group>"; };
+		03BF22FE1109BD9A006D4BBB /* Aggregator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Aggregator.cpp; sourceTree = "<group>"; };
+		03BF23011109BDA9006D4BBB /* Sweeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sweeper.h; sourceTree = "<group>"; };
+		03BF23021109BDA9006D4BBB /* Sweeper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sweeper.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -294,8 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				0346C418110583FC00635E67 /* Base.h */,
-				0346C4461105874400635E67 /* Constructor.cpp */,
-				0346C4471105874400635E67 /* Constructor.h */,
 				0346C4F1110592DF00635E67 /* Analytical.cpp */,
 				0346C4F0110592DF00635E67 /* Analytical.h */,
 				0346C4FB1105935D00635E67 /* Sequential.cpp */,
@@ -329,6 +335,19 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		03BF22EA1109B828006D4BBB /* Pipeline */ = {
+			isa = PBXGroup;
+			children = (
+				03BF22F01109B853006D4BBB /* Constructor.cpp */,
+				03BF22F11109B853006D4BBB /* Constructor.h */,
+				03BF22FE1109BD9A006D4BBB /* Aggregator.cpp */,
+				03BF22FD1109BD9A006D4BBB /* Aggregator.h */,
+				03BF23021109BDA9006D4BBB /* Sweeper.cpp */,
+				03BF23011109BDA9006D4BBB /* Sweeper.h */,
+			);
+			path = Pipeline;
+			sourceTree = "<group>";
+		};
 		03E72A1210E0911200D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +357,7 @@
 				0372F00110F7187700BEE006 /* Group.h */,
 				0372F00010F7187700BEE006 /* Groups.h */,
 				0346C3D01105639500635E67 /* Query */,
+				03BF22EA1109B828006D4BBB /* Pipeline */,
 				0346C417110583FC00635E67 /* Executive */,
 				03E72A2210E0911200D5E4C1 /* Sequential */,
 			);
@@ -586,11 +606,13 @@
 				0372F00310F7187700BEE006 /* Group.h in Headers */,
 				0346C3DA1105640400635E67 /* Base.h in Headers */,
 				0346C419110583FC00635E67 /* Base.h in Headers */,
-				0346C4491105874400635E67 /* Constructor.h in Headers */,
 				0346C4B81105903200635E67 /* Analytical.h in Headers */,
 				0346C4F2110592DF00635E67 /* Analytical.h in Headers */,
 				0346C4FC1105935D00635E67 /* Sequential.h in Headers */,
 				0346C5081105947300635E67 /* Sequential.h in Headers */,
+				03BF22F31109B853006D4BBB /* Constructor.h in Headers */,
+				03BF22FF1109BD9A006D4BBB /* Aggregator.h in Headers */,
+				03BF23031109BDA9006D4BBB /* Sweeper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,11 +747,13 @@
 				03E72A8F10E0911200D5E4C1 /* Indices.cpp in Sources */,
 				03E72A9110E0911200D5E4C1 /* Measures.cpp in Sources */,
 				03E72A9410E0911200D5E4C1 /* Conditions.cpp in Sources */,
-				0346C4481105874400635E67 /* Constructor.cpp in Sources */,
 				0346C4B91105903200635E67 /* Analytical.cpp in Sources */,
 				0346C4F3110592DF00635E67 /* Analytical.cpp in Sources */,
 				0346C4FD1105935D00635E67 /* Sequential.cpp in Sources */,
 				0346C5091105947300635E67 /* Sequential.cpp in Sources */,
+				03BF22F21109B853006D4BBB /* Constructor.cpp in Sources */,
+				03BF23001109BD9A006D4BBB /* Aggregator.cpp in Sources */,
+				03BF23041109BDA9006D4BBB /* Sweeper.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
