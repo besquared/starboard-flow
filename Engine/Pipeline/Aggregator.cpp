@@ -9,3 +9,10 @@
 
 #include "Aggregator.h"
 
+bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
+	for(size_t j = 0; j < query->aggregates->size(); j++) {
+		query->aggregates->apply(results);
+	}
+	
+	return true;
+}

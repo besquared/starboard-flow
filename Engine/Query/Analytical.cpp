@@ -15,6 +15,8 @@ void Query::Analytical::Measures(set<string>& results) {
 	aggregates->measure_names(results);
 }
 
+void Query::Analytical::Dimensions(set<string>& results) {}
+
 // Get a set of dims we're instantiating and their values
 void Query::Analytical::Instantiate(map<string, string>& results) {
 	for(size_t i = 0; i < this->conditions->size(); i++) {

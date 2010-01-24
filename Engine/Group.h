@@ -24,6 +24,7 @@ namespace Flow {
 		protected:
 			map<string, double> aggregates_;
 			map< string, vector<double> > measures_;
+			map< string, vector<string> > dimensions_;
 			
 		public:
 			vector<string> values;
@@ -41,11 +42,16 @@ namespace Flow {
 			}
 			
 			void push_measures(const string& name, const vector<double>& values) {
+				// TODO use vector member method here instead
 				copy(values.begin(), values.end(), back_inserter(measures_[name]));
 			}
 			
 			void clear_measures() {
 				measures_.clear();
+			}
+			
+			vector<string>& dimensions(const string& name) {
+				return dimensions_[name];
 			}
 			
 			double& aggregate(const string& name) {

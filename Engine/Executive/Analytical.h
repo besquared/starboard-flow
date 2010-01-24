@@ -13,6 +13,9 @@
 #include "Base.h"
 #include <Engine/Query/Analytical.h>
 #include <Engine/Pipeline/Constructor.h>
+#include <Engine/Pipeline/Gatherer.h>
+#include <Engine/Pipeline/Aggregator.h>
+#include <Engine/Pipeline/Sweeper.h>
 
 using namespace std;
 

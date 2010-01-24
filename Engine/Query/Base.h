@@ -35,10 +35,20 @@ namespace Flow {
 					delete(this->aggregates);
 				}
 				
+				// Set of measures we need to gather
 				virtual void Measures(set<string>& results) = 0;
+				
+				// Set of dimensions we need to gather
+				virtual void Dimensions(set<string>& results) = 0;
+				
+				// Information about fixed dimensions
 				virtual void Instantiate(map<string, string>& results) = 0;
 				virtual void InstantiatedValues(vector<string>& results) = 0;
+				
+				// Information about predicated dimensions
 				virtual void Inquire(set<string>& dimensions, Conditions& conditions) = 0;
+				
+				// Convenience lists of dimensions we're instantiating and inquiring
 				virtual void Dimensions(vector<string>& instantiated, vector<string>& inquired) = 0;
 			};
 		}
