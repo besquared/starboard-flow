@@ -10,7 +10,7 @@
 
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
-#include <Engine/Executive/Analytical.h>
+#include <Engine/Pipeline/Constructor.h>
 
 using namespace Testing::Domain;
 
