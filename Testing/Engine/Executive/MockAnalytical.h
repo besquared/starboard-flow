@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef _flow_testing_engine_analytical_mock_executive_h_
-#define _flow_testing_engine_analytical_mock_executive_h_
+#ifndef _flow_testing_engine_executive_mock_analytical_h_
+#define _flow_testing_engine_executive_mock_analytical_h_
 
 #include "Common.h"
 #include <Engine/Executive/Analytical.h>

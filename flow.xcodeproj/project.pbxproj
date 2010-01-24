@@ -291,8 +291,8 @@
 		030684F91106A73700DC6B74 /* Executive */ = {
 			isa = PBXGroup;
 			children = (
-				030685051106A81100DC6B74 /* AnalyticalTest.cpp */,
 				030685061106A81100DC6B74 /* MockAnalytical.h */,
+				030685051106A81100DC6B74 /* AnalyticalTest.cpp */,
 			);
 			path = Executive;
 			sourceTree = "<group>";
@@ -373,14 +373,14 @@
 		03BF23AB110C6C99006D4BBB /* Pipeline */ = {
 			isa = PBXGroup;
 			children = (
-				03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */,
 				03BF2401110C8156006D4BBB /* MockConstructor.h */,
-				03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */,
+				03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */,
 				03BF2403110C8161006D4BBB /* MockGatherer.h */,
-				03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */,
+				03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */,
 				03BF2405110C816B006D4BBB /* MockAggregator.h */,
-				03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */,
+				03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */,
 				03BF2407110C8172006D4BBB /* MockSweeper.h */,
+				03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */,
 			);
 			path = Pipeline;
 			sourceTree = "<group>";
