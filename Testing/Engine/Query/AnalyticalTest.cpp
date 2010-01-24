@@ -108,19 +108,4 @@ namespace {
 		ASSERT_EQ(1, instantiated.size());
 		EXPECT_EQ("store", instantiated[0]);
 	}
-	
-	TEST_F(QueryAnalyticalTest, ExecutesQuery) {
-		Engine::Groups results;
-		Query::Analytical query;
-
-		MockAnalytical executive(this->purchases, &query);
-		EXPECT_CALL(executive, Execute(results)).WillOnce(Return(true));
-		
-		query.conditions->Eq("store", "S1");
-		query.aggregates->count("records");
-		query.aggregates->sum("sales");
-		
-		// TODO make this relevant
-		executive.Execute(results);
-	}
 }  // namespace

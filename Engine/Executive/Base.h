@@ -29,6 +29,8 @@ namespace Flow {
 					this->query = query;
 				}
 				
+				virtual ~Base() {}
+				
 				virtual bool Execute(Groups& results) = 0;
 			};
 		}

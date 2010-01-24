@@ -52,6 +52,10 @@
 		03BF23041109BDA9006D4BBB /* Sweeper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23021109BDA9006D4BBB /* Sweeper.cpp */; };
 		03BF23321109D0D9006D4BBB /* Gatherer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF23301109D0D9006D4BBB /* Gatherer.h */; };
 		03BF23331109D0D9006D4BBB /* Gatherer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23311109D0D9006D4BBB /* Gatherer.cpp */; };
+		03BF23AD110C6CAE006D4BBB /* ConstructorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */; };
+		03BF23AF110C6CE9006D4BBB /* GathererTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */; };
+		03BF23B3110C6CF2006D4BBB /* AggregatorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */; };
+		03BF23B5110C6D03006D4BBB /* SweeperTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -177,6 +181,10 @@
 		03BF23021109BDA9006D4BBB /* Sweeper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sweeper.cpp; sourceTree = "<group>"; };
 		03BF23301109D0D9006D4BBB /* Gatherer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gatherer.h; sourceTree = "<group>"; };
 		03BF23311109D0D9006D4BBB /* Gatherer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gatherer.cpp; sourceTree = "<group>"; };
+		03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConstructorTest.cpp; sourceTree = "<group>"; };
+		03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GathererTest.cpp; sourceTree = "<group>"; };
+		03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AggregatorTest.cpp; sourceTree = "<group>"; };
+		03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweeperTest.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -354,6 +362,17 @@
 			path = Pipeline;
 			sourceTree = "<group>";
 		};
+		03BF23AB110C6C99006D4BBB /* Pipeline */ = {
+			isa = PBXGroup;
+			children = (
+				03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */,
+				03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */,
+				03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */,
+				03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */,
+			);
+			path = Pipeline;
+			sourceTree = "<group>";
+		};
 		03E72A1210E0911200D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +498,7 @@
 			children = (
 				030684FA1106A73700DC6B74 /* Query */,
 				030684F91106A73700DC6B74 /* Executive */,
+				03BF23AB110C6C99006D4BBB /* Pipeline */,
 				03E7307710E3392100D5E4C1 /* Sequential */,
 			);
 			name = Engine;
@@ -727,6 +747,10 @@
 				030685071106A81100DC6B74 /* AnalyticalTest.cpp in Sources */,
 				0306850A1106A81C00DC6B74 /* AnalyticalTest.cpp in Sources */,
 				030685911106C86800DC6B74 /* SequentialTest.cpp in Sources */,
+				03BF23AD110C6CAE006D4BBB /* ConstructorTest.cpp in Sources */,
+				03BF23AF110C6CE9006D4BBB /* GathererTest.cpp in Sources */,
+				03BF23B3110C6CF2006D4BBB /* AggregatorTest.cpp in Sources */,
+				03BF23B5110C6D03006D4BBB /* SweeperTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,16 +22,18 @@ using namespace std;
 namespace Flow {
 	namespace Engine {
 		namespace Executive {
-			class Analytical : public Executive::Base {				
+			class Analytical : public Executive::Base {
+			protected:
+				Pipeline::Constructor* constructor;
+				Pipeline::Gatherer* gatherer;
+				Pipeline::Aggregator* aggregator;
+				Pipeline::Sweeper* sweeper;
+				
 			public:
 				Analytical(Domain::Base* domain, Query::Base* query);
+				virtual ~Analytical();
 				
-				bool Execute(Groups& results);
-				
-			protected:
-				bool Aggregate(Groups& results);
-				bool Sweep(Groups& base);
-				bool Gather(const set<string>& measures, Groups& base);
+				virtual bool Execute(Groups& results);
 			};
 		}
 	}
