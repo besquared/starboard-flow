@@ -44,6 +44,18 @@ namespace {
 		}
 	};
 	
+	TEST_F(QueryAnalyticalTest, ProvidesUniqMeasures) {
+		Query::Analytical query;
+		
+		query.aggregates->sum("store");
+		
+		set<string> measures;
+		query.Measures(measures);
+		
+		ASSERT_EQ(1, measures.size());
+		EXPECT_EQ(1, measures.count("store"));
+	}
+	
 	TEST_F(QueryAnalyticalTest, ProvidesInstantiated) {
 		Query::Analytical query;
 		

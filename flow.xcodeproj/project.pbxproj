@@ -56,6 +56,10 @@
 		03BF23AF110C6CE9006D4BBB /* GathererTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */; };
 		03BF23B3110C6CF2006D4BBB /* AggregatorTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */; };
 		03BF23B5110C6D03006D4BBB /* SweeperTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */; };
+		03BF2402110C8156006D4BBB /* MockConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF2401110C8156006D4BBB /* MockConstructor.h */; };
+		03BF2404110C8161006D4BBB /* MockGatherer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF2403110C8161006D4BBB /* MockGatherer.h */; };
+		03BF2406110C816B006D4BBB /* MockAggregator.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF2405110C816B006D4BBB /* MockAggregator.h */; };
+		03BF2408110C8172006D4BBB /* MockSweeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF2407110C8172006D4BBB /* MockSweeper.h */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -185,6 +189,10 @@
 		03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GathererTest.cpp; sourceTree = "<group>"; };
 		03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AggregatorTest.cpp; sourceTree = "<group>"; };
 		03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SweeperTest.cpp; sourceTree = "<group>"; };
+		03BF2401110C8156006D4BBB /* MockConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockConstructor.h; sourceTree = "<group>"; };
+		03BF2403110C8161006D4BBB /* MockGatherer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockGatherer.h; sourceTree = "<group>"; };
+		03BF2405110C816B006D4BBB /* MockAggregator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAggregator.h; sourceTree = "<group>"; };
+		03BF2407110C8172006D4BBB /* MockSweeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockSweeper.h; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -366,9 +374,13 @@
 			isa = PBXGroup;
 			children = (
 				03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */,
+				03BF2401110C8156006D4BBB /* MockConstructor.h */,
 				03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */,
+				03BF2403110C8161006D4BBB /* MockGatherer.h */,
 				03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */,
+				03BF2405110C816B006D4BBB /* MockAggregator.h */,
 				03BF23B4110C6D03006D4BBB /* SweeperTest.cpp */,
+				03BF2407110C8172006D4BBB /* MockSweeper.h */,
 			);
 			path = Pipeline;
 			sourceTree = "<group>";
@@ -657,6 +669,10 @@
 				03BD72E110EA004800442C98 /* MockIndices.h in Headers */,
 				03BD72E310EA005600442C98 /* MockMeasures.h in Headers */,
 				030685081106A81100DC6B74 /* MockAnalytical.h in Headers */,
+				03BF2402110C8156006D4BBB /* MockConstructor.h in Headers */,
+				03BF2404110C8161006D4BBB /* MockGatherer.h in Headers */,
+				03BF2406110C816B006D4BBB /* MockAggregator.h in Headers */,
+				03BF2408110C8172006D4BBB /* MockSweeper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
