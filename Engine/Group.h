@@ -32,7 +32,7 @@ namespace Flow {
 			Group(const vector<string>& values) : Domain::Data::RIDList() {
 				this->values = values;
 			}
-			
+						
 			vector<double>& measures(const string& name) {
 				return measures_[name];
 			}
