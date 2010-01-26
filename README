@@ -1,0 +1,43 @@
+The goal of this database is to be able to do analytical processing of sequences. The two most common types of sequences that exist right now are event sequences and DNA/RNA. This database is currently hard-coded to only consider sequences of events although it could be reworked to also support DNA and other types of sequences.
+
+Sequential OLAP queries allow the end user to ask questions in aggregate about a series of events that are grouped by some set of dimensions. Some questions that lend themselves well are things like "How many round trips were taken between every pair of stations on each day of this month", "How many users comparison shopped on our website before making a final purchase?", or "How many of our customer service conversations eventually ended in purchases?".
+
+All of these questions are about some sequence of events that have occurred.
+
+Example: Round trips at a subway station
+
+SELECT COUNT(*)
+CLUSTER BY individual, day
+SEQUENCE BY time ASCENDING
+SEQUENCE GROUP BY fare-group, day
+CUBOID BY SUBSTRING(X, Y, Y, X) WITH
+ X at station
+ Y at station
+LEFT-MAXIMILITY (x1, y1, y2, x2) WITH
+ x1.action = 'in' AND
+ y1.action = 'out' AND
+ y2.action = 'in' AND
+ x2.action = 'out'
+
+Here is an example S-OLAP query asking for the number of round trips between each pair of stations (X, Y) grouped by fare-group and day.
+
+The results might be something like the following:
+
+Regular, 20092001, [Montgomery, 16th Street], 100
+Senior, 20092001, [Montgeromy, 16th Street], 35
+Regular, 20092001, [Embarcadero, 16th Street], 115
+...
+
+There are several OLAP type operations we might want to apply to this set, for instance if we care about the source station but the destination district then we might modify the pattern above to: 
+
+CUBOID BY SUBSTRING(X, Y, Y, X) WITH
+ X at station
+ Y at district
+
+This would give us (station, district) pairs instead. This is similar to a traditional OLAP rollup operation (rolling up from station to a higher level district); drill-down is similar. We may also append, prepend or de-head or de-tail our event pattern to specify other patterns of interest.
+
+Software is not fully functional and not ready even for internal use yet.
+
+There are plans (at least written in my notebook) to allow more robust pattern strings (true regular expressions) and also parallel processing so that hundreds of millions of events may be matched against patterns on a theoretically large cluster of machines in a matter of seconds or less.
+
+Requires boost and xcode to build.

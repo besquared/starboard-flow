@@ -43,5 +43,6 @@ namespace {
 	};
 	
 	TEST_F(ExecutiveAnalyticalTest, ExecutesProperStages) {
+		// how do we make sure we execute all the stages here?
 	}
 }  // namespace

@@ -93,7 +93,7 @@ namespace {
 		dayrecords["20091021"].push_back(2.0);
 		dayrecords["20091021"].push_back(3.0);
 		days["day"] = dayrecords;
-				
+		
 		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));
 		EXPECT_CALL(*this->indices, Lookup(inquired, _, _)).WillOnce(DoAll(SetArgReferee<2>(days), Return(true)));
 		
