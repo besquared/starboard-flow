@@ -8,7 +8,7 @@
  */
 
 /*
- * KMP Scanner for substring sequences
+ * Naive Scanner for substring sequences
  */
 
 #ifndef _flow_engine_sequential_scanner_substring_h_
@@ -17,15 +17,17 @@
 #include <Common.h>
 #include <Engine/Groups.h>
 
+#include "Base.h"
+
 namespace Flow {
 	namespace Engine {		
 		namespace Sequential {
       namespace Scanner {
-        class Substring {
+        class Substring : public Base {
         public:
-          Substring() {}
-          virtual ~Substring() {}
-          virtual bool Execute(Groups& input, Groups& results) = 0;
+          Substring();
+          virtual ~Substring();
+          virtual void execute(Groups& input, Groups& results);
         };
       }
 		}

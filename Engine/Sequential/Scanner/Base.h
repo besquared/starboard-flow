@@ -12,16 +12,20 @@
 
 #include <Common.h>
 #include <Engine/Groups.h>
+#include <Engine/Sequential/Pattern.h>
 
 namespace Flow {
 	namespace Engine {		
 		namespace Sequential {
       namespace Scanner {
         class Base {
+        protected:
+          Sequential::Pattern pattern;
+          
         public:
           Base() {}
           virtual ~Base() {}
-          virtual bool Execute(Groups& input, Groups& results) = 0;
+          virtual void execute(Groups& input, Groups& results) = 0;
         };
       }
 		}

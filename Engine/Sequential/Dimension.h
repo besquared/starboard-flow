@@ -12,9 +12,9 @@
 
 #include <Common.h>
 #include <Conditions.h>
+#include <Engine/Group.h>
 
 using namespace std;
-using namespace Flow;
 
 namespace Flow {
 	namespace Engine {
@@ -28,6 +28,8 @@ namespace Flow {
 				
 				Dimension(const string& name, const string& symbol, const string& alias);
 				Dimension(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
+        
+        bool match(Group& haystack, size_t position) { return false; }
 			};
 		}
 	}
