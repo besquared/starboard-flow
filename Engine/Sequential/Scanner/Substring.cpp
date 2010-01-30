@@ -26,7 +26,7 @@ void Scanner::Substring::execute(Groups& input, Groups& results) {
     for(size_t s = 0; s < n - m; s++) {
       size_t j = 1;
       
-      while(j <= m && pattern[s]->match(input[i], j)) 
+      while(j <= m && pattern[j]->match(input[i], s + j)) 
         j++;
       
       if(j > m) ;
