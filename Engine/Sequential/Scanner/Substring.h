@@ -28,7 +28,7 @@ namespace Flow {
         public:
           Substring();
           virtual ~Substring();
-          virtual void execute(Groups& input, Groups& results);
+          virtual void execute(Groups& input, Matches& results);
         };
       }
 		}

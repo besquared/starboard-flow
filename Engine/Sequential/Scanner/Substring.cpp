@@ -19,7 +19,7 @@ Scanner::Substring::~Substring() {
 
 }
 
-void Scanner::Substring::execute(Groups& input, Groups& results) {
+void Scanner::Substring::execute(Groups& input, Matches& results) {
   for(size_t i = 0; i < input.size(); i++) {
     size_t n = input[i].size();
     size_t m = pattern.size();
@@ -29,8 +29,8 @@ void Scanner::Substring::execute(Groups& input, Groups& results) {
       while(j <= m && pattern[j]->match(input[i], s + j)) 
         j++;
       
-      if(j > m) ;
-        // found match here at position s
+      if(j > m)
+        results.insert(i, s);
     }
     // match not found in this group
   }
