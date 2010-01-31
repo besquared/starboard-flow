@@ -18,6 +18,7 @@
 #include <Engine/Groups.h>
 
 #include "Base.h"
+#include "Matches.h"
 
 namespace Flow {
 	namespace Engine {		

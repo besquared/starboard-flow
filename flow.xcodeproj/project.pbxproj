@@ -63,6 +63,7 @@
 		03BF24F21113653B006D4BBB /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF24F11113653B006D4BBB /* Base.h */; };
 		03BF24F511136A2F006D4BBB /* Substring.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF24F311136A2F006D4BBB /* Substring.h */; };
 		03BF24F611136A2F006D4BBB /* Substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF24F411136A2F006D4BBB /* Substring.cpp */; };
+		03BF25B01115D320006D4BBB /* Matches.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF25AE1115D320006D4BBB /* Matches.h */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -199,6 +200,7 @@
 		03BF24F11113653B006D4BBB /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03BF24F311136A2F006D4BBB /* Substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Substring.h; sourceTree = "<group>"; };
 		03BF24F411136A2F006D4BBB /* Substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Substring.cpp; sourceTree = "<group>"; };
+		03BF25AE1115D320006D4BBB /* Matches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matches.h; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				03BF24F11113653B006D4BBB /* Base.h */,
 				03BF24F411136A2F006D4BBB /* Substring.cpp */,
 				03BF24F311136A2F006D4BBB /* Substring.h */,
+				03BF25AE1115D320006D4BBB /* Matches.h */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				03BF23321109D0D9006D4BBB /* Gatherer.h in Headers */,
 				03BF24F21113653B006D4BBB /* Base.h in Headers */,
 				03BF24F511136A2F006D4BBB /* Substring.h in Headers */,
+				03BF25B01115D320006D4BBB /* Matches.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
