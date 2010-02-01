@@ -13,6 +13,7 @@
 #include <Common.h>
 #include <Condition/Base.h>
 #include <Condition/Eq.h>
+#include <Condition/Neq.h>
 #include <Condition/In.h>
 #include <Condition/Gt.h>
 #include <Condition/Gte.h>
@@ -30,6 +31,7 @@ namespace Flow {
 		 * Shortcuts
 		 */
 		void Eq(const string& name, const string& value);
+    void Neq(const string& name, const string& value);
 		void Gt(const string& name, const string& value);
 		void Gte(const string& name, const string& value);
 		void Lt(const string& name, const string& value);

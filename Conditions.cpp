@@ -14,6 +14,11 @@ void Conditions::Eq(const string& name, const string& value) {
 	vector< shared_ptr<Condition::Base> >::push_back(eq);
 }
 
+void Conditions::Neq(const string& name, const string& value) {
+	shared_ptr<Condition::Base> neq(new Condition::Neq(name, value));
+	vector< shared_ptr<Condition::Base> >::push_back(neq);
+}
+
 void Conditions::Gt(const string& name, const string& value) {
 	shared_ptr<Condition::Base> gt(new Condition::Gt(name, value));
 	vector< shared_ptr<Condition::Base> >::push_back(gt);

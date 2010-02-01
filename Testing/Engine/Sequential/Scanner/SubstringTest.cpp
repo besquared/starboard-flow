@@ -43,10 +43,10 @@ namespace {
     values.push_back("Fall");
     Engine::Group s1_fall(values);
     
-    s1_fall.records.push_back(100.0);
-    s1_fall.records.push_back(476.0);
-    s1_fall.records.push_back(728.0);
-    s1_fall.records.push_back(937.0);
+    s1_fall.records.push_back(100);
+    s1_fall.records.push_back(476);
+    s1_fall.records.push_back(728);
+    s1_fall.records.push_back(937);
     
     s1_fall.dimensions["station"].push_back("montgomery");
     s1_fall.dimensions["station"].push_back("16th street");
@@ -58,16 +58,15 @@ namespace {
     s1_fall.dimensions["action"].push_back("in");
     s1_fall.dimensions["action"].push_back("out");
     
-    Engine::Groups haystack;
-		haystack.push_back(s1_fall);
+    Engine::Groups sequences;
+		sequences.push_back(s1_fall);
     
     Sequential::Scanner::Matches matches;
-    
     Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, haystack, matches);
+    scanner.execute(pattern, sequences, matches);
     
     ASSERT_EQ(1, matches.matches.size());
     ASSERT_EQ(1, matches.matches[0].size());
     EXPECT_EQ(0, matches.matches[0][0]);
-	}	
+	}
 }

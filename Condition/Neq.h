@@ -1,14 +1,14 @@
 /*
- *  EQ.h
- *  Flow
+ *  Nneq.h
+ *  flow
  *
- *  Created by Josh Ferguson on 12/2/09.
- *  Copyright 2009 Cube Tree Labs, LLC. All rights reserved.
+ *  Created by Josh Ferguson on 2/1/10.
+ *  Copyright 2010 Cube Tree Labs, LLC. All rights reserved.
  *
  */
 
-#ifndef _flow_condition_eq_h_
-#define _flow_condition_eq_h_
+#ifndef _flow_condition_neq_h_
+#define _flow_condition_neq_h_
 
 #include <Common.h>
 
@@ -16,18 +16,18 @@
 
 namespace Flow {
 	namespace Condition {
-		class Eq : public Condition::Base {
+		class Neq : public Condition::Base {
 		public:
 			string value;
 			
-			Eq(const string& column, const string& value)  :
+			Neq(const string& column, const string& value)  :
 			Condition::Base::Base(column) {
 				this->value = value;
 				this->type = Condition::Base::EQ;
 			}
-			
+						
       bool Check(string& value) {
-        return value == this->value;
+        return value != this->value;
       }
       
 			void Apply(vector<string>& values)  {
