@@ -10,6 +10,8 @@
 #ifndef _flow_engine_query_sequential_h_
 #define _flow_engine_query_sequential_h_
 
+#include <Engine/Sequential/Pattern.h>
+
 #include "Base.h"
 
 using namespace std;
@@ -19,6 +21,8 @@ namespace Flow {
 		namespace Query {
 			class Sequential : public Query::Base {
 			public:
+        Engine::Sequential::Pattern pattern;
+        
 				Sequential();
 				void Measures(set<string>& results);
 				void Dimensions(set<string>& results);

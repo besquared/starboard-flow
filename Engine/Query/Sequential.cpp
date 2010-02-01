@@ -16,7 +16,14 @@ void Query::Sequential::Measures(set<string>& results) {
 }
 
 void Query::Sequential::Dimensions(set<string>& results) {
-  
+  for(size_t i = 0; i < pattern.size(); i++) {
+    results.insert(pattern[i]->name);
+    
+    shared_ptr<Condition::Base> condition;
+    for(size_t j = 0; j < pattern[i]->conditions.size(); j++) {
+      results.insert(pattern[i]->conditions[j]->column);
+    }
+  }
 }
 
 // Get a set of dims we're instantiating and their values

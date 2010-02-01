@@ -21,7 +21,7 @@ namespace Flow {
 		namespace Sequential {
 			class Pattern : public vector< boost::shared_ptr<Sequential::Dimension> > {
 			public:
-				enum Matching { SUBSTRING };
+				enum Matching { SUBSTRING, REGEX };
 				enum Restriction { LEFT_MATCH, ALL_MATCH, LEFT_DATA };
 				
 				Matching matching;
