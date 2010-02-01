@@ -35,7 +35,7 @@ bool Engine::Sequential::Dimension::match(Group& haystack, size_t position) {
         return false;
       }
       
-      cout << "Checking condition for " << condition->column << " with value " << values[position] << endl;
+//      cout << "Checking condition for " << condition->column << " with value " << values[position] << endl;
 			if(!condition->Check(values[position])) {
         return false;
       }

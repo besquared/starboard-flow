@@ -9,3 +9,28 @@
 
 #include "Sequential.h"
 
+Executive::Sequential::Sequential(Domain::Base* domain, Query::Base* query) :
+Executive::Base::Base(domain, query) {
+	this->constructor = new Pipeline::Constructor();
+	this->gatherer = new Pipeline::Gatherer();
+  this->scanner = new Pipeline::Scanner();
+	this->aggregator = new Pipeline::Aggregator();
+	this->sweeper = new Pipeline::Sweeper();
+}
+
+Executive::Sequential::~Sequential() {
+	delete(this->constructor);
+	delete(this->gatherer);
+  delete(this->scanner);
+	delete(this->aggregator);
+	delete(this->sweeper);
+}
+
+bool Executive::Sequential::Execute(Groups& results) {
+	this->constructor->Execute(domain, query, results);
+	this->gatherer->Execute(domain, query, results);
+  this->scanner->Execute(domain, query, results);
+	this->aggregator->Execute(domain, query, results);
+	this->sweeper->Execute(domain, query, results);
+	return true;
+}

@@ -35,7 +35,7 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& resul
     for(size_t s = 0; s <= n - m; s++) {
       size_t j = 1;
       
-      cout << "checking for a match in group " << i << " at position " << s << endl;
+//      cout << "checking for a match in group " << i << " at position " << s << endl;
       // look at dimension 0 first, see if position 0 of text matches
       // if it does then increment j, look at position 1 of text
       // continue until it either matches or doesn't match, if it

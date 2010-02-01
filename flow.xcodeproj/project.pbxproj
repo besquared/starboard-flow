@@ -66,6 +66,8 @@
 		03BF25B01115D320006D4BBB /* Matches.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF25AE1115D320006D4BBB /* Matches.h */; };
 		03BF25E7111631B0006D4BBB /* SubstringTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF25E5111631B0006D4BBB /* SubstringTest.cpp */; };
 		03BF27EE111773CC006D4BBB /* Neq.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF27ED111773CC006D4BBB /* Neq.h */; };
+		03BF2830111787DB006D4BBB /* Scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF282E111787DB006D4BBB /* Scanner.h */; };
+		03BF2831111787DB006D4BBB /* Scanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF282F111787DB006D4BBB /* Scanner.cpp */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -205,6 +207,8 @@
 		03BF25AE1115D320006D4BBB /* Matches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matches.h; sourceTree = "<group>"; };
 		03BF25E5111631B0006D4BBB /* SubstringTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubstringTest.cpp; sourceTree = "<group>"; };
 		03BF27ED111773CC006D4BBB /* Neq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neq.h; sourceTree = "<group>"; };
+		03BF282E111787DB006D4BBB /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		03BF282F111787DB006D4BBB /* Scanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scanner.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 				03BF22F11109B853006D4BBB /* Constructor.h */,
 				03BF23311109D0D9006D4BBB /* Gatherer.cpp */,
 				03BF23301109D0D9006D4BBB /* Gatherer.h */,
+				03BF282F111787DB006D4BBB /* Scanner.cpp */,
+				03BF282E111787DB006D4BBB /* Scanner.h */,
 				03BF22FE1109BD9A006D4BBB /* Aggregator.cpp */,
 				03BF22FD1109BD9A006D4BBB /* Aggregator.h */,
 				03BF23021109BDA9006D4BBB /* Sweeper.cpp */,
@@ -690,6 +696,7 @@
 				03BF24F511136A2F006D4BBB /* Substring.h in Headers */,
 				03BF25B01115D320006D4BBB /* Matches.h in Headers */,
 				03BF27EE111773CC006D4BBB /* Neq.h in Headers */,
+				03BF2830111787DB006D4BBB /* Scanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -842,6 +849,7 @@
 				03BF23041109BDA9006D4BBB /* Sweeper.cpp in Sources */,
 				03BF23331109D0D9006D4BBB /* Gatherer.cpp in Sources */,
 				03BF24F611136A2F006D4BBB /* Substring.cpp in Sources */,
+				03BF2831111787DB006D4BBB /* Scanner.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
