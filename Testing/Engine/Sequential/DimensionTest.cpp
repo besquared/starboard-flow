@@ -38,8 +38,10 @@ namespace {
     values.push_back("S1");
     values.push_back("Fall");
     Engine::Group s1_fall(values);
+    
     s1_fall.records.push_back(1.0);
     s1_fall.records.push_back(2.0);
+    s1_fall.records.push_back(3.0);
     s1_fall.dimensions["station"].push_back("montgomery");
     s1_fall.dimensions["station"].push_back("16th Street");
     s1_fall.dimensions["station"].push_back("montgomery");
@@ -47,5 +49,37 @@ namespace {
     ASSERT_EQ(true, dimension.match(s1_fall, 0));
     ASSERT_EQ(false, dimension.match(s1_fall, 1));
     ASSERT_EQ(true, dimension.match(s1_fall, 2));
+  }
+  
+  TEST_F(SequentialDimensionTest, MatchesMultipleGroupValues) {
+    Conditions conditions;
+    conditions.Eq("action", "in");
+    conditions.Eq("station", "montgomery");
+    Sequential::Dimension dimension("station", "X", "x1", conditions);
+
+    vector<string> values;
+    values.push_back("S1");
+    values.push_back("Fall");
+    Engine::Group s1_fall(values);
+    
+    s1_fall.records.push_back(100.0);
+    s1_fall.records.push_back(476.0);
+    s1_fall.records.push_back(728.0);
+    s1_fall.records.push_back(937.0);
+
+    s1_fall.dimensions["station"].push_back("montgomery");
+    s1_fall.dimensions["station"].push_back("16th street");
+    s1_fall.dimensions["station"].push_back("16th street");
+    s1_fall.dimensions["station"].push_back("montgomery");
+
+    s1_fall.dimensions["action"].push_back("in");
+    s1_fall.dimensions["action"].push_back("out");
+    s1_fall.dimensions["action"].push_back("in");
+    s1_fall.dimensions["action"].push_back("out");
+    
+    ASSERT_EQ(true, dimension.match(s1_fall, 0));
+    ASSERT_EQ(false, dimension.match(s1_fall, 1));
+    ASSERT_EQ(false, dimension.match(s1_fall, 2));
+    ASSERT_EQ(false, dimension.match(s1_fall, 3));
   }
 }  // namespace

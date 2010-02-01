@@ -23,17 +23,24 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 }
 
 bool Engine::Sequential::Dimension::match(Group& haystack, size_t position) {
-  cout << "Checking position " << position << " of dimension " << name << endl;
+  shared_ptr<Condition::Base> condition;
+	for(size_t i = 0; i < conditions.size(); i++) {
+		condition = conditions.at(i);
+    
+		if(condition != NULL) {
+      vector<string>& values = haystack.dimensions[condition->column];
+      
+      // OOB check
+      if(position >= values.size()) {
+        return false;
+      }
+      
+      cout << "Checking condition for " << condition->column << " with value " << values[position] << endl;
+			if(!condition->Check(values[position])) {
+        return false;
+      }
+		}
+	}
   
-  vector<string> values = haystack.dimensions[name];
-  
-  if(values.size() >= position) {
-    return false;
-  }
-  
-  if(conditions.Check(name, values[position])) {
-    return true;
-  } else {
-    return false;
-  }
+  return true;
 }

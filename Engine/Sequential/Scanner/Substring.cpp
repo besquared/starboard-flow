@@ -35,13 +35,16 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& resul
     for(size_t s = 0; s <= n - m; s++) {
       size_t j = 1;
       
-      cout << "checking for a match in group " << i << " at text shift " << s << endl;
-      while(j <= m && pattern[j]->match(input[i], s + j)) {
+      cout << "checking for a match in group " << i << " at position " << s << endl;
+      // look at dimension 0 first, see if position 0 of text matches
+      // if it does then increment j, look at position 1 of text
+      // continue until it either matches or doesn't match, if it
+      while(j <= m && pattern[j - 1]->match(input[i], s + j - 1)) {
         j++;
       }
       
       if(j > m) {
-        results.insert(i, s);
+        results.matches[i].push_back(s);
       }
     }
     // match not found in this group

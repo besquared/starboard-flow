@@ -22,18 +22,8 @@ namespace Flow {
 		namespace Sequential {
       namespace Scanner {
         class Matches {
-        protected:
-          map< size_t, vector<size_t> > matches_;
         public:
-          Matches(){}
-          
-          vector<size_t>& at(size_t group) {
-            return matches_[group];
-          }
-          
-          void insert(size_t group, size_t index) {
-            matches_[group].push_back(index);
-          }
+          map< size_t, vector<size_t> > matches;
         };
       }
 		}
