@@ -29,7 +29,8 @@ namespace Flow {
 				Dimension(const string& name, const string& symbol, const string& alias);
 				Dimension(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
         
-        bool match(Group& haystack, size_t position) { return false; }
+        // make sure that we don't read past end of group
+        bool match(Group& haystack, size_t position);
 			};
 		}
 	}

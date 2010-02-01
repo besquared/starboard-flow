@@ -14,6 +14,8 @@
 #include <Engine/Groups.h>
 #include <Engine/Sequential/Pattern.h>
 
+#include "Matches.h"
+
 namespace Flow {
 	namespace Engine {		
 		namespace Sequential {
@@ -25,7 +27,7 @@ namespace Flow {
         public:
           Base() {}
           virtual ~Base() {}
-          virtual void execute(Groups& input, Groups& results) = 0;
+          virtual void execute(Pattern& pattner, Groups& input, Matches& results) = 0;
         };
       }
 		}

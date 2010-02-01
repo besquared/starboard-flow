@@ -19,18 +19,30 @@ Scanner::Substring::~Substring() {
 
 }
 
-void Scanner::Substring::execute(Groups& input, Matches& results) {
+void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& results) {
+  size_t m = pattern.size();
+  
+  cout << "Pattern has size " << m << endl;
+  
   for(size_t i = 0; i < input.size(); i++) {
     size_t n = input[i].size();
-    size_t m = pattern.size();
-    for(size_t s = 0; s < n - m; s++) {
+    
+    // pattern is longer than text, no matches possible
+    if(m > n) { 
+      continue;
+    }
+    
+    for(size_t s = 0; s <= n - m; s++) {
       size_t j = 1;
       
-      while(j <= m && pattern[j]->match(input[i], s + j)) 
+      cout << "checking for a match in group " << i << " at text shift " << s << endl;
+      while(j <= m && pattern[j]->match(input[i], s + j)) {
         j++;
+      }
       
-      if(j > m)
+      if(j > m) {
         results.insert(i, s);
+      }
     }
     // match not found in this group
   }

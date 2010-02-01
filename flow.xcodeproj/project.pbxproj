@@ -64,6 +64,7 @@
 		03BF24F511136A2F006D4BBB /* Substring.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF24F311136A2F006D4BBB /* Substring.h */; };
 		03BF24F611136A2F006D4BBB /* Substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF24F411136A2F006D4BBB /* Substring.cpp */; };
 		03BF25B01115D320006D4BBB /* Matches.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF25AE1115D320006D4BBB /* Matches.h */; };
+		03BF25E7111631B0006D4BBB /* SubstringTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF25E5111631B0006D4BBB /* SubstringTest.cpp */; };
 		03E4D5C510BE584700D5068E /* libflow.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E4D53910BE538E00D5068E /* libflow.dylib */; };
 		03E72A5E10E0911200D5E4C1 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E72A1410E0911200D5E4C1 /* Base.cpp */; };
 		03E72A5F10E0911200D5E4C1 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E72A1510E0911200D5E4C1 /* Base.h */; };
@@ -201,6 +202,7 @@
 		03BF24F311136A2F006D4BBB /* Substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Substring.h; sourceTree = "<group>"; };
 		03BF24F411136A2F006D4BBB /* Substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Substring.cpp; sourceTree = "<group>"; };
 		03BF25AE1115D320006D4BBB /* Matches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matches.h; sourceTree = "<group>"; };
+		03BF25E5111631B0006D4BBB /* SubstringTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubstringTest.cpp; sourceTree = "<group>"; };
 		03E4D53910BE538E00D5068E /* libflow.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libflow.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E72A1410E0911200D5E4C1 /* Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base.cpp; sourceTree = "<group>"; };
 		03E72A1510E0911200D5E4C1 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
@@ -404,6 +406,14 @@
 			path = Scanner;
 			sourceTree = "<group>";
 		};
+		03BF25E311163152006D4BBB /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				03BF25E5111631B0006D4BBB /* SubstringTest.cpp */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		03E72A1210E0911200D5E4C1 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +550,7 @@
 		03E7307710E3392100D5E4C1 /* Sequential */ = {
 			isa = PBXGroup;
 			children = (
+				03BF25E311163152006D4BBB /* Scanner */,
 				03E7307810E3392100D5E4C1 /* DimensionTest.cpp */,
 				03E7307C10E3392100D5E4C1 /* PatternTest.cpp */,
 			);
@@ -790,6 +801,7 @@
 				03BF23AF110C6CE9006D4BBB /* GathererTest.cpp in Sources */,
 				03BF23B3110C6CF2006D4BBB /* AggregatorTest.cpp in Sources */,
 				03BF23B5110C6D03006D4BBB /* SweeperTest.cpp in Sources */,
+				03BF25E7111631B0006D4BBB /* SubstringTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

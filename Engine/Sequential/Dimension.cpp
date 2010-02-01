@@ -21,3 +21,8 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 	this->alias = alias;
 	this->conditions = conditions;
 }
+
+bool Engine::Sequential::Dimension::match(Group& haystack, size_t position) {
+  cout << "Checking position " << position << endl;
+  return true;
+}
