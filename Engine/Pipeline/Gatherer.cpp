@@ -22,7 +22,7 @@ bool Pipeline::Gatherer::Execute(Domain::Base* domain, Query::Base* query, Group
 	for(measure = measures.begin(); measure != measures.end(); measure++) {
 		for(group = results.begin(); group != results.end(); group++) {
 			if(*measure != "records") {
-				domain->measures->Lookup(*measure, *group, group->measures(*measure));
+				domain->measures->Lookup(*measure, group->records, group->measures[*measure]);
 			}
 		}
 	}
@@ -30,7 +30,7 @@ bool Pipeline::Gatherer::Execute(Domain::Base* domain, Query::Base* query, Group
 	set<string>::const_iterator dimension;
 	for(dimension = dimensions.begin(); dimension != dimensions.end(); dimension++) {
 		for(group = results.begin(); group != results.end(); group++) {
-			domain->dimensions->Lookup(*dimension, *group, group->dimensions(*dimension));
+			domain->dimensions->Lookup(*dimension, group->records, group->dimensions[*dimension]);
 		}
 	}	
 	

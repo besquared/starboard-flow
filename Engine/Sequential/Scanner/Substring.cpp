@@ -25,7 +25,7 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& resul
   cout << "Pattern has size " << m << endl;
   
   for(size_t i = 0; i < input.size(); i++) {
-    size_t n = input[i].size();
+    size_t n = input[i].records.size();
     
     // pattern is longer than text, no matches possible
     if(m > n) { 

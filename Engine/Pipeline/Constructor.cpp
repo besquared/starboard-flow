@@ -49,7 +49,7 @@ bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, Gr
 			
 			Group group(values);
 			results.push_back(group);
-			results.back().insert(results.back().end(), instantiated.begin(), instantiated.end());
+			results.back().records.insert(results.back().records.end(), instantiated.begin(), instantiated.end());
 		}
 	}
 	
@@ -98,8 +98,9 @@ void Pipeline::Constructor::Construct(vector<string>& instantiated_vals, RIDList
 		
 		if(intersected.size() > 0) {
 			results.push_back(Group(values));
-			results.back().insert(results.back().end(), intersected.begin(), intersected.end());
-			results.back().values.insert(results.back().values.end(), instantiated_vals.begin(), instantiated_vals.end());
+      Group& group = results.back();
+			group.records.insert(group.records.end(), intersected.begin(), intersected.end());
+			group.values.insert(group.values.end(), instantiated_vals.begin(), instantiated_vals.end());
 		}
 		return;
 	}

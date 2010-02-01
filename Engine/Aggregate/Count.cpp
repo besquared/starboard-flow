@@ -34,5 +34,5 @@ void Aggregate::Count::apply(Groups& base) {
 }
 
 void Aggregate::Count::apply(Group& group) {	
-	group.aggregate(alias(), group.size());
+	group.aggregates[alias()] = group.records.size();
 }

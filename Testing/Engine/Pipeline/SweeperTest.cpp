@@ -51,13 +51,13 @@ namespace {
 		
 		Engine::Groups results;
 		Engine::Group s1_fall(values);
-		s1_fall.push_back(1);
-		s1_fall.push_back(2);
+		s1_fall.records.push_back(1);
+		s1_fall.records.push_back(2);
 		results.push_back(s1_fall);
 		
 		sweeper.Execute(this->purchases, &query, results);
 		
 		ASSERT_EQ(1, results.size());
-		EXPECT_EQ(0, results[0].size());
+		EXPECT_EQ(0, results[0].records.size());
 	}	
 }

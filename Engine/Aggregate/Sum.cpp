@@ -33,9 +33,9 @@ void Aggregate::Sum::apply(Groups& base) {
 void Aggregate::Sum::apply(Group& group) {
 	double sum = 0;
 	vector<double>::iterator value;
-	vector<double> values = group.measures(measure);
+	vector<double> values = group.measures[measure];
 	for(value = values.begin(); value != values.end(); value++) {
 		sum += *value;
 	}
-	group.aggregate(alias(), sum);
+	group.aggregates[alias()] = sum;
 }

@@ -53,14 +53,14 @@ namespace {
 		Engine::Groups results;
 		Engine::Group s1_fall(values);
 		results.push_back(s1_fall);
-		results.back().push_back(1);
-		results.back().push_back(2);
-		results.back().push_measure("sales", 100);
-		results.back().push_measure("sales", 250);
+		results.back().records.push_back(1);
+		results.back().records.push_back(2);
+		results.back().measures["sales"].push_back(100);
+		results.back().measures["sales"].push_back(250);
 		
 		aggregator.Execute(this->purchases, &query, results);
 		
-		ASSERT_EQ(2, results.back().aggregate("count_sales"));
-		ASSERT_EQ(350, results.back().aggregate("sum_sales"));
+		ASSERT_EQ(2, results.back().aggregates["count_sales"]);
+		ASSERT_EQ(350, results.back().aggregates["sum_sales"]);
 	}	
 }

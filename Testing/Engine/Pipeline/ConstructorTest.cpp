@@ -60,7 +60,7 @@ namespace {
 		constructor.Execute(this->purchases, &query, results);
 		
 		ASSERT_EQ(1, results.size());
-		ASSERT_EQ(2, results[0].size());
+		ASSERT_EQ(2, results[0].records.size());
 		ASSERT_EQ(2, results.dimensions.size());
 		EXPECT_EQ("store", results.dimensions[0]);
 		EXPECT_EQ("season", results.dimensions[1]);
@@ -101,7 +101,7 @@ namespace {
 		constructor.Execute(this->purchases, &query, results);
 		
 		ASSERT_EQ(1, results.size());
-		ASSERT_EQ(2, results[0].size()); // RID 1, 2
+		ASSERT_EQ(2, results[0].records.size()); // RID 1, 2
 		
 		ASSERT_EQ(3, results.dimensions.size());
 		EXPECT_EQ("day", results.dimensions[0]);

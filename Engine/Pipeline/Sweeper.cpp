@@ -12,8 +12,8 @@
 bool Pipeline::Sweeper::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
 	Groups::iterator group;
 	for(group = results.begin(); group != results.end(); group++) {
-		group->clear();
-		group->clear_measures();
+		group->records.clear();
+		group->measures.clear();
 	}
 	
 	return true;

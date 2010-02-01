@@ -51,11 +51,11 @@ namespace {
 		
 		Engine::Groups results;
 		Engine::Group s1_fall(values);
-		s1_fall.push_back(1);
-		s1_fall.push_back(2);
+		s1_fall.records.push_back(1);
+		s1_fall.records.push_back(2);
 		results.push_back(s1_fall);
 		
-		EXPECT_CALL(*this->measures, Lookup("sales", s1_fall, _));
+		EXPECT_CALL(*this->measures, Lookup("sales", s1_fall.records, _));
 		
 		gatherer.Execute(this->purchases, &query, results);
 	}	

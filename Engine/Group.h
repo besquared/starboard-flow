@@ -15,7 +15,7 @@
 // vector<double>& mygroup.measures("amount");
 // vector<string>& mygroup.values("station")
 
-// RID mygroup.record(0);
+// RecordID mygroup.record(0);
 // double mygroup.measure("amount", 0);
 // string& mygroup.value("station", 0);
 
@@ -31,50 +31,16 @@ using namespace Flow::Domain;
 
 namespace Flow {
 	namespace Engine {
-		class Group : public Domain::Data::RIDList {
-		protected:
-			map<string, double> aggregates_;
-			map< string, vector<double> > measures_;
-			map< string, vector<string> > dimensions_;
-			
+		class Group {			
 		public:
 			vector<string> values;
-
-			Group(const vector<string>& values) : Domain::Data::RIDList() {
+      Domain::Data::RIDList records;
+			map<string, double> aggregates;
+			map< string, vector<double> > measures;
+			map< string, vector<string> > dimensions;
+      
+			Group(const vector<string>& values) {
 				this->values = values;
-			}
-      
-			vector<double>& measures(const string& name) {
-				return measures_[name];
-			}
-			
-			void push_measure(const string& name, const double& value) {
-				measures_[name].push_back(value);
-			}
-			
-			void push_measures(const string& name, const vector<double>& values) {
-				// TODO use vector member method here instead
-				copy(values.begin(), values.end(), back_inserter(measures_[name]));
-			}
-			
-			void clear_measures() {
-				measures_.clear();
-			}
-			      
-      void dimension(const string& dimension, const string& value) {
-        dimensions_[dimension].push_back(value);
-      }
-      
-			vector<string>& dimensions(const string& name) {
-				return dimensions_[name];
-			}
-			
-			double& aggregate(const string& name) {
-				return aggregates_[name];
-			}
-			
-			void aggregate(const string& name, const double& value) {
-				aggregates_[name] = value;
 			}
 		};
 	}

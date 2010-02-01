@@ -38,11 +38,11 @@ namespace {
     values.push_back("S1");
     values.push_back("Fall");
     Engine::Group s1_fall(values);
-    s1_fall.push_back(1.0);
-    s1_fall.push_back(2.0);
-    s1_fall.dimension("station", "montgomery");
-    s1_fall.dimension("station", "16th Street");
-    s1_fall.dimension("station", "montgomery");
+    s1_fall.records.push_back(1.0);
+    s1_fall.records.push_back(2.0);
+    s1_fall.dimensions["station"].push_back("montgomery");
+    s1_fall.dimensions["station"].push_back("16th Street");
+    s1_fall.dimensions["station"].push_back("montgomery");
     
     ASSERT_EQ(true, dimension.match(s1_fall, 0));
     ASSERT_EQ(false, dimension.match(s1_fall, 1));

@@ -35,11 +35,11 @@ namespace {
     
     Engine::Groups haystack;
     Engine::Group s1_fall(values);
-		s1_fall.push_back(1);
-		s1_fall.push_back(2);
-    s1_fall.push_back(3);
-    s1_fall.push_back(4);
-    s1_fall.push_back(5);
+		s1_fall.records.push_back(1);
+		s1_fall.records.push_back(2);
+    s1_fall.records.push_back(3);
+    s1_fall.records.push_back(4);
+    s1_fall.records.push_back(5);
 		haystack.push_back(s1_fall);
     
     Sequential::Scanner::Matches matches;
