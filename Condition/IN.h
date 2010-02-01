@@ -35,6 +35,17 @@ namespace Flow {
 				this->type = Condition::Base::IN;
 			}			
 			
+      bool Check(string& value) {
+        vector<string>::iterator found;
+        found = find(values.begin(), values.end(), value);
+        
+        if(found == this->values.end()) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+      
 			void Apply(vector<string>& values) {
 				vector<string> intersected;
 				set_intersection(values.begin(), values.end(), this->values.begin(), this->values.end(), back_inserter(intersected));

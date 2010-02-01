@@ -45,6 +45,6 @@ namespace {
     Sequential::Scanner::Matches matches;
     
     Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, haystack, matches);
+//    scanner.execute(pattern, haystack, matches);
 	}	
 }

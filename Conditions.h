@@ -39,6 +39,7 @@ namespace Flow {
 		/*
 		 * Application
 		 */
+    bool Check(const string& column, string& value) const;
 		void Apply(const string& column, vector<string>& values) const;
   };
 }

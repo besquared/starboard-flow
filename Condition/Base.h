@@ -28,6 +28,7 @@ namespace Flow {
 				this->column = column;
 			}
 			
+      virtual bool Check(string& value) = 0;
 			virtual void Apply(vector<string>& values) = 0;
 		};
 	}

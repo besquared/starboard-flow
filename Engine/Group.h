@@ -7,15 +7,26 @@
  *
  */
 
-#ifndef _flow_engine_analytical_group_h_
-#define _flow_engine_analytical_group_h_
+// mygroup.push_back(1);
+// mygroup.push_back("amount", 100.20);
+// mygroup.push_back("station", "montgomery");
+
+// RIDList& mygroup.records();
+// vector<double>& mygroup.measures("amount");
+// vector<string>& mygroup.values("station")
+
+// RID mygroup.record(0);
+// double mygroup.measure("amount", 0);
+// string& mygroup.value("station", 0);
+
+#ifndef _flow_engine_group_h_
+#define _flow_engine_group_h_
 
 #include <Common.h>
 #include <Domain/Data/Record.h>
 #include <Domain/Data/RIDList.h>
 
 using namespace std;
-using namespace Flow;
 using namespace Flow::Domain;
 
 namespace Flow {
@@ -32,7 +43,7 @@ namespace Flow {
 			Group(const vector<string>& values) : Domain::Data::RIDList() {
 				this->values = values;
 			}
-						
+      
 			vector<double>& measures(const string& name) {
 				return measures_[name];
 			}
@@ -49,7 +60,11 @@ namespace Flow {
 			void clear_measures() {
 				measures_.clear();
 			}
-			
+			      
+      void dimension(const string& dimension, const string& value) {
+        dimensions_[dimension].push_back(value);
+      }
+      
 			vector<string>& dimensions(const string& name) {
 				return dimensions_[name];
 			}

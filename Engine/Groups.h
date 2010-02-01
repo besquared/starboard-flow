@@ -7,15 +7,14 @@
  *
  */
 
-#ifndef _flow_engine_analytical_groups_h_
-#define _flow_engine_analytical_groups_h_
+#ifndef _flow_engine_groups_h_
+#define _flow_engine_groups_h_
 
 #include <Common.h>
 
 #include "Group.h"
 
 using namespace std;
-using namespace Flow;
 
 namespace Flow {
 	namespace Engine {

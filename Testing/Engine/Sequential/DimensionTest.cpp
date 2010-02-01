@@ -27,5 +27,25 @@ namespace {
 		EXPECT_EQ("station", dimension.name);
 		EXPECT_EQ("X", dimension.symbol);
 		EXPECT_EQ("x1", dimension.alias);
-	}	
+	}
+  
+  TEST_F(SequentialDimensionTest, MatchesGroupValue) {
+    Conditions conditions;
+    conditions.Eq("station", "montgomery");
+    Sequential::Dimension dimension("station", "X", "x1", conditions);
+
+    vector<string> values;
+    values.push_back("S1");
+    values.push_back("Fall");
+    Engine::Group s1_fall(values);
+    s1_fall.push_back(1.0);
+    s1_fall.push_back(2.0);
+    s1_fall.dimension("station", "montgomery");
+    s1_fall.dimension("station", "16th Street");
+    s1_fall.dimension("station", "montgomery");
+    
+    ASSERT_EQ(true, dimension.match(s1_fall, 0));
+    ASSERT_EQ(false, dimension.match(s1_fall, 1));
+    ASSERT_EQ(true, dimension.match(s1_fall, 2));
+  }
 }  // namespace

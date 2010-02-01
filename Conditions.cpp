@@ -43,6 +43,20 @@ void Conditions::In(const string& name, const vector<string>& values) {
  * Application
  */
 
+bool Conditions::Check(const string& column, string& value) const {
+  shared_ptr<Condition::Base> condition;
+	for(size_t i = 0; i < this->size(); i++) {
+		condition = this->at(i);
+		if(condition != NULL && condition->column == column) {
+			if(!condition->Check(value)) {
+        return false;
+      }
+		}
+	}
+  
+  return true;
+}
+
 void Conditions::Apply(const string& column, vector<string>& values) const {
 	shared_ptr<Condition::Base> condition;
 	for(size_t i = 0; i < this->size(); i++) {

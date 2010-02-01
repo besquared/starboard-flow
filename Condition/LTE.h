@@ -26,12 +26,16 @@ namespace Flow {
 				this->type = Condition::Base::LTE;
 			}
 			
+      bool Check(string& value) {
+        return value <= this->value;
+      }      
+      
 			void Apply(vector<string>& values) {
 				vector<string> results;
 				results.reserve(values.size());
 				size_t vsize = values.size();
 				for(size_t i = 0; i < vsize; i++) {
-					if(values[i] <= this->value) {
+					if(this->Check(values[i])) {
 						results.push_back(values[i]);
 					}
 				}
