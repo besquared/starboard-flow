@@ -55,6 +55,9 @@ void Query::Sequential::InstantiatedValues(vector<string>& results) {
 
 // Get a set of dims we're inquiring and their conditions
 void Query::Sequential::Inquire(set<string>& dimensions, Conditions& conditions) {
+  dimensions.insert(cluster_by.begin(), cluster_by.end());
+  dimensions.insert(sequence_group_by.begin(), sequence_group_by.end());
+
   for(size_t i = 0; i < this->conditions->size(); i++) {
 		shared_ptr<Condition::Base> condition = this->conditions->at(i);
 		

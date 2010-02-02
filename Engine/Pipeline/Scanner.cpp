@@ -17,9 +17,19 @@ bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, 
   scanner.execute(query->pattern, results, matches);
   
   // go through matches and make new groups by copying sequences
+  // how do we know what the final groups will be? which dimensions?
+  // sequence group by fare-group, day
+  Engine::Groups groups(query->sequence_group_by);
+  
+  vector<size_t>::iterator indices;
   Sequential::Scanner::Matches::iterator match;
   for(match = matches.begin(); match != matches.end(); match++) {
+    Group& matched = results[match->first];
+    for(indices = match->second.begin(); indices != match->second.end(); indices++) {
+      cout << "Copying sequence from position " << *indices << " of group " << match->first << endl;
+    }
     
+    groups.push_back(matched);
   }
   
   

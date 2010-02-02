@@ -21,6 +21,8 @@ namespace Flow {
 		namespace Query {
 			class Sequential : public Query::Base {
 			public:
+        vector<string> cluster_by;
+        vector<string> sequence_group_by;
         Engine::Sequential::Pattern pattern;
         
 				Sequential();

@@ -21,6 +21,7 @@
 		0346C4FD1105935D00635E67 /* Sequential.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C4FB1105935D00635E67 /* Sequential.cpp */; };
 		0346C5081105947300635E67 /* Sequential.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C5061105947300635E67 /* Sequential.h */; };
 		0346C5091105947300635E67 /* Sequential.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C5071105947300635E67 /* Sequential.cpp */; };
+		0368D4C2111895FA00D07E57 /* ScannerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0368D4C1111895FA00D07E57 /* ScannerTest.cpp */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
@@ -162,6 +163,7 @@
 		0346C4FB1105935D00635E67 /* Sequential.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequential.cpp; sourceTree = "<group>"; };
 		0346C5061105947300635E67 /* Sequential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequential.h; sourceTree = "<group>"; };
 		0346C5071105947300635E67 /* Sequential.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequential.cpp; sourceTree = "<group>"; };
+		0368D4C1111895FA00D07E57 /* ScannerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScannerTest.cpp; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
@@ -393,6 +395,7 @@
 				03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */,
 				03BF2403110C8161006D4BBB /* MockGatherer.h */,
 				03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */,
+				0368D4C1111895FA00D07E57 /* ScannerTest.cpp */,
 				03BF2405110C816B006D4BBB /* MockAggregator.h */,
 				03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */,
 				03BF2407110C8172006D4BBB /* MockSweeper.h */,
@@ -809,6 +812,7 @@
 				03BF23B3110C6CF2006D4BBB /* AggregatorTest.cpp in Sources */,
 				03BF23B5110C6D03006D4BBB /* SweeperTest.cpp in Sources */,
 				03BF25E7111631B0006D4BBB /* SubstringTest.cpp in Sources */,
+				0368D4C2111895FA00D07E57 /* ScannerTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
