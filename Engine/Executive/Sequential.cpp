@@ -9,7 +9,7 @@
 
 #include "Sequential.h"
 
-Executive::Sequential::Sequential(Domain::Base* domain, Query::Base* query) :
+Executive::Sequential::Sequential(Domain::Base* domain, Query::Sequential* query) :
 Executive::Base::Base(domain, query) {
 	this->constructor = new Pipeline::Constructor();
 	this->gatherer = new Pipeline::Gatherer();
@@ -28,7 +28,7 @@ Executive::Sequential::~Sequential() {
 
 bool Executive::Sequential::Execute(Groups& results) {
 	this->constructor->Execute(domain, query, results);
-	this->gatherer->Execute(domain, query, results);
+	this->gatherer->Execute(domain, query, results);  
   this->scanner->Execute(domain, query, results);
 	this->aggregator->Execute(domain, query, results);
 	this->sweeper->Execute(domain, query, results);

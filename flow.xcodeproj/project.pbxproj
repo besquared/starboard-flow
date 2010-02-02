@@ -63,7 +63,6 @@
 		03BF24F21113653B006D4BBB /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF24F11113653B006D4BBB /* Base.h */; };
 		03BF24F511136A2F006D4BBB /* Substring.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF24F311136A2F006D4BBB /* Substring.h */; };
 		03BF24F611136A2F006D4BBB /* Substring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF24F411136A2F006D4BBB /* Substring.cpp */; };
-		03BF25B01115D320006D4BBB /* Matches.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF25AE1115D320006D4BBB /* Matches.h */; };
 		03BF25E7111631B0006D4BBB /* SubstringTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BF25E5111631B0006D4BBB /* SubstringTest.cpp */; };
 		03BF27EE111773CC006D4BBB /* Neq.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF27ED111773CC006D4BBB /* Neq.h */; };
 		03BF2830111787DB006D4BBB /* Scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BF282E111787DB006D4BBB /* Scanner.h */; };
@@ -204,7 +203,6 @@
 		03BF24F11113653B006D4BBB /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		03BF24F311136A2F006D4BBB /* Substring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Substring.h; sourceTree = "<group>"; };
 		03BF24F411136A2F006D4BBB /* Substring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Substring.cpp; sourceTree = "<group>"; };
-		03BF25AE1115D320006D4BBB /* Matches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matches.h; sourceTree = "<group>"; };
 		03BF25E5111631B0006D4BBB /* SubstringTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubstringTest.cpp; sourceTree = "<group>"; };
 		03BF27ED111773CC006D4BBB /* Neq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Neq.h; sourceTree = "<group>"; };
 		03BF282E111787DB006D4BBB /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
@@ -409,7 +407,6 @@
 				03BF24F11113653B006D4BBB /* Base.h */,
 				03BF24F411136A2F006D4BBB /* Substring.cpp */,
 				03BF24F311136A2F006D4BBB /* Substring.h */,
-				03BF25AE1115D320006D4BBB /* Matches.h */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -694,7 +691,6 @@
 				03BF23321109D0D9006D4BBB /* Gatherer.h in Headers */,
 				03BF24F21113653B006D4BBB /* Base.h in Headers */,
 				03BF24F511136A2F006D4BBB /* Substring.h in Headers */,
-				03BF25B01115D320006D4BBB /* Matches.h in Headers */,
 				03BF27EE111773CC006D4BBB /* Neq.h in Headers */,
 				03BF2830111787DB006D4BBB /* Scanner.h in Headers */,
 			);

@@ -25,6 +25,8 @@ namespace Flow {
 		namespace Executive {
 			class Sequential : public Executive::Base {
 			protected:
+        Query::Sequential* query;
+        
 				Pipeline::Constructor* constructor;
 				Pipeline::Gatherer* gatherer;
         Pipeline::Scanner* scanner;
@@ -32,7 +34,7 @@ namespace Flow {
 				Pipeline::Sweeper* sweeper;
 				
 			public:
-				Sequential(Domain::Base* domain, Query::Base* query);
+				Sequential(Domain::Base* domain, Query::Sequential* query);
 				virtual ~Sequential();
 				
 				virtual bool Execute(Groups& results);

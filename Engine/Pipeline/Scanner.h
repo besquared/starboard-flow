@@ -13,7 +13,8 @@
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
-#include <Engine/Query/Base.h>
+#include <Engine/Query/Sequential.h>
+#include <Engine/Sequential/Scanner/Substring.h>
 
 using namespace std;
 using namespace Domain::Data;
@@ -23,7 +24,7 @@ namespace Flow {
 		namespace Pipeline {		
 			class Scanner {				
 			public:
-				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);				
+				bool Execute(Domain::Base* domain, Query::Sequential* query, Groups& results);				
 			};
 		}
 	}

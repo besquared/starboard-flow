@@ -9,13 +9,19 @@
 
 #include "Scanner.h"
 
-bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
-  // what does the scanner do?
+bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, Groups& results) {
+  // scan like a boss
   
-  // creates new groups/group structure with the proper group by/sequence by
-  //  values and then scans the groups we have already, we then iterate over
-  //  the matches and copy chunks of sequences from the old results into the
-  //  new results
+  Sequential::Scanner::Matches matches;
+  Sequential::Scanner::Substring scanner;
+  scanner.execute(query->pattern, results, matches);
+  
+  // go through matches and make new groups by copying sequences
+  Sequential::Scanner::Matches::iterator match;
+  for(match = matches.begin(); match != matches.end(); match++) {
+    
+  }
+  
   
   return true;
 }

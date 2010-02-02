@@ -65,9 +65,9 @@ namespace {
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
-    ASSERT_EQ(1, matches.matches.size());
-    ASSERT_EQ(1, matches.matches[0].size());
-    EXPECT_EQ(0, matches.matches[0][0]);
+    ASSERT_EQ(1, matches.size());
+    ASSERT_EQ(1, matches[0].size());
+    EXPECT_EQ(0, matches[0][0]);
 	}
   
   TEST_F(SubstringTest, MatchesShiftingSequences) {
@@ -116,9 +116,9 @@ namespace {
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
-    ASSERT_EQ(1, matches.matches.size());
-    ASSERT_EQ(1, matches.matches[0].size());
-    EXPECT_EQ(1, matches.matches[0][0]);
+    ASSERT_EQ(1, matches.size());
+    ASSERT_EQ(1, matches[0].size());
+    EXPECT_EQ(1, matches[0][0]);
 	}  
 
   TEST_F(SubstringTest, MatchesCompoundConditions) {
@@ -168,9 +168,9 @@ namespace {
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
-    ASSERT_EQ(1, matches.matches.size());
-    ASSERT_EQ(1, matches.matches[0].size());
-    EXPECT_EQ(1, matches.matches[0][0]);
+    ASSERT_EQ(1, matches.size());
+    ASSERT_EQ(1, matches[0].size());
+    EXPECT_EQ(1, matches[0][0]);
 	}
 
   TEST_F(SubstringTest, MatchesCompoundConditionsWithNoMatches) {
@@ -220,6 +220,6 @@ namespace {
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
-    ASSERT_EQ(0, matches.matches.size());
+    ASSERT_EQ(0, matches.size());
 	}  
 }

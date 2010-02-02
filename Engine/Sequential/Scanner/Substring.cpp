@@ -44,7 +44,7 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& resul
       }
       
       if(j > m) {
-        results.matches[i].push_back(s);
+        results[i].push_back(s);
       }
     }
     // match not found in this group

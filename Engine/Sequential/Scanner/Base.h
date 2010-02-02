@@ -14,12 +14,12 @@
 #include <Engine/Groups.h>
 #include <Engine/Sequential/Pattern.h>
 
-#include "Matches.h"
-
 namespace Flow {
 	namespace Engine {		
 		namespace Sequential {
       namespace Scanner {
+        typedef map< size_t, vector<size_t> > Matches;
+
         class Base {
         protected:
           Sequential::Pattern pattern;
