@@ -26,12 +26,9 @@ bool Engine::Sequential::Dimension::match(Group& haystack, Match& match, size_t 
   map<string, string>::iterator found = match.tvalues.find(symbol);
   
   if(found == match.tvalues.end()) {
-//    cout << "assiging tvalues[" << symbol << "] to haystack.dimensions[" << name << "][" << position << "]" << endl;
     match.tvalues[symbol] = haystack.dimensions[name][position];
   } else if(haystack.dimensions[name][position] != found->second) {
     return false;
-  } else {
-//    cout << "checked tvalues[" << symbol << "] and found it matched our value" << endl;
   }
   
   shared_ptr<Condition::Base> condition;
@@ -39,15 +36,8 @@ bool Engine::Sequential::Dimension::match(Group& haystack, Match& match, size_t 
 		condition = conditions.at(i);
     
 		if(condition != NULL) {
-      vector<string>& values = haystack.dimensions[condition->column];
-      
-      // OOB check
-      if(position >= values.size()) {
-        return false;
-      }
-      
       // Condition check
-			if(!condition->Check(values[position])) {
+			if(!condition->Check(haystack.dimensions[condition->column][position])) {
         return false;
       }
 		}
