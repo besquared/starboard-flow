@@ -22,7 +22,7 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 	this->conditions = conditions;
 }
 
-bool Engine::Sequential::Dimension::match(Group& haystack, size_t position, Match& match) {  
+bool Engine::Sequential::Dimension::match(Group& haystack, Match& match, size_t position) {  
   map<string, string>::iterator found = match.tvalues.find(symbol);
   
   if(found == match.tvalues.end()) {

@@ -19,24 +19,24 @@ Scanner::Substring::~Substring() {
 
 }
 
-void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& results) {
-  size_t m = pattern.size();
+void Scanner::Substring::execute(Pattern& pattern, Groups& sequences, Matches& results) {
+  size_t pat_length = pattern.size();
   
-  for(size_t i = 0; i < input.size(); i++) {
-    Group& current_group = input[i];
-    size_t n = current_group.records.size();
+  for(size_t i = 0; i < sequences.size(); i++) {
+    Group& current_seq = sequences[i];
+    size_t seq_length = current_seq.records.size();
     
-    if(m > n) { continue; }
+    if(pat_length > seq_length) { continue; }
     
-    for(size_t s = 0; s <= n - m; s++) {
+    for(size_t s = 0; s <= seq_length - pat_length; s++) {
       size_t j = 1;
-      Match current_match(s);
 
-      while(j <= m && pattern[j - 1]->match(current_group, s + j - 1, current_match)) {
+      Match current_match(s);
+      while(j <= pat_length && pattern[j - 1]->match(current_seq, current_match, s + j - 1)) {
         j++;
       }
       
-      if(j > m) {
+      if(j > pat_length) {
         results[i].push_back(current_match);
       }
     }

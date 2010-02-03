@@ -48,9 +48,9 @@ namespace {
 
     Sequential::Match match(0);
 
-    ASSERT_EQ(true, dimension.match(s1_fall, 0, match));
-    ASSERT_EQ(false, dimension.match(s1_fall, 1, match));
-    ASSERT_EQ(true, dimension.match(s1_fall, 2, match));
+    ASSERT_EQ(true, dimension.match(s1_fall, match, 0));
+    ASSERT_EQ(false, dimension.match(s1_fall, match, 1));
+    ASSERT_EQ(true, dimension.match(s1_fall, match, 2));
   }
   
   TEST_F(SequentialDimensionTest, MatchesMultipleGroupValues) {
@@ -81,9 +81,9 @@ namespace {
     
     Sequential::Match match(0);
     
-    ASSERT_EQ(true, dimension.match(s1_fall, 0, match));
-    ASSERT_EQ(false, dimension.match(s1_fall, 1, match));
-    ASSERT_EQ(false, dimension.match(s1_fall, 2, match));
-    ASSERT_EQ(false, dimension.match(s1_fall, 3, match));
+    ASSERT_EQ(true, dimension.match(s1_fall, match, 0));
+    ASSERT_EQ(false, dimension.match(s1_fall, match, 1));
+    ASSERT_EQ(false, dimension.match(s1_fall, match, 2));
+    ASSERT_EQ(false, dimension.match(s1_fall, match, 3));
   }
 }  // namespace
