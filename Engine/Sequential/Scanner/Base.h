@@ -14,8 +14,6 @@
 #include <Engine/Groups.h>
 #include <Engine/Sequential/Pattern.h>
 
-#include "Match.h"
-
 namespace Flow {
 	namespace Engine {		
 		namespace Sequential {

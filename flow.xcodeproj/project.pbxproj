@@ -22,7 +22,7 @@
 		0346C5081105947300635E67 /* Sequential.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C5061105947300635E67 /* Sequential.h */; };
 		0346C5091105947300635E67 /* Sequential.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0346C5071105947300635E67 /* Sequential.cpp */; };
 		0368D4C2111895FA00D07E57 /* ScannerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0368D4C1111895FA00D07E57 /* ScannerTest.cpp */; };
-		0368D4F91119571B00D07E57 /* Match.h in Headers */ = {isa = PBXBuildFile; fileRef = 0368D4F81119571B00D07E57 /* Match.h */; };
+		0368D5CF111A30AB00D07E57 /* Match.h in Headers */ = {isa = PBXBuildFile; fileRef = 0368D5CE111A30AB00D07E57 /* Match.h */; };
 		036AF32210D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
 		036AF32410D3751F002304AE /* libboost_system-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */; };
 		036AF38610D379E1002304AE /* libboost_filesystem-xgcc40-mt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */; };
@@ -165,7 +165,7 @@
 		0346C5061105947300635E67 /* Sequential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequential.h; sourceTree = "<group>"; };
 		0346C5071105947300635E67 /* Sequential.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sequential.cpp; sourceTree = "<group>"; };
 		0368D4C1111895FA00D07E57 /* ScannerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScannerTest.cpp; sourceTree = "<group>"; };
-		0368D4F81119571B00D07E57 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		0368D5CE111A30AB00D07E57 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		036AEE2410D217F4002304AE /* Sequence OLAP.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Sequence OLAP.rtf"; sourceTree = "<group>"; };
 		036AF32110D3750F002304AE /* libboost_filesystem-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_filesystem-xgcc40-mt.dylib"; path = "usr/lib/libboost_filesystem-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
 		036AF32310D3751F002304AE /* libboost_system-xgcc40-mt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc40-mt.dylib"; path = "usr/lib/libboost_system-xgcc40-mt.dylib"; sourceTree = DEVELOPER_DIR; };
@@ -412,7 +412,6 @@
 				03BF24F11113653B006D4BBB /* Base.h */,
 				03BF24F411136A2F006D4BBB /* Substring.cpp */,
 				03BF24F311136A2F006D4BBB /* Substring.h */,
-				0368D4F81119571B00D07E57 /* Match.h */,
 			);
 			path = Scanner;
 			sourceTree = "<group>";
@@ -462,6 +461,7 @@
 				03E72A2410E0911200D5E4C1 /* Dimension.h */,
 				03E72A2B10E0911200D5E4C1 /* Pattern.cpp */,
 				03E72A2C10E0911200D5E4C1 /* Pattern.h */,
+				0368D5CE111A30AB00D07E57 /* Match.h */,
 			);
 			path = Sequential;
 			sourceTree = "<group>";
@@ -699,7 +699,7 @@
 				03BF24F511136A2F006D4BBB /* Substring.h in Headers */,
 				03BF27EE111773CC006D4BBB /* Neq.h in Headers */,
 				03BF2830111787DB006D4BBB /* Scanner.h in Headers */,
-				0368D4F91119571B00D07E57 /* Match.h in Headers */,
+				0368D5CF111A30AB00D07E57 /* Match.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

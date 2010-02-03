@@ -12,7 +12,7 @@
 bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, Groups& results) {
   // scan like a boss
   
-  Sequential::Scanner::Matches matches;
+  Sequential::Matches matches;
   Sequential::Scanner::Substring scanner;
   scanner.execute(query->pattern, results, matches);
   
@@ -21,8 +21,8 @@ bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, 
   // sequence group by fare-group, day
   Engine::Groups groups(query->sequence_group_by);
   
-  Sequential::Scanner::Matches::iterator match;
-  vector<Sequential::Scanner::Match>::iterator indices;
+  Sequential::Matches::iterator match;
+  vector<Sequential::Match>::iterator indices;
   for(match = matches.begin(); match != matches.end(); match++) {
     Group& matched = results[match->first];
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {

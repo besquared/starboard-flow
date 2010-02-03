@@ -33,10 +33,10 @@ namespace {
     conditions4.Eq("action", "out");
     
     Sequential::Pattern pattern;
-		pattern.push_back("station1", "X", "x1", conditions1);
-    pattern.push_back("station2", "Y", "y1", conditions2);
-    pattern.push_back("station3", "Y", "y2", conditions3);
-    pattern.push_back("station4", "X", "x2", conditions4);
+		pattern.push_back("station", "X", "x1", conditions1);
+    pattern.push_back("station", "Y", "y1", conditions2);
+    pattern.push_back("station", "Y", "y2", conditions3);
+    pattern.push_back("station", "X", "x2", conditions4);
     
     vector<string> values;
     values.push_back("S1");
@@ -61,7 +61,7 @@ namespace {
     Engine::Groups sequences;
 		sequences.push_back(s1_fall);
     
-    Sequential::Scanner::Matches matches;
+    Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
@@ -81,10 +81,10 @@ namespace {
     conditions4.Eq("action", "out");
     
     Sequential::Pattern pattern;
-		pattern.push_back("station1", "X", "x1", conditions1);
-    pattern.push_back("station2", "Y", "y1", conditions2);
-    pattern.push_back("station3", "Y", "y2", conditions3);
-    pattern.push_back("station4", "X", "x2", conditions4);
+		pattern.push_back("station", "X", "x1", conditions1);
+    pattern.push_back("station", "Y", "y1", conditions2);
+    pattern.push_back("station", "Y", "y2", conditions3);
+    pattern.push_back("station", "X", "x2", conditions4);
     
     vector<string> values;
     values.push_back("S1");
@@ -112,7 +112,7 @@ namespace {
     Engine::Groups sequences;
 		sequences.push_back(s1_fall);
     
-    Sequential::Scanner::Matches matches;
+    Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
@@ -133,10 +133,10 @@ namespace {
     conditions4.Eq("action", "out");
     
     Sequential::Pattern pattern;
-		pattern.push_back("station1", "X", "x1", conditions1);
-    pattern.push_back("station2", "Y", "y1", conditions2);
-    pattern.push_back("station3", "Y", "y2", conditions3);
-    pattern.push_back("station4", "X", "x2", conditions4);
+		pattern.push_back("station", "X", "x1", conditions1);
+    pattern.push_back("station", "Y", "y1", conditions2);
+    pattern.push_back("station", "Y", "y2", conditions3);
+    pattern.push_back("station", "X", "x2", conditions4);
     
     vector<string> values;
     values.push_back("S1");
@@ -164,7 +164,7 @@ namespace {
     Engine::Groups sequences;
 		sequences.push_back(s1_fall);
     
-    Sequential::Scanner::Matches matches;
+    Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     
@@ -185,10 +185,10 @@ namespace {
     conditions4.Eq("action", "out");
     
     Sequential::Pattern pattern;
-		pattern.push_back("station1", "X", "x1", conditions1);
-    pattern.push_back("station2", "Y", "y1", conditions2);
-    pattern.push_back("station3", "Y", "y2", conditions3);
-    pattern.push_back("station4", "X", "x2", conditions4);
+		pattern.push_back("station", "X", "x1", conditions1);
+    pattern.push_back("station", "Y", "y1", conditions2);
+    pattern.push_back("station", "Y", "y2", conditions3);
+    pattern.push_back("station", "X", "x2", conditions4);
     
     vector<string> values;
     values.push_back("S1");
@@ -216,7 +216,7 @@ namespace {
     Engine::Groups sequences;
 		sequences.push_back(s1_fall);
     
-    Sequential::Scanner::Matches matches;
+    Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, sequences, matches);
     

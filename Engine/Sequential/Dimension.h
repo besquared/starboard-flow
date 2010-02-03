@@ -14,6 +14,8 @@
 #include <Conditions.h>
 #include <Engine/Group.h>
 
+#include "Match.h"
+
 using namespace std;
 
 namespace Flow {
@@ -29,7 +31,7 @@ namespace Flow {
 				Dimension(const string& name, const string& symbol, const string& alias);
 				Dimension(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
         
-        bool match(Group& haystack, size_t position);
+        bool match(Group& haystack, size_t position, Match& match);
 			};
 		}
 	}

@@ -7,7 +7,7 @@
  *
  */
 
-#include <Engine/Sequential/Dimension.h>
+#include "Dimension.h"
 
 Engine::Sequential::Dimension::Dimension(const string& name, const string& symbol, const string& alias) {
 	this->name = name;
@@ -22,7 +22,23 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 	this->conditions = conditions;
 }
 
-bool Engine::Sequential::Dimension::match(Group& haystack, size_t position) {
+bool Engine::Sequential::Dimension::match(Group& haystack, size_t position, Match& match) {  
+  // Template check
+  // ask whether or not the value of the sequence of the dimension 'name'
+  //  matches the value in the match for our symbol.
+  //  station, X
+  //  {X => 'Montgomery'}
+  //  haystack.dimensions[name][position] == match.tvalues[symbol]
+  
+  map<string, string>::iterator found = match.tvalues.find(symbol);
+  
+  if(found == match.tvalues.end()) {
+    cout << "assiging tvalues[" << symbol << "] to haystack.dimensions[" << name << "][" << position << "]" << endl;
+    match.tvalues[symbol] = haystack.dimensions[name][position];
+  } else if(haystack.dimensions[name][position] != found->second) {
+    return false;
+  }
+  
   shared_ptr<Condition::Base> condition;
 	for(size_t i = 0; i < conditions.size(); i++) {
 		condition = conditions.at(i);
@@ -35,9 +51,8 @@ bool Engine::Sequential::Dimension::match(Group& haystack, size_t position) {
         return false;
       }
       
-//      cout << "Checking " << condition->column << " for value " << values[position] << endl;
+      // Condition check
 			if(!condition->Check(values[position])) {
-//        cout << "Condition check failed! " << *condition << endl;
         return false;
       }
 		}

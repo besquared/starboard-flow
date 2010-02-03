@@ -45,10 +45,12 @@ namespace {
     s1_fall.dimensions["station"].push_back("montgomery");
     s1_fall.dimensions["station"].push_back("16th Street");
     s1_fall.dimensions["station"].push_back("montgomery");
-    
-    ASSERT_EQ(true, dimension.match(s1_fall, 0));
-    ASSERT_EQ(false, dimension.match(s1_fall, 1));
-    ASSERT_EQ(true, dimension.match(s1_fall, 2));
+
+    Sequential::Match match(0);
+
+    ASSERT_EQ(true, dimension.match(s1_fall, 0, match));
+    ASSERT_EQ(false, dimension.match(s1_fall, 1, match));
+    ASSERT_EQ(true, dimension.match(s1_fall, 2, match));
   }
   
   TEST_F(SequentialDimensionTest, MatchesMultipleGroupValues) {
@@ -77,9 +79,11 @@ namespace {
     s1_fall.dimensions["action"].push_back("in");
     s1_fall.dimensions["action"].push_back("out");
     
-    ASSERT_EQ(true, dimension.match(s1_fall, 0));
-    ASSERT_EQ(false, dimension.match(s1_fall, 1));
-    ASSERT_EQ(false, dimension.match(s1_fall, 2));
-    ASSERT_EQ(false, dimension.match(s1_fall, 3));
+    Sequential::Match match(0);
+    
+    ASSERT_EQ(true, dimension.match(s1_fall, 0, match));
+    ASSERT_EQ(false, dimension.match(s1_fall, 1, match));
+    ASSERT_EQ(false, dimension.match(s1_fall, 2, match));
+    ASSERT_EQ(false, dimension.match(s1_fall, 3, match));
   }
 }  // namespace
