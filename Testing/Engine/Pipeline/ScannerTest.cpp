@@ -39,6 +39,55 @@ namespace {
 	};
 	
 	TEST_F(ScannerTest, ScansAndAssignsSequences) {
+    Query::Sequential query;
     
+    Conditions conditions1;
+    Conditions conditions2;
+    Conditions conditions3;
+    Conditions conditions4;
+    conditions1.Eq("action", "in");
+    conditions2.Eq("action", "out");
+    conditions3.Eq("action", "in");
+    conditions4.Eq("action", "out");
+    
+    query.aggregates->count("records");
+    query.sequence_group_by.push_back("season");
+    query.sequence_group_by.push_back("fare-group");    
+    query.pattern.push_back("station1", "X", "x1", conditions1);
+    query.pattern.push_back("station2", "Y", "y1", conditions2);
+    query.pattern.push_back("station3", "Y", "y2", conditions3);
+    query.pattern.push_back("station4", "X", "x2", conditions4);
+    
+    vector<string> dims;
+    dims.push_back("season");
+    dims.push_back("fare-group");
+    
+		vector<string> values;
+		values.push_back("Fall");
+    values.push_back("Regular");
+		
+		Engine::Groups results(dims);
+		Engine::Group fall_regular(values);
+    fall_regular.records.push_back(90);
+    fall_regular.records.push_back(100);
+    fall_regular.records.push_back(476);
+    fall_regular.records.push_back(728);
+    fall_regular.records.push_back(937);
+    
+    fall_regular.dimensions["station"].push_back("montgomery");
+    fall_regular.dimensions["station"].push_back("montgomery");
+    fall_regular.dimensions["station"].push_back("16th street");
+    fall_regular.dimensions["station"].push_back("16th street");
+    fall_regular.dimensions["station"].push_back("montgomery");    
+    
+    fall_regular.dimensions["action"].push_back("in");
+    fall_regular.dimensions["action"].push_back("in");
+    fall_regular.dimensions["action"].push_back("out");
+    fall_regular.dimensions["action"].push_back("in");
+    fall_regular.dimensions["action"].push_back("out");
+    
+		results.push_back(fall_regular);
+    
+    Pipeline::Scanner scanner;
 	}	
 }
