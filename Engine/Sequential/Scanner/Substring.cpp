@@ -23,21 +23,21 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& sequences, Matches& r
   size_t pat_length = pattern.size();
   
   for(size_t i = 0; i < sequences.size(); i++) {
-    Group& current_seq = sequences[i];
-    size_t seq_length = current_seq.records.size();
+    Group& cseq = sequences[i];
+    size_t seq_length = cseq.records.size();
     
     if(pat_length > seq_length) { continue; }
     
-    for(size_t s = 0; s <= seq_length - pat_length; s++) {
-      size_t j = 1;
+    for(size_t shft = 0; shft <= seq_length - pat_length; shft++) {
+      size_t offset = 1;
 
-      Match current_match(s);
-      while(j <= pat_length && pattern[j - 1]->match(current_seq, current_match, s + j - 1)) {
-        j++;
+      Match cmatch(shft);
+      while(offset <= pat_length && pattern[offset - 1]->match(cseq, cmatch, shft + offset - 1)) {
+        offset++;
       }
       
-      if(j > pat_length) {
-        results[i].push_back(current_match);
+      if(offset > pat_length) {
+        results[i].push_back(cmatch);
       }
     }
   }
