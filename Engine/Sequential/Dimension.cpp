@@ -23,20 +23,15 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 }
 
 bool Engine::Sequential::Dimension::match(Group& haystack, size_t position, Match& match) {  
-  // Template check
-  // ask whether or not the value of the sequence of the dimension 'name'
-  //  matches the value in the match for our symbol.
-  //  station, X
-  //  {X => 'Montgomery'}
-  //  haystack.dimensions[name][position] == match.tvalues[symbol]
-  
   map<string, string>::iterator found = match.tvalues.find(symbol);
   
   if(found == match.tvalues.end()) {
-    cout << "assiging tvalues[" << symbol << "] to haystack.dimensions[" << name << "][" << position << "]" << endl;
+//    cout << "assiging tvalues[" << symbol << "] to haystack.dimensions[" << name << "][" << position << "]" << endl;
     match.tvalues[symbol] = haystack.dimensions[name][position];
   } else if(haystack.dimensions[name][position] != found->second) {
     return false;
+  } else {
+//    cout << "checked tvalues[" << symbol << "] and found it matched our value" << endl;
   }
   
   shared_ptr<Condition::Base> condition;
