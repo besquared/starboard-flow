@@ -67,7 +67,7 @@ namespace {
     
     ASSERT_EQ(1, matches.size());
     ASSERT_EQ(1, matches[0].size());
-    EXPECT_EQ(0, matches[0][0]);
+    EXPECT_EQ(0, matches[0][0].position);
 	}
   
   TEST_F(SubstringTest, MatchesShiftingSequences) {
@@ -118,7 +118,7 @@ namespace {
     
     ASSERT_EQ(1, matches.size());
     ASSERT_EQ(1, matches[0].size());
-    EXPECT_EQ(1, matches[0][0]);
+    EXPECT_EQ(1, matches[0][0].position);
 	}  
 
   TEST_F(SubstringTest, MatchesCompoundConditions) {
@@ -170,7 +170,7 @@ namespace {
     
     ASSERT_EQ(1, matches.size());
     ASSERT_EQ(1, matches[0].size());
-    EXPECT_EQ(1, matches[0][0]);
+    EXPECT_EQ(1, matches[0][0].position);
 	}
 
   TEST_F(SubstringTest, MatchesCompoundConditionsWithNoMatches) {

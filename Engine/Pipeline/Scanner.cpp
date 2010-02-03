@@ -21,12 +21,12 @@ bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, 
   // sequence group by fare-group, day
   Engine::Groups groups(query->sequence_group_by);
   
-  vector<size_t>::iterator indices;
   Sequential::Scanner::Matches::iterator match;
+  vector<Sequential::Scanner::Match>::iterator indices;
   for(match = matches.begin(); match != matches.end(); match++) {
     Group& matched = results[match->first];
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {
-      cout << "Copying sequence from position " << *indices << " of group " << match->first << endl;
+      cout << "Copying sequence from position " << indices->position << " of group " << match->first << endl;
     }
     
     groups.push_back(matched);

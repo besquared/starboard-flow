@@ -14,6 +14,7 @@
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
 #include <Engine/Query/Sequential.h>
+#include <Engine/Sequential/Scanner/Match.h>
 #include <Engine/Sequential/Scanner/Substring.h>
 
 using namespace std;

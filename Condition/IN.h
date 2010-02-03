@@ -57,6 +57,15 @@ namespace Flow {
 				set_difference(values.begin(), values.end(), this->values.begin(), this->values.end(), back_inserter(differenced));
 				values = differenced;
 			}
+      
+      void print(ostream& out) const {
+        out << column << " IN (";
+        for(size_t i = 0; i < values.size(); i++) {
+          out << values[i];
+          if(i < values.size() - 1) out << ", "; 
+        }
+        out << ")";
+      }
 		};
 	}
 }

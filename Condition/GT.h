@@ -40,6 +40,10 @@ namespace Flow {
 				}
 				values = results;
 			}
+      
+      void print(ostream& out) const {
+        out << column << " > " << value;
+      }      
 		};
 	}
 }

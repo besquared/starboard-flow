@@ -22,7 +22,7 @@ Scanner::Substring::~Substring() {
 void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& results) {
   size_t m = pattern.size();
   map<string, string> tvalues;
-  cout << "Pattern has size " << m << endl;
+//  cout << "Pattern has size " << m << endl;
   
   // TODO this doesn't match properly, it doesn't match 
   //  template variables to one another for example a pattern
@@ -44,28 +44,32 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& input, Matches& resul
     size_t n = curr_group.records.size();
     
     // pattern is longer than text, no matches possible
-    if(m > n) { 
-      continue;
-    }
+    if(m > n) { continue; }
     
+//    cout << "Scanning shifts up to " << n - m << endl;
     for(size_t s = 0; s <= n - m; s++) {
+//      cout << "Starting scan at shift " << s << endl;
       size_t j = 1;
       
-      shared_ptr<Dimension> curr_dimension = pattern[j - 1];
       // cout << "checking for a match in group " << i << " at position " << s << endl;
       // look at dimension 0 first, see if position 0 of text matches
       // if it does then increment j, look at position 1 of text
       // continue until it either matches or doesn't match, if it
-      while(j <= m && curr_dimension->match(curr_group, s + j - 1)) {
+//      cout << "Checking position " << s + j - 1 << endl;
+      while(j <= m && pattern[j - 1]->match(curr_group, s + j - 1)) {
         // update our template pattern map
-        // Dimension& dimension = pattern[j - 1];
-        // tvalues[curr_dimension->symbol] = curr_group[curr_dimension->name][s + j - 1]
+        cout << pattern[j - 1]->symbol << endl;
+        cout << curr_group.dimensions[pattern[j - 1]->name][s] << endl;
+//        tvalues[dim->symbol] = curr_group[dim->name][s + j - 1]
         // tvalues["X"] = "Montgomery";
         j++;
       }
       
       if(j > m) {
-        results[i].push_back(s);
+//        cout << "Inserting some new stuff" << endl;
+        results[i].push_back(Match(s, tvalues));
+      } else {
+//        cout << "Broke out of the loop with j < m" << endl;
       }
       
       tvalues.clear();

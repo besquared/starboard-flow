@@ -30,6 +30,12 @@ namespace Flow {
 			
       virtual bool Check(string& value) = 0;
 			virtual void Apply(vector<string>& values) = 0;
+      
+      virtual void print(ostream& out) const = 0;
+      friend ostream& operator<<(ostream& out, const Base& condition) {
+        condition.print(out);
+        return out;
+      }
 		};
 	}
 }
