@@ -27,3 +27,20 @@ void Sequential::Pattern::push_back(const string& name, const string& symbol, co
 		boost::shared_ptr<Sequential::Dimension>(new Sequential::Dimension(name, symbol, alias, conditions))
 	);
 }
+
+bool Sequential::Pattern::match(Group& sequence, Match& result) {
+  size_t offset = 1;
+  while(offset <= size()) {
+    if(this->at(offset - 1)->match(sequence, result, result.position + offset - 1)) {
+      offset++;
+    } else {
+      break;
+    }
+  }
+  
+  if(offset > size()) {
+    return true;
+  } else {
+    return false;
+  }
+}

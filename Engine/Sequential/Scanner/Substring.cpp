@@ -29,14 +29,8 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& sequences, Matches& r
     if(pat_length > seq_length) { continue; }
     
     for(size_t shft = 0; shft <= seq_length - pat_length; shft++) {
-      size_t offset = 1;
-
       Match cmatch(shft);
-      while(offset <= pat_length && pattern[offset - 1]->match(cseq, cmatch, shft + offset - 1)) {
-        offset++;
-      }
-      
-      if(offset > pat_length) {
+      if(pattern.match(cseq, cmatch)) {
         results[i].push_back(cmatch);
       }
     }

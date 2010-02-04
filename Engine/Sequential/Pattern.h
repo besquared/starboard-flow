@@ -31,6 +31,8 @@ namespace Flow {
 				
 				void push_back(const string& name, const string& symbol, const string& alias);
 				void push_back(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
+        
+        bool match(Group& sequence, Match& result);
 			};
 		}
 	}
