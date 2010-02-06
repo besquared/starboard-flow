@@ -23,7 +23,8 @@ namespace Flow {
 		namespace Pipeline {		
 			class Aggregator {				
 			public:
-				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);				
+				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);
+				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results, Matches& matches);
 			};
 		}
 	}

@@ -26,12 +26,14 @@ bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, 
   for(match = matches.begin(); match != matches.end(); match++) {
     Group& matched = results[match->first];
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {
+      // what does it mean to do copying here?
+      // we need to actually copy the record, dimensions and measures
+      // do we need to copy here? can't we just leave it like it is?
       cout << "Copying sequence from position " << indices->position << " of group " << match->first << endl;
     }
     
     groups.push_back(matched);
   }
-  
   
   return true;
 }

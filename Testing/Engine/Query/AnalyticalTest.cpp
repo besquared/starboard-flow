@@ -21,11 +21,9 @@
 
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
-#include <Testing/Engine/Executive/MockAnalytical.h>
 
-using namespace ::Engine;
+using namespace Flow::Engine;
 using namespace Testing::Domain;
-using namespace Testing::Engine::Executive;
 
 namespace {
 	class QueryAnalyticalTest : public ::testing::Test {

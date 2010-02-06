@@ -53,10 +53,10 @@ namespace {
     query.aggregates->count("records");
     query.sequence_group_by.push_back("season");
     query.sequence_group_by.push_back("fare-group");    
-    query.pattern.push_back("station1", "X", "x1", conditions1);
-    query.pattern.push_back("station2", "Y", "y1", conditions2);
-    query.pattern.push_back("station3", "Y", "y2", conditions3);
-    query.pattern.push_back("station4", "X", "x2", conditions4);
+    query.pattern.push_back("station", "X", "x1", conditions1);
+    query.pattern.push_back("station", "Y", "y1", conditions2);
+    query.pattern.push_back("station", "Y", "y2", conditions3);
+    query.pattern.push_back("station", "X", "x2", conditions4);
     
     vector<string> dims;
     dims.push_back("season");
@@ -88,6 +88,11 @@ namespace {
     
 		results.push_back(fall_regular);
     
+    // we expect some things to happen? maybe?
+    
     Pipeline::Scanner scanner;
+    scanner.Execute(this->purchases, &query, results);
+    
+    // test for something here
 	}	
 }

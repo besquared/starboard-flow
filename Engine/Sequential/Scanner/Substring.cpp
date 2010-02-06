@@ -31,6 +31,10 @@ void Scanner::Substring::execute(Pattern& pattern, Groups& sequences, Matches& r
     for(size_t shft = 0; shft <= seq_length - pat_length; shft++) {
       Match cmatch(shft);
       if(pattern.match(cseq, cmatch)) {
+        // if all match
+        // shft += pat_length - 1;
+        // if left match
+        // break;
         results[i].push_back(cmatch);
       }
     }
