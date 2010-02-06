@@ -88,12 +88,16 @@ namespace {
     
 		groups.push_back(fall_regular);
     
-    // we expect some things to happen? maybe?
-    
     Pipeline::Scanner scanner;
     Sequential::Matches matches;
     scanner.Execute(this->purchases, &query, groups, matches);
     
-    // test for something here
+    // test for matches here
+    ASSERT_EQ(1, matches.size());
+    ASSERT_EQ(1, matches[0].size());
+    EXPECT_EQ(1, matches[0][0].position);
+    ASSERT_EQ(2, matches[0][0].tvalues.size());
+    EXPECT_EQ("montgomery", matches[0][0].tvalues["X"]);
+    EXPECT_EQ("16th street", matches[0][0].tvalues["Y"]);
 	}	
 }
