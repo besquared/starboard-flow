@@ -37,7 +37,7 @@ namespace Flow {
 				Sequential(Domain::Base* domain, Query::Sequential* query);
 				virtual ~Sequential();
 				
-				virtual bool Execute(Groups& results);
+				virtual bool Execute(ResultSet& results);
 			};
 		}
 	}

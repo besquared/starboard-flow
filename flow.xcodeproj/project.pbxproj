@@ -137,6 +137,7 @@
 		03E730B610E3392100D5E4C1 /* LTETest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7309310E3392100D5E4C1 /* LTETest.cpp */; };
 		03E730B710E3392100D5E4C1 /* LTTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7309410E3392100D5E4C1 /* LTTest.cpp */; };
 		03E730B810E3392100D5E4C1 /* BaseTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7309510E3392100D5E4C1 /* BaseTest.cpp */; };
+		03E93A04111DFA5D0022B884 /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E93A03111DFA5D0022B884 /* ResultSet.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +280,7 @@
 		03E7309310E3392100D5E4C1 /* LTETest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTETest.cpp; sourceTree = "<group>"; };
 		03E7309410E3392100D5E4C1 /* LTTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTTest.cpp; sourceTree = "<group>"; };
 		03E7309510E3392100D5E4C1 /* BaseTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTest.cpp; path = Testing/BaseTest.cpp; sourceTree = "<group>"; };
+		03E93A03111DFA5D0022B884 /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,6 +434,7 @@
 				03E72A1B10E0911200D5E4C1 /* Aggregates.h */,
 				0372F00110F7187700BEE006 /* Group.h */,
 				0372F00010F7187700BEE006 /* Groups.h */,
+				03E93A03111DFA5D0022B884 /* ResultSet.h */,
 				0346C3D01105639500635E67 /* Query */,
 				03BF22EA1109B828006D4BBB /* Pipeline */,
 				0346C417110583FC00635E67 /* Executive */,
@@ -700,6 +703,7 @@
 				03BF27EE111773CC006D4BBB /* Neq.h in Headers */,
 				03BF2830111787DB006D4BBB /* Scanner.h in Headers */,
 				0368D5CF111A30AB00D07E57 /* Match.h in Headers */,
+				03E93A04111DFA5D0022B884 /* ResultSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

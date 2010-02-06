@@ -12,6 +12,8 @@
 
 #include <Common.h>
 #include <Engine/Groups.h>
+#include <Engine/ResultSet.h>
+
 #include <Domain/Indices.h>
 #include <Domain/Measures.h>
 #include <Domain/Dimensions.h>

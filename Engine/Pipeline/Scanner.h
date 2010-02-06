@@ -25,7 +25,7 @@ namespace Flow {
 		namespace Pipeline {		
 			class Scanner {				
 			public:
-				bool Execute(Domain::Base* domain, Query::Sequential* query, Groups& results);				
+				bool Execute(Domain::Base* domain, Query::Sequential* query, Groups& groups, Sequential::Matches& matches);				
 			};
 		}
 	}

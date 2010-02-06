@@ -15,6 +15,8 @@
 namespace Flow {
 	namespace Engine {		
 		namespace Sequential {
+      using namespace std;
+      
       class Match {
       public:
         size_t position;

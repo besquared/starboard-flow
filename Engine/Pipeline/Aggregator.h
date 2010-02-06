@@ -13,7 +13,9 @@
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
+#include <Engine/ResultSet.h>
 #include <Engine/Query/Base.h>
+#include <Engine/Sequential/Match.h>
 
 using namespace std;
 using namespace Domain::Data;
@@ -23,8 +25,8 @@ namespace Flow {
 		namespace Pipeline {		
 			class Aggregator {				
 			public:
-				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);
-				bool Execute(Domain::Base* domain, Query::Base* query, Groups& results, Matches& matches);
+				bool Execute(Domain::Base* domain, Query::Base* query, Groups& groups);
+				bool Execute(Domain::Base* domain, Query::Base* query, Groups& groups, Sequential::Matches& matches, ResultSet& results);
 			};
 		}
 	}

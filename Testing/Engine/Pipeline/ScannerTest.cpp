@@ -66,7 +66,7 @@ namespace {
 		values.push_back("Fall");
     values.push_back("Regular");
 		
-		Engine::Groups results(dims);
+		Engine::Groups groups(dims);
 		Engine::Group fall_regular(values);
     fall_regular.records.push_back(90);
     fall_regular.records.push_back(100);
@@ -86,12 +86,13 @@ namespace {
     fall_regular.dimensions["action"].push_back("in");
     fall_regular.dimensions["action"].push_back("out");
     
-		results.push_back(fall_regular);
+		groups.push_back(fall_regular);
     
     // we expect some things to happen? maybe?
     
     Pipeline::Scanner scanner;
-    scanner.Execute(this->purchases, &query, results);
+    Sequential::Matches matches;
+    scanner.Execute(this->purchases, &query, groups, matches);
     
     // test for something here
 	}	

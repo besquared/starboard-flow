@@ -13,6 +13,7 @@
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/Groups.h>
+#include <Engine/ResultSet.h>
 #include <Engine/Query/Base.h>
 
 namespace Flow {
@@ -28,10 +29,6 @@ namespace Flow {
 					this->domain = domain;
 					this->query = query;
 				}
-				
-				virtual ~Base() {}
-				
-				virtual bool Execute(Groups& results) = 0;
 			};
 		}
 	}

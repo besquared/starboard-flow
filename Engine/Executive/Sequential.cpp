@@ -26,11 +26,14 @@ Executive::Sequential::~Sequential() {
 	delete(this->sweeper);
 }
 
-bool Executive::Sequential::Execute(Groups& results) {
-	this->constructor->Execute(domain, query, results);
-	this->gatherer->Execute(domain, query, results);  
-  this->scanner->Execute(domain, query, results);
-	this->aggregator->Execute(domain, query, results);
-	this->sweeper->Execute(domain, query, results);
+bool Executive::Sequential::Execute(ResultSet& results) {
+  Groups groups;
+	this->constructor->Execute(domain, query, groups);
+	this->gatherer->Execute(domain, query, groups);
+  
+  Engine::Sequential::Matches matches;
+  this->scanner->Execute(domain, query, groups, matches);  
+	this->aggregator->Execute(domain, query, groups, matches, results);
+  
 	return true;
 }
