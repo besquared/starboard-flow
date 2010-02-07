@@ -139,6 +139,7 @@
 		03E730B810E3392100D5E4C1 /* BaseTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E7309510E3392100D5E4C1 /* BaseTest.cpp */; };
 		03E93A04111DFA5D0022B884 /* ResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E93A03111DFA5D0022B884 /* ResultSet.h */; };
 		03E93AFE111F20050022B884 /* WorkSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E93AFD111F20050022B884 /* WorkSet.h */; };
+		03E93B35111F51DF0022B884 /* MatchSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E93B34111F51DF0022B884 /* MatchSet.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +284,7 @@
 		03E7309510E3392100D5E4C1 /* BaseTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseTest.cpp; path = Testing/BaseTest.cpp; sourceTree = "<group>"; };
 		03E93A03111DFA5D0022B884 /* ResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultSet.h; sourceTree = "<group>"; };
 		03E93AFD111F20050022B884 /* WorkSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkSet.h; sourceTree = "<group>"; };
+		03E93B34111F51DF0022B884 /* MatchSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchSet.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +439,7 @@
 				0372F00110F7187700BEE006 /* Group.h */,
 				0372F00010F7187700BEE006 /* Groups.h */,
 				03E93AFD111F20050022B884 /* WorkSet.h */,
+				03E93B34111F51DF0022B884 /* MatchSet.h */,
 				03E93A03111DFA5D0022B884 /* ResultSet.h */,
 				0346C3D01105639500635E67 /* Query */,
 				03BF22EA1109B828006D4BBB /* Pipeline */,
@@ -708,6 +711,7 @@
 				0368D5CF111A30AB00D07E57 /* Match.h in Headers */,
 				03E93A04111DFA5D0022B884 /* ResultSet.h in Headers */,
 				03E93AFE111F20050022B884 /* WorkSet.h in Headers */,
+				03E93B35111F51DF0022B884 /* MatchSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

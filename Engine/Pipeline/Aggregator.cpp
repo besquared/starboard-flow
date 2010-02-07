@@ -43,6 +43,7 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
     map<string, string> row;    
     Group& matched = groups[match->first];
     
+    // this is wrong, we don't get every grouping value here
     for(size_t d = 0; d < groups.dimensions.size(); d++) {
       row[groups.dimensions[d]] = matched.values[d];
     }

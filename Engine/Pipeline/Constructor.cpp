@@ -29,10 +29,10 @@ bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, Gr
 	vector<string> instantiated_dims;
 	query->Dimensions(instantiated_dims, inquired_dims);
 	
-	vector<string> instantiated_vals;
-	query->InstantiatedValues(instantiated_vals);
-	
-	if(inquire.size() > 0) {
+	if(inquire.size() > 0) {    
+    vector<string> instantiated_vals;
+    query->InstantiatedValues(instantiated_vals);
+    
 		results.dimensions.insert(results.dimensions.end(), inquired_dims.begin(), inquired_dims.end());
 		results.dimensions.insert(results.dimensions.end(), instantiated_dims.begin(), instantiated_dims.end());
 		
