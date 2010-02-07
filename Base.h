@@ -19,12 +19,11 @@
 #include <Domain/Dimensions.h>
 #include <Domain/Data/Meta.h>
 
-using namespace std;
-using namespace Flow;
-using namespace Flow::Domain;
-using namespace Flow::Domain::Data;
-
 namespace Flow {
+  using namespace std;
+  using namespace Flow::Domain;
+  using namespace Flow::Domain::Data;
+  
 	class Base {
 	protected:
 		string path;

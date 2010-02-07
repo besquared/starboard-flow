@@ -8,25 +8,23 @@
  */
 
 #include <Testing/TestHelper.h>
+#include <Domain/Dimensions.h>
 
-namespace {
-	using namespace Flow::Domain::Data;
-	
+using namespace Flow::Domain::Data;
+
+namespace {	
 	class DimensionsTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		Dimensions *dimensions;
+    Domain::Dimensions* dimensions;
 		
 		DimensionsTest() {}
 		virtual ~DimensionsTest() {}
 		
 		virtual void SetUp() {
-			this->helper = new TestHelper();
-			this->dimensions = new Dimensions("/tmp/flow");			
+			this->dimensions = new Domain::Dimensions("/tmp/flow");			
 		}
 		
 		virtual void TearDown() {
-			delete(this->helper);
 			delete(this->dimensions);
 		}		
 	};

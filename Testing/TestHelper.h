@@ -24,6 +24,4 @@ using ::testing::_;
 
 using namespace Flow;
 
-class TestHelper {};
-
 #endif

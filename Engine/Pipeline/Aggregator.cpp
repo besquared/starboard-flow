@@ -40,7 +40,14 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
   Sequential::Matches::iterator match;
   vector<Sequential::Match>::iterator indices;
   for(match = matches.begin(); match != matches.end(); match++) {
+    map<string, string> row;    
     Group& matched = groups[match->first];
+    
+    for(size_t d = 0; d < groups.dimensions.size(); d++) {
+      row[groups.dimensions[d]] = matched.values[d];
+    }
+    
+    // first thing, grouping dimensions
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {
       cout << "Aggregating and assinging sequence from position " << indices->position << " of group " << match->first << endl;
     }

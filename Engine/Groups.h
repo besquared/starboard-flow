@@ -14,10 +14,10 @@
 
 #include "Group.h"
 
-using namespace std;
-
 namespace Flow {
-	namespace Engine {
+	namespace Engine {    
+    using namespace std;
+
 		class Groups : public vector<Group> {
 		public:
 			vector<string> dimensions;

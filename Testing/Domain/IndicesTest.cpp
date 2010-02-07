@@ -16,9 +16,9 @@ namespace Mocks = Testing::Domain::Data;
 namespace {
 	class IndicesTest : public ::testing::Test {
 	protected:
-		Indices* indices;
 		Mocks::MockMeta* meta;
 		Mocks::MockIndex* index;
+    Domain::Indices* indices;
 
 		IndicesTest() {}
 		virtual ~IndicesTest() {}
@@ -26,7 +26,7 @@ namespace {
 		virtual void SetUp() {
 			string path = "/tmp/flow";
 			this->meta = new Mocks::MockMeta(path);
-			this->indices = new Indices(this->meta);
+			this->indices = new Domain::Indices(this->meta);
 			this->index = (Mocks::MockIndex*)(this->meta->index);
 		}
 		

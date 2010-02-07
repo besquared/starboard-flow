@@ -12,16 +12,12 @@
 namespace {
 	class BaseTest : public ::testing::Test {
 	protected:
-		Base *flow;
+    Domain::Base* flow;
 		
 		BaseTest() {}
 		virtual ~BaseTest() {}
-		
-		virtual void SetUp() {
-		}
-		
-		virtual void TearDown() {
-		}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
 //	TEST_F(BaseTest, InsertsRecord) {

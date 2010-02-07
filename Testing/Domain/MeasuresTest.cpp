@@ -14,19 +14,16 @@ namespace {
 	
 	class MeasuresTest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		Measures *measures;
+    Domain::Measures *measures;
 		
 		MeasuresTest() {}
 		virtual ~MeasuresTest() {}
 		
 		virtual void SetUp() {
-			this->helper = new TestHelper();
-			this->measures = new Measures("/tmp/flow");			
+			this->measures = new Domain::Measures("/tmp/flow");			
 		}
 		
 		virtual void TearDown() {
-			delete(this->helper);
 			delete(this->measures);
 		}		
 	};

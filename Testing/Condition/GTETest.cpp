@@ -13,19 +13,11 @@ using namespace Condition;
 
 namespace {
 	class GTETest : public ::testing::Test {
-	protected:
-		TestHelper *helper;
-		
+	protected:		
 		GTETest() {}
 		virtual ~GTETest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
 	TEST_F(GTETest, Applies) {		

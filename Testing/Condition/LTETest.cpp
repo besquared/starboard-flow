@@ -15,18 +15,10 @@ using namespace Condition;
 namespace {
 	class LTETest : public ::testing::Test {
 	protected:
-		TestHelper *helper;
-		
 		LTETest() {}
 		virtual ~LTETest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
 	TEST_F(LTETest, Applies) {		

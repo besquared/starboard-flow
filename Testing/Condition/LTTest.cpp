@@ -14,19 +14,11 @@ using namespace Condition;
 
 namespace {
 	class LTTest : public ::testing::Test {
-	protected:
-		TestHelper *helper;
-		
+	protected:		
 		LTTest() {}
 		virtual ~LTTest() {}
-		
-		virtual void SetUp() {
-			this->helper = new TestHelper();
-		}
-		
-		virtual void TearDown() {
-			delete(this->helper);
-		}
+		virtual void SetUp() {}
+		virtual void TearDown() {}
 	};
 	
 	TEST_F(LTTest, Applies) {		
