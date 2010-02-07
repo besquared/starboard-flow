@@ -21,13 +21,11 @@ namespace Flow {
 		namespace Executive {
 			class Base {
 			protected:
-				Query::Base* query;
 				Domain::Base* domain;
 				
 			public:
-				Base(Domain::Base* domain, Query::Base* query) {
+				Base(Domain::Base* domain) {
 					this->domain = domain;
-					this->query = query;
 				}
 			};
 		}

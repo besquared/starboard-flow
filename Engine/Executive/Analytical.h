@@ -24,13 +24,15 @@ namespace Flow {
 		namespace Executive {
 			class Analytical : public Executive::Base {
 			protected:
+        Query::Analytical* query;
+
 				Pipeline::Constructor* constructor;
 				Pipeline::Gatherer* gatherer;
 				Pipeline::Aggregator* aggregator;
 				Pipeline::Sweeper* sweeper;
 				
 			public:
-				Analytical(Domain::Base* domain, Query::Base* query);
+				Analytical(Domain::Base* domain, Query::Analytical* query);
 				virtual ~Analytical();
 				
 				virtual bool Execute(Groups& results);

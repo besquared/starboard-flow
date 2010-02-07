@@ -10,7 +10,7 @@
 #include "Sequential.h"
 
 Executive::Sequential::Sequential(Domain::Base* domain, Query::Sequential* query) :
-Executive::Base::Base(domain, query) {
+Executive::Base::Base(domain) {
 	this->constructor = new Pipeline::Constructor();
 	this->gatherer = new Pipeline::Gatherer();
   this->scanner = new Pipeline::Scanner();

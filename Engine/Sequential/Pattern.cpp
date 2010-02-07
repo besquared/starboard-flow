@@ -28,6 +28,16 @@ void Sequential::Pattern::push_back(const string& name, const string& symbol, co
 	);
 }
 
+set<string> Sequential::Pattern::dimensions() {
+  set<string> results;
+  
+  for(size_t i = 0; i < this->size(); i++) {
+    results.insert(this->at(i)->symbol);
+  }
+  
+  return results;
+}
+
 bool Sequential::Pattern::match(Group& sequence, Match& result) {
   size_t offset = 1;
   while(offset <= size()) {

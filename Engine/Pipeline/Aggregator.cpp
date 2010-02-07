@@ -11,7 +11,7 @@
 
 #include "Aggregator.h"
 
-bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
+bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* query, Groups& results) {
 	for(size_t j = 0; j < query->aggregates->size(); j++) {
 		query->aggregates->apply(results);
 	}
@@ -20,12 +20,22 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Base* query, Gro
 }
 
 // Iterate over matches, aggregate them, put those into new groups
-bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Base* query, Groups& groups, Sequential::Matches& matches, ResultSet& results) {
+bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, Groups& groups, Sequential::Matches& matches, ResultSet& results) {
+  vector<string> grouping_dimensions = query->sequence_group_by;
+  set<string> pattern_dimensions = query->pattern.dimensions();
+  set<string> aggregate_dimensions = query->aggregates->aliases();
   
-  // go through matches and make new groups by copying sequences
-  // how do we know what the final groups will be? which dimensions?
-  // sequence group by fare-group, day
-//  Engine::Groups groups(query->sequence_group_by);
+  results.columns.insert(results.columns.end(), 
+                         grouping_dimensions.begin(), 
+                         grouping_dimensions.end());
+  results.columns.insert(results.columns.end(),
+                         pattern_dimensions.begin(),
+                         pattern_dimensions.end());
+  results.columns.insert(results.columns.end(),
+                         aggregate_dimensions.begin(),
+                         aggregate_dimensions.end());
+  
+  //  and aggregate dimensions COUNT(*), AVG_INTERVAL(X, Y), etc.
   
   Sequential::Matches::iterator match;
   vector<Sequential::Match>::iterator indices;
@@ -34,7 +44,6 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Base* query, Gro
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {
       cout << "Aggregating and assinging sequence from position " << indices->position << " of group " << match->first << endl;
     }
-    
 //    groups.push_back(matched);
   }
   

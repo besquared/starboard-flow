@@ -21,10 +21,13 @@ namespace Flow {
 	namespace Engine {
 		class Aggregates : public vector< shared_ptr<Aggregate::Base> > {
 		public:
-			void count(const string& name);
 			void sum(const string& name);
-			void measure_names(set<string>& results);
+      void count(const string& name);
+      
 			void apply(Groups& base_table);
+      
+      set<string> aliases();
+      void measure_names(set<string>& results);
 		};
 	}
 }

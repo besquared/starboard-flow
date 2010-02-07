@@ -9,14 +9,20 @@
 
 #include "Aggregates.h"
 
+void Engine::Aggregates::sum(const string& name) {
+	shared_ptr<Aggregate::Sum> sum(new Aggregate::Sum(name));
+	vector< shared_ptr<Aggregate::Base> >::push_back(sum);
+}
+
 void Engine::Aggregates::count(const string& name) {
 	shared_ptr<Aggregate::Count> count(new Aggregate::Count(name));
 	vector< shared_ptr<Aggregate::Base> >::push_back(count);
 }
 
-void Engine::Aggregates::sum(const string& name) {
-	shared_ptr<Aggregate::Sum> sum(new Aggregate::Sum(name));
-	vector< shared_ptr<Aggregate::Base> >::push_back(sum);
+void Engine::Aggregates::apply(Groups& base_table) {
+	for(size_t i = 0; i < size(); i++) {
+		(*this)[i]->apply(base_table);
+	}	
 }
 
 void Engine::Aggregates::measure_names(set<string>& results) {
@@ -27,8 +33,13 @@ void Engine::Aggregates::measure_names(set<string>& results) {
 	}
 }
 
-void Engine::Aggregates::apply(Groups& base_table) {
-	for(size_t i = 0; i < size(); i++) {
-		(*this)[i]->apply(base_table);
-	}	
+// Set of output dimensions
+set<string> Engine::Aggregates::aliases() {
+  set<string> results;
+  
+  for(size_t i = 0; i < size(); i++) {
+		results.insert(this->at(i)->alias());
+	}
+  
+  return results;
 }

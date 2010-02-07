@@ -9,8 +9,8 @@
 
 #include "Analytical.h"
 
-Executive::Analytical::Analytical(Domain::Base* domain, Query::Base* query) :
-Executive::Base::Base(domain, query) {
+Executive::Analytical::Analytical(Domain::Base* domain, Query::Analytical* query) :
+Executive::Base::Base(domain) {
 	this->constructor = new Pipeline::Constructor();
 	this->gatherer = new Pipeline::Gatherer();
 	this->aggregator = new Pipeline::Aggregator();
