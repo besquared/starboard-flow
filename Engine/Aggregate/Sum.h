@@ -27,8 +27,8 @@ namespace Flow {
 				Sum(const string& measure, const string& alias);
 
 				virtual string alias();
-				virtual void apply(Groups& base);	
-				virtual void apply(Group& group);
+        virtual void apply(WorkSet& group);
+				virtual void apply(vector<WorkSet>& workset);	
 			};
 		}
 	}

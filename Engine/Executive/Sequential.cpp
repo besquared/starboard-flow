@@ -15,7 +15,6 @@ Executive::Base::Base(domain) {
 	this->gatherer = new Pipeline::Gatherer();
   this->scanner = new Pipeline::Scanner();
 	this->aggregator = new Pipeline::Aggregator();
-	this->sweeper = new Pipeline::Sweeper();
 }
 
 Executive::Sequential::~Sequential() {
@@ -23,17 +22,17 @@ Executive::Sequential::~Sequential() {
 	delete(this->gatherer);
   delete(this->scanner);
 	delete(this->aggregator);
-	delete(this->sweeper);
 }
 
 bool Executive::Sequential::Execute(ResultSet& results) {
-  Groups groups;
-	this->constructor->Execute(domain, query, groups);
-	this->gatherer->Execute(domain, query, groups);
+  vector<WorkSet> workset;
+  
+	this->constructor->Execute(domain, query, workset);
+	this->gatherer->Execute(domain, query, workset);
   
   Engine::Sequential::Matches matches;
-  this->scanner->Execute(domain, query, groups, matches);  
-	this->aggregator->Execute(domain, query, groups, matches, results);
+  this->scanner->Execute(domain, query, workset, matches);  
+	this->aggregator->Execute(domain, query, workset, matches, results);
   
 	return true;
 }

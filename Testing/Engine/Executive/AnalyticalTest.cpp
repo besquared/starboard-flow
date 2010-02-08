@@ -13,7 +13,6 @@
 #include <Testing/Engine/Pipeline/MockConstructor.h>
 #include <Testing/Engine/Pipeline/MockGatherer.h>
 #include <Testing/Engine/Pipeline/MockAggregator.h>
-#include <Testing/Engine/Pipeline/MockSweeper.h>
 
 using namespace Testing::Domain;
 

@@ -11,20 +11,21 @@
 #define _flow_engine_aggregates_h_
 
 #include <Common.h>
-#include <Engine/Aggregate/Count.h>
+#include <Engine/WorkSet.h>
 #include <Engine/Aggregate/Sum.h>
-
-using namespace std;
-using namespace boost;
+#include <Engine/Aggregate/Count.h>
 
 namespace Flow {
 	namespace Engine {
+    using namespace std;
+    using namespace boost;
+
 		class Aggregates : public vector< shared_ptr<Aggregate::Base> > {
 		public:
 			void sum(const string& name);
       void count(const string& name);
       
-			void apply(Groups& base_table);
+			void apply(vector<WorkSet>& workset);
       
       set<string> aliases();
       void measure_names(set<string>& results);

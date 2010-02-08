@@ -26,13 +26,13 @@ string Aggregate::Count::alias() {
 	}
 }
 
-void Aggregate::Count::apply(Groups& base) {
-	Groups::iterator group;
-	for(group = base.begin(); group != base.end(); group++) {
-		this->apply(*group);
-	}
+void Aggregate::Count::apply(WorkSet& workset) {	
+	workset.aggregates[alias()] = workset.records.size();
 }
 
-void Aggregate::Count::apply(Group& group) {	
-	group.aggregates[alias()] = group.records.size();
+void Aggregate::Count::apply(vector<WorkSet>& worksets) {
+	vector<WorkSet>::iterator workset;
+	for(workset = worksets.begin(); workset != worksets.end(); workset++) {
+		this->apply(*workset);
+	}
 }

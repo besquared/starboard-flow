@@ -15,7 +15,6 @@
 #include <Engine/Pipeline/Constructor.h>
 #include <Engine/Pipeline/Gatherer.h>
 #include <Engine/Pipeline/Aggregator.h>
-#include <Engine/Pipeline/Sweeper.h>
 
 using namespace std;
 
@@ -29,13 +28,12 @@ namespace Flow {
 				Pipeline::Constructor* constructor;
 				Pipeline::Gatherer* gatherer;
 				Pipeline::Aggregator* aggregator;
-				Pipeline::Sweeper* sweeper;
 				
 			public:
 				Analytical(Domain::Base* domain, Query::Analytical* query);
 				virtual ~Analytical();
 				
-				virtual bool Execute(Groups& results);
+				virtual bool Execute(ResultSet& resultset);
 			};
 		}
 	}

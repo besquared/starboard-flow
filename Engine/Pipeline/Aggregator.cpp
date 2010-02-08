@@ -11,16 +11,16 @@
 
 #include "Aggregator.h"
 
-bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* query, Groups& results) {
+bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* query, vector<WorkSet>& worksets) {
 	for(size_t j = 0; j < query->aggregates->size(); j++) {
-		query->aggregates->apply(results);
+		query->aggregates->apply(worksets);
 	}
 	
 	return true;
 }
 
 // Iterate over matches, aggregate them, put those into new groups
-bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, Groups& groups, Sequential::Matches& matches, ResultSet& results) {
+bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, vector<WorkSet>& worksets, Sequential::Matches& matches, ResultSet& results) {
   vector<string> grouping_dimensions = query->sequence_group_by;
   set<string> pattern_dimensions = query->pattern.dimensions();
   set<string> aggregate_dimensions = query->aggregates->aliases();
@@ -41,12 +41,12 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
   vector<Sequential::Match>::iterator indices;
   for(match = matches.begin(); match != matches.end(); match++) {
     map<string, string> row;    
-    Group& matched = groups[match->first];
+//    Group& matched = worksets[match->first];
     
     // this is wrong, we don't get every grouping value here
-    for(size_t d = 0; d < groups.dimensions.size(); d++) {
-      row[groups.dimensions[d]] = matched.values[d];
-    }
+//    for(size_t d = 0; d < groups.dimensions.size(); d++) {
+////      row[groups.dimensions[d]] = matched.values[d];
+//    }
     
     // first thing, grouping dimensions
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {

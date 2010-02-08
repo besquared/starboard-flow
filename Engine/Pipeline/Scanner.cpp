@@ -9,8 +9,8 @@
 
 #include "Scanner.h"
 
-bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, Groups& groups, Sequential::Matches& matches) {
+bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query, vector<WorkSet>& worksets, Sequential::Matches& matches) {
   Sequential::Scanner::Substring scanner;
-  scanner.execute(query->pattern, groups, matches);
+  scanner.execute(query->pattern, worksets, matches);
   return true;
 }

@@ -11,13 +11,13 @@
 #define _flow_aggregates_base_h_
 
 #include <Common.h>
-#include <Engine/Groups.h>
-
-using namespace std;
+#include <Engine/WorkSet.h>
 
 namespace Flow {
 	namespace Engine {
 		namespace Aggregate {
+      using namespace std;
+      
 			class Base {
 			public:
 				enum AggregateType { SINGLE, MULTI };
@@ -35,7 +35,7 @@ namespace Flow {
 				Base(const vector<string>& measure, const string& alias);
 				
 				virtual string alias() = 0;
-				virtual void apply(Groups& base) = 0;
+				virtual void apply(vector<WorkSet>& workset) = 0;
 				
 				void measure_names(set<string>& results);
 			};

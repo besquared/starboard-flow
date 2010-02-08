@@ -14,20 +14,19 @@ Executive::Base::Base(domain) {
 	this->constructor = new Pipeline::Constructor();
 	this->gatherer = new Pipeline::Gatherer();
 	this->aggregator = new Pipeline::Aggregator();
-	this->sweeper = new Pipeline::Sweeper();
 }
 
 Executive::Analytical::~Analytical() {
 	delete(this->constructor);
 	delete(this->gatherer);
 	delete(this->aggregator);
-	delete(this->sweeper);
 }
 
-bool Executive::Analytical::Execute(Groups& results) {
-	this->constructor->Execute(domain, query, results);
-	this->gatherer->Execute(domain, query, results);
-	this->aggregator->Execute(domain, query, results);
-	this->sweeper->Execute(domain, query, results);
+bool Executive::Analytical::Execute(ResultSet& resultset) {
+  vector<WorkSet> intermediate;
+  
+	this->constructor->Execute(domain, query, intermediate);
+	this->gatherer->Execute(domain, query, intermediate);
+	this->aggregator->Execute(domain, query, intermediate);
 	return true;
 }

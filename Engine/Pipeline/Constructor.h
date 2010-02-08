@@ -24,14 +24,14 @@ namespace Flow {
 		namespace Pipeline {		
 			class Constructor {				
 			public:
-				virtual bool Execute(Domain::Base* domain, Query::Base* query, Groups& results);
+				virtual bool Execute(Domain::Base* domain, Query::Base* query, vector<WorkSet>& worksets);
 				
 			protected:
-				virtual void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-											 vector<string>& inquired_dims, RIDTree& inquired, Groups& results);
-				virtual void Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-											 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
-											 vector<string>& values, RIDList& records, Groups& results);				
+				virtual void Construct(map<string,string>& instantiated_vals, RIDList& instantiated, 
+											 vector<string>& inquired_dims, RIDTree& inquired, vector<WorkSet>& worksets);
+				virtual void Construct(map<string, string>& instantiated_vals, RIDList& instantiated, 
+											 vector<string>& inquired_dims, RIDTree& inquired, size_t offset, 
+											 map<string, string>& values, RIDList& records, vector<WorkSet>& worksets);				
 				
 			};
 		}

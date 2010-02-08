@@ -19,9 +19,9 @@ void Engine::Aggregates::count(const string& name) {
 	vector< shared_ptr<Aggregate::Base> >::push_back(count);
 }
 
-void Engine::Aggregates::apply(Groups& base_table) {
+void Engine::Aggregates::apply(vector<WorkSet>& worksets) {
 	for(size_t i = 0; i < size(); i++) {
-		(*this)[i]->apply(base_table);
+		this->at(i)->apply(worksets);
 	}	
 }
 

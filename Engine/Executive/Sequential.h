@@ -16,7 +16,6 @@
 #include <Engine/Pipeline/Gatherer.h>
 #include <Engine/Pipeline/Scanner.h>
 #include <Engine/Pipeline/Aggregator.h>
-#include <Engine/Pipeline/Sweeper.h>
 
 using namespace std;
 
@@ -31,7 +30,6 @@ namespace Flow {
 				Pipeline::Gatherer* gatherer;
         Pipeline::Scanner* scanner;
 				Pipeline::Aggregator* aggregator;
-				Pipeline::Sweeper* sweeper;
 				
 			public:
 				Sequential(Domain::Base* domain, Query::Sequential* query);

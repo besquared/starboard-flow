@@ -11,7 +11,7 @@
 
 using namespace Flow::Engine;
 
-bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, Groups& results) {
+bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, vector<WorkSet>& worksets) {
 	map<string, string> instantiate;
 	query->Instantiate(instantiate);
 	
@@ -29,27 +29,13 @@ bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, Gr
 	vector<string> instantiated_dims;
 	query->Dimensions(instantiated_dims, inquired_dims);
 	
-	if(inquire.size() > 0) {    
-    vector<string> instantiated_vals;
-    query->InstantiatedValues(instantiated_vals);
-    
-		results.dimensions.insert(results.dimensions.end(), inquired_dims.begin(), inquired_dims.end());
-		results.dimensions.insert(results.dimensions.end(), instantiated_dims.begin(), instantiated_dims.end());
-		
+	if(inquire.size() > 0) {    		
 		RIDTree inquired;
 		domain->indices->Lookup(inquire, conditions, inquired);
-		Construct(instantiated_vals, instantiated, inquired_dims, inquired, results);
+		Construct(instantiate, instantiated, inquired_dims, inquired, worksets);
 	} else {
 		if(instantiated.size() > 0) {
-			vector<string> values;
-			for(size_t i = 0; i < instantiated_dims.size(); i++) {
-				results.dimensions.push_back(instantiated_dims[i]);
-				values.push_back(instantiate[instantiated_dims[i]]);
-			}
-			
-			Group group(values);
-			results.push_back(group);
-			results.back().records.insert(results.back().records.end(), instantiated.begin(), instantiated.end());
+			worksets.push_back(WorkSet(instantiate, instantiated));
 		}
 	}
 	
@@ -59,12 +45,12 @@ bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, Gr
 /*
  * Construction
  */
-void Pipeline::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-																			 vector<string>& inquired_dims, RIDTree& inquired, Groups& results) {
+void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList& instantiated, 
+                                      vector<string>& inquired_dims, RIDTree& inquired, vector<WorkSet>& worksets) {
 	RIDList records;
-	vector<string> values;
-	Construct(instantiated_vals, instantiated, 
-						inquired_dims, inquired, 0, values, records, results);
+	map<string, string> values;
+	Construct(instantiate, instantiated, 
+            inquired_dims, inquired, 0, values, records, worksets);
 }
 
 /*
@@ -89,33 +75,35 @@ void Pipeline::Constructor::Construct(vector<string>& instantiated_vals, RIDList
  and the id list into the table and return. We continue by searching B:b2
  and so on.
  */
-void Pipeline::Constructor::Construct(vector<string>& instantiated_vals, RIDList& instantiated, 
-																			 vector<string>& inquired_dims, RIDTree& inquired, int offset, 
-																			 vector<string>& values, RIDList& records, Groups& results) {
+void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList& instantiated, 
+																			 vector<string>& inquired_dims, RIDTree& inquired, size_t offset, 
+																			 map<string, string>& values, RIDList& records, vector<WorkSet>& worksets) {
 	
 	if(inquired_dims.size() == offset) {
 		RIDList intersected = records & instantiated;
 		
 		if(intersected.size() > 0) {
-			results.push_back(Group(values));
-      Group& group = results.back();
-			group.records.insert(group.records.end(), intersected.begin(), intersected.end());
-			group.values.insert(group.values.end(), instantiated_vals.begin(), instantiated_vals.end());
+      map<string, string> group_values;
+      group_values.insert(values.begin(), values.end());
+      group_values.insert(instantiate.begin(), instantiate.end());
+      worksets.push_back(WorkSet(group_values, intersected));      
 		}
 		return;
 	}
 	
-	RIDMap::iterator rpair;
-	RIDMap rmap = inquired[inquired_dims[offset]];
+  string& dimension = inquired_dims[offset];
+  
+  RIDMap::iterator rpair;
+	RIDMap rmap = inquired[dimension];
 	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {
 		RIDList intersection = 
 		(records.empty() ? rpair->second : records & rpair->second);
 		
 		if(intersection.size() > 0) {
-			values.push_back(rpair->first);
-			Construct(instantiated_vals, instantiated, inquired_dims, 
-								inquired, offset + 1, values, intersection, results);
-			values.pop_back();
+      values[dimension] = rpair->first;
+			Construct(instantiate, instantiated, inquired_dims, 
+								inquired, offset + 1, values, intersection, worksets);
+      values.erase(dimension);
 		}
 	}
 }

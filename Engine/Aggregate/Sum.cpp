@@ -23,19 +23,19 @@ string Aggregate::Sum::alias() {
 	}
 }
 
-void Aggregate::Sum::apply(Groups& base) {
-	Groups::iterator group;
-	for(group = base.begin(); group != base.end(); group++) {
-		this->apply(*group);
-	}
-}
-
-void Aggregate::Sum::apply(Group& group) {
+void Aggregate::Sum::apply(WorkSet& workset) {
 	double sum = 0;
 	vector<double>::iterator value;
-	vector<double> values = group.measures[measure];
+	vector<double> values = workset.measures[measure];
 	for(value = values.begin(); value != values.end(); value++) {
 		sum += *value;
 	}
-	group.aggregates[alias()] = sum;
+	workset.aggregates[alias()] = sum;
+}
+
+void Aggregate::Sum::apply(vector<WorkSet>& worksets) {
+	vector<WorkSet>::iterator workset;
+	for(workset = worksets.begin(); workset != worksets.end(); workset++) {
+		this->apply(*workset);
+	}
 }

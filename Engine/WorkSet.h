@@ -17,11 +17,13 @@
 namespace Flow {
 	namespace Engine {
     using namespace std;
-
+    using namespace Domain::Data;
+    
 		class WorkSet {      
 		public:
 			map<string, string> values;
-      Domain::Data::RIDList records;
+      
+      RIDList records;
 			map<string, double> aggregates;
 			map< string, vector<double> > measures;
 			map< string, vector<string> > dimensions;
@@ -29,6 +31,11 @@ namespace Flow {
 			WorkSet(const map<string, string>& values) {
 				this->values = values;
 			}
+      
+      WorkSet(const map<string, string>& values, const RIDList records) {
+        this->values = values;
+        this->records = records;
+      }
 		};
 	}
 }
