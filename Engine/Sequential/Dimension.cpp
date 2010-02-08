@@ -22,12 +22,12 @@ Engine::Sequential::Dimension::Dimension(const string& name, const string& symbo
 	this->conditions = conditions;
 }
 
-bool Engine::Sequential::Dimension::match(Group& haystack, Match& match, size_t position) {  
+bool Engine::Sequential::Dimension::match(WorkSet& workset, Match& match, size_t position) {  
   map<string, string>::iterator found = match.tvalues.find(symbol);
   
   if(found == match.tvalues.end()) {
-    match.tvalues[symbol] = haystack.dimensions[name][position];
-  } else if(haystack.dimensions[name][position] != found->second) {
+    match.tvalues[symbol] = workset.dimensions[name][position];
+  } else if(workset.dimensions[name][position] != found->second) {
     return false;
   }
   
@@ -37,7 +37,7 @@ bool Engine::Sequential::Dimension::match(Group& haystack, Match& match, size_t 
     
 		if(condition != NULL) {
       // Condition check
-			if(!condition->Check(haystack.dimensions[condition->column][position])) {
+			if(!condition->Check(workset.dimensions[condition->column][position])) {
         return false;
       }
 		}

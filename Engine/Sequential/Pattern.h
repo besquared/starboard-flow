@@ -11,14 +11,15 @@
 #define _flow_engine_sequential_pattern_h_
 
 #include <Common.h>
-#include "Dimension.h"
+#include <Engine/WorkSet.h>
 
-using namespace std;
-using namespace Flow;
+#include "Dimension.h"
 
 namespace Flow {
 	namespace Engine {
-		namespace Sequential {
+		namespace Sequential {      
+      using namespace std;
+      
 			class Pattern : public vector< boost::shared_ptr<Sequential::Dimension> > {
 			public:
 				enum Matching { SUBSTRING, REGEX };
@@ -33,7 +34,7 @@ namespace Flow {
 				void push_back(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
         
         set<string> dimensions();
-        bool match(Group& sequence, Match& result);
+        bool match(WorkSet& sequence, Match& result);
 			};
 		}
 	}

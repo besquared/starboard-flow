@@ -46,21 +46,24 @@ namespace {
 		query.aggregates->count("sales");
 		query.aggregates->sum("sales");
 		
-		vector<string> values;
-		values.push_back("S1");
-		values.push_back("Fall");
+		map<string, string> values;
+    values["store"] = "S1";
+    values["season"] = "Fall";
 		
-		Engine::Groups results;
-		Engine::Group s1_fall(values);
-		results.push_back(s1_fall);
-		results.back().records.push_back(1);
-		results.back().records.push_back(2);
-		results.back().measures["sales"].push_back(100);
-		results.back().measures["sales"].push_back(250);
+    RIDList records;
+    records.push_back(1.0);
+    records.push_back(2.0);
+    
+    Engine::WorkSet workset(values, records);
+		workset.measures["sales"].push_back(100);
+		workset.measures["sales"].push_back(250);
 		
-		aggregator.Execute(this->purchases, &query, results);
+    vector<Engine::WorkSet> worksets;
+    worksets.push_back(workset);
+    
+		aggregator.Execute(this->purchases, &query, worksets);
 		
-		ASSERT_EQ(2, results.back().aggregates["count_sales"]);
-		ASSERT_EQ(350, results.back().aggregates["sum_sales"]);
+		ASSERT_EQ(2, worksets.back().aggregates["count_sales"]);
+		ASSERT_EQ(350, worksets.back().aggregates["sum_sales"]);
 	}	
 }

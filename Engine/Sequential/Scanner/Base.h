@@ -11,7 +11,7 @@
 #define _flow_engine_sequential_scanner_base_h_
 
 #include <Common.h>
-#include <Engine/Groups.h>
+#include <Engine/WorkSet.h>
 #include <Engine/Sequential/Pattern.h>
 
 namespace Flow {
@@ -25,7 +25,7 @@ namespace Flow {
         public:
           Base() {}
           virtual ~Base() {}
-          virtual void execute(Pattern& pattner, Groups& input, Matches& results) = 0;
+          virtual void execute(Pattern& pattner, vector<WorkSet>& worset, Matches& matches) = 0;
         };
       }
 		}

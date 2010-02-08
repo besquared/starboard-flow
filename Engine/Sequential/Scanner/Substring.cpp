@@ -19,11 +19,11 @@ Scanner::Substring::~Substring() {
 
 }
 
-void Scanner::Substring::execute(Pattern& pattern, Groups& sequences, Matches& results) {
+void Scanner::Substring::execute(Pattern& pattern, vector<WorkSet>& sequences, Matches& results) {
   size_t pat_length = pattern.size();
   
   for(size_t i = 0; i < sequences.size(); i++) {
-    Group& cseq = sequences[i];
+    WorkSet& cseq = sequences[i];
     size_t seq_length = cseq.records.size();
     
     if(pat_length > seq_length) { continue; }

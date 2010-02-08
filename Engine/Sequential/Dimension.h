@@ -12,15 +12,15 @@
 
 #include <Common.h>
 #include <Conditions.h>
-#include <Engine/Group.h>
+#include <Engine/WorkSet.h>
 
 #include "Match.h"
-
-using namespace std;
 
 namespace Flow {
 	namespace Engine {
 		namespace Sequential {
+      using namespace std;
+      
 			class Dimension {
 			public:
 				string name;
@@ -31,7 +31,7 @@ namespace Flow {
 				Dimension(const string& name, const string& symbol, const string& alias);
 				Dimension(const string& name, const string& symbol, const string& alias, const Conditions& conditions);
         
-        bool match(Group& haystack, Match& match, size_t position);
+        bool match(WorkSet& workset, Match& match, size_t position);
 			};
 		}
 	}

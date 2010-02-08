@@ -23,6 +23,7 @@ namespace Flow {
 		namespace Pipeline {		
 			class Gatherer {				
 			public:
+        bool Execute(Domain::Base* domain, Query::Base* query, WorkSet& workset);
 				bool Execute(Domain::Base* domain, Query::Base* query, vector<WorkSet>& worksets);				
 			};
 		}

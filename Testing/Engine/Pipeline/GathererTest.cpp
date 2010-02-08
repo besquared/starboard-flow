@@ -45,18 +45,18 @@ namespace {
 		query.conditions->Eq("season", "Fall");
 		query.aggregates->count("sales");
 		
-		vector<string> values;
-		values.push_back("S1");
-		values.push_back("Fall");
+    RIDList records;
+    records.push_back(1);
+		records.push_back(2);
+    
+    map<string, string> values;
+    values["store"] = "S1";
+    values["season"] = "Fall";
+
+    Engine::WorkSet workset(values, records);
+    
+		EXPECT_CALL(*this->measures, Lookup("sales", records, _));
 		
-		Engine::Groups results;
-		Engine::Group s1_fall(values);
-		s1_fall.records.push_back(1);
-		s1_fall.records.push_back(2);
-		results.push_back(s1_fall);
-		
-		EXPECT_CALL(*this->measures, Lookup("sales", s1_fall.records, _));
-		
-		gatherer.Execute(this->purchases, &query, results);
+		gatherer.Execute(this->purchases, &query, workset);
 	}	
 }

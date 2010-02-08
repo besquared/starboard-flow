@@ -56,17 +56,14 @@ namespace {
 		
 		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));		
 		
-		Engine::Groups results;
+		vector<Engine::WorkSet> results;
 		constructor.Execute(this->purchases, &query, results);
 		
 		ASSERT_EQ(1, results.size());
 		ASSERT_EQ(2, results[0].records.size());
-		ASSERT_EQ(2, results.dimensions.size());
-		EXPECT_EQ("store", results.dimensions[0]);
-		EXPECT_EQ("season", results.dimensions[1]);
 		ASSERT_EQ(2, results[0].values.size());
-		EXPECT_EQ("S1", results[0].values[0]);
-		EXPECT_EQ("Fall", results[0].values[1]);
+		EXPECT_EQ("S1", results[0].values["store"]);
+		EXPECT_EQ("Fall", results[0].values["season"]);
 	}
 	
 	TEST_F(ConstructorTest, PerformsHybridConstruction) {
@@ -97,20 +94,15 @@ namespace {
 		EXPECT_CALL(*this->indices, Lookup(specified, _)).WillOnce(DoAll(SetArgReferee<1>(records), Return(true)));
 		EXPECT_CALL(*this->indices, Lookup(inquired, _, _)).WillOnce(DoAll(SetArgReferee<2>(days), Return(true)));
 		
-		Engine::Groups results;
+		vector<Engine::WorkSet> results;
 		constructor.Execute(this->purchases, &query, results);
 		
 		ASSERT_EQ(1, results.size());
 		ASSERT_EQ(2, results[0].records.size()); // RID 1, 2
-		
-		ASSERT_EQ(3, results.dimensions.size());
-		EXPECT_EQ("day", results.dimensions[0]);
-		EXPECT_EQ("store", results.dimensions[1]);
-		EXPECT_EQ("season", results.dimensions[2]);
-		
+				
 		ASSERT_EQ(3, results[0].values.size());
 		EXPECT_EQ("20091021", results[0].values[0]);
-		EXPECT_EQ("S1", results[0].values[1]);
-		EXPECT_EQ("Fall", results[0].values[2]);
+		EXPECT_EQ("S1", results[0].values["store"]);
+		EXPECT_EQ("Fall", results[0].values["season"]);
 	}
 }

@@ -38,7 +38,7 @@ set<string> Sequential::Pattern::dimensions() {
   return results;
 }
 
-bool Sequential::Pattern::match(Group& sequence, Match& result) {
+bool Sequential::Pattern::match(WorkSet& sequence, Match& result) {
   size_t offset = 1;
   while(offset <= size()) {
     if(this->at(offset - 1)->match(sequence, result, result.position + offset - 1)) {

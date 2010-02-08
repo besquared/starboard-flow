@@ -11,37 +11,51 @@
 #define _flow_engine_result_set_h_
 
 #include <Common.h>
-#include <Domain/Data/Record.h>
-#include <Domain/Data/RIDList.h>
-
-using namespace std;
-using namespace Flow::Domain;
 
 namespace Flow {
 	namespace Engine {    
+    using namespace std;
+    
     class Value {
     public:
       enum ValueType { STRING, DOUBLE };
 
     protected:
       ValueType type;
+      
+      bool cast;
       double dblvalue_;
       string strvalue_;
 
     public:
       Value(string value) {
+        this->cast = false;
         this->type = STRING;
         this->strvalue_ = value;
       }
       
       Value(double value) {
+        this->cast = false;
         this->type = DOUBLE;
         this->dblvalue_ = value;
-        this->strvalue_ = boost::lexical_cast<string>(value);
       }
       
       string& to_string() {
+        if(type == DOUBLE && !cast) {
+          cast = true;
+          strvalue_ = boost::lexical_cast<string>(dblvalue_);
+        }
+        
         return strvalue_;
+      }
+      
+      double& to_double() {
+        if(type == STRING && !cast) {
+          cast = true;
+          dblvalue_ = boost::lexical_cast<double>(strvalue_);
+        }
+        
+        return dblvalue_;
       }
     };
     
