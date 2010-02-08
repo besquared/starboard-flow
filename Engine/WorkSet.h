@@ -28,6 +28,8 @@ namespace Flow {
 			map< string, vector<double> > measures;
 			map< string, vector<string> > dimensions;
       
+      WorkSet() {}
+      
 			WorkSet(const map<string, string>& values) {
 				this->values = values;
 			}

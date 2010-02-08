@@ -33,7 +33,6 @@ bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, ve
 		RIDTree inquired;
 		domain->indices->Lookup(inquire, conditions, inquired);
 		Construct(instantiate, instantiated, inquired_dims, inquired, worksets);
-    cout << "Finished construction" << endl;
 	} else {
 		if(instantiated.size() > 0) {
 			worksets.push_back(WorkSet(instantiate, instantiated));
@@ -69,7 +68,7 @@ void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList&
  values holds the list of dimension values, ie: a1, b1
  records hold the list of records for those values, ie: [1, 2]
  
- We do this by a depth first search, building nodes as we traverse
+ We do this by a depth first traversal, building nodes as we traverse
  down "branches". First we start with A:a1, descend into B and intersect
  list A:a1 with B:b1, if there are any members of this new list, we descend
  again and the termination condition triggers and we copy the values list
@@ -88,7 +87,6 @@ void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList&
       group_values.insert(values.begin(), values.end());
       group_values.insert(instantiate.begin(), instantiate.end());
       worksets.push_back(WorkSet(group_values, intersected));
-      cout << "Added workset to list of results" << endl;
 		}
     
 		return;
@@ -96,12 +94,9 @@ void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList&
 	
   string& dimension = inquired_dims[offset];
   
-  cout << "Intersecting potential groups with dimension " << dimension << endl;
-  
   RIDMap::iterator rpair;
 	RIDMap rmap = inquired[dimension];
 	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {
-    cout << "Intersecting with values " << rpair->first << endl;
 		RIDList intersection = 
 		(records.empty() ? rpair->second : records & rpair->second);
 		
@@ -109,9 +104,7 @@ void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList&
       values[dimension] = rpair->first;
 			Construct(instantiate, instantiated, inquired_dims, 
 								inquired, offset + 1, values, intersection, worksets);
-      cout << "Where do we break damnit?" << endl;
       values.erase(dimension);
-      cout << "What about here?" << endl;
 		}
 	}
 }

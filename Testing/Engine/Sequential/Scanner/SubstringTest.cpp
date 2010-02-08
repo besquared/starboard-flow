@@ -16,6 +16,7 @@ namespace {
 	
 	class SubstringTest : public ::testing::Test {
 	protected:
+    WorkSet workset;
     vector<WorkSet> worksets;
     
 		SubstringTest() {}
@@ -33,50 +34,11 @@ namespace {
       records.push_back(728);
       records.push_back(937);
       
-      Engine::WorkSet workset(values, records);
-      
-      workset.dimensions["station"].push_back("montgomery");
-      workset.dimensions["station"].push_back("montgomery");
-      workset.dimensions["station"].push_back("17th street");
-      workset.dimensions["station"].push_back("16th street");
-      workset.dimensions["station"].push_back("montgomery");
-      
-      workset.dimensions["action"].push_back("in");
-      workset.dimensions["action"].push_back("in");
-      workset.dimensions["action"].push_back("out");
-      workset.dimensions["action"].push_back("in");
-      workset.dimensions["action"].push_back("out");
-      
-      worksets.push_back(workset);      
+      workset = Engine::WorkSet(values, records);      
     }
 		virtual void TearDown() {}
 	};
-	
-	TEST_F(SubstringTest, MatchesSimpleSequences) {
-    Conditions conditions1;
-    Conditions conditions2;
-    Conditions conditions3;
-    Conditions conditions4;
-    conditions1.Eq("action", "in");
-    conditions2.Eq("action", "out");
-    conditions3.Eq("action", "in");
-    conditions4.Eq("action", "out");
-    
-    Sequential::Pattern pattern;
-		pattern.push_back("station", "X", "x1", conditions1);
-    pattern.push_back("station", "Y", "y1", conditions2);
-    pattern.push_back("station", "Y", "y2", conditions3);
-    pattern.push_back("station", "X", "x2", conditions4);
-        
-    Sequential::Matches matches;
-    Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, worksets, matches);
-    
-    ASSERT_EQ(1, matches.size());
-    ASSERT_EQ(1, matches[0].size());
-    EXPECT_EQ(0, matches[0][0].position);
-	}
-  
+	  
   TEST_F(SubstringTest, MatchesShiftingSequences) {
     Conditions conditions1;
     Conditions conditions2;
@@ -92,7 +54,21 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-        
+    
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("montgomery");
+    
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    
+    worksets.push_back(workset);    
+    
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, worksets, matches);
@@ -118,7 +94,21 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-        
+    
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("montgomery");
+    
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    
+    worksets.push_back(workset);    
+    
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, worksets, matches);
@@ -144,7 +134,21 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-        
+    
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("17th street");
+    workset.dimensions["station"].push_back("montgomery");
+    
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    
+    worksets.push_back(workset);    
+    
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
     scanner.execute(pattern, worksets, matches);

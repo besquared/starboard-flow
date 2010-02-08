@@ -29,12 +29,14 @@ void Scanner::Substring::execute(Pattern& pattern, vector<WorkSet>& sequences, M
     if(pat_length > seq_length) { continue; }
     
     for(size_t shft = 0; shft <= seq_length - pat_length; shft++) {
+//      cout << "Checking for a pattern match at shift " << shft << endl;
       Match cmatch(shft);
       if(pattern.match(cseq, cmatch)) {
         // if all match
         // shft += pat_length - 1;
         // if left match
         // break;
+//        cout << "Pattern matched at shift " << shft << " pushing onto matches" << endl;
         results[i].push_back(cmatch);
       }
     }
