@@ -23,6 +23,8 @@ namespace {
 		MockMeasures* measures;
 		MockDimensions* dimensions;
 		
+    vector<WorkSet> worksets;
+    
 		ScannerTest() {}
 		virtual ~ScannerTest() {}
 		
@@ -31,6 +33,33 @@ namespace {
 			this->indices = (MockIndices*)(this->purchases->indices);
 			this->measures = (MockMeasures*)(this->purchases->measures);
 			this->dimensions = (MockDimensions*)(this->purchases->dimensions);
+            
+      map<string, string> values;
+      values["season"] = "Fall";
+      values["fare-group"] = "Regular";
+      
+      RIDList records;
+      records.push_back(90);
+      records.push_back(100);
+      records.push_back(476);
+      records.push_back(728);
+      records.push_back(937);
+      
+      Engine::WorkSet workset(values, records);
+            
+      workset.dimensions["station"].push_back("montgomery");
+      workset.dimensions["station"].push_back("montgomery");
+      workset.dimensions["station"].push_back("16th street");
+      workset.dimensions["station"].push_back("16th street");
+      workset.dimensions["station"].push_back("montgomery");    
+      
+      workset.dimensions["action"].push_back("in");
+      workset.dimensions["action"].push_back("in");
+      workset.dimensions["action"].push_back("out");
+      workset.dimensions["action"].push_back("in");
+      workset.dimensions["action"].push_back("out");
+      
+      worksets.push_back(workset);      
 		}
 		
 		virtual void TearDown() {
@@ -57,40 +86,10 @@ namespace {
     query.pattern.push_back("station", "Y", "y1", conditions2);
     query.pattern.push_back("station", "Y", "y2", conditions3);
     query.pattern.push_back("station", "X", "x2", conditions4);
-    
-    vector<string> dims;
-    dims.push_back("season");
-    dims.push_back("fare-group");
-    
-		vector<string> values;
-		values.push_back("Fall");
-    values.push_back("Regular");
-		
-		Engine::Groups groups(dims);
-		Engine::Group fall_regular(values);
-    fall_regular.records.push_back(90);
-    fall_regular.records.push_back(100);
-    fall_regular.records.push_back(476);
-    fall_regular.records.push_back(728);
-    fall_regular.records.push_back(937);
-    
-    fall_regular.dimensions["station"].push_back("montgomery");
-    fall_regular.dimensions["station"].push_back("montgomery");
-    fall_regular.dimensions["station"].push_back("16th street");
-    fall_regular.dimensions["station"].push_back("16th street");
-    fall_regular.dimensions["station"].push_back("montgomery");    
-    
-    fall_regular.dimensions["action"].push_back("in");
-    fall_regular.dimensions["action"].push_back("in");
-    fall_regular.dimensions["action"].push_back("out");
-    fall_regular.dimensions["action"].push_back("in");
-    fall_regular.dimensions["action"].push_back("out");
-    
-		groups.push_back(fall_regular);
-    
+        
     Pipeline::Scanner scanner;
     Sequential::Matches matches;
-    scanner.Execute(this->purchases, &query, groups, matches);
+    scanner.Execute(this->purchases, &query, worksets, matches);
     
     // test for matches here
     ASSERT_EQ(1, matches.size());

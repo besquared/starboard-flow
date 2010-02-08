@@ -15,10 +15,40 @@ namespace {
 	using namespace Flow::Engine;
 	
 	class SubstringTest : public ::testing::Test {
-	protected:		
+	protected:
+    vector<WorkSet> worksets;
+    
 		SubstringTest() {}
 		virtual ~SubstringTest() {}
-		virtual void SetUp() {}
+    
+		virtual void SetUp() {
+      map<string, string> values;
+      values["store"] = "S1";
+      values["season"] = "Fall";
+      
+      RIDList records;
+      records.push_back(90);
+      records.push_back(100);
+      records.push_back(476);
+      records.push_back(728);
+      records.push_back(937);
+      
+      Engine::WorkSet workset(values, records);
+      
+      workset.dimensions["station"].push_back("montgomery");
+      workset.dimensions["station"].push_back("montgomery");
+      workset.dimensions["station"].push_back("17th street");
+      workset.dimensions["station"].push_back("16th street");
+      workset.dimensions["station"].push_back("montgomery");
+      
+      workset.dimensions["action"].push_back("in");
+      workset.dimensions["action"].push_back("in");
+      workset.dimensions["action"].push_back("out");
+      workset.dimensions["action"].push_back("in");
+      workset.dimensions["action"].push_back("out");
+      
+      worksets.push_back(workset);      
+    }
 		virtual void TearDown() {}
 	};
 	
@@ -37,33 +67,10 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-    
-    vector<string> values;
-    values.push_back("S1");
-    values.push_back("Fall");
-    Engine::Group s1_fall(values);
-    
-    s1_fall.records.push_back(100);
-    s1_fall.records.push_back(476);
-    s1_fall.records.push_back(728);
-    s1_fall.records.push_back(937);
-    
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    
-    Engine::Groups sequences;
-		sequences.push_back(s1_fall);
-    
+        
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, sequences, matches);
+    scanner.execute(pattern, worksets, matches);
     
     ASSERT_EQ(1, matches.size());
     ASSERT_EQ(1, matches[0].size());
@@ -85,36 +92,10 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-    
-    vector<string> values;
-    values.push_back("S1");
-    values.push_back("Fall");
-    Engine::Group s1_fall(values);
-    
-    s1_fall.records.push_back(90);
-    s1_fall.records.push_back(100);
-    s1_fall.records.push_back(476);
-    s1_fall.records.push_back(728);
-    s1_fall.records.push_back(937);
-    
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    
-    Engine::Groups sequences;
-		sequences.push_back(s1_fall);
-    
+        
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, sequences, matches);
+    scanner.execute(pattern, worksets, matches);
     
     ASSERT_EQ(1, matches.size());
     ASSERT_EQ(1, matches[0].size());
@@ -137,36 +118,10 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-    
-    vector<string> values;
-    values.push_back("S1");
-    values.push_back("Fall");
-    Engine::Group s1_fall(values);
-    
-    s1_fall.records.push_back(90);
-    s1_fall.records.push_back(100);
-    s1_fall.records.push_back(476);
-    s1_fall.records.push_back(728);
-    s1_fall.records.push_back(937);
-    
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    
-    Engine::Groups sequences;
-		sequences.push_back(s1_fall);
-    
+        
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, sequences, matches);
+    scanner.execute(pattern, worksets, matches);
     
     ASSERT_EQ(1, matches.size());
     ASSERT_EQ(1, matches[0].size());
@@ -189,36 +144,10 @@ namespace {
     pattern.push_back("station", "Y", "y1", conditions2);
     pattern.push_back("station", "Y", "y2", conditions3);
     pattern.push_back("station", "X", "x2", conditions4);
-    
-    vector<string> values;
-    values.push_back("S1");
-    values.push_back("Fall");
-    Engine::Group s1_fall(values);
-    
-    s1_fall.records.push_back(90);
-    s1_fall.records.push_back(100);
-    s1_fall.records.push_back(476);
-    s1_fall.records.push_back(728);
-    s1_fall.records.push_back(937);
-    
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("17th street");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("montgomery");
-    
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    
-    Engine::Groups sequences;
-		sequences.push_back(s1_fall);
-    
+        
     Sequential::Matches matches;
     Sequential::Scanner::Substring scanner;
-    scanner.execute(pattern, sequences, matches);
+    scanner.execute(pattern, worksets, matches);
     
     ASSERT_EQ(0, matches.size());
 	}  

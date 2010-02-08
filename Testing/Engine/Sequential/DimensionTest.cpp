@@ -33,24 +33,27 @@ namespace {
     Conditions conditions;
     conditions.Eq("station", "montgomery");
     Sequential::Dimension dimension("station", "X", "x1", conditions);
-
-    vector<string> values;
-    values.push_back("S1");
-    values.push_back("Fall");
-    Engine::Group s1_fall(values);
     
-    s1_fall.records.push_back(1.0);
-    s1_fall.records.push_back(2.0);
-    s1_fall.records.push_back(3.0);
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("16th Street");
-    s1_fall.dimensions["station"].push_back("montgomery");
+    map<string, string> values;
+    values["store"] = "S1";
+    values["season"] = "Fall";
 
+    RIDList records;
+    records.push_back(1.0);
+    records.push_back(2.0);
+    records.push_back(3.0);
+    
+    Engine::WorkSet workset(values, records);
+    
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("16th Street");
+    workset.dimensions["station"].push_back("montgomery");
+    
     Sequential::Match match(0);
 
-    ASSERT_EQ(true, dimension.match(s1_fall, match, 0));
-    ASSERT_EQ(false, dimension.match(s1_fall, match, 1));
-    ASSERT_EQ(true, dimension.match(s1_fall, match, 2));
+    ASSERT_EQ(true, dimension.match(workset, match, 0));
+    ASSERT_EQ(false, dimension.match(workset, match, 1));
+    ASSERT_EQ(true, dimension.match(workset, match, 2));
   }
   
   TEST_F(SequentialDimensionTest, MatchesMultipleGroupValues) {
@@ -59,31 +62,33 @@ namespace {
     conditions.Eq("station", "montgomery");
     Sequential::Dimension dimension("station", "X", "x1", conditions);
 
-    vector<string> values;
-    values.push_back("S1");
-    values.push_back("Fall");
-    Engine::Group s1_fall(values);
+    map<string, string> values;
+    values["store"] = "S1";
+    values["season"] = "Fall";
     
-    s1_fall.records.push_back(100.0);
-    s1_fall.records.push_back(476.0);
-    s1_fall.records.push_back(728.0);
-    s1_fall.records.push_back(937.0);
+    RIDList records;
+    records.push_back(100.0);
+    records.push_back(476.0);
+    records.push_back(728.0);
+    records.push_back(937.0);
+    
+    Engine::WorkSet workset(values, records);
 
-    s1_fall.dimensions["station"].push_back("montgomery");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("16th street");
-    s1_fall.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("montgomery");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("16th street");
+    workset.dimensions["station"].push_back("montgomery");
 
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
-    s1_fall.dimensions["action"].push_back("in");
-    s1_fall.dimensions["action"].push_back("out");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
+    workset.dimensions["action"].push_back("in");
+    workset.dimensions["action"].push_back("out");
     
     Sequential::Match match(0);
     
-    ASSERT_EQ(true, dimension.match(s1_fall, match, 0));
-    ASSERT_EQ(false, dimension.match(s1_fall, match, 1));
-    ASSERT_EQ(false, dimension.match(s1_fall, match, 2));
-    ASSERT_EQ(false, dimension.match(s1_fall, match, 3));
+    ASSERT_EQ(true, dimension.match(workset, match, 0));
+    ASSERT_EQ(false, dimension.match(workset, match, 1));
+    ASSERT_EQ(false, dimension.match(workset, match, 2));
+    ASSERT_EQ(false, dimension.match(workset, match, 3));
   }
 }  // namespace

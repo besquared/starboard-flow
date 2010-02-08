@@ -33,6 +33,7 @@ bool Pipeline::Constructor::Execute(Domain::Base* domain, Query::Base* query, ve
 		RIDTree inquired;
 		domain->indices->Lookup(inquire, conditions, inquired);
 		Construct(instantiate, instantiated, inquired_dims, inquired, worksets);
+    cout << "Finished construction" << endl;
 	} else {
 		if(instantiated.size() > 0) {
 			worksets.push_back(WorkSet(instantiate, instantiated));
@@ -86,16 +87,21 @@ void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList&
       map<string, string> group_values;
       group_values.insert(values.begin(), values.end());
       group_values.insert(instantiate.begin(), instantiate.end());
-      worksets.push_back(WorkSet(group_values, intersected));      
+      worksets.push_back(WorkSet(group_values, intersected));
+      cout << "Added workset to list of results" << endl;
 		}
+    
 		return;
 	}
 	
   string& dimension = inquired_dims[offset];
   
+  cout << "Intersecting potential groups with dimension " << dimension << endl;
+  
   RIDMap::iterator rpair;
 	RIDMap rmap = inquired[dimension];
 	for(rpair = rmap.begin(); rpair != rmap.end(); rpair++) {
+    cout << "Intersecting with values " << rpair->first << endl;
 		RIDList intersection = 
 		(records.empty() ? rpair->second : records & rpair->second);
 		
@@ -103,7 +109,9 @@ void Pipeline::Constructor::Construct(map<string, string>& instantiate, RIDList&
       values[dimension] = rpair->first;
 			Construct(instantiate, instantiated, inquired_dims, 
 								inquired, offset + 1, values, intersection, worksets);
+      cout << "Where do we break damnit?" << endl;
       values.erase(dimension);
+      cout << "What about here?" << endl;
 		}
 	}
 }

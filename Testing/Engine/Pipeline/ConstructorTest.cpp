@@ -45,7 +45,6 @@ namespace {
 		query.conditions->Eq("store", "S1");
 		query.conditions->Eq("season", "Fall");
 		
-		
 		RIDList records;
 		records.push_back(1.0);
 		records.push_back(2.0);
@@ -99,9 +98,9 @@ namespace {
 		
 		ASSERT_EQ(1, results.size());
 		ASSERT_EQ(2, results[0].records.size()); // RID 1, 2
-				
+
 		ASSERT_EQ(3, results[0].values.size());
-		EXPECT_EQ("20091021", results[0].values[0]);
+		EXPECT_EQ("20091021", results[0].values["day"]);
 		EXPECT_EQ("S1", results[0].values["store"]);
 		EXPECT_EQ("Fall", results[0].values["season"]);
 	}
