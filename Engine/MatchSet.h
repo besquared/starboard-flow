@@ -30,6 +30,20 @@ namespace Flow {
       Matching(const map<string, string>& values) {
         this->values = values;
       }
+      
+      friend ostream& operator<<(ostream& out, const Matching& matching) {
+        out << "{";
+        
+        size_t i = 0;
+        map<string, string>::const_iterator value;
+        for(value = matching.values.begin(); value != matching.values.end(); value++, i++) {
+          out << value->first << " => " << value->second;
+          if(i < matching.values.size() - 1) out << ", "; 
+        }
+        
+        out << "}";
+        return out;
+      }      
     };
     
     class MatchSet {
@@ -38,14 +52,11 @@ namespace Flow {
       map<size_t, Matching> matchings;
 
       void insert(map<string, string>& grouping, Sequential::Match& match) {
-        size_t hshkey;
+        size_t hshkey = 0;
         map<string, string>::iterator keypart;
-        for(keypart = grouping.begin(); keypart != grouping.end(); keypart++) {
-          boost::hash_combine(hshkey, keypart->first);
-          boost::hash_combine(hshkey, keypart->second);
-        }
+        boost::hash_range(hshkey, grouping.begin(), grouping.end());
         
-        if(keys.size() == 0 || keys.back() != hshkey) {
+        if(matchings.count(hshkey) == 0) {
           keys.push_back(hshkey);
           matchings[hshkey] = Matching(grouping);
         }

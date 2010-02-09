@@ -111,23 +111,73 @@ namespace {
     // looking for complex match set grouping here, takes preferably 3 groups
     //  first two groups have patterns that go together, third is by itself
     // A,B,x1,y2 - A,B,x1,y2 - A,C,x1,y2
-    RIDList records;
-    records.push_back(1.0);
-    records.push_back(2.0);
-    records.push_back(3.0);
     
     map<string, string> values;
     values["season"] = "Fall";
     values["fare-group"] = "Regular";
+    values["card-id"] = "00001";
     
-    Engine::WorkSet workset1(values, records);
+    RIDList records1;
+    records1.push_back(1.0);
+    records1.push_back(2.0);
+    records1.push_back(3.0);
+    records1.push_back(4.0);
+    
+    Engine::WorkSet workset1(values, records1);
     workset1.dimensions["station"].push_back("montgomery");
     workset1.dimensions["station"].push_back("16th street");
+    workset1.dimensions["station"].push_back("montgomery");
     workset1.dimensions["station"].push_back("16th street");
     
+    RIDList records2;
+    records2.push_back(5.0);
+    records2.push_back(6.0);
+    
     values["fare-group"] = "Senior";
-    Engine::WorkSet workset2(values, records);
+    Engine::WorkSet workset2(values, records2);
     workset2.dimensions["station"].push_back("montgomery");
     workset2.dimensions["station"].push_back("16th street");
+    
+    worksets.clear();
+    worksets.push_back(workset1);
+    worksets.push_back(workset2);
+    
+    Query::Sequential query;
+    query.aggregates->count("records");
+    query.sequence_group_by.push_back("season");
+    query.sequence_group_by.push_back("fare-group");    
+    query.pattern.push_back("station", "X", "x1");
+    query.pattern.push_back("station", "Y", "y1");
+    
+    MatchSet matchset;
+    Pipeline::Scanner scanner;
+    scanner.Execute(this->purchases, &query, worksets, matchset);
+    
+    for(size_t i = 0; i < matchset.keys.size(); i++) {
+      cout << matchset[matchset.keys[i]] << endl;
+    }
+    
+    ASSERT_EQ(3, matchset.keys.size());
+    
+    ASSERT_EQ(4, matchset[matchset.keys[0]].values.size());
+    EXPECT_EQ("montgomery", matchset[matchset.keys[0]].values["X"]);
+    EXPECT_EQ("16th street", matchset[matchset.keys[0]].values["Y"]);
+    EXPECT_EQ("Fall", matchset[matchset.keys[0]].values["season"]);
+    EXPECT_EQ("Regular", matchset[matchset.keys[0]].values["fare-group"]);
+    EXPECT_EQ(2, matchset[matchset.keys[0]].matches.size());
+    
+    ASSERT_EQ(4, matchset[matchset.keys[1]].values.size());
+    EXPECT_EQ("16th street", matchset[matchset.keys[1]].values["X"]);
+    EXPECT_EQ("montgomery", matchset[matchset.keys[1]].values["Y"]);
+    EXPECT_EQ("Fall", matchset[matchset.keys[1]].values["season"]);
+    EXPECT_EQ("Regular", matchset[matchset.keys[1]].values["fare-group"]);
+    EXPECT_EQ(1, matchset[matchset.keys[1]].matches.size());
+    
+    ASSERT_EQ(4, matchset[matchset.keys[2]].values.size());
+    EXPECT_EQ("montgomery", matchset[matchset.keys[2]].values["X"]);
+    EXPECT_EQ("16th street", matchset[matchset.keys[2]].values["Y"]);
+    EXPECT_EQ("Fall", matchset[matchset.keys[2]].values["season"]);
+    EXPECT_EQ("Senior", matchset[matchset.keys[2]].values["fare-group"]);
+    EXPECT_EQ(1, matchset[matchset.keys[2]].matches.size());    
   }
 }
