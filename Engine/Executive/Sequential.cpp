@@ -26,13 +26,12 @@ Executive::Sequential::~Sequential() {
 
 bool Executive::Sequential::Execute(ResultSet& results) {
   vector<WorkSet> workset;
-  
 	this->constructor->Execute(domain, query, workset);
 	this->gatherer->Execute(domain, query, workset);
   
-  Engine::Sequential::Matches matches;
-  this->scanner->Execute(domain, query, workset, matches);  
-	this->aggregator->Execute(domain, query, workset, matches, results);
+  Engine::MatchSet matchset;
+  this->scanner->Execute(domain, query, workset, matchset);  
+	this->aggregator->Execute(domain, query, workset, matchset, results);
   
 	return true;
 }

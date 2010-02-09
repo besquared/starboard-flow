@@ -12,19 +12,21 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
+#include <Engine/MatchSet.h>
 #include <Engine/Query/Sequential.h>
 #include <Engine/Sequential/Match.h>
 #include <Engine/Sequential/Scanner/Substring.h>
 
-using namespace std;
-using namespace Domain::Data;
-
 namespace Flow {
 	namespace Engine {
-		namespace Pipeline {		
+		namespace Pipeline {
+      using namespace std;
+      using namespace Domain::Data;
+            
 			class Scanner {				
 			public:
-				bool Execute(Domain::Base* domain, Query::Sequential* query, vector<WorkSet>& worksets, Sequential::Matches& matches);				
+				bool Execute(Domain::Base* domain, Query::Sequential* query, 
+                     vector<WorkSet>& worksets, MatchSet& matches);				
 			};
 		}
 	}

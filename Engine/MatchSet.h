@@ -7,19 +7,32 @@
  *
  */
 
-// match set wraps groups
-// match set keeps groupings identified by key with matches
-//
-// GroupKey curr_key;
-// curr_key.insert(values.begin(), values.end());
+// grouping here is by sequence group by and the instantiated template values
 
-//class GroupKey {
-//  size_t key;
-//  map<string, string> values;
-//  
-//  void insert(map<string, string>& values) {
-//    // insert and rehash
-//  }
-//};
-//
-//map< GroupKey, vector<Match> > MatchSet;
+/*
+ * Sets of matches available in order by key
+ */
+
+#ifndef _flow_engine_match_set_h_
+#define _flow_engine_match_set_h_
+
+#include <Common.h>
+#include <Engine/Sequential/Match.h>
+
+namespace Flow {
+  namespace Engine {
+    class MatchSet {
+    protected:
+      vector<size_t> keys; 
+      map< size_t, vector<Sequential::Match> > matches;
+    
+    public:
+      void insert(size_t key, Sequential::Match& match) {
+        keys.push_back(key);
+        matches[key].push_back(match);
+      }
+    };
+  }
+}
+
+#endif

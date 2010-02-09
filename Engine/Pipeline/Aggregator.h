@@ -13,6 +13,7 @@
 #include <Common.h>
 #include <Domain/Base.h>
 #include <Engine/WorkSet.h>
+#include <Engine/MatchSet.h>
 #include <Engine/ResultSet.h>
 #include <Engine/Query/Analytical.h>
 #include <Engine/Query/Sequential.h>
@@ -27,7 +28,7 @@ namespace Flow {
 			class Aggregator {				
 			public:
 				bool Execute(Domain::Base* domain, Query::Analytical* query, vector<WorkSet>& worksets);
-				bool Execute(Domain::Base* domain, Query::Sequential* query, vector<WorkSet>& worksets, Sequential::Matches& matches, ResultSet& results);
+				bool Execute(Domain::Base* domain, Query::Sequential* query, vector<WorkSet>& worksets, MatchSet& matchset, ResultSet& results);
 			};
 		}
 	}
