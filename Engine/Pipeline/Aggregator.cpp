@@ -19,7 +19,7 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* quer
 
 // Iterate over matches, aggregate them, put those into new groups
 bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, 
-                                   vector<WorkSet>& worksets, MatchSet& matches, ResultSet& results) {
+                                   vector<WorkSet>& worksets, MatchSet& matchset, ResultSet& results) {
   
   vector<string> grouping_dims = query->sequence_group_by;
   set<string> pattern_dims = query->pattern.dimensions();
@@ -29,5 +29,19 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
   results.columns.insert(results.columns.end(), pattern_dims.begin(), pattern_dims.end());
   results.columns.insert(results.columns.end(), aggregate_dims.begin(), aggregate_dims.end());
 	
+  // WE HAVE ZE MATCHSET
+  vector<size_t>::iterator key;
+  for(key = matchset.keys.begin(); key != matchset.keys.end(); key++) {
+    Matching& matching = matchset[*key];
+    
+    // make row here with matching values
+    
+    Aggregates::iterator aggregate;
+    Aggregates* aggregates = query->aggregates;
+    for(aggregate = aggregates->begin(); aggregate != aggregates->end(); aggregate++) {
+      double value = (*aggregate)->calculate(matching);
+    }
+  }
+  
 	return true;
 }

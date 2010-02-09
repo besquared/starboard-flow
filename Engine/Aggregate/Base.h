@@ -12,6 +12,7 @@
 
 #include <Common.h>
 #include <Engine/WorkSet.h>
+#include <Engine/MatchSet.h>
 
 namespace Flow {
 	namespace Engine {
@@ -35,7 +36,8 @@ namespace Flow {
 				Base(const vector<string>& measure, const string& alias);
 				
 				virtual string alias() = 0;
-				virtual void apply(vector<WorkSet>& workset) = 0;
+        virtual double calculate(Matching& matching) = 0;
+				virtual void apply(vector<WorkSet>& worksets) = 0;
 				
 				void measure_names(set<string>& results);
 			};

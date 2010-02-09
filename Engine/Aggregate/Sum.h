@@ -28,7 +28,8 @@ namespace Flow {
 
 				virtual string alias();
         virtual void apply(WorkSet& group);
-				virtual void apply(vector<WorkSet>& workset);	
+				virtual void apply(vector<WorkSet>& worksets);	
+        virtual double calculate(Matching& matching);
 			};
 		}
 	}

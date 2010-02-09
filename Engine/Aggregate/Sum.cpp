@@ -39,3 +39,15 @@ void Aggregate::Sum::apply(vector<WorkSet>& worksets) {
 		this->apply(*workset);
 	}
 }
+
+double Aggregate::Sum::calculate(Matching& matching) {
+  double sum = 0;
+  
+//  vector<Sequential::Match>::iterator match;
+//  for(match = matching.matches.begin(); match != matching.matches.end(); match++) {
+//    
+//    cout << "Aggregating match" << endl;
+//  }
+  
+  return sum;
+}

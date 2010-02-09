@@ -9,9 +9,6 @@
 
 #include "Count.h"
 
-Aggregate::Count::Count() :
-Aggregate::Base::Base() {}
-
 Aggregate::Count::Count(const string& measure) : 
 Aggregate::Base::Base(measure) {}
 
@@ -36,3 +33,10 @@ void Aggregate::Count::apply(vector<WorkSet>& worksets) {
 		this->apply(*workset);
 	}
 }
+
+double Aggregate::Count::calculate(Matching& matching) {	
+  return matching.matches.size();
+  
+	//workset.aggregates[alias()] = workset.keys.size();
+}
+

@@ -23,13 +23,13 @@ namespace Flow {
 		namespace Aggregate {
 			class Count : public Aggregate::Base {		
 			public:
-				Count();
 				Count(const string& measure);
 				Count(const string& measure, const string& alias);
 				
 				virtual string alias();
         virtual void apply(WorkSet& workset);
 				virtual void apply(vector<WorkSet>& worksets);
+        virtual double calculate(Matching& matching);
 			};
 		}
 	}

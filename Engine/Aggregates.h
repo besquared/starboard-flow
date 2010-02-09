@@ -24,8 +24,8 @@ namespace Flow {
 		public:
 			void sum(const string& name);
       void count(const string& name);
-      
-			void apply(vector<WorkSet>& workset);
+
+			void apply(vector<WorkSet>& workset); // Analytical
       
       set<string> aliases();
       void measure_names(set<string>& results);

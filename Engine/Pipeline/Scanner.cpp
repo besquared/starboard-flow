@@ -33,10 +33,10 @@ bool Pipeline::Scanner::Execute(Domain::Base* domain, Query::Sequential* query,
     }
     
     for(match = matchlist->second.begin(); match != matchlist->second.end(); match++) {
+      keymap.clear();
       keymap.insert(groupbymap.begin(), groupbymap.end());
       keymap.insert(match->tvalues.begin(), match->tvalues.end());
       matchset.insert(keymap, *match);
-      keymap.clear();
     }
   }
   
