@@ -1,0 +1,5 @@
+Engine:
+Get resultset aggregation working
+Get resultset assignment working
+Go back and fix two query objects to return only the items we need
+make all this junk return void or a result type object instead of bool

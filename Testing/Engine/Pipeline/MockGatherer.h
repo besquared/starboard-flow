@@ -13,18 +13,18 @@
 #include "Common.h"
 #include <Engine/Pipeline/Gatherer.h>
 
-using namespace Flow::Domain;
-using namespace Flow::Engine;
-
 namespace Flow {
 	namespace Testing {
 		namespace Engine {
 			namespace Pipeline {
+        using namespace Flow::Domain;
+        using namespace Flow::Engine;
+                
 				class MockGatherer : public ::Engine::Pipeline::Gatherer {
 				public:
 					MockGatherer() : Flow::Engine::Pipeline::Gatherer::Gatherer() {}
 					
-					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, Groups&));
+					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, vector<WorkSet>&));
 				};
 			}
 		}

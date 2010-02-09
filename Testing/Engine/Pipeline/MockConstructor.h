@@ -13,18 +13,18 @@
 #include "Common.h"
 #include <Engine/Pipeline/Constructor.h>
 
-using namespace Flow::Domain;
-using namespace Flow::Engine;
-
 namespace Flow {
 	namespace Testing {
 		namespace Engine {
 			namespace Pipeline {
+        using namespace Flow::Domain;
+        using namespace Flow::Engine;
+        
 				class MockConstructor : public ::Engine::Pipeline::Constructor {
 				public:
 					MockConstructor() : Flow::Engine::Pipeline::Constructor::Constructor() {}
 
-					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, Groups&));
+					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, vector<WorkSet>&));
 				};
 			}
 		}

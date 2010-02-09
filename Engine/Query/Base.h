@@ -12,7 +12,6 @@
 
 #include <Common.h>
 #include <Conditions.h>
-#include <Engine/Groups.h>
 #include <Engine/Aggregates.h>
 
 using namespace std;

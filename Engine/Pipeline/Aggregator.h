@@ -12,19 +12,18 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
-#include <Engine/Groups.h>
 #include <Engine/WorkSet.h>
 #include <Engine/ResultSet.h>
 #include <Engine/Query/Analytical.h>
 #include <Engine/Query/Sequential.h>
 #include <Engine/Sequential/Match.h>
 
-using namespace std;
-using namespace Domain::Data;
-
 namespace Flow {
 	namespace Engine {
-		namespace Pipeline {		
+		namespace Pipeline {
+      using namespace std;
+      using namespace Domain::Data;
+            
 			class Aggregator {				
 			public:
 				bool Execute(Domain::Base* domain, Query::Analytical* query, vector<WorkSet>& worksets);

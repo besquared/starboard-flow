@@ -12,7 +12,6 @@
 
 #include <Common.h>
 #include <Domain/Base.h>
-#include <Engine/Groups.h>
 #include <Engine/WorkSet.h>
 #include <Engine/ResultSet.h>
 #include <Engine/Query/Base.h>

@@ -28,13 +28,13 @@ namespace Flow {
       string strvalue_;
 
     public:
-      Value(string value) {
+      Value(const string& value) {
         this->cast = false;
         this->type = STRING;
         this->strvalue_ = value;
       }
       
-      Value(double value) {
+      Value(const double& value) {
         this->cast = false;
         this->type = DOUBLE;
         this->dblvalue_ = value;

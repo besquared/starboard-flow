@@ -11,7 +11,6 @@
 #define _flow_aggregate_count_h_
 
 #include <Common.h>
-#include <Engine/Groups.h>
 
 #include "Base.h"
 

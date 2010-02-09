@@ -11,13 +11,12 @@
 #define _flow_base_h_
 
 #include <Common.h>
-#include <Engine/Groups.h>
-#include <Engine/ResultSet.h>
 
 #include <Domain/Indices.h>
 #include <Domain/Measures.h>
 #include <Domain/Dimensions.h>
 #include <Domain/Data/Meta.h>
+#include <Engine/ResultSet.h>
 
 namespace Flow {
   using namespace std;

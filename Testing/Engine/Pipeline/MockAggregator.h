@@ -13,18 +13,18 @@
 #include "Common.h"
 #include <Engine/Pipeline/Aggregator.h>
 
-using namespace Flow::Domain;
-using namespace Flow::Engine;
-
 namespace Flow {
 	namespace Testing {
 		namespace Engine {
-			namespace Pipeline {
+			namespace Pipeline {        
+        using namespace Flow::Domain;
+        using namespace Flow::Engine;
+        
 				class MockAggregator : public ::Engine::Pipeline::Aggregator {
 				public:
 					MockAggregator() : Flow::Engine::Pipeline::Aggregator::Aggregator() {}
 					
-					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, Groups&));
+					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, vector<WorkSet>&));
 				};
 			}
 		}

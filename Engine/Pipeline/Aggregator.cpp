@@ -7,8 +7,6 @@
  *
  */
 
-#include <Engine/Sequential/Match.h>
-
 #include "Aggregator.h"
 
 bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* query, vector<WorkSet>& worksets) {
@@ -20,44 +18,37 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* quer
 }
 
 // Iterate over matches, aggregate them, put those into new groups
-bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, vector<WorkSet>& worksets, Sequential::Matches& matches, ResultSet& results) {
-  vector<string> grouping_dimensions = query->sequence_group_by;
-  set<string> pattern_dimensions = query->pattern.dimensions();
-  set<string> aggregate_dimensions = query->aggregates->aliases();
+bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, 
+                                   vector<WorkSet>& worksets, Sequential::Matches& matches, ResultSet& results) {
   
-  results.columns.insert(results.columns.end(), 
-                         grouping_dimensions.begin(), 
-                         grouping_dimensions.end());
-  results.columns.insert(results.columns.end(),
-                         pattern_dimensions.begin(),
-                         pattern_dimensions.end());
-  results.columns.insert(results.columns.end(),
-                         aggregate_dimensions.begin(),
-                         aggregate_dimensions.end());
+  vector<string> grouping_dims = query->sequence_group_by;
+  set<string> pattern_dims = query->pattern.dimensions();
+  set<string> aggregate_dims = query->aggregates->aliases();
   
-  //  and aggregate dimensions COUNT(*), AVG_INTERVAL(X, Y), etc.
+  results.columns.insert(results.columns.end(), grouping_dims.begin(), grouping_dims.end());
+  results.columns.insert(results.columns.end(), pattern_dims.begin(), pattern_dims.end());
+  results.columns.insert(results.columns.end(), aggregate_dims.begin(), aggregate_dims.end());
   
+  //
+  // oh wow this just got hard, one result set row could span multiple matches
+  //
   Sequential::Matches::iterator match;
   vector<Sequential::Match>::iterator indices;
   for(match = matches.begin(); match != matches.end(); match++) {
-    map<string, string> row;    
-//    Group& matched = worksets[match->first];
+    map<string, Value> row;
+    WorkSet& matched = worksets[match->first];
     
-    // this is wrong, we don't get every grouping value here
-//    for(size_t d = 0; d < groups.dimensions.size(); d++) {
-////      row[groups.dimensions[d]] = matched.values[d];
-//    }
+    // insert grouping dimensions into row
+    // this is wrong, this needs to be in key form
+    vector<string>::iterator dimension;
+    for(dimension = grouping_dims.begin(); dimension != grouping_dims.end(); dimension++) {
+//      row[*dimension] = Engine::Value(matched.values[*dimension]);
+    }
     
-    // first thing, grouping dimensions
     for(indices = match->second.begin(); indices != match->second.end(); indices++) {
       cout << "Aggregating and assinging sequence from position " << indices->position << " of group " << match->first << endl;
     }
-//    groups.push_back(matched);
   }
-  
-  //	for(size_t j = 0; j < query->aggregates->size(); j++) {
-//		query->aggregates->apply(results);
-//	}
 	
 	return true;
 }
