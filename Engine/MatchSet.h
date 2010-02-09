@@ -22,11 +22,10 @@
 namespace Flow {
   namespace Engine {
     class MatchSet {
-    protected:
+    public:
       vector<size_t> keys; 
       map< size_t, vector<Sequential::Match> > matches;
-    
-    public:
+      
       void insert(size_t key, Sequential::Match& match) {
         keys.push_back(key);
         matches[key].push_back(match);
