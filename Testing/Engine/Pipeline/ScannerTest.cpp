@@ -67,7 +67,7 @@ namespace {
 		}
 	};
 	
-	TEST_F(ScannerTest, ScansAndAssignsSequences) {
+	TEST_F(ScannerTest, ScansAndAssemblesMatchSet) {
     Query::Sequential query;
     
     Conditions conditions1;
@@ -93,10 +93,41 @@ namespace {
     
     // test for matches here
     ASSERT_EQ(1, matchset.keys.size());
-    ASSERT_EQ(1, matchset.matches[matchset.keys[0]].size());
-    EXPECT_EQ(1, matchset.matches[matchset.keys[0]][0].position);
-    EXPECT_EQ(2, matchset.matches[matchset.keys[0]][0].tvalues.size());
-    EXPECT_EQ("montgomery", matchset.matches[matchset.keys[0]][0].tvalues["X"]);
-    EXPECT_EQ("16th street", matchset.matches[matchset.keys[0]][0].tvalues["Y"]);
-	}	
+    
+    ASSERT_EQ(4, matchset[matchset.keys[0]].values.size());
+    EXPECT_EQ("montgomery", matchset[matchset.keys[0]].values["X"]);
+    EXPECT_EQ("16th street", matchset[matchset.keys[0]].values["Y"]);
+    EXPECT_EQ("Fall", matchset[matchset.keys[0]].values["season"]);
+    EXPECT_EQ("Regular", matchset[matchset.keys[0]].values["fare-group"]);
+
+    ASSERT_EQ(1, matchset[matchset.keys[0]].matches.size());
+    EXPECT_EQ(1, matchset[matchset.keys[0]].matches[0].position);
+    EXPECT_EQ(2, matchset[matchset.keys[0]].matches[0].tvalues.size());
+    EXPECT_EQ("montgomery", matchset[matchset.keys[0]].matches[0].tvalues["X"]);
+    EXPECT_EQ("16th street", matchset[matchset.keys[0]].matches[0].tvalues["Y"]);
+	}
+  
+  TEST_F(ScannerTest, AssemblesComlexMatchSet) {
+    // looking for complex match set grouping here, takes preferably 3 groups
+    //  first two groups have patterns that go together, third is by itself
+    // A,B,x1,y2 - A,B,x1,y2 - A,C,x1,y2
+    RIDList records;
+    records.push_back(1.0);
+    records.push_back(2.0);
+    records.push_back(3.0);
+    
+    map<string, string> values;
+    values["season"] = "Fall";
+    values["fare-group"] = "Regular";
+    
+    Engine::WorkSet workset1(values, records);
+    workset1.dimensions["station"].push_back("montgomery");
+    workset1.dimensions["station"].push_back("16th street");
+    workset1.dimensions["station"].push_back("16th street");
+    
+    values["fare-group"] = "Senior";
+    Engine::WorkSet workset2(values, records);
+    workset2.dimensions["station"].push_back("montgomery");
+    workset2.dimensions["station"].push_back("16th street");
+  }
 }

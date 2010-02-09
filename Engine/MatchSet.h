@@ -21,14 +21,40 @@
 
 namespace Flow {
   namespace Engine {
+    class Matching {
+    public: 
+      map<string, string> values;
+      vector<Sequential::Match> matches;
+      
+      Matching() {}
+      Matching(const map<string, string>& values) {
+        this->values = values;
+      }
+    };
+    
     class MatchSet {
     public:
       vector<size_t> keys; 
-      map< size_t, vector<Sequential::Match> > matches;
+      map<size_t, Matching> matchings;
+
+      void insert(map<string, string>& grouping, Sequential::Match& match) {
+        size_t hshkey;
+        map<string, string>::iterator keypart;
+        for(keypart = grouping.begin(); keypart != grouping.end(); keypart++) {
+          boost::hash_combine(hshkey, keypart->first);
+          boost::hash_combine(hshkey, keypart->second);
+        }
+        
+        if(keys.size() == 0 || keys.back() != hshkey) {
+          keys.push_back(hshkey);
+          matchings[hshkey] = Matching(grouping);
+        }
+        
+        matchings[hshkey].matches.push_back(match);
+      }
       
-      void insert(size_t key, Sequential::Match& match) {
-        keys.push_back(key);
-        matches[key].push_back(match);
+      Matching& operator[](const size_t key) {
+        return this->matchings[key];
       }
     };
   }
