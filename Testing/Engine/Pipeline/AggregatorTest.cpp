@@ -65,5 +65,9 @@ namespace {
 		
 		ASSERT_EQ(2, worksets.back().aggregates["count_sales"]);
 		ASSERT_EQ(350, worksets.back().aggregates["sum_sales"]);
-	}	
+	}
+  
+ 	TEST_F(AggregatorTest, AggregatesMatchsets) {
+    // IMPLEMENT THIS
+  } 
 }

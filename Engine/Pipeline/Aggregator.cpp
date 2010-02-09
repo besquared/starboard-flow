@@ -30,6 +30,7 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
   results.columns.insert(results.columns.end(), aggregate_dims.begin(), aggregate_dims.end());
 	
   // WE HAVE ZE MATCHSET
+  map<string, Value> row;
   vector<size_t>::iterator key;
   for(key = matchset.keys.begin(); key != matchset.keys.end(); key++) {
     Matching& matching = matchset[*key];
@@ -39,7 +40,7 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
     Aggregates::iterator aggregate;
     Aggregates* aggregates = query->aggregates;
     for(aggregate = aggregates->begin(); aggregate != aggregates->end(); aggregate++) {
-      double value = (*aggregate)->calculate(matching);
+      row[(*aggregate)->alias()] = Value((*aggregate)->calculate(matching));
     }
   }
   

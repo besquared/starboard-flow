@@ -28,6 +28,12 @@ namespace Flow {
       string strvalue_;
 
     public:
+      Value() {
+        this->cast = false;
+        this->type = DOUBLE;
+        this->dblvalue_ = 0.0;
+      }
+      
       Value(const string& value) {
         this->cast = false;
         this->type = STRING;
