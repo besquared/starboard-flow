@@ -42,7 +42,7 @@ bool Sequential::Pattern::match(WorkSet& sequence, Match& result) {
   size_t offset = 1;
   while(offset <= size()) {
     if(this->at(offset - 1)->match(sequence, result, result.position + offset - 1)) {
-      cout << "- Pattern matched at relative position " << offset - 1 << endl;
+//      cout << "- Pattern matched at relative position " << offset - 1 << endl;
       offset++;
     } else {
       break;

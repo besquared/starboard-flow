@@ -19,15 +19,15 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Analytical* quer
 
 // Iterate over matches, aggregate them, put those into new groups
 bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* query, 
-                                   vector<WorkSet>& worksets, MatchSet& matchset, ResultSet& results) {
+                                   vector<WorkSet>& worksets, MatchSet& matchset, ResultSet& resultset) {
   
-  vector<string> grouping_dims = query->sequence_group_by;
-  set<string> pattern_dims = query->pattern.dimensions();
-  set<string> aggregate_dims = query->aggregates->aliases();
+  vector<string> grpdims = query->sequence_group_by;
+  set<string> ptndims = query->pattern.dimensions();
+  set<string> agtdims = query->aggregates->aliases();
   
-  results.columns.insert(results.columns.end(), grouping_dims.begin(), grouping_dims.end());
-  results.columns.insert(results.columns.end(), pattern_dims.begin(), pattern_dims.end());
-  results.columns.insert(results.columns.end(), aggregate_dims.begin(), aggregate_dims.end());
+  resultset.columns.insert(resultset.columns.end(), grpdims.begin(), grpdims.end());
+  resultset.columns.insert(resultset.columns.end(), ptndims.begin(), ptndims.end());
+  resultset.columns.insert(resultset.columns.end(), agtdims.begin(), agtdims.end());
 	
   // WE HAVE ZE MATCHSET
   map<string, Value> row;
@@ -35,13 +35,26 @@ bool Pipeline::Aggregator::Execute(Domain::Base* domain, Query::Sequential* quer
   for(key = matchset.keys.begin(); key != matchset.keys.end(); key++) {
     Matching& matching = matchset[*key];
     
-    // make row here with matching values
-    
-    Aggregates::iterator aggregate;
-    Aggregates* aggregates = query->aggregates;
-    for(aggregate = aggregates->begin(); aggregate != aggregates->end(); aggregate++) {
-      row[(*aggregate)->alias()] = Value((*aggregate)->calculate(matching));
+    vector<string>::iterator groupval;
+    for(groupval = grpdims.begin(); groupval != grpdims.end(); groupval++) {
+      row[*groupval] = matching.values[*groupval];
     }
+    
+    set<string>::iterator ptnval;
+    for(ptnval = ptndims.begin(); ptnval != ptndims.end(); ptnval++) {
+      row[*ptnval] = matching.values[*ptnval];
+    }
+    
+    // make row here with matching values
+    cout << "Aggregating the matching for key " << *key << endl;
+    
+    Aggregates::iterator agt;
+    Aggregates* agts = query->aggregates;
+    for(agt = agts->begin(); agt != agts->end(); agt++) {
+      row[(*agt)->alias()] = Value((*agt)->calculate(matching));
+    }
+    
+    resultset.rows.push_back(row);
   }
   
 	return true;

@@ -63,6 +63,11 @@ namespace Flow {
         
         return dblvalue_;
       }
+      
+      friend ostream& operator<<(ostream& out, Value& value) {
+        out << value.to_string();
+        return out;
+      }      
     };
     
 		class ResultSet {	

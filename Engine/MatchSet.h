@@ -26,6 +26,9 @@ namespace Flow {
       map<string, string> values;
       vector<Sequential::Match> matches;
       
+      // the matchset also probably needs keep the pattern
+      //  that we're matching for aggregations to use later
+      
       Matching() {}
       Matching(const map<string, string>& values) {
         this->values = values;

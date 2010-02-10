@@ -9,6 +9,7 @@
 
 #include <Testing/TestHelper.h>
 #include <Testing/Domain/MockBase.h>
+#include <Engine/Pipeline/Scanner.h>
 #include <Engine/Pipeline/Aggregator.h>
 
 using namespace Testing::Domain;
@@ -23,6 +24,8 @@ namespace {
 		MockMeasures* measures;
 		MockDimensions* dimensions;
 		
+    vector<WorkSet> worksets;
+    
 		AggregatorTest() {}
 		virtual ~AggregatorTest() {}
 		
@@ -57,8 +60,7 @@ namespace {
     Engine::WorkSet workset(values, records);
 		workset.measures["sales"].push_back(100);
 		workset.measures["sales"].push_back(250);
-		
-    vector<Engine::WorkSet> worksets;
+    
     worksets.push_back(workset);
     
 		aggregator.Execute(this->purchases, &query, worksets);
@@ -99,7 +101,7 @@ namespace {
     worksets.push_back(workset2);
     
     Query::Sequential query;
-    query.aggregates->count("records");
+    query.aggregates->count("*");
     query.sequence_group_by.push_back("season");
     query.sequence_group_by.push_back("fare-group");    
     query.pattern.push_back("station", "X", "x1");
@@ -109,6 +111,37 @@ namespace {
     Pipeline::Scanner scanner;
     scanner.Execute(this->purchases, &query, worksets, matchset);
     
+    ResultSet resultset;
+    Pipeline::Aggregator aggregator;
+    aggregator.Execute(this->purchases, &query, worksets, matchset, resultset);
     
+    ASSERT_EQ(5, resultset.columns.size());
+    EXPECT_EQ("season", resultset.columns[0]);
+    EXPECT_EQ("fare-group", resultset.columns[1]);
+    EXPECT_EQ("X", resultset.columns[2]);
+    EXPECT_EQ("Y", resultset.columns[3]);
+    EXPECT_EQ("count_*", resultset.columns[4]);
+    
+    ASSERT_EQ(3, resultset.rows.size());
+    ASSERT_EQ(5, resultset.rows[0].size());
+    EXPECT_EQ("Fall", resultset.rows[0]["season"].to_string());
+    EXPECT_EQ("Regular", resultset.rows[0]["fare-group"].to_string());
+    EXPECT_EQ("montgomery", resultset.rows[0]["X"].to_string());
+    EXPECT_EQ("16th street", resultset.rows[0]["Y"].to_string());
+    EXPECT_EQ(2, resultset.rows[0]["count_*"].to_double());
+    
+    ASSERT_EQ(5, resultset.rows[1].size());
+    EXPECT_EQ("Fall", resultset.rows[1]["season"].to_string());
+    EXPECT_EQ("Regular", resultset.rows[1]["fare-group"].to_string());
+    EXPECT_EQ("16th street", resultset.rows[1]["X"].to_string());
+    EXPECT_EQ("montgomery", resultset.rows[1]["Y"].to_string());    
+    EXPECT_EQ(1, resultset.rows[1]["count_*"].to_double());
+    
+    ASSERT_EQ(5, resultset.rows[2].size());
+    EXPECT_EQ("Fall", resultset.rows[2]["season"].to_string());
+    EXPECT_EQ("Senior", resultset.rows[2]["fare-group"].to_string());
+    EXPECT_EQ("montgomery", resultset.rows[2]["X"].to_string());
+    EXPECT_EQ("16th street", resultset.rows[2]["Y"].to_string());        
+    EXPECT_EQ(1, resultset.rows[2]["count_*"].to_double());
   } 
 }
