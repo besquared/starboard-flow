@@ -68,6 +68,47 @@ namespace {
 	}
   
  	TEST_F(AggregatorTest, AggregatesMatchsets) {
-    // IMPLEMENT THIS
+    map<string, string> values;
+    values["season"] = "Fall";
+    values["fare-group"] = "Regular";
+    values["card-id"] = "00001";
+    
+    RIDList records1;
+    records1.push_back(1.0);
+    records1.push_back(2.0);
+    records1.push_back(3.0);
+    records1.push_back(4.0);
+    
+    Engine::WorkSet workset1(values, records1);
+    workset1.dimensions["station"].push_back("montgomery");
+    workset1.dimensions["station"].push_back("16th street");
+    workset1.dimensions["station"].push_back("montgomery");
+    workset1.dimensions["station"].push_back("16th street");
+    
+    RIDList records2;
+    records2.push_back(5.0);
+    records2.push_back(6.0);
+    
+    values["fare-group"] = "Senior";
+    Engine::WorkSet workset2(values, records2);
+    workset2.dimensions["station"].push_back("montgomery");
+    workset2.dimensions["station"].push_back("16th street");
+    
+    worksets.clear();
+    worksets.push_back(workset1);
+    worksets.push_back(workset2);
+    
+    Query::Sequential query;
+    query.aggregates->count("records");
+    query.sequence_group_by.push_back("season");
+    query.sequence_group_by.push_back("fare-group");    
+    query.pattern.push_back("station", "X", "x1");
+    query.pattern.push_back("station", "Y", "y1");
+    
+    MatchSet matchset;
+    Pipeline::Scanner scanner;
+    scanner.Execute(this->purchases, &query, worksets, matchset);
+    
+    
   } 
 }
