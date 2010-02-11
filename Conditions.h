@@ -20,11 +20,10 @@
 #include <Condition/Lt.h>
 #include <Condition/Lte.h>
 
-using namespace std;
-using namespace boost;
-using namespace Flow;
-
-namespace Flow {
+namespace Flow {  
+  using namespace std;
+  using namespace boost;
+  
   class Conditions : public vector< shared_ptr<Condition::Base> > {
   public:
 		/*
