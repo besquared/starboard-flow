@@ -25,6 +25,7 @@ namespace Flow {
 					MockAggregator() : Flow::Engine::Pipeline::Aggregator::Aggregator() {}
 					
 					MOCK_METHOD3(Execute, bool(::Domain::Base*, ::Query::Base*, vector<WorkSet>&));
+          MOCK_METHOD4(Execute, bool(::Domain::Base*, ::Query::Base*, vector<WorkSet>&, MatchSet&));
 				};
 			}
 		}

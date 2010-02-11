@@ -14,10 +14,9 @@
 #include <Testing/Engine/Pipeline/MockGatherer.h>
 #include <Testing/Engine/Pipeline/MockAggregator.h>
 
-using namespace Testing::Domain;
-
 namespace {
 	using namespace Flow::Engine;
+  using namespace Testing::Domain;
 	
 	class ExecutiveAnalyticalTest : public ::testing::Test {
 	protected:

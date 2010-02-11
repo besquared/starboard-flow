@@ -11,6 +11,7 @@
 		030685081106A81100DC6B74 /* MockAnalytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 030685061106A81100DC6B74 /* MockAnalytical.h */; };
 		0306850A1106A81C00DC6B74 /* AnalyticalTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030685091106A81C00DC6B74 /* AnalyticalTest.cpp */; };
 		030685911106C86800DC6B74 /* SequentialTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030685901106C86800DC6B74 /* SequentialTest.cpp */; };
+		030FAB6711236CBF0047E4F7 /* MockScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FAB6611236CBF0047E4F7 /* MockScanner.h */; };
 		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
 		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
 		0346C4B81105903200635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4B61105903200635E67 /* Analytical.h */; };
@@ -151,6 +152,7 @@
 		030685061106A81100DC6B74 /* MockAnalytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAnalytical.h; sourceTree = "<group>"; };
 		030685091106A81C00DC6B74 /* AnalyticalTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnalyticalTest.cpp; sourceTree = "<group>"; };
 		030685901106C86800DC6B74 /* SequentialTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SequentialTest.cpp; sourceTree = "<group>"; };
+		030FAB6611236CBF0047E4F7 /* MockScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockScanner.h; sourceTree = "<group>"; };
 		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C4B61105903200635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				03BF23AC110C6CAE006D4BBB /* ConstructorTest.cpp */,
 				03BF2403110C8161006D4BBB /* MockGatherer.h */,
 				03BF23AE110C6CE9006D4BBB /* GathererTest.cpp */,
+				030FAB6611236CBF0047E4F7 /* MockScanner.h */,
 				0368D4C1111895FA00D07E57 /* ScannerTest.cpp */,
 				03BF2405110C816B006D4BBB /* MockAggregator.h */,
 				03BF23B1110C6CF2006D4BBB /* AggregatorTest.cpp */,
@@ -711,6 +714,7 @@
 				03BF2402110C8156006D4BBB /* MockConstructor.h in Headers */,
 				03BF2404110C8161006D4BBB /* MockGatherer.h in Headers */,
 				03BF2406110C816B006D4BBB /* MockAggregator.h in Headers */,
+				030FAB6711236CBF0047E4F7 /* MockScanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
