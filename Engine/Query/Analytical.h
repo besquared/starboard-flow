@@ -12,11 +12,11 @@
 
 #include "Base.h"
 
-using namespace std;
-
 namespace Flow {
 	namespace Engine {
-		namespace Query {
+		namespace Query {      
+      using namespace std;
+
 			class Analytical : public Query::Base {
 			public:
 				Analytical();

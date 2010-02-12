@@ -20,6 +20,11 @@
 		030FABBE1124777F0047E4F7 /* Create.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030FABBC1124777F0047E4F7 /* Create.cpp */; };
 		030FABC7112477990047E4F7 /* Show.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FABC5112477990047E4F7 /* Show.h */; };
 		030FABC8112477990047E4F7 /* Show.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030FABC6112477990047E4F7 /* Show.cpp */; };
+		030FABE61124CA2B0047E4F7 /* jsonxx.cc in Sources */ = {isa = PBXBuildFile; fileRef = 030FABE01124CA2B0047E4F7 /* jsonxx.cc */; };
+		030FABE71124CA2B0047E4F7 /* jsonxx.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FABE11124CA2B0047E4F7 /* jsonxx.h */; };
+		030FABFE1124D1650047E4F7 /* Configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FABFC1124D1650047E4F7 /* Configuration.h */; };
+		030FABFF1124D1650047E4F7 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030FABFD1124D1650047E4F7 /* Configuration.cpp */; };
+		030FAC661124DD0C0047E4F7 /* ConfigurationTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030FAC651124DD0C0047E4F7 /* ConfigurationTest.cpp */; };
 		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
 		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
 		0346C4B81105903200635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4B61105903200635E67 /* Analytical.h */; };
@@ -169,6 +174,12 @@
 		030FABBC1124777F0047E4F7 /* Create.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Create.cpp; sourceTree = "<group>"; };
 		030FABC5112477990047E4F7 /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
 		030FABC6112477990047E4F7 /* Show.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Show.cpp; sourceTree = "<group>"; };
+		030FABE01124CA2B0047E4F7 /* jsonxx.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsonxx.cc; sourceTree = "<group>"; };
+		030FABE11124CA2B0047E4F7 /* jsonxx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jsonxx.h; sourceTree = "<group>"; };
+		030FABE21124CA2B0047E4F7 /* jsonxx_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = jsonxx_test.cc; sourceTree = "<group>"; };
+		030FABFC1124D1650047E4F7 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		030FABFD1124D1650047E4F7 /* Configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Configuration.cpp; sourceTree = "<group>"; };
+		030FAC651124DD0C0047E4F7 /* ConfigurationTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigurationTest.cpp; sourceTree = "<group>"; };
 		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C4B61105903200635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
@@ -340,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				030FABB6112477730047E4F7 /* Command */,
+				030FABFD1124D1650047E4F7 /* Configuration.cpp */,
+				030FABFC1124D1650047E4F7 /* Configuration.h */,
 				030FAB9111246DCE0047E4F7 /* Flowd.cpp */,
 				030FAB9011246DCE0047E4F7 /* Flowd.h */,
 			);
@@ -357,6 +370,33 @@
 				030FABC5112477990047E4F7 /* Show.h */,
 			);
 			path = Command;
+			sourceTree = "<group>";
+		};
+		030FABDE1124CA2B0047E4F7 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				030FABDF1124CA2B0047E4F7 /* jsonxx */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		030FABDF1124CA2B0047E4F7 /* jsonxx */ = {
+			isa = PBXGroup;
+			children = (
+				030FABE01124CA2B0047E4F7 /* jsonxx.cc */,
+				030FABE11124CA2B0047E4F7 /* jsonxx.h */,
+				030FABE21124CA2B0047E4F7 /* jsonxx_test.cc */,
+			);
+			path = jsonxx;
+			sourceTree = "<group>";
+		};
+		030FAC631124DCEA0047E4F7 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				030FAC651124DD0C0047E4F7 /* ConfigurationTest.cpp */,
+			);
+			name = Server;
+			path = Testing/Server;
 			sourceTree = "<group>";
 		};
 		0346C3D01105639500635E67 /* Query */ = {
@@ -563,6 +603,7 @@
 				03E7308E10E3392100D5E4C1 /* Condition */,
 				03E7307E10E3392100D5E4C1 /* Domain */,
 				03E7307010E3392100D5E4C1 /* Engine */,
+				030FAC631124DCEA0047E4F7 /* Server */,
 				03E7309510E3392100D5E4C1 /* BaseTest.cpp */,
 				03E7306A10E3392100D5E4C1 /* TestMain.cpp */,
 				03E7306B10E3392100D5E4C1 /* TestHelper.h */,
@@ -656,6 +697,7 @@
 			children = (
 				0369A3FF10E0892D0017E895 /* Source */,
 				03E72FE210E1B8A700D5E4C1 /* Testing */,
+				030FABDE1124CA2B0047E4F7 /* Library */,
 				03AF8D7410BE4B8500AF17CB /* Libraries */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -738,6 +780,8 @@
 				030FABBA112477730047E4F7 /* Parser.h in Headers */,
 				030FABBD1124777F0047E4F7 /* Create.h in Headers */,
 				030FABC7112477990047E4F7 /* Show.h in Headers */,
+				030FABE71124CA2B0047E4F7 /* jsonxx.h in Headers */,
+				030FABFE1124D1650047E4F7 /* Configuration.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +898,7 @@
 				03BF23B3110C6CF2006D4BBB /* AggregatorTest.cpp in Sources */,
 				03BF25E7111631B0006D4BBB /* SubstringTest.cpp in Sources */,
 				0368D4C2111895FA00D07E57 /* ScannerTest.cpp in Sources */,
+				030FAC661124DD0C0047E4F7 /* ConfigurationTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,6 +939,8 @@
 				030FABB9112477730047E4F7 /* Parser.cpp in Sources */,
 				030FABBE1124777F0047E4F7 /* Create.cpp in Sources */,
 				030FABC8112477990047E4F7 /* Show.cpp in Sources */,
+				030FABE61124CA2B0047E4F7 /* jsonxx.cc in Sources */,
+				030FABFF1124D1650047E4F7 /* Configuration.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

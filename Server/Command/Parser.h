@@ -7,3 +7,24 @@
  *
  */
 
+
+#ifndef _flow_server_command_parser_h_
+#define _flow_server_command_parser_h_
+
+#include <Common.h>
+#include <Library/jsonxx/jsonxx.h>
+
+namespace Flow {
+  namespace Server {
+    namespace Command {
+      using namespace std;
+      
+      class Parser {
+      public:
+        void parse(string& command);
+      };
+    }
+  }
+}
+
+#endif
