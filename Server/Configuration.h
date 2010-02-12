@@ -12,6 +12,7 @@
 #define _flow_server_congifuration_h_
 
 #include <Common.h>
+#include <Error/FileNotFound.h>
 #include <Library/jsonxx/jsonxx.h>
 
 namespace Flow {

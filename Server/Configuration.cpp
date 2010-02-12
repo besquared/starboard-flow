@@ -13,7 +13,7 @@ Flow::Server::Configuration::Configuration(const string& path) {
   ifstream input(path.c_str());
   
   if(!input.is_open()) {
-    throw "Could not find configuration file";
+    throw Error::FileNotFound("Could not find configuration file " + path);
   }
 
   jsonxx::Object config;

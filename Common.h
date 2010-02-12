@@ -19,6 +19,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
 
 #include <tcutil.h>
 #include <tcbdb.h>

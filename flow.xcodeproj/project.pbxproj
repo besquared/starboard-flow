@@ -25,6 +25,8 @@
 		030FABFE1124D1650047E4F7 /* Configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FABFC1124D1650047E4F7 /* Configuration.h */; };
 		030FABFF1124D1650047E4F7 /* Configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030FABFD1124D1650047E4F7 /* Configuration.cpp */; };
 		030FAC661124DD0C0047E4F7 /* ConfigurationTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030FAC651124DD0C0047E4F7 /* ConfigurationTest.cpp */; };
+		030FAC7E1124E67E0047E4F7 /* FileNotFound.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FAC7D1124E67E0047E4F7 /* FileNotFound.h */; };
+		030FAC8A1124E7D20047E4F7 /* Exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 030FAC891124E7D20047E4F7 /* Exceptions.h */; };
 		0346C3DA1105640400635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C3D81105640400635E67 /* Base.h */; };
 		0346C419110583FC00635E67 /* Base.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C418110583FC00635E67 /* Base.h */; };
 		0346C4B81105903200635E67 /* Analytical.h in Headers */ = {isa = PBXBuildFile; fileRef = 0346C4B61105903200635E67 /* Analytical.h */; };
@@ -180,6 +182,9 @@
 		030FABFC1124D1650047E4F7 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 		030FABFD1124D1650047E4F7 /* Configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Configuration.cpp; sourceTree = "<group>"; };
 		030FAC651124DD0C0047E4F7 /* ConfigurationTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigurationTest.cpp; sourceTree = "<group>"; };
+		030FAC671124DEA80047E4F7 /* configuration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configuration.json; sourceTree = "<group>"; };
+		030FAC7D1124E67E0047E4F7 /* FileNotFound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileNotFound.h; sourceTree = "<group>"; };
+		030FAC891124E7D20047E4F7 /* Exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exceptions.h; sourceTree = "<group>"; };
 		0346C3D81105640400635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C418110583FC00635E67 /* Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base.h; sourceTree = "<group>"; };
 		0346C4B61105903200635E67 /* Analytical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytical.h; sourceTree = "<group>"; };
@@ -399,6 +404,14 @@
 			path = Testing/Server;
 			sourceTree = "<group>";
 		};
+		030FAC7C1124E62E0047E4F7 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				030FAC7D1124E67E0047E4F7 /* FileNotFound.h */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		0346C3D01105639500635E67 /* Query */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +448,8 @@
 				03E72A5D10E0911200D5E4C1 /* Base.h */,
 				03E72AA510E0916D00D5E4C1 /* Flow.h */,
 				03E72AA910E0917B00D5E4C1 /* Common.h */,
+				030FAC891124E7D20047E4F7 /* Exceptions.h */,
+				030FAC7C1124E62E0047E4F7 /* Error */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -617,6 +632,7 @@
 				03E7306D10E3392100D5E4C1 /* Fixture.h */,
 				03E7306E10E3392100D5E4C1 /* SubwayFixture.cpp */,
 				03E7306F10E3392100D5E4C1 /* SubwayFixture.h */,
+				030FAC671124DEA80047E4F7 /* configuration.json */,
 			);
 			name = Fixture;
 			path = Testing/Fixture;
@@ -782,6 +798,8 @@
 				030FABC7112477990047E4F7 /* Show.h in Headers */,
 				030FABE71124CA2B0047E4F7 /* jsonxx.h in Headers */,
 				030FABFE1124D1650047E4F7 /* Configuration.h in Headers */,
+				030FAC7E1124E67E0047E4F7 /* FileNotFound.h in Headers */,
+				030FAC8A1124E7D20047E4F7 /* Exceptions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
